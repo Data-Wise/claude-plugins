@@ -1,0 +1,9 @@
+{
+  "name": "rforge-orchestrator",
+  "version": "0.1.0",
+  "description": "Auto-delegation orchestrator for RForge MCP tools - automatically analyzes R package changes and delegates to appropriate analysis tools",
+  "author": {
+    "name": "Stat-Wise",
+    "email": "dt@stat-wise.com"
+  }
+}

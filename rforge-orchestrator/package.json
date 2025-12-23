@@ -1,0 +1,51 @@
+{
+  "name": "@data-wise/rforge-orchestrator-plugin",
+  "version": "0.1.0",
+  "description": "Auto-delegation orchestrator for RForge MCP tools",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "rforge-orchestrator-plugin": "./scripts/install.sh"
+  },
+  "files": [
+    "commands/",
+    "agents/",
+    "lib/",
+    "docs/",
+    ".claude-plugin/",
+    "scripts/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "install": "./scripts/install.sh",
+    "uninstall": "./scripts/uninstall.sh"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "plugin",
+    "rforge",
+    "r-packages",
+    "orchestrator",
+    "delegation",
+    "mcp"
+  ],
+  "author": "Data-Wise",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Data-Wise/claude-plugins.git",
+    "directory": "rforge-orchestrator"
+  },
+  "bugs": {
+    "url": "https://github.com/Data-Wise/claude-plugins/issues"
+  },
+  "homepage": "https://github.com/Data-Wise/claude-plugins/tree/main/rforge-orchestrator#readme",
+  "peerDependencies": {
+    "rforge-mcp": ">=0.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,81 @@
+name: Validate Plugins
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        plugin:
+          - statistical-research
+          - rforge-orchestrator
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Validate plugin structure
+        run: |
+          cd ${{ matrix.plugin }}
+
+          # Check required files
+          test -f .claude-plugin/plugin.json || (echo "Missing plugin.json" && exit 1)
+          test -f package.json || (echo "Missing package.json" && exit 1)
+          test -f README.md || (echo "Missing README.md" && exit 1)
+          test -f LICENSE || (echo "Missing LICENSE" && exit 1)
+          test -x scripts/install.sh || (echo "Missing or non-executable install.sh" && exit 1)
+          test -x scripts/uninstall.sh || (echo "Missing or non-executable uninstall.sh" && exit 1)
+
+          echo "✓ Plugin structure valid"
+
+      - name: Validate package.json
+        run: |
+          cd ${{ matrix.plugin }}
+
+          # Check package.json is valid JSON
+          node -e "JSON.parse(require('fs').readFileSync('package.json', 'utf8'))"
+
+          # Check required fields
+          node -e "
+            const pkg = JSON.parse(require('fs').readFileSync('package.json', 'utf8'));
+            if (!pkg.name) throw new Error('Missing name');
+            if (!pkg.version) throw new Error('Missing version');
+            if (!pkg.description) throw new Error('Missing description');
+            if (!pkg.license) throw new Error('Missing license');
+            if (!pkg.repository) throw new Error('Missing repository');
+            console.log('✓ package.json valid');
+          "
+
+      - name: Validate plugin.json
+        run: |
+          cd ${{ matrix.plugin }}
+
+          # Check plugin.json is valid JSON
+          node -e "JSON.parse(require('fs').readFileSync('.claude-plugin/plugin.json', 'utf8'))"
+
+          echo "✓ plugin.json valid"
+
+      - name: Check for hardcoded paths
+        run: |
+          cd ${{ matrix.plugin }}
+
+          # Check for common hardcoded paths
+          if grep -r "/Users/" commands/ lib/ 2>/dev/null; then
+            echo "Error: Found hardcoded /Users/ paths"
+            exit 1
+          fi
+
+          if grep -r "/home/" commands/ lib/ 2>/dev/null; then
+            echo "Error: Found hardcoded /home/ paths"
+            exit 1
+          fi
+
+          echo "✓ No hardcoded paths found"
+
+      - name: Summary
+        run: |
+          echo "✅ ${{ matrix.plugin }} validation complete"
