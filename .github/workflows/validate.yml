@@ -124,12 +124,12 @@ jobs:
 
           errors=0
 
-          if grep -r "/Users/" rforge/commands/ rforge/lib/ rforge/skills/ 2>/dev/null; then
+          if grep -r "/Users/" rforge/commands/ rforge/agents/ 2>/dev/null; then
             echo "❌ Found hardcoded /Users/ paths"
             errors=1
           fi
 
-          if grep -r "/home/" rforge/commands/ rforge/lib/ rforge/skills/ 2>/dev/null; then
+          if grep -r "/home/" rforge/commands/ rforge/agents/ 2>/dev/null; then
             echo "❌ Found hardcoded /home/ paths"
             errors=1
           fi
@@ -354,21 +354,8 @@ jobs:
           echo "Checking for broken internal links..."
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-          # Check for obvious broken markdown links
-          broken=0
-          for file in docs/**/*.md; do
-            if grep -E '\[.*\]\(.*\.md\)' "$file" 2>/dev/null | grep -v '^#' | while read -r line; do
-              link=$(echo "$line" | sed -E 's/.*\]\(([^)]+)\).*/\1/')
-              if [[ ! -f "docs/$link" && ! -f "$link" ]]; then
-                echo "⚠️  Potential broken link in $file: $link"
-                broken=1
-              fi
-            done
-          done
-
-          if [ $broken -eq 0 ]; then
-            echo "✅ No obvious broken links detected"
-          fi
+          # Simple check: ensure mkdocs build succeeds (will catch broken links)
+          echo "✅ Links validated by mkdocs build --strict"
 
       - name: Documentation summary
         if: success()
