@@ -1,5 +1,5 @@
 # MkDocs configuration for Claude Code Plugins
-# Auto-updated: 2025-12-23 21:52:13
+# Auto-updated: 2025-12-23 22:09:57
 # Do not edit navigation manually - regenerate with scripts/update-mkdocs-nav.py
 
 nav:
@@ -7,10 +7,6 @@ nav:
 - Getting Started:
   - Installation: installation.md
   - Quick Start: quick-start.md
-- Plugins:
-  - Rforge Orchestrator: ../rforge-orchestrator/README.md
-  - Statistical Research: ../statistical-research/README.md
-  - Workflow: ../workflow/README.md
 - Command Reference: COMMAND-REFERENCE.md
 - Architecture:
   - Dependencies: diagrams/DEPENDENCIES.md
@@ -21,10 +17,6 @@ nav:
   - Statistical Research Structure: diagrams/statistical-research-structure.md
   - Workflow Flow: diagrams/workflow-flow.md
   - Workflow Structure: diagrams/workflow-structure.md
-- Development:
-  - Scripts: scripts/README.md
-  - Validation: PLUGIN-VALIDATION-REPORT.md
-  - DevOps: DEVOPS-IMPLEMENTATION-COMPLETE.md
 site_name: Claude Code Plugins
 repo_url: https://github.com/Data-Wise/claude-plugins
 theme:

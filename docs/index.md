@@ -6,7 +6,7 @@
 
 ## 🎯 Available Plugins
 
-### [RForge Orchestrator](../rforge-orchestrator/README.md)
+### [RForge Orchestrator](https://github.com/Data-Wise/claude-plugins/tree/main/rforge-orchestrator)
 
 **Auto-delegation orchestrator for R package development**
 
@@ -22,7 +22,7 @@
 
 ---
 
-### [Statistical Research](../statistical-research/README.md)
+### [Statistical Research](https://github.com/Data-Wise/claude-plugins/tree/main/statistical-research)
 
 **Research workflow automation for statistical methods development**
 
@@ -39,7 +39,7 @@
 
 ---
 
-### [Workflow](../workflow/README.md)
+### [Workflow](https://github.com/Data-Wise/claude-plugins/tree/main/workflow)
 
 **ADHD-friendly workflow automation with intelligent delegation**
 
@@ -62,7 +62,7 @@
 
 - **[Command Reference](COMMAND-REFERENCE.md)** - Complete reference of all 17 commands
 - **[Architecture](diagrams/ECOSYSTEM.md)** - System architecture and diagrams
-- **[Development](scripts/README.md)** - Scripts for plugin development
+- **[Development](https://github.com/Data-Wise/claude-plugins/tree/main/scripts)** - Scripts for plugin development
 
 ### Getting Started
 
@@ -159,10 +159,10 @@ python3 scripts/validate-all-plugins.py
 
 ### Documentation
 
-- **[Scripts Guide](scripts/README.md)** - Development tools documentation
-- **[Validation Report](PLUGIN-VALIDATION-REPORT.md)** - Plugin validation results
-- **[DevOps Guide](DEVOPS-IMPLEMENTATION-COMPLETE.md)** - CI/CD infrastructure
-- **[Docs Automation](DOCS-AUTOMATION-COMPLETE.md)** - Documentation system
+- **[Scripts Guide](https://github.com/Data-Wise/claude-plugins/tree/main/scripts)** - Development tools documentation
+- **[Validation Report](https://github.com/Data-Wise/claude-plugins/blob/main/PLUGIN-VALIDATION-REPORT.md)** - Plugin validation results
+- **[DevOps Guide](https://github.com/Data-Wise/claude-plugins/blob/main/DEVOPS-IMPLEMENTATION-COMPLETE.md)** - CI/CD infrastructure
+- **[Docs Automation](https://github.com/Data-Wise/claude-plugins/blob/main/DOCS-AUTOMATION-COMPLETE.md)** - Documentation system
 
 ---
 
@@ -176,7 +176,7 @@ python3 scripts/validate-all-plugins.py
 
 ## 📝 License
 
-MIT License - See [LICENSE](../LICENSE) for details
+MIT License - See [LICENSE](https://github.com/Data-Wise/claude-plugins/blob/main/LICENSE) for details
 
 ---
 

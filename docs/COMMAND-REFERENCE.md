@@ -1,6 +1,6 @@
 # Command Reference
 
-**Auto-generated:** 2025-12-23 21:52:13
+**Auto-generated:** 2025-12-23 22:09:57
 
 Complete reference of all commands across all plugins.
 
@@ -35,7 +35,7 @@ Complete reference of all commands across all plugins.
 
 Automatically analyze R package changes with intelligent tool delegation and parallel execution.
 
-**Source:** [`rforge-orchestrator/commands/analyze.md`](../rforge-orchestrator/commands/analyze.md)
+**Source:** [`rforge-orchestrator/commands/analyze.md`](https://github.com/Data-Wise/claude-plugins/blob/main/rforge-orchestrator/commands/analyze.md)
 
 #### `/rforge:quick`
 
@@ -45,7 +45,7 @@ Automatically analyze R package changes with intelligent tool delegation and par
 
 Lightning-fast analysis using only quick MCP tools. Results in < 10 seconds guaranteed.
 
-**Source:** [`rforge-orchestrator/commands/quick.md`](../rforge-orchestrator/commands/quick.md)
+**Source:** [`rforge-orchestrator/commands/quick.md`](https://github.com/Data-Wise/claude-plugins/blob/main/rforge-orchestrator/commands/quick.md)
 
 #### `/rforge:thorough`
 
@@ -57,7 +57,7 @@ Lightning-fast analysis using only quick MCP tools. Results in < 10 seconds guar
 
 Deep, comprehensive analysis using background R processes. Takes 2-5 minutes but provides publication-quality insights.
 
-**Source:** [`rforge-orchestrator/commands/thorough.md`](../rforge-orchestrator/commands/thorough.md)
+**Source:** [`rforge-orchestrator/commands/thorough.md`](https://github.com/Data-Wise/claude-plugins/blob/main/rforge-orchestrator/commands/thorough.md)
 
 ---
 
@@ -92,7 +92,7 @@ Deep, comprehensive analysis using background R processes. Takes 2-5 minutes but
 
 I'll help you develop a comprehensive statistical analysis plan for your research study.
 
-**Source:** [`statistical-research/commands/research/analysis-plan.md`](../statistical-research/commands/research/analysis-plan.md)
+**Source:** [`statistical-research/commands/research/analysis-plan.md`](https://github.com/Data-Wise/claude-plugins/blob/main/statistical-research/commands/research/analysis-plan.md)
 
 #### `/research:arxiv`
 
@@ -102,7 +102,7 @@ I'll help you develop a comprehensive statistical analysis plan for your researc
 
 I'll help you search arXiv for relevant papers.
 
-**Source:** [`statistical-research/commands/literature/arxiv.md`](../statistical-research/commands/literature/arxiv.md)
+**Source:** [`statistical-research/commands/literature/arxiv.md`](https://github.com/Data-Wise/claude-plugins/blob/main/statistical-research/commands/literature/arxiv.md)
 
 #### `/research:bib:add`
 
@@ -112,7 +112,7 @@ I'll help you search arXiv for relevant papers.
 
 I'll help you add a BibTeX entry to your bibliography file.
 
-**Source:** [`statistical-research/commands/literature/bib-add.md`](../statistical-research/commands/literature/bib-add.md)
+**Source:** [`statistical-research/commands/literature/bib-add.md`](https://github.com/Data-Wise/claude-plugins/blob/main/statistical-research/commands/literature/bib-add.md)
 
 #### `/research:bib:search`
 
@@ -122,7 +122,7 @@ I'll help you add a BibTeX entry to your bibliography file.
 
 I'll search your BibTeX files for entries matching your query.
 
-**Source:** [`statistical-research/commands/literature/bib-search.md`](../statistical-research/commands/literature/bib-search.md)
+**Source:** [`statistical-research/commands/literature/bib-search.md`](https://github.com/Data-Wise/claude-plugins/blob/main/statistical-research/commands/literature/bib-search.md)
 
 #### `/research:doi`
 
@@ -132,7 +132,7 @@ I'll search your BibTeX files for entries matching your query.
 
 I'll retrieve metadata for a paper using its DOI (Digital Object Identifier).
 
-**Source:** [`statistical-research/commands/literature/doi.md`](../statistical-research/commands/literature/doi.md)
+**Source:** [`statistical-research/commands/literature/doi.md`](https://github.com/Data-Wise/claude-plugins/blob/main/statistical-research/commands/literature/doi.md)
 
 #### `/research:hypothesis`
 
@@ -142,7 +142,7 @@ I'll retrieve metadata for a paper using its DOI (Digital Object Identifier).
 
 I'll help you formulate clear, testable statistical research hypotheses.
 
-**Source:** [`statistical-research/commands/research/hypothesis.md`](../statistical-research/commands/research/hypothesis.md)
+**Source:** [`statistical-research/commands/research/hypothesis.md`](https://github.com/Data-Wise/claude-plugins/blob/main/statistical-research/commands/research/hypothesis.md)
 
 #### `/research:lit-gap`
 
@@ -152,7 +152,7 @@ I'll help you formulate clear, testable statistical research hypotheses.
 
 I'll help you identify research gaps and opportunities in your area of statistical research.
 
-**Source:** [`statistical-research/commands/research/lit-gap.md`](../statistical-research/commands/research/lit-gap.md)
+**Source:** [`statistical-research/commands/research/lit-gap.md`](https://github.com/Data-Wise/claude-plugins/blob/main/statistical-research/commands/research/lit-gap.md)
 
 #### `/research:manuscript:methods`
 
@@ -162,7 +162,7 @@ I'll help you identify research gaps and opportunities in your area of statistic
 
 I'll help you write a comprehensive methods section for your statistical manuscript.
 
-**Source:** [`statistical-research/commands/manuscript/methods.md`](../statistical-research/commands/manuscript/methods.md)
+**Source:** [`statistical-research/commands/manuscript/methods.md`](https://github.com/Data-Wise/claude-plugins/blob/main/statistical-research/commands/manuscript/methods.md)
 
 #### `/research:manuscript:proof`
 
@@ -172,7 +172,7 @@ I'll help you write a comprehensive methods section for your statistical manuscr
 
 I'll help you review and refine mathematical proofs in your statistical manuscript.
 
-**Source:** [`statistical-research/commands/manuscript/proof.md`](../statistical-research/commands/manuscript/proof.md)
+**Source:** [`statistical-research/commands/manuscript/proof.md`](https://github.com/Data-Wise/claude-plugins/blob/main/statistical-research/commands/manuscript/proof.md)
 
 #### `/research:manuscript:results`
 
@@ -182,7 +182,7 @@ I'll help you review and refine mathematical proofs in your statistical manuscri
 
 I'll help you write a clear and comprehensive results section for your statistical manuscript.
 
-**Source:** [`statistical-research/commands/manuscript/results.md`](../statistical-research/commands/manuscript/results.md)
+**Source:** [`statistical-research/commands/manuscript/results.md`](https://github.com/Data-Wise/claude-plugins/blob/main/statistical-research/commands/manuscript/results.md)
 
 #### `/research:manuscript:reviewer`
 
@@ -192,7 +192,7 @@ I'll help you write a clear and comprehensive results section for your statistic
 
 I'll help you craft professional, thorough responses to reviewer comments on your manuscript.
 
-**Source:** [`statistical-research/commands/manuscript/reviewer.md`](../statistical-research/commands/manuscript/reviewer.md)
+**Source:** [`statistical-research/commands/manuscript/reviewer.md`](https://github.com/Data-Wise/claude-plugins/blob/main/statistical-research/commands/manuscript/reviewer.md)
 
 #### `/research:simulation:analysis`
 
@@ -202,7 +202,7 @@ I'll help you craft professional, thorough responses to reviewer comments on you
 
 I'll help you analyze and visualize your Monte Carlo simulation results.
 
-**Source:** [`statistical-research/commands/simulation/analysis.md`](../statistical-research/commands/simulation/analysis.md)
+**Source:** [`statistical-research/commands/simulation/analysis.md`](https://github.com/Data-Wise/claude-plugins/blob/main/statistical-research/commands/simulation/analysis.md)
 
 #### `/research:simulation:design`
 
@@ -212,7 +212,7 @@ I'll help you analyze and visualize your Monte Carlo simulation results.
 
 I'll help you design a rigorous Monte Carlo simulation study for your statistical research.
 
-**Source:** [`statistical-research/commands/simulation/design.md`](../statistical-research/commands/simulation/design.md)
+**Source:** [`statistical-research/commands/simulation/design.md`](https://github.com/Data-Wise/claude-plugins/blob/main/statistical-research/commands/simulation/design.md)
 
 ---
 
@@ -239,7 +239,7 @@ I'll help you design a rigorous Monte Carlo simulation study for your statistica
 /brainstorm feature                  # Feature brainstorm mode
 /brainstorm architecture             # Architectu
 
-**Source:** [`workflow/commands/brainstorm.md`](../workflow/commands/brainstorm.md)
+**Source:** [`workflow/commands/brainstorm.md`](https://github.com/Data-Wise/claude-plugins/blob/main/workflow/commands/brainstorm.md)
 
 ---
 

@@ -462,6 +462,6 @@ source "${CLAUDE_PLUGIN_ROOT}/lib/api.sh"
 ---
 
 See also:
-- [KNOWLEDGE.md](../KNOWLEDGE.md) - Architecture and patterns
+- [KNOWLEDGE.md](https://github.com/Data-Wise/claude-plugins/blob/main/KNOWLEDGE.md) - Architecture and patterns
 - [PUBLISHING.md](PUBLISHING.md) - Publishing workflow
-- [Existing plugins](../) - Examples to learn from
+- [Existing plugins](https://github.com/Data-Wise/claude-plugins) - Examples to learn from

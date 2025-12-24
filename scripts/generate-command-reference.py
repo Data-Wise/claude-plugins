@@ -39,6 +39,7 @@ class CommandReferenceGenerator:
         self.repo_root = repo_root
         self.plugins = ['rforge-orchestrator', 'statistical-research', 'workflow']
         self.commands_by_plugin: Dict[str, List[Command]] = {}
+        self.github_repo_url = 'https://github.com/Data-Wise/claude-plugins'
 
     def parse_frontmatter(self, file_path: Path) -> Optional[Command]:
         """Parse YAML frontmatter from a command file."""
@@ -171,9 +172,10 @@ class CommandReferenceGenerator:
                     lines.append(f"{cmd.content_preview}")
                     lines.append("")
 
-                # Link to source
+                # Link to source on GitHub
                 rel_path = cmd.file_path.relative_to(self.repo_root)
-                lines.append(f"**Source:** [`{rel_path}`](../{rel_path})")
+                github_url = f"{self.github_repo_url}/blob/main/{rel_path}"
+                lines.append(f"**Source:** [`{rel_path}`]({github_url})")
                 lines.append("")
 
             lines.append("---")

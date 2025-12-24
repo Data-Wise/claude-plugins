@@ -311,4 +311,4 @@ After installation:
 
 **Questions?** Check [Common Issues](installation.md#troubleshooting)
 
-**Contributions?** See [Development Guide](scripts/README.md)
+**Contributions?** See [Development Guide](https://github.com/Data-Wise/claude-plugins/tree/main/scripts)

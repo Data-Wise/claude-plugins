@@ -247,7 +247,7 @@ All plugins are designed with ADHD in mind:
 
 - **Validate plugins:** `python3 scripts/validate-all-plugins.py`
 - **Generate docs:** `./scripts/generate-docs.sh`
-- **Submit PR:** [Contributing guide](scripts/README.md)
+- **Submit PR:** [Contributing guide](https://github.com/Data-Wise/claude-plugins/tree/main/scripts)
 
 ---
 

@@ -29,8 +29,7 @@ class MkDocsNavigationUpdater:
         """Find all generated documentation files."""
         docs = {
             'command_reference': None,
-            'diagrams': [],
-            'plugins': []
+            'diagrams': []
         }
 
         # Command reference
@@ -43,15 +42,6 @@ class MkDocsNavigationUpdater:
         if diagrams_dir.exists():
             for diagram_file in sorted(diagrams_dir.glob('*.md')):
                 docs['diagrams'].append(f'diagrams/{diagram_file.name}')
-
-        # Plugin READMEs
-        for plugin in self.plugins:
-            readme = self.repo_root / plugin / 'README.md'
-            if readme.exists():
-                docs['plugins'].append({
-                    'name': plugin.replace('-', ' ').title(),
-                    'path': f'../{plugin}/README.md'
-                })
 
         return docs
 
@@ -70,14 +60,6 @@ class MkDocsNavigationUpdater:
             ]
         })
 
-        # Plugins
-        plugin_nav = []
-        for plugin_info in docs['plugins']:
-            plugin_nav.append({plugin_info['name']: plugin_info['path']})
-
-        if plugin_nav:
-            nav.append({'Plugins': plugin_nav})
-
         # Command Reference
         if docs['command_reference']:
             nav.append({'Command Reference': docs['command_reference']})
@@ -91,15 +73,6 @@ class MkDocsNavigationUpdater:
                 arch_nav.append({name: diagram})
 
             nav.append({'Architecture': arch_nav})
-
-        # Development
-        nav.append({
-            'Development': [
-                {'Scripts': 'scripts/README.md'},
-                {'Validation': 'PLUGIN-VALIDATION-REPORT.md'},
-                {'DevOps': 'DEVOPS-IMPLEMENTATION-COMPLETE.md'}
-            ]
-        })
 
         return nav
 
@@ -120,7 +93,6 @@ class MkDocsNavigationUpdater:
 
         print(f"  - Command reference: {'✅' if docs['command_reference'] else '❌'}")
         print(f"  - Architecture diagrams: {len(docs['diagrams'])} files")
-        print(f"  - Plugin docs: {len(docs['plugins'])} plugins")
 
         # Create navigation
         print("Generating navigation structure...")
