@@ -15,7 +15,7 @@ Complete guide to installing Claude Code plugins.
 
 - **Python 3.10+** - For running validation and documentation scripts
 - **Node.js 18+** - Required by some MCP servers
-- **R >= 4.0** - For RForge MCP server (rforge-orchestrator plugin)
+- **R >= 4.0** - For RForge MCP server (rforge plugin)
 
 ---
 
@@ -29,7 +29,7 @@ git clone https://github.com/Data-Wise/claude-plugins.git
 cd claude-plugins
 
 # Install a plugin
-./scripts/install-plugin.sh rforge-orchestrator
+./scripts/install-plugin.sh rforge
 
 # Restart Claude Code
 # Commands will appear after restart
@@ -42,7 +42,7 @@ cd claude-plugins
 git clone https://github.com/Data-Wise/claude-plugins.git
 
 # Copy plugin to Claude's plugin directory
-cp -r claude-plugins/rforge-orchestrator ~/.claude/plugins/
+cp -r claude-plugins/rforge ~/.claude/plugins/
 
 # Restart Claude Code
 ```
@@ -99,7 +99,7 @@ npm link
 ls -la ~/.claude/plugins/
 
 # Should show:
-# rforge-orchestrator/
+# rforge/
 # statistical-research/
 # workflow/
 ```
@@ -132,7 +132,7 @@ cd claude-plugins
 git pull
 
 # Reinstall (force overwrites existing)
-./scripts/install-plugin.sh rforge-orchestrator --force
+./scripts/install-plugin.sh rforge --force
 ./scripts/install-plugin.sh statistical-research --force
 ./scripts/install-plugin.sh workflow --force
 
@@ -167,7 +167,7 @@ rm -rf ~/.claude/plugins/<plugin-name>
 
 ```bash
 # Remove all plugins (careful!)
-rm -rf ~/.claude/plugins/rforge-orchestrator
+rm -rf ~/.claude/plugins/rforge
 rm -rf ~/.claude/plugins/statistical-research
 rm -rf ~/.claude/plugins/workflow
 
@@ -286,7 +286,7 @@ python3 scripts/validate-all-plugins.py
 
 ```bash
 # Link instead of copy (changes reflect immediately)
-ln -s ~/claude-plugins/rforge-orchestrator ~/.claude/plugins/rforge-orchestrator
+ln -s ~/claude-plugins/rforge ~/.claude/plugins/rforge
 
 # Restart Claude Code after changes
 ```

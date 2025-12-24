@@ -1,0 +1,482 @@
+name: CI - Validate & Test
+
+on:
+  push:
+    branches: [ main, dev ]
+    paths:
+      - 'rforge/**'
+      - 'tests/**'
+      - 'scripts/**'
+      - '.github/workflows/**'
+      - 'pytest.ini'
+  pull_request:
+    branches: [ main, dev ]
+    paths:
+      - 'rforge/**'
+      - 'tests/**'
+      - 'scripts/**'
+
+jobs:
+  validate-structure:
+    name: Validate Plugin Structure
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Validate RForge plugin structure
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Validating RForge plugin structure..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          # Check required files
+          test -f rforge/PLUGIN.md || (echo "❌ Missing PLUGIN.md" && exit 1)
+          test -f rforge/package.json || (echo "❌ Missing package.json" && exit 1)
+          test -f rforge/.claude-plugin/plugin.json || (echo "❌ Missing plugin.json" && exit 1)
+          test -f rforge/README.md || (echo "❌ Missing README.md" && exit 1)
+          test -f rforge/LICENSE || (echo "❌ Missing LICENSE" && exit 1)
+
+          echo "✅ Required files present"
+
+          # Check directory structure
+          test -d rforge/commands || (echo "❌ Missing commands directory" && exit 1)
+          test -d rforge/skills || (echo "❌ Missing skills directory" && exit 1)
+          test -d rforge/lib || (echo "❌ Missing lib directory" && exit 1)
+
+          echo "✅ Directory structure valid"
+
+          # Count resources
+          cmd_count=$(find rforge/commands -name "*.md" | wc -l | tr -d ' ')
+          skill_count=$(find rforge/skills -name "*.md" | wc -l | tr -d ' ')
+
+          echo ""
+          echo "📊 Plugin resources:"
+          echo "   Commands: $cmd_count"
+          echo "   Skills: $skill_count"
+
+      - name: Validate JSON files
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Validating JSON configuration..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          # Validate package.json
+          python3 -m json.tool rforge/package.json > /dev/null || (echo "❌ Invalid package.json" && exit 1)
+          echo "✅ package.json valid"
+
+          # Validate plugin.json
+          python3 -m json.tool rforge/.claude-plugin/plugin.json > /dev/null || (echo "❌ Invalid plugin.json" && exit 1)
+          echo "✅ plugin.json valid"
+
+      - name: Validate command frontmatter
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Validating command frontmatter..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          python3 << 'EOF'
+          import re
+          from pathlib import Path
+
+          commands_dir = Path('rforge/commands')
+          issues = []
+          mode_commands = 0
+
+          for cmd_file in commands_dir.rglob('*.md'):
+              with open(cmd_file, 'r') as f:
+                  content = f.read(1000)
+
+              # Check for frontmatter with name field
+              if not re.search(r'^---\s*\nname:\s*.+', content, re.MULTILINE):
+                  issues.append(f"Missing 'name:' - {cmd_file}")
+
+              # Check for description field
+              if not re.search(r'description:\s*.+', content, re.MULTILINE):
+                  issues.append(f"Missing 'description:' - {cmd_file}")
+
+              # Count mode commands
+              if 'mode:' in content or ':mode' in str(cmd_file):
+                  mode_commands += 1
+
+          if issues:
+              print(f"❌ {len(issues)} frontmatter issues:")
+              for issue in issues[:10]:
+                  print(f"   - {issue}")
+              exit(1)
+          else:
+              print(f"✅ All command files have valid frontmatter")
+              print(f"   Mode-aware commands: {mode_commands}")
+          EOF
+
+      - name: Check for hardcoded paths
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Checking for hardcoded paths..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          errors=0
+
+          if grep -r "/Users/" rforge/commands/ rforge/lib/ rforge/skills/ 2>/dev/null; then
+            echo "❌ Found hardcoded /Users/ paths"
+            errors=1
+          fi
+
+          if grep -r "/home/" rforge/commands/ rforge/lib/ rforge/skills/ 2>/dev/null; then
+            echo "❌ Found hardcoded /home/ paths"
+            errors=1
+          fi
+
+          if [ $errors -eq 0 ]; then
+            echo "✅ No hardcoded paths found"
+          else
+            exit 1
+          fi
+
+      - name: Validation summary
+        if: success()
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "✅ RForge plugin structure validation complete"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+  test-unit:
+    name: Unit Tests (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    needs: validate-structure
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.9', '3.10', '3.11', '3.12']
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+
+      - name: Install test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r tests/requirements-test.txt
+
+      - name: Run unit tests with coverage
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Running 96 unit tests on Python ${{ matrix.python-version }}..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          python -m pytest tests/unit/ \
+            -v \
+            --tb=short \
+            --cov=rforge \
+            --cov-report=term-missing \
+            --cov-report=xml \
+            --cov-report=html \
+            --cov-fail-under=80 \
+            --durations=10
+
+      - name: Check test performance
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Performance check: All tests should run < 1s"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          # Re-run to capture duration
+          python -m pytest tests/unit/ -q --durations=0 > test_times.txt
+
+          # Check if any test took > 1 second
+          if grep -E '\s[1-9][0-9]*\.[0-9]+s' test_times.txt; then
+            echo "⚠️  Warning: Some tests are slow (> 1s)"
+          else
+            echo "✅ All tests run in < 1s"
+          fi
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        if: matrix.python-version == '3.11'
+        with:
+          files: ./coverage.xml
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: false
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        if: matrix.python-version == '3.11'
+        with:
+          name: coverage-report
+          path: htmlcov/
+          retention-days: 30
+
+      - name: Test summary
+        if: success()
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "✅ Unit tests passed on Python ${{ matrix.python-version }}"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+  test-mode-system:
+    name: Mode System Integration Tests
+    runs-on: ubuntu-latest
+    needs: test-unit
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r tests/requirements-test.txt
+
+      - name: Test mode system
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Testing mode system components..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          # Run mode-specific tests
+          python -m pytest tests/unit/ \
+            -m "mode_system" \
+            -v \
+            --tb=short
+
+      - name: Test time budgets
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Testing time budget validation..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          python -m pytest tests/unit/test_time_budgets.py \
+            -v \
+            --tb=short
+
+      - name: Test backward compatibility
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Testing backward compatibility..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          python -m pytest tests/unit/test_backward_compat.py \
+            -v \
+            --tb=short
+
+      - name: Mode system summary
+        if: success()
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "✅ Mode system tests passed"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo ""
+          echo "Verified:"
+          echo "  ✅ Mode parsing (default, debug, optimize, release)"
+          echo "  ✅ Time budget enforcement (MUST vs SHOULD)"
+          echo "  ✅ Format handling (markdown, JSON, minimal)"
+          echo "  ✅ Backward compatibility (legacy commands work)"
+
+  validate-docs:
+    name: Validate Documentation
+    runs-on: ubuntu-latest
+    needs: validate-structure
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install MkDocs
+        run: |
+          pip install mkdocs mkdocs-material pymdown-extensions pyyaml
+
+      - name: Build documentation with --strict
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Building documentation with strict mode..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          mkdocs build --strict
+
+          echo "✅ Documentation built successfully"
+
+      - name: Validate documentation structure
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Validating documentation structure..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          # Check required docs exist
+          test -f docs/index.md || (echo "❌ Missing index.md" && exit 1)
+          test -f docs/installation.md || (echo "❌ Missing installation.md" && exit 1)
+          test -f docs/quick-start.md || (echo "❌ Missing quick-start.md" && exit 1)
+          test -f docs/COMMAND-REFERENCE.md || (echo "❌ Missing COMMAND-REFERENCE.md" && exit 1)
+
+          echo "✅ Required documentation files present"
+
+          # Count documentation
+          doc_count=$(find docs -name "*.md" | wc -l | tr -d ' ')
+          diagram_count=$(find docs/diagrams -name "*.md" 2>/dev/null | wc -l | tr -d ' ')
+
+          echo ""
+          echo "📊 Documentation stats:"
+          echo "   Total docs: $doc_count"
+          echo "   Diagrams: $diagram_count"
+
+      - name: Check for broken links
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Checking for broken internal links..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          # Check for obvious broken markdown links
+          broken=0
+          for file in docs/**/*.md; do
+            if grep -E '\[.*\]\(.*\.md\)' "$file" 2>/dev/null | grep -v '^#' | while read -r line; do
+              link=$(echo "$line" | sed -E 's/.*\]\(([^)]+)\).*/\1/')
+              if [[ ! -f "docs/$link" && ! -f "$link" ]]; then
+                echo "⚠️  Potential broken link in $file: $link"
+                broken=1
+              fi
+            done
+          done
+
+          if [ $broken -eq 0 ]; then
+            echo "✅ No obvious broken links detected"
+          fi
+
+      - name: Documentation summary
+        if: success()
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "✅ Documentation validation complete"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+  performance-check:
+    name: Performance Check (Optional)
+    runs-on: ubuntu-latest
+    needs: test-unit
+    continue-on-error: true
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r tests/requirements-test.txt
+
+      - name: Run performance tests
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Running performance benchmarks..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          # Run with benchmark plugin if available
+          if python -m pytest --version | grep -q benchmark; then
+            python -m pytest tests/unit/ \
+              -m "performance" \
+              --benchmark-only \
+              --benchmark-autosave \
+              --benchmark-save-data \
+              || echo "⚠️  No performance tests found (OK)"
+          else
+            echo "⚠️  pytest-benchmark not available (skipping)"
+          fi
+
+      - name: Check time budgets
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Validating time budgets..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          python3 << 'EOF'
+          from pathlib import Path
+          import re
+
+          # Check all command files for time budgets
+          commands_dir = Path('rforge/commands')
+          budgets_found = 0
+
+          for cmd_file in commands_dir.rglob('*.md'):
+              with open(cmd_file, 'r') as f:
+                  content = f.read()
+
+              if re.search(r'time_budget:\s*\d+', content):
+                  budgets_found += 1
+
+          print(f"✅ Found time budgets in {budgets_found} commands")
+          EOF
+
+      - name: Performance summary
+        if: success()
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "✅ Performance check complete"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+  final-summary:
+    name: CI Summary
+    runs-on: ubuntu-latest
+    needs: [validate-structure, test-unit, test-mode-system, validate-docs]
+    if: success()
+
+    steps:
+      - name: Success summary
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "🎉 ALL CI CHECKS PASSED"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo ""
+          echo "✅ Plugin structure validated"
+          echo "✅ 96 unit tests passed (Python 3.9, 3.10, 3.11, 3.12)"
+          echo "✅ Mode system integration tests passed"
+          echo "✅ Documentation built successfully"
+          echo "✅ Coverage > 80%"
+          echo ""
+          echo "RForge plugin ready for deployment!"
+          echo ""

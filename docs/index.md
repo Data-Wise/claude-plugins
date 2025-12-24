@@ -6,7 +6,7 @@
 
 ## 🎯 Available Plugins
 
-### [RForge Orchestrator](https://github.com/Data-Wise/claude-plugins/tree/main/rforge-orchestrator)
+### [RForge](https://github.com/Data-Wise/claude-plugins/tree/main/rforge)
 
 **Auto-delegation orchestrator for R package development**
 
@@ -73,7 +73,7 @@
    cd claude-plugins
 
    # Install a plugin
-   ./scripts/install-plugin.sh rforge-orchestrator
+   ./scripts/install-plugin.sh rforge
    ```
 
 2. **Restart Claude Code**
@@ -90,8 +90,8 @@
 
 - **[Ecosystem Diagram](diagrams/ECOSYSTEM.md)** - How plugins interact
 - **[Dependencies](diagrams/DEPENDENCIES.md)** - Plugin requirements
-- **Plugin Structures** - [RForge](diagrams/rforge-orchestrator-structure.md) | [Research](diagrams/statistical-research-structure.md) | [Workflow](diagrams/workflow-structure.md)
-- **Command Flows** - [RForge](diagrams/rforge-orchestrator-flow.md) | [Research](diagrams/statistical-research-flow.md) | [Workflow](diagrams/workflow-flow.md)
+- **Plugin Structures** - [RForge](diagrams/rforge-structure.md) | [Research](diagrams/statistical-research-structure.md) | [Workflow](diagrams/workflow-structure.md)
+- **Command Flows** - [RForge](diagrams/rforge-flow.md) | [Research](diagrams/statistical-research-flow.md) | [Workflow](diagrams/workflow-flow.md)
 
 ---
 

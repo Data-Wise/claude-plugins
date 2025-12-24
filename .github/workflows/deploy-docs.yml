@@ -1,0 +1,232 @@
+name: Deploy Documentation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'rforge/**'
+      - 'statistical-research/commands/**'
+      - 'statistical-research/skills/**'
+      - 'workflow/commands/**'
+      - 'workflow/skills/**'
+      - 'scripts/generate-*.py'
+      - 'scripts/update-mkdocs-nav.py'
+      - 'docs/**'
+      - 'mkdocs.yml'
+      - '.github/workflows/deploy-docs.yml'
+  workflow_dispatch:  # Allow manual trigger
+
+permissions:
+  contents: write  # Required for gh-pages deployment
+
+jobs:
+  build-docs:
+    name: Build Documentation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for proper git info
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install mkdocs mkdocs-material pyyaml
+          pip install pymdown-extensions
+
+      - name: Generate command reference
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Generating command reference..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          python3 scripts/generate-command-reference.py
+
+          # Count generated commands
+          cmd_count=$(grep -c "^## " docs/COMMAND-REFERENCE.md || echo "0")
+          echo "✅ Generated reference for $cmd_count commands"
+
+      - name: Generate architecture diagrams
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Generating architecture diagrams..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          python3 scripts/generate-architecture-diagrams.py
+
+          # Count generated diagrams
+          diagram_count=$(find docs/diagrams -name "*.md" 2>/dev/null | wc -l | tr -d ' ')
+          echo "✅ Generated $diagram_count architecture diagrams"
+
+      - name: Update MkDocs navigation
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Updating MkDocs navigation..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          python3 scripts/update-mkdocs-nav.py
+
+          echo "✅ MkDocs navigation updated"
+
+      - name: Verify generated documentation
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Verifying generated documentation..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          # Check required files exist
+          test -f docs/COMMAND-REFERENCE.md || (echo "❌ Command reference not found" && exit 1)
+          test -d docs/diagrams || (echo "❌ Diagrams directory not found" && exit 1)
+          test -f mkdocs.yml || (echo "❌ mkdocs.yml not found" && exit 1)
+
+          # Get statistics
+          cmd_ref_lines=$(wc -l < docs/COMMAND-REFERENCE.md | tr -d ' ')
+          diagram_count=$(find docs/diagrams -name "*.md" 2>/dev/null | wc -l | tr -d ' ')
+          total_docs=$(find docs -name "*.md" | wc -l | tr -d ' ')
+
+          echo "✅ Documentation verified:"
+          echo "   Command reference: $cmd_ref_lines lines"
+          echo "   Architecture diagrams: $diagram_count files"
+          echo "   Total documentation files: $total_docs"
+
+      - name: Build MkDocs site with strict mode
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Building documentation site..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          mkdocs build --strict --verbose
+
+          echo "✅ Documentation site built successfully"
+
+      - name: Validate build output
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Validating build output..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          # Check site directory exists and has content
+          test -d site || (echo "❌ Site directory not found" && exit 1)
+          test -f site/index.html || (echo "❌ index.html not generated" && exit 1)
+
+          # Count generated HTML files
+          html_count=$(find site -name "*.html" | wc -l | tr -d ' ')
+
+          echo "✅ Build validated:"
+          echo "   Generated HTML files: $html_count"
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mkdocs-site
+          path: site/
+          retention-days: 30
+
+      - name: Build summary
+        if: success()
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "✅ Documentation build complete"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: build-docs
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: mkdocs-site
+          path: site/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          publish_branch: gh-pages
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'docs: auto-deploy documentation [skip ci]'
+
+      - name: Wait for deployment
+        run: |
+          echo "Waiting 10s for GitHub Pages deployment..."
+          sleep 10
+
+      - name: Deployment summary
+        if: success()
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "🚀 DOCUMENTATION DEPLOYED SUCCESSFULLY!"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo ""
+          echo "📚 Documentation site: https://data-wise.github.io/claude-plugins/"
+          echo ""
+          echo "Updated components:"
+          echo "  ✅ Command reference (17+ commands)"
+          echo "  ✅ Architecture diagrams (8+ diagrams)"
+          echo "  ✅ MkDocs navigation"
+          echo "  ✅ Plugin documentation (RForge, Statistical Research, Workflow)"
+          echo ""
+          echo "Changes will be visible in ~1 minute at:"
+          echo "  https://data-wise.github.io/claude-plugins/"
+          echo ""
+
+  verify-deployment:
+    name: Verify Deployment
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: success()
+
+    steps:
+      - name: Check GitHub Pages is live
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Verifying deployment..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          # Wait a bit more for full propagation
+          sleep 20
+
+          # Check site is accessible
+          status_code=$(curl -s -o /dev/null -w "%{http_code}" https://data-wise.github.io/claude-plugins/ || echo "000")
+
+          if [ "$status_code" = "200" ]; then
+            echo "✅ Documentation site is live!"
+            echo "   Status code: $status_code"
+          else
+            echo "⚠️  Site returned status code: $status_code"
+            echo "   (May need a few more minutes to propagate)"
+          fi
+
+      - name: Final summary
+        run: |
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Deployment complete!"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo ""
+          echo "Visit: https://data-wise.github.io/claude-plugins/"
+          echo ""

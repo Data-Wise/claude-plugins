@@ -11,8 +11,8 @@ graph LR
         NODE[Node.js >= 18]
     end
 
-    subgraph "Plugin: rforge-orchestrator"
-        RFORGE[rforge-orchestrator]
+    subgraph "Plugin: rforge"
+        RFORGE[rforge]
         RFORGE_MCP[rforge-mcp >= 0.1.0]
         R_ENV[R >= 4.0]
     end

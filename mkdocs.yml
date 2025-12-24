@@ -1,5 +1,5 @@
 # MkDocs configuration for Claude Code Plugins
-# Auto-updated: 2025-12-24 11:10:12
+# Auto-updated: 2024-12-24 (manually updated with Mode System docs)
 # Do not edit navigation manually - regenerate with scripts/update-mkdocs-nav.py
 
 nav:
@@ -7,12 +7,18 @@ nav:
 - Getting Started:
   - Installation: installation.md
   - Quick Start: quick-start.md
+- Mode System:
+  - Usage Guide: MODE-USAGE-GUIDE.md
+  - Quick Reference: MODE-QUICK-REFERENCE.md
+  - Command Cheatsheet: COMMAND-CHEATSHEET.md
 - Command Reference: COMMAND-REFERENCE.md
+- Plugin Development: PLUGIN-DEVELOPMENT.md
+- Publishing: PUBLISHING.md
 - Architecture:
   - Dependencies: diagrams/DEPENDENCIES.md
   - Ecosystem: diagrams/ECOSYSTEM.md
-  - Rforge Orchestrator Flow: diagrams/rforge-orchestrator-flow.md
-  - Rforge Orchestrator Structure: diagrams/rforge-orchestrator-structure.md
+  - RForge Flow: diagrams/rforge-flow.md
+  - RForge Structure: diagrams/rforge-structure.md
   - Statistical Research Flow: diagrams/statistical-research-flow.md
   - Statistical Research Structure: diagrams/statistical-research-structure.md
   - Workflow Flow: diagrams/workflow-flow.md

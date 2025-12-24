@@ -8,7 +8,7 @@
 sequenceDiagram
     participant User
     participant Claude as Claude Code
-    participant Plugin as rforge-orchestrator
+    participant Plugin as rforge
     participant MCP as RForge MCP Server
 
     User->>Claude: /rforge:analyze "Update code"

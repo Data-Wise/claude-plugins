@@ -12,7 +12,7 @@ graph TB
     end
 
     subgraph "Plugins"
-        RFORGE[rforge-orchestrator]
+        RFORGE[rforge]
         RESEARCH[statistical-research]
         WORKFLOW[workflow]
     end

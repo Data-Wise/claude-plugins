@@ -43,6 +43,12 @@
 - ✅ Successfully installed via marketplace
 - ✅ 13 total commands (full feature parity)
 
+### Phase 4: Mode System Design (Complete)
+- ✅ Mode system architecture defined
+- ✅ Performance guarantees specified
+- ✅ Backward compatibility ensured
+- ✅ Implementation plan created
+
 ---
 
 ## Current State Summary
@@ -76,6 +82,7 @@
 - Architecture: Hybrid delegation to MCP server
 - Commands: 10 MCP delegations + 3 orchestrators
 - Status: Installed and ready to use
+- Next: Mode system implementation (Week 2)
 
 **2. Statistical Research (13 commands) - ✅ ACTIVE**
 - Version: 1.0.0
@@ -96,65 +103,132 @@
 ### Track 1: Plugin Enhancement & Expansion 🚀
 
 **Priority: HIGH**
-**Timeline: 1-2 weeks**
+**Timeline: 2 weeks**
 
-#### RForge Plugin Enhancements
-1. **Add more orchestration modes**
-   - `/rforge:debug` - Debugging-focused analysis
-   - `/rforge:optimize` - Performance optimization scan
-   - `/rforge:security` - Security audit mode
-   - Estimated: 4-6 hours
+#### Week 2: Mode System Implementation (NEW!)
 
-2. **Enhanced command arguments**
-   - Support `--detailed`, `--package <name>`, `--format json`
-   - Add argument validation and help text
-   - Estimated: 3-4 hours
+**Design Complete:** See `MODE-SYSTEM-DESIGN.md`
 
-3. **Command cheatsheet**
-   - Quick reference card (PDF + markdown)
-   - Usage examples for each command
+**Phase 1: Core Infrastructure (Days 1-2) - 6-8 hours**
+1. **Update plugin command files**
+   - Add mode parameter to command frontmatter
+   - Update instructions with mode-specific behavior
+   - Add mode examples and documentation
+   - Commands: analyze, status (debug, optimize, release modes)
+   - Estimated: 4-5 hours
+
+2. **Add format parameter support**
+   - Support `--format json|markdown|terminal`
+   - Format is separate from mode (orthogonal)
+   - Test format + mode combinations
    - Estimated: 2-3 hours
 
-4. **Real-world testing**
+**Phase 2: MCP Integration (Day 3) - 4-6 hours**
+3. **Update MCP server tools**
+   - Add mode parameter to all tools
+   - Implement time budget tracking
+   - Add timeout enforcement
+   - Test mode-specific behavior
+   - Estimated: 4-6 hours
+
+**Phase 3: Testing & Validation (Days 4-5) - 6-8 hours**
+4. **Performance testing**
+   - Verify time budgets respected:
+     - Default: < 10s (MUST)
+     - Debug: < 2m (SHOULD)
+     - Optimize: < 3m (SHOULD)
+     - Release: < 5m (SHOULD)
+   - Estimated: 3-4 hours
+
+5. **Backward compatibility testing**
+   - Test all existing commands without modes
+   - Verify default behavior unchanged
+   - Test mode parameter parsing
+   - Estimated: 2-3 hours
+
+6. **Documentation updates**
+   - Update command reference with modes
+   - Add mode usage guide
+   - Update cheatsheet with mode syntax
+   - Create mode decision flowchart
+   - Estimated: 1-2 hours
+
+**Total Week 2 Effort:** 16-22 hours
+
+**Mode System Principles:**
+- ✅ Modes are VERBS (debug, optimize, release)
+- ✅ Default = fast, lightweight (< 10s)
+- ✅ NO automatic mode detection (explicit only)
+- ✅ Backward compatible (existing commands unchanged)
+- ✅ Strict performance guarantees
+
+**See:** `MODE-SYSTEM-DESIGN.md` for complete specification
+
+#### Week 3: Additional Enhancements (Future)
+
+7. **Command aliases**
+   - `/rfs` → `/rforge:status` (daily use)
+   - `/rfq` → `/rforge:quick` (daily use)
+   - `/rfa` → `/rforge:analyze` (daily use)
+   - Estimated: 2-3 hours
+
+8. **Enhanced error messages**
+   - Context-aware error messages
+   - Helpful troubleshooting hints
+   - Link to relevant documentation
+   - Estimated: 2-3 hours
+
+9. **Real-world testing**
    - Test on mediationverse ecosystem
    - Document edge cases and gotchas
    - Create troubleshooting guide
    - Estimated: 4-6 hours
 
-**Total Track 1 Effort:** 13-19 hours
+**Total Track 1 (2 Weeks) Effort:** 24-34 hours
 
 ---
 
 ### Track 2: Documentation & Knowledge Base 📚
 
 **Priority: MEDIUM**
-**Timeline: 1 week**
+**Timeline: 1 week (after Track 1)**
 
 #### Documentation Improvements
-1. **Usage guides**
-   - Daily development workflows
-   - Release planning workflows
-   - Task management workflows
+1. **Mode usage guide**
+   - When to use each mode
+   - Mode decision flowchart
+   - Real-world mode examples
+   - Performance expectations
    - Estimated: 3-4 hours
 
-2. **Architecture deep-dive**
+2. **Daily workflow guides**
+   - Morning routine (status check)
+   - Development workflow (analyze, capture)
+   - Release planning (release mode)
+   - Task management (capture, next, complete)
+   - Estimated: 3-4 hours
+
+3. **Architecture deep-dive**
    - How hybrid delegation works
    - MCP server integration details
    - Plugin discovery mechanism
+   - Mode system architecture
    - Estimated: 2-3 hours
 
-3. **Video tutorials** (Optional)
-   - Screen recordings of common workflows
-   - Narrated walkthroughs
+4. **Video tutorials** (Optional)
+   - Mode system walkthrough
+   - Daily workflow demonstration
+   - Release planning example
    - Estimated: 6-8 hours
 
-4. **API documentation**
+5. **API documentation**
    - Document MCP tool APIs
    - Parameter specifications
    - Return value schemas
+   - Mode parameter details
    - Estimated: 4-5 hours
 
-**Total Track 2 Effort:** 15-20 hours
+**Total Track 2 Effort:** 18-24 hours
 
 ---
 
@@ -335,14 +409,21 @@
 
 ### This Week (Immediate)
 1. ✅ **Complete RForge consolidation** - DONE!
-2. **Test rforge plugin** - Verify all 13 commands work
-3. **Update GitHub** - Commit documentation changes
-4. **Deploy docs** - Push to trigger CI/CD
+2. ✅ **Design mode system** - DONE!
+3. **Week 1 testing** - Verify all 13 commands work
+4. **Deploy documentation** - Push to trigger CI/CD
 
-### Next Week (Short-term)
-1. **Track 1: Plugin Enhancement** - Add more RForge modes
-2. **Track 2: Documentation** - Create usage guides
+### Week 2 (Mode System Implementation)
+1. **Track 1 Phase 1** - Update plugin commands with modes (Days 1-2)
+2. **Track 1 Phase 2** - Update MCP server with mode support (Day 3)
+3. **Track 1 Phase 3** - Testing and validation (Days 4-5)
+4. **Documentation** - Update docs with mode system
+
+### Week 3 (Refinement & Polish)
+1. **Track 1 Week 3** - Command aliases, error messages
+2. **Track 2** - Usage guides and documentation
 3. **Real-world testing** - Use on actual projects
+4. **Performance tuning** - Optimize mode behaviors
 
 ### Next Month (Medium-term)
 1. **Track 3: Statistical Research** - Add MCP integration
@@ -365,9 +446,17 @@
 - Documentation pages: 20+
 - Automation: 100%
 
+### Goals (Week 2 - Mode System)
+- Mode system implemented: 3 modes (debug, optimize, release)
+- Performance validated: All time budgets met
+- Commands updated: 2+ commands with mode support
+- Documentation: Mode usage guide published
+- Backward compatibility: 100% (no breaking changes)
+
 ### Goals (Next Month)
 - Plugins: 4-5
 - Commands: 25-30
+- Mode-aware commands: 5+
 - Documentation: 30+ pages
 - Active users: 5-10 (beyond DT)
 - GitHub stars: 50+
@@ -385,12 +474,14 @@
 
 ### Current
 - ✅ No blockers - all systems operational
+- ✅ Mode system design complete
 
 ### Potential Future
-- **MCP server stability** - Need monitoring
+- **MCP server stability** - Need monitoring for mode timeouts
 - **Claude Code API changes** - May require plugin updates
 - **R environment** - Keep dependencies updated
 - **GitHub Pages** - Monitor deployment status
+- **Performance budgets** - May need tuning based on real usage
 
 ---
 
@@ -407,12 +498,14 @@
 - [ ] Add caching to MCP calls
 - [ ] Improve documentation search
 - [ ] Add analytics to docs site
+- [ ] Mode performance monitoring
 
 ### High Priority (if scaling)
 - [ ] Plugin versioning strategy
 - [ ] Breaking change handling
 - [ ] Migration guides
 - [ ] Deprecation warnings
+- [ ] Mode timeout handling
 
 ---
 
@@ -421,16 +514,19 @@
 ### Time Investment Options
 
 **Aggressive (20 hours/week):**
+- Complete mode system in 1 week
 - Complete 2-3 tracks per month
 - Public release in 6-8 weeks
 - Rapid feature development
 
 **Balanced (10 hours/week):**
+- Complete mode system in 2 weeks
 - Complete 1-2 tracks per month
 - Public release in 10-12 weeks
 - Steady, sustainable pace
 
 **Conservative (5 hours/week):**
+- Complete mode system in 3 weeks
 - Complete 1 track per month
 - Public release in 16-20 weeks
 - Maintenance + incremental features
@@ -449,6 +545,7 @@ For immediate impact with minimal time:
 4. **Improve error messages** - Better UX (1 hour)
 5. **Add keyboard shortcuts** - Productivity boost (30 min)
 6. **Create video demo** - 5-minute walkthrough (1.5 hours)
+7. **Mode quick reference** - One-page mode guide (1 hour)
 
 ---
 
@@ -456,6 +553,7 @@ For immediate impact with minimal time:
 
 ### Year 1: Foundation
 - 8-10 high-quality plugins
+- Mode system fully mature
 - Public marketplace presence
 - 50-100 active users
 - Community contributions
@@ -465,6 +563,7 @@ For immediate impact with minimal time:
 - 15-20 plugins
 - Plugin interoperability
 - Shared infrastructure
+- Advanced mode features (custom modes, adaptive modes)
 - 200-500 active users
 - Plugin marketplace
 
@@ -479,11 +578,11 @@ For immediate impact with minimal time:
 
 ## Conclusion
 
-**Current Status:** Excellent foundation with complete automation
+**Current Status:** Excellent foundation with complete automation + mode system designed
 
-**Immediate Focus:** Test and refine RForge plugin
+**Immediate Focus:** Week 2 - Implement mode system
 
-**Short-term:** Enhance existing plugins and documentation
+**Short-term:** Test mode system, refine documentation
 
 **Medium-term:** Add new plugins and ecosystem features
 
@@ -491,4 +590,9 @@ For immediate impact with minimal time:
 
 ---
 
-**Next Action:** Restart Claude Code and test all 13 RForge commands! 🚀
+**Next Action:** Implement mode system in Week 2! 🚀
+
+**Key Documents:**
+- **MODE-SYSTEM-DESIGN.md** - Complete mode system specification
+- **NEXT-WEEK-PLAN.md** - Week 2 implementation plan
+- **EDGE-CASES-AND-GOTCHAS.md** - Troubleshooting guide

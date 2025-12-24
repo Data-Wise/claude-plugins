@@ -1,0 +1,41 @@
+# Testing Framework
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-benchmark>=4.0.0
+pytest-asyncio>=0.21.0
+pytest-mock>=3.11.0
+pytest-timeout>=2.1.0
+pytest-xdist>=3.3.0  # Parallel test execution
+
+# Assertion & Mocking
+mock>=5.1.0
+freezegun>=1.2.2  # Time mocking
+responses>=0.23.0  # HTTP mocking
+
+# Test Data & Fixtures
+faker>=19.0.0  # Generate test data
+factory-boy>=3.3.0  # Test fixtures
+
+# Code Quality
+coverage>=7.3.0
+pytest-sugar>=0.9.7  # Better test output
+pytest-clarity>=1.0.1  # Better assertion diffs
+
+# Performance Testing
+pytest-profiling>=1.7.0
+memory-profiler>=0.61.0
+
+# Type Checking (for test validation)
+mypy>=1.5.0
+types-mock>=5.1.0
+
+# Documentation Testing
+pytest-doctest-custom>=1.0.0
+
+# Test Reporting
+pytest-html>=3.2.0
+pytest-json-report>=1.5.0
+
+# Utilities
+pyyaml>=6.0  # For fixture data
+toml>=0.10.2  # For config parsing

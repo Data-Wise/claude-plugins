@@ -6,7 +6,7 @@
 
 ```mermaid
 graph TD
-    ROOT[rforge-orchestrator]
+    ROOT[rforge]
     ROOT --> COMMANDS[commands/]
     COMMANDS --> CMD0["analyze.md"]
     COMMANDS --> CMD1["thorough.md"]
