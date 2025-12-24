@@ -66,6 +66,94 @@ python3 validate-all-plugins.py --strict
 
 ---
 
+### 📚 generate-docs.sh
+
+Master documentation generation script that runs all documentation generators.
+
+**Usage:**
+```bash
+# Generate documentation only
+./generate-docs.sh
+
+# Generate + build with mkdocs
+./generate-docs.sh --build
+
+# Generate + deploy to GitHub Pages
+./generate-docs.sh --deploy
+```
+
+**What it generates:**
+1. Command reference (from frontmatter)
+2. Architecture diagrams (Mermaid)
+3. Updated mkdocs.yml navigation
+
+**Output:**
+- `docs/COMMAND-REFERENCE.md` - Complete command reference
+- `docs/diagrams/` - 8 architecture diagrams
+- `mkdocs.yml` - Auto-updated navigation
+
+**Time:** ~5 seconds for generation
+
+---
+
+### 📝 generate-command-reference.py
+
+Generates command reference documentation from command frontmatter.
+
+**Usage:**
+```bash
+python3 generate-command-reference.py [--output FILE]
+```
+
+**Features:**
+- Parses all command .md files
+- Extracts name, description, arguments
+- Generates markdown tables
+- Groups by plugin
+- Links to source files
+
+**Output:** `docs/COMMAND-REFERENCE.md` (17 commands documented)
+
+---
+
+### 🏗️ generate-architecture-diagrams.py
+
+Generates Mermaid architecture diagrams from plugin structure.
+
+**Usage:**
+```bash
+python3 generate-architecture-diagrams.py [--output DIR]
+```
+
+**Generates:**
+- Plugin structure diagrams (directory tree)
+- Command flow diagrams (sequence diagrams)
+- Ecosystem diagram (plugin relationships)
+- Dependency diagram (requirements)
+
+**Output:** `docs/diagrams/` (8 diagram files)
+
+---
+
+### 📖 update-mkdocs-nav.py
+
+Auto-updates mkdocs.yml navigation from generated docs.
+
+**Usage:**
+```bash
+python3 update-mkdocs-nav.py [--config FILE]
+```
+
+**Updates:**
+- Navigation structure
+- Command reference section
+- Architecture diagrams section
+- Plugin documentation links
+
+**Output:** Updates `mkdocs.yml` in place
+
+---
+
 ### 🪝 pre-commit-hook.sh
 
 Git pre-commit hook for automated validation.
