@@ -46,19 +46,18 @@ jobs:
 
           # Check directory structure
           test -d rforge/commands || (echo "❌ Missing commands directory" && exit 1)
-          test -d rforge/skills || (echo "❌ Missing skills directory" && exit 1)
-          test -d rforge/lib || (echo "❌ Missing lib directory" && exit 1)
+          test -d rforge/.claude-plugin || (echo "❌ Missing .claude-plugin directory" && exit 1)
 
           echo "✅ Directory structure valid"
 
           # Count resources
-          cmd_count=$(find rforge/commands -name "*.md" | wc -l | tr -d ' ')
-          skill_count=$(find rforge/skills -name "*.md" | wc -l | tr -d ' ')
+          cmd_count=$(find rforge/commands -name "*.md" 2>/dev/null | wc -l | tr -d ' ')
+          agent_count=$(find rforge/agents -name "*.md" 2>/dev/null | wc -l | tr -d ' ')
 
           echo ""
           echo "📊 Plugin resources:"
           echo "   Commands: $cmd_count"
-          echo "   Skills: $skill_count"
+          echo "   Agents: $agent_count"
 
       - name: Validate JSON files
         run: |
