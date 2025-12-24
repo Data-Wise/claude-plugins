@@ -1,26 +1,36 @@
 # Command Reference
 
-**Auto-generated:** 2025-12-23 22:09:57
+**Auto-generated:** 2025-12-24 11:10:12
 
 Complete reference of all commands across all plugins.
 
 ## Table of Contents
 
-- [Rforge Orchestrator](#rforge-orchestrator) (3 commands)
+- [Rforge](#rforge) (13 commands)
 - [Statistical Research](#statistical-research) (13 commands)
 - [Workflow](#workflow) (1 commands)
 
 ---
 
-## Rforge Orchestrator
+## Rforge
 
-**Plugin:** `rforge-orchestrator`
-**Commands:** 3
+**Plugin:** `rforge`
+**Commands:** 13
 
 | Command | Description | Arguments |
 |---------|-------------|-----------|
 | `/rforge:analyze` | Quick R package analysis with auto-delegation to RForge MCP tools | Optional context (e.g., "Update bootstrap algorithm") |
+| `/rforge:capture` | Quick capture ideas and tasks for later (with automatic doc cascade detection) | Task description or idea to capture |
+| `/rforge:cascade` | Plan coordinated updates across dependent packages | Optional version or change description |
+| `/rforge:complete` | Mark tasks complete with automatic documentation cascade | Task ID or description |
+| `/rforge:deps` | Build and visualize dependency graph across R package ecosystem | — |
+| `/rforge:detect` | Auto-detect R package project structure (single package, ecosystem, or hybrid) | — |
+| `/rforge:doc-check` | Check for documentation drift and inconsistencies across packages | — |
+| `/rforge:impact` | Analyze change impact across ecosystem packages | Optional description of changes (e.g., "Breaking API change in extract_mediation") |
+| `/rforge:next` | Get ecosystem-aware next task recommendation | — |
 | `/rforge:quick` | Ultra-fast analysis using only quick tools (< 10 seconds) | — |
+| `/rforge:release` | Plan CRAN submission sequence based on dependencies | Optional package name or version |
+| `/rforge:status` | Ecosystem-wide status dashboard showing health, tests, and readiness | — |
 | `/rforge:thorough` | Comprehensive analysis with background R processes (2-5 minutes) | Optional context (e.g., "Prepare for CRAN release") |
 
 ### Detailed Descriptions
@@ -35,7 +45,95 @@ Complete reference of all commands across all plugins.
 
 Automatically analyze R package changes with intelligent tool delegation and parallel execution.
 
-**Source:** [`rforge-orchestrator/commands/analyze.md`](https://github.com/Data-Wise/claude-plugins/blob/main/rforge-orchestrator/commands/analyze.md)
+**Source:** [`rforge/commands/analyze.md`](https://github.com/Data-Wise/claude-plugins/blob/main/rforge/commands/analyze.md)
+
+#### `/rforge:capture`
+
+**Description:** Quick capture ideas and tasks for later (with automatic doc cascade detection)
+
+**Arguments:** Task description or idea to capture
+
+**Usage:**
+
+Quickly capture ideas, tasks, and TODOs with automatic context detection.
+
+**Source:** [`rforge/commands/capture.md`](https://github.com/Data-Wise/claude-plugins/blob/main/rforge/commands/capture.md)
+
+#### `/rforge:cascade`
+
+**Description:** Plan coordinated updates across dependent packages
+
+**Arguments:** Optional version or change description
+
+**Usage:**
+
+Plan coordinated updates across your R package ecosystem dependencies.
+
+**Source:** [`rforge/commands/cascade.md`](https://github.com/Data-Wise/claude-plugins/blob/main/rforge/commands/cascade.md)
+
+#### `/rforge:complete`
+
+**Description:** Mark tasks complete with automatic documentation cascade
+
+**Arguments:** Task ID or description
+
+**Usage:**
+
+Mark tasks complete and automatically trigger documentation cascade updates.
+
+**Source:** [`rforge/commands/complete.md`](https://github.com/Data-Wise/claude-plugins/blob/main/rforge/commands/complete.md)
+
+#### `/rforge:deps`
+
+**Description:** Build and visualize dependency graph across R package ecosystem
+
+**Usage:**
+
+Build and visualize dependency relationships in your R package ecosystem.
+
+**Source:** [`rforge/commands/deps.md`](https://github.com/Data-Wise/claude-plugins/blob/main/rforge/commands/deps.md)
+
+#### `/rforge:detect`
+
+**Description:** Auto-detect R package project structure (single package, ecosystem, or hybrid)
+
+**Usage:**
+
+Automatically detect your R package ecosystem structure.
+
+**Source:** [`rforge/commands/detect.md`](https://github.com/Data-Wise/claude-plugins/blob/main/rforge/commands/detect.md)
+
+#### `/rforge:doc-check`
+
+**Description:** Check for documentation drift and inconsistencies across packages
+
+**Usage:**
+
+Check for documentation inconsistencies and drift across your R package ecosystem.
+
+**Source:** [`rforge/commands/doc-check.md`](https://github.com/Data-Wise/claude-plugins/blob/main/rforge/commands/doc-check.md)
+
+#### `/rforge:impact`
+
+**Description:** Analyze change impact across ecosystem packages
+
+**Arguments:** Optional description of changes (e.g., "Breaking API change in extract_mediation")
+
+**Usage:**
+
+Analyze the ripple effects of changes across your R package ecosystem.
+
+**Source:** [`rforge/commands/impact.md`](https://github.com/Data-Wise/claude-plugins/blob/main/rforge/commands/impact.md)
+
+#### `/rforge:next`
+
+**Description:** Get ecosystem-aware next task recommendation
+
+**Usage:**
+
+Get intelligent recommendations for what to work on next based on ecosystem context.
+
+**Source:** [`rforge/commands/next.md`](https://github.com/Data-Wise/claude-plugins/blob/main/rforge/commands/next.md)
 
 #### `/rforge:quick`
 
@@ -45,7 +143,29 @@ Automatically analyze R package changes with intelligent tool delegation and par
 
 Lightning-fast analysis using only quick MCP tools. Results in < 10 seconds guaranteed.
 
-**Source:** [`rforge-orchestrator/commands/quick.md`](https://github.com/Data-Wise/claude-plugins/blob/main/rforge-orchestrator/commands/quick.md)
+**Source:** [`rforge/commands/quick.md`](https://github.com/Data-Wise/claude-plugins/blob/main/rforge/commands/quick.md)
+
+#### `/rforge:release`
+
+**Description:** Plan CRAN submission sequence based on dependencies
+
+**Arguments:** Optional package name or version
+
+**Usage:**
+
+Plan the optimal CRAN submission sequence for your R package ecosystem.
+
+**Source:** [`rforge/commands/release.md`](https://github.com/Data-Wise/claude-plugins/blob/main/rforge/commands/release.md)
+
+#### `/rforge:status`
+
+**Description:** Ecosystem-wide status dashboard showing health, tests, and readiness
+
+**Usage:**
+
+Get a comprehensive status dashboard for your R package ecosystem.
+
+**Source:** [`rforge/commands/status.md`](https://github.com/Data-Wise/claude-plugins/blob/main/rforge/commands/status.md)
 
 #### `/rforge:thorough`
 
@@ -57,7 +177,7 @@ Lightning-fast analysis using only quick MCP tools. Results in < 10 seconds guar
 
 Deep, comprehensive analysis using background R processes. Takes 2-5 minutes but provides publication-quality insights.
 
-**Source:** [`rforge-orchestrator/commands/thorough.md`](https://github.com/Data-Wise/claude-plugins/blob/main/rforge-orchestrator/commands/thorough.md)
+**Source:** [`rforge/commands/thorough.md`](https://github.com/Data-Wise/claude-plugins/blob/main/rforge/commands/thorough.md)
 
 ---
 

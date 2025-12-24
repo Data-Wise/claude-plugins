@@ -1,0 +1,9 @@
+{
+  "name": "rforge",
+  "version": "1.0.0",
+  "description": "Complete RForge toolkit - 13 commands for R package development, ecosystem management, and intelligent orchestration",
+  "author": {
+    "name": "Data-Wise",
+    "email": "dt@stat-wise.com"
+  }
+}

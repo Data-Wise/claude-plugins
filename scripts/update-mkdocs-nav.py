@@ -23,7 +23,7 @@ class MkDocsNavigationUpdater:
 
     def __init__(self, repo_root: Path):
         self.repo_root = repo_root
-        self.plugins = ['rforge-orchestrator', 'statistical-research', 'workflow']
+        self.plugins = ['rforge', 'statistical-research', 'workflow']
 
     def get_generated_docs(self) -> dict:
         """Find all generated documentation files."""

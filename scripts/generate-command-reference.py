@@ -37,7 +37,7 @@ class CommandReferenceGenerator:
 
     def __init__(self, repo_root: Path):
         self.repo_root = repo_root
-        self.plugins = ['rforge-orchestrator', 'statistical-research', 'workflow']
+        self.plugins = ['rforge', 'statistical-research', 'workflow']
         self.commands_by_plugin: Dict[str, List[Command]] = {}
         self.github_repo_url = 'https://github.com/Data-Wise/claude-plugins'
 
