@@ -2,73 +2,7 @@
   "name": "statistical-research",
   "version": "1.1.0",
   "description": "Statistical research workflows - literature management, manuscript writing, method scouting, and 17 A-grade research skills",
-  "author": "Data-Wise",
-  "license": "MIT",
-  "homepage": "https://github.com/Data-Wise/statistical-research-plugin",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Data-Wise/statistical-research-plugin.git"
-  },
-  "keywords": [
-    "claude",
-    "claude-code",
-    "plugin",
-    "statistics",
-    "research",
-    "literature",
-    "arxiv",
-    "bibtex",
-    "manuscript"
-  ],
-  "commands": {
-    "literature": {
-      "arxiv": "commands/literature/arxiv.md",
-      "doi": "commands/literature/doi.md",
-      "bib:search": "commands/literature/bib-search.md",
-      "bib:add": "commands/literature/bib-add.md"
-    },
-    "manuscript": {
-      "methods": "commands/manuscript/methods.md",
-      "results": "commands/manuscript/results.md",
-      "reviewer": "commands/manuscript/reviewer.md",
-      "proof": "commands/manuscript/proof.md"
-    },
-    "simulation": {
-      "design": "commands/simulation/design.md",
-      "analysis": "commands/simulation/analysis.md"
-    },
-    "research": {
-      "lit-gap": "commands/research/lit-gap.md",
-      "hypothesis": "commands/research/hypothesis.md",
-      "analysis-plan": "commands/research/analysis-plan.md",
-      "method-scout": "commands/research/method-scout.md"
-    }
-  },
-  "skills": {
-    "mathematical": [
-      "skills/mathematical/proof-architect.md",
-      "skills/mathematical/mathematical-foundations.md",
-      "skills/mathematical/identification-theory.md",
-      "skills/mathematical/asymptotic-theory.md"
-    ],
-    "implementation": [
-      "skills/implementation/simulation-architect.md",
-      "skills/implementation/algorithm-designer.md",
-      "skills/implementation/numerical-methods.md",
-      "skills/implementation/computational-inference.md",
-      "skills/implementation/statistical-software-qa.md"
-    ],
-    "writing": [
-      "skills/writing/methods-paper-writer.md",
-      "skills/writing/publication-strategist.md",
-      "skills/writing/methods-communicator.md"
-    ],
-    "research": [
-      "skills/research/literature-gap-finder.md",
-      "skills/research/cross-disciplinary-ideation.md",
-      "skills/research/method-transfer-engine.md",
-      "skills/research/mediation-meta-analyst.md",
-      "skills/research/sensitivity-analyst.md"
-    ]
+  "author": {
+    "name": "Data-Wise"
   }
 }
