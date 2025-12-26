@@ -4,6 +4,9 @@
   "description": "ADHD-friendly workflow automation: brainstorm, focus, next, done, recap, stuck, task management, and design patterns",
   "author": "Data-Wise",
   "license": "MIT",
+  "commands": "auto",
+  "skills": "auto",
+  "agents": "auto",
   "repository": {
     "type": "git",
     "url": "https://github.com/Data-Wise/claude-plugins.git",

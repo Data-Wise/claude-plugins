@@ -5,5 +5,8 @@
   "author": {
     "name": "Data-Wise",
     "email": "dt@stat-wise.com"
-  }
+  },
+  "commands": "auto",
+  "skills": "auto",
+  "agents": "auto"
 }
