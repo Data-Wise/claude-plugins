@@ -1,0 +1,168 @@
+# ADHD Light Design Preset
+# Light theme with warm undertones - not harsh white
+# Reduces eye strain while maintaining readability
+
+preset: "adhd-light"
+description: "ADHD-friendly - Warm light theme, not harsh white, easy on eyes"
+
+# ADHD Design Principles Applied:
+# 1. Warm undertones - reduces harshness
+# 2. Off-white backgrounds - less glare
+# 3. Soft shadows - depth without distraction
+# 4. Clear typography - easy scanning
+# 5. Muted accent colors - not overstimulating
+
+branding:
+  logo: null
+  favicon: null
+
+colors:
+  # Soft, muted palette
+  primary: "#5a6e78"       # Blue-gray - calm, professional
+  accent: "#7a9e9f"        # Teal-gray - gentle accent
+  scheme: "default"        # LIGHT MODE FIRST
+
+  # Extended palette - all softened
+  success: "#6b9080"       # Sage
+  warning: "#c9a66b"       # Muted gold
+  error: "#b87070"         # Dusty rose
+  info: "#6b8ea0"          # Steel blue
+
+  # Warm light backgrounds - never pure white
+  background_light: "#f8f6f3"     # Warm off-white
+  background_light_alt: "#f0ece6"  # Slightly darker for contrast
+
+typography:
+  font_text: "Source Sans Pro"  # Clean, open, very readable
+  font_code: "Source Code Pro"
+  font_headings: null
+
+  font_size_base: "16px"
+  line_height: "1.75"
+
+navigation:
+  style: "sidebar"
+  max_depth: 2
+  instant: true
+  tracking: true
+
+  sections:
+    - name: "Get Started"
+      icon: "material/rocket-launch-outline"
+      priority: 1
+    - name: "Guide"
+      icon: "material/book-outline"
+      priority: 2
+    - name: "Reference"
+      icon: "material/file-document-outline"
+      priority: 3
+
+features:
+  search: true
+  search_suggest: true
+  search_highlight: true
+  dark_mode: false         # Light mode only - consistent experience
+  code_copy: true
+  edit_on_github: false
+  navigation_instant: true
+  navigation_tracking: true
+  navigation_top: true
+  toc_follow: true
+  navigation_sections: false
+
+pages:
+  required:
+    - index.md
+    - QUICK-START.md
+  optional:
+    - REFCARD.md
+
+custom_css: |
+  /* Force light mode - this is a light-first theme */
+  :root,
+  [data-md-color-scheme="default"],
+  [data-md-color-scheme="slate"] {
+    --md-primary-fg-color: #5a6e78;
+    --md-accent-fg-color: #7a9e9f;
+
+    /* Warm off-white - never pure white */
+    --md-default-bg-color: #f8f6f3;
+    --md-default-bg-color--light: #f0ece6;
+    --md-default-bg-color--lighter: #e8e4dc;
+
+    /* Soft dark text - not pure black */
+    --md-default-fg-color: #3a3a3a;
+    --md-default-fg-color--light: #5a5a5a;
+    --md-default-fg-color--lighter: #7a7a7a;
+
+    /* Warm code background */
+    --md-code-bg-color: #f0ece6;
+    --md-code-fg-color: #3a3a3a;
+  }
+
+  /* Force light scheme */
+  [data-md-color-scheme="slate"] {
+    color-scheme: light;
+  }
+
+  /* Warm content area */
+  .md-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Subtle page shadow for depth */
+  .md-content__inner {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(90, 110, 120, 0.08);
+  }
+
+  /* Soft borders */
+  .md-typeset hr {
+    border-color: #e0dcd4;
+  }
+
+  /* Muted links */
+  .md-typeset a {
+    color: #5a7a80;
+  }
+
+  .md-typeset a:hover {
+    color: var(--md-primary-fg-color);
+  }
+
+  /* Warm code blocks */
+  .md-typeset pre {
+    border: 1px solid #e0dcd4;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  /* Soft header */
+  .md-header {
+    background: linear-gradient(to right, #5a6e78, #6a7e88);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+
+  /* Gentle navigation hover */
+  .md-nav__link:hover {
+    background-color: rgba(122, 158, 159, 0.1);
+  }
+
+  /* Reduce animation for focus */
+  * {
+    transition-duration: 0.15s !important;
+  }
+
+  /* Hide dark mode toggle since we're light-only */
+  .md-header__button[for="__palette"] {
+    display: none;
+  }
+
+  /* Sepia-tinted admonitions */
+  .md-typeset .admonition {
+    border-radius: 6px;
+    background: rgba(248, 246, 243, 0.8);
+  }

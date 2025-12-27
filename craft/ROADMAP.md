@@ -172,13 +172,23 @@ QUICK UPDATE:      /craft:docs:update
 
 ### Design System
 
-**Design Presets:**
+**Design Presets (8 total):**
+
 | Preset | Description | Best For |
 |--------|-------------|----------|
 | `data-wise` | DT's standard (Material + custom) | All DT projects |
 | `minimal` | Clean, simple, fast | Small projects |
 | `open-source` | Community-friendly, badges | Public repos |
 | `corporate` | Professional, formal | Enterprise |
+
+**ADHD-Friendly Presets:**
+
+| Preset | Description | Best For |
+|--------|-------------|----------|
+| `adhd-focus` | Forest green, minimal distractions | Sustained focus |
+| `adhd-calm` | Warm earth tones, cozy feel | Anxiety reduction |
+| `adhd-dark` | Dark-first, muted sage | Night reading, light sensitivity |
+| `adhd-light` | Warm off-white, soft contrast | Day reading, no glare |
 
 **Config File:** `.craft/site-design.yaml`
 ```yaml
@@ -217,7 +227,9 @@ Standard pages with consistent structure:
 
 **Phase 2: Design System ✅ COMPLETE**
 - [x] `/craft:site:theme` - Quick theme changes
-- [x] Design presets (4 presets: data-wise, minimal, open-source, corporate)
+- [x] Design presets (8 presets total)
+  - Standard: data-wise, minimal, open-source, corporate
+  - ADHD-friendly: adhd-focus, adhd-calm, adhd-dark, adhd-light
 - [x] Page templates (index, quick-start, refcard, guide-page)
 - [x] MkDocs templates (mkdocs.yml, extra.css)
 

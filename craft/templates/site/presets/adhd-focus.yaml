@@ -1,0 +1,128 @@
+# ADHD Focus Design Preset
+# Optimized for sustained attention and reduced distractions
+# Clean, calm, high-contrast for easy scanning
+
+preset: "adhd-focus"
+description: "ADHD-friendly - Calm colors, minimal distractions, clear hierarchy"
+
+# ADHD Design Principles Applied:
+# 1. Reduced visual clutter - minimal decorations
+# 2. High contrast - easy to read
+# 3. Calm colors - blue/green tones reduce anxiety
+# 4. Clear hierarchy - easy scanning
+# 5. Consistent patterns - predictable navigation
+
+branding:
+  logo: null
+  favicon: null
+
+colors:
+  # Calm blue-green palette - proven to aid focus
+  primary: "#2d6a4f"       # Forest green - calming, grounding
+  accent: "#40916c"        # Lighter green - subtle highlights
+  scheme: "auto"           # Respects user preference
+
+  # Extended palette for ADHD-friendly states
+  success: "#52b788"       # Soft green - positive feedback
+  warning: "#e9c46a"       # Muted gold - gentle alerts
+  error: "#e76f51"         # Soft coral - not harsh red
+  info: "#457b9d"          # Steel blue - informational
+
+  # Background adjustments
+  background_light: "#fafafa"   # Slightly warm, not pure white
+  background_dark: "#1a1a2e"    # Deep blue-black, easier on eyes
+
+typography:
+  # Sans-serif for readability
+  font_text: "Inter"       # Highly readable, open letterforms
+  font_code: "JetBrains Mono"  # Clear code distinction
+  font_headings: null      # Use text font for consistency
+
+  # Larger base size for reduced eye strain
+  font_size_base: "16px"
+  line_height: "1.7"       # More breathing room
+
+navigation:
+  style: "sidebar"         # Sidebar = less visual jumping than tabs
+  max_depth: 2             # Reduced depth = less overwhelm
+  instant: true
+  tracking: true
+
+  # Simplified sections
+  sections:
+    - name: "Start Here"
+      icon: "material/rocket-launch"
+      priority: 1
+    - name: "Guide"
+      icon: "material/book-open-page-variant"
+      priority: 2
+    - name: "Reference"
+      icon: "material/file-document"
+      priority: 3
+
+features:
+  search: true
+  search_suggest: true
+  search_highlight: true
+  dark_mode: true          # Essential for ADHD - reduces eye strain
+  code_copy: true
+  edit_on_github: false    # Reduce distractions
+  navigation_instant: true
+  navigation_tracking: true
+  navigation_top: true
+  toc_follow: true
+
+  # ADHD-specific
+  navigation_sections: false  # Flat nav = less cognitive load
+  navigation_expand: false    # Don't auto-expand = less visual noise
+
+pages:
+  required:
+    - index.md
+    - QUICK-START.md        # Quick wins = dopamine
+  optional:
+    - REFCARD.md            # Scannable reference
+
+# Custom CSS for ADHD optimization
+custom_css: |
+  :root {
+    --md-primary-fg-color: #2d6a4f;
+    --md-accent-fg-color: #40916c;
+
+    /* Warmer background - reduces eye strain */
+    --md-default-bg-color: #fafafa;
+
+    /* Softer text - not pure black */
+    --md-default-fg-color: #2b2b2b;
+    --md-default-fg-color--light: #5a5a5a;
+  }
+
+  [data-md-color-scheme="slate"] {
+    --md-primary-fg-color: #52b788;
+    --md-accent-fg-color: #74c69d;
+
+    /* Deep blue-black - easier than pure black */
+    --md-default-bg-color: #1a1a2e;
+    --md-default-fg-color: #e8e8e8;
+  }
+
+  /* Larger click targets for focus issues */
+  .md-nav__link {
+    padding: 0.75rem 1rem;
+  }
+
+  /* Clear visual separation */
+  .md-content {
+    max-width: 800px;  /* Narrower for easier reading */
+    margin: 0 auto;
+  }
+
+  /* Reduce animation distractions */
+  * {
+    transition-duration: 0.1s !important;
+  }
+
+  /* Clear heading hierarchy */
+  .md-typeset h1 { font-size: 2rem; margin-top: 2rem; }
+  .md-typeset h2 { font-size: 1.5rem; margin-top: 1.5rem; border-bottom: 2px solid var(--md-primary-fg-color); padding-bottom: 0.5rem; }
+  .md-typeset h3 { font-size: 1.25rem; }

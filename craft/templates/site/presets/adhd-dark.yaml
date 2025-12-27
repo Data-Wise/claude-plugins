@@ -1,0 +1,150 @@
+# ADHD Dark Design Preset
+# Dark-first theme optimized for focus and reduced eye strain
+# Perfect for late-night reading and light sensitivity
+
+preset: "adhd-dark"
+description: "ADHD-friendly - Dark mode first, reduced eye strain, focus-optimized"
+
+# ADHD Design Principles Applied:
+# 1. Dark mode reduces eye strain (common ADHD issue)
+# 2. Cool muted colors - not overstimulating
+# 3. High contrast text - easy reading
+# 4. Reduced blue light - better for focus
+# 5. Minimal bright elements - less distraction
+
+branding:
+  logo: null
+  favicon: null
+
+colors:
+  # Muted cool palette - calm in darkness
+  primary: "#7c9885"       # Sage green - calming
+  accent: "#a8c5b5"        # Light sage - subtle pop
+  scheme: "slate"          # DARK MODE FIRST
+
+  # Extended palette - all muted
+  success: "#8fbc8f"       # Dark sea green
+  warning: "#d4a574"       # Muted amber
+  error: "#cd8b8b"         # Muted rose
+  info: "#8fa5b5"          # Steel blue
+
+  # Carefully tuned dark backgrounds
+  background_dark: "#16161e"    # Very dark blue-black
+  background_dark_alt: "#1e1e28"  # Slightly lighter for contrast
+
+typography:
+  font_text: "IBM Plex Sans"  # Clean, open, excellent dark readability
+  font_code: "IBM Plex Mono"
+  font_headings: null
+
+  font_size_base: "16px"
+  line_height: "1.75"
+
+navigation:
+  style: "sidebar"
+  max_depth: 2
+  instant: true
+  tracking: true
+
+  sections:
+    - name: "Quick Start"
+      icon: "material/lightning-bolt"
+      priority: 1
+    - name: "Guide"
+      icon: "material/map"
+      priority: 2
+    - name: "Reference"
+      icon: "material/book"
+      priority: 3
+
+features:
+  search: true
+  search_suggest: true
+  search_highlight: true
+  dark_mode: false         # Already dark - no toggle needed
+  code_copy: true
+  edit_on_github: false
+  navigation_instant: true
+  navigation_tracking: true
+  navigation_top: true
+  toc_follow: true
+  navigation_sections: false
+
+pages:
+  required:
+    - index.md
+    - QUICK-START.md
+  optional:
+    - REFCARD.md
+
+custom_css: |
+  /* Force dark mode - this is a dark-first theme */
+  :root,
+  [data-md-color-scheme="default"],
+  [data-md-color-scheme="slate"] {
+    --md-primary-fg-color: #7c9885;
+    --md-accent-fg-color: #a8c5b5;
+
+    /* Deep dark background - reduces eye strain */
+    --md-default-bg-color: #16161e;
+    --md-default-bg-color--light: #1e1e28;
+    --md-default-bg-color--lighter: #262630;
+
+    /* High contrast but not pure white */
+    --md-default-fg-color: #e8e8ec;
+    --md-default-fg-color--light: #a8a8b0;
+    --md-default-fg-color--lighter: #68687a;
+
+    /* Muted code background */
+    --md-code-bg-color: #1e1e28;
+    --md-code-fg-color: #c8d0d8;
+  }
+
+  /* Smooth content area */
+  .md-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Softer borders */
+  .md-typeset hr {
+    border-color: #2e2e3a;
+  }
+
+  /* Muted links - not jarring blue */
+  .md-typeset a {
+    color: var(--md-accent-fg-color);
+  }
+
+  .md-typeset a:hover {
+    color: #c8dcd0;
+  }
+
+  /* Code blocks with subtle glow */
+  .md-typeset pre {
+    border: 1px solid #2e2e3a;
+    border-radius: 8px;
+  }
+
+  /* Reduce glare from header */
+  .md-header {
+    background: linear-gradient(to right, #16161e, #1a1a24);
+    box-shadow: none;
+  }
+
+  /* Gentle focus indicators */
+  .md-nav__link:focus,
+  .md-nav__link:hover {
+    background-color: rgba(168, 197, 181, 0.1);
+    outline: none;
+  }
+
+  /* Reduce animation for focus */
+  * {
+    transition-duration: 0.15s !important;
+  }
+
+  /* Hide light mode toggle since we're dark-only */
+  .md-header__button[for="__palette"] {
+    display: none;
+  }

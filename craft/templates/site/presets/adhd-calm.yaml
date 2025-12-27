@@ -1,0 +1,131 @@
+# ADHD Calm Design Preset
+# Warm, soothing colors that reduce anxiety
+# Cozy reading experience for sustained focus
+
+preset: "adhd-calm"
+description: "ADHD-friendly - Warm earth tones, cozy feel, anxiety-reducing"
+
+# ADHD Design Principles Applied:
+# 1. Warm colors - reduces anxiety, feels safe
+# 2. Earth tones - grounding, natural
+# 3. Soft contrasts - not jarring to eyes
+# 4. Cozy feel - inviting, reduces avoidance
+# 5. Minimal chrome - content-focused
+
+branding:
+  logo: null
+  favicon: null
+
+colors:
+  # Warm earth palette - cozy and grounding
+  primary: "#8b5a2b"       # Warm brown - like coffee/wood
+  accent: "#d4a373"        # Soft terracotta - gentle warmth
+  scheme: "auto"
+
+  # Extended palette
+  success: "#6b8e23"       # Olive green - natural
+  warning: "#daa520"       # Goldenrod - warm alert
+  error: "#cd5c5c"         # Indian red - soft error
+  info: "#7b8b6a"          # Sage - calm info
+
+  # Warm backgrounds
+  background_light: "#faf6f1"   # Cream/parchment
+  background_dark: "#2c2416"    # Warm dark brown
+
+typography:
+  font_text: "Merriweather Sans"  # Friendly, readable
+  font_code: "Source Code Pro"
+  font_headings: null
+
+  font_size_base: "17px"   # Slightly larger
+  line_height: "1.8"       # Very generous spacing
+
+navigation:
+  style: "sidebar"
+  max_depth: 2
+  instant: true
+  tracking: true
+
+  sections:
+    - name: "Welcome"
+      icon: "material/hand-wave"
+      priority: 1
+    - name: "Learn"
+      icon: "material/school"
+      priority: 2
+    - name: "Reference"
+      icon: "material/book-open-variant"
+      priority: 3
+
+features:
+  search: true
+  search_suggest: true
+  search_highlight: true
+  dark_mode: true
+  code_copy: true
+  edit_on_github: false
+  navigation_instant: true
+  navigation_tracking: true
+  navigation_top: true
+  toc_follow: true
+  navigation_sections: false
+  navigation_expand: false
+
+pages:
+  required:
+    - index.md
+    - QUICK-START.md
+  optional:
+    - REFCARD.md
+
+custom_css: |
+  :root {
+    --md-primary-fg-color: #8b5a2b;
+    --md-accent-fg-color: #d4a373;
+
+    /* Warm cream background - like paper */
+    --md-default-bg-color: #faf6f1;
+
+    /* Soft dark text */
+    --md-default-fg-color: #3d3027;
+    --md-default-fg-color--light: #6b5b4f;
+  }
+
+  [data-md-color-scheme="slate"] {
+    --md-primary-fg-color: #d4a373;
+    --md-accent-fg-color: #e9c6a4;
+
+    /* Warm dark - like evening firelight */
+    --md-default-bg-color: #2c2416;
+    --md-default-fg-color: #f0e6d8;
+  }
+
+  /* Cozy content area */
+  .md-content {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  /* Softer code blocks */
+  .md-typeset code {
+    background-color: rgba(139, 90, 43, 0.1);
+    border-radius: 6px;
+  }
+
+  /* Warm admonitions */
+  .md-typeset .admonition {
+    border-radius: 8px;
+    border-left-width: 4px;
+  }
+
+  /* Gentle hover states */
+  .md-nav__link:hover {
+    background-color: rgba(212, 163, 115, 0.2);
+  }
+
+  /* Reduce visual noise */
+  .md-header {
+    box-shadow: none;
+    border-bottom: 1px solid rgba(139, 90, 43, 0.2);
+  }
