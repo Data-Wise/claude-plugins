@@ -150,7 +150,7 @@ QUICK UPDATE:      /craft:docs:update
 
 ---
 
-## v1.7.0 - Site Commands Redesign (Next)
+## v1.7.0 - Site Commands Redesign 🚧 IN PROGRESS
 
 **Theme:** Complete documentation site management with design standards
 
@@ -160,15 +160,15 @@ QUICK UPDATE:      /craft:docs:update
 
 | Command | Status | Purpose |
 |---------|--------|---------|
-| `/craft:site:create` | NEW | Full wizard (combines init + design) |
-| `/craft:site:update` | NEW | Update content from code + validate |
-| `/craft:site:status` | NEW | Dashboard and health check |
-| `/craft:site:add` | NEW | Add pages/sections with nav sync |
-| `/craft:site:theme` | NEW | Quick theme changes |
-| `/craft:site:build` | ENHANCE | Build static site |
+| `/craft:site:create` | ✅ DONE | Full wizard (combines init + design) |
+| `/craft:site:update` | ✅ DONE | Update content from code + validate |
+| `/craft:site:status` | ✅ DONE | Dashboard and health check |
+| `/craft:site:add` | ✅ DONE | Add pages/sections with nav sync |
+| `/craft:site:theme` | ✅ DONE | Quick theme changes |
+| `/craft:site:build` | KEEP | Build static site |
 | `/craft:site:preview` | KEEP | Local preview server |
-| `/craft:site:check` | ENHANCE | Comprehensive validation |
-| `/craft:site:deploy` | ENHANCE | Multi-target deployment |
+| `/craft:site:check` | KEEP | Comprehensive validation |
+| `/craft:site:deploy` | KEEP | Multi-target deployment |
 
 ### Design System
 
@@ -210,21 +210,24 @@ Standard pages with consistent structure:
 
 ### Implementation Phases
 
-**Phase 1: Core Commands (2-3 hours)**
-- [ ] `/craft:site:create` - Full wizard
-- [ ] `/craft:site:update` - Content updater
-- [ ] `/craft:site:status` - Dashboard
+**Phase 1: Core Commands ✅ COMPLETE**
+- [x] `/craft:site:create` - Full wizard
+- [x] `/craft:site:update` - Content updater
+- [x] `/craft:site:status` - Dashboard
 
-**Phase 2: Design System (2 hours)**
-- [ ] `/craft:site:theme` - Quick theme changes
-- [ ] Design presets (4 presets)
-- [ ] Page templates
+**Phase 2: Design System ✅ COMPLETE**
+- [x] `/craft:site:theme` - Quick theme changes
+- [x] Design presets (4 presets: data-wise, minimal, open-source, corporate)
+- [x] Page templates (index, quick-start, refcard, guide-page)
+- [x] MkDocs templates (mkdocs.yml, extra.css)
 
-**Phase 3: Content Management (1.5 hours)**
-- [ ] `/craft:site:add` - Add pages with nav sync
-- [ ] Enhanced build/check/deploy
+**Phase 3: Content Management ✅ COMPLETE**
+- [x] `/craft:site:add` - Add pages with nav sync
+- [ ] Enhanced build/check/deploy (deferred - existing commands work well)
 
-**Total Effort:** ~5 hours
+**Dogfooding:** Applied data-wise preset to aiterm docs (Dec 27, 2025)
+
+**Total Effort:** ~4 hours (under estimate!)
 
 **See:** `PROPOSAL-site-commands-2025-12-27.md` for full specifications
 
