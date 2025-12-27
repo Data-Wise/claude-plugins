@@ -196,22 +196,23 @@ Commands support execution modes for different use cases:
 
 ## Version
 
-- **Version:** 1.4.0-dev
+- **Version:** 1.4.0
 - **Author:** DT (Data-Wise)
 - **License:** MIT
 
 ## Changelog
 
-### [1.4.0-dev] - 2025-12-27
+### [1.4.0] - 2025-12-27
 #### Enhanced
 - **Orchestrator v2.1** with major improvements:
   - Mode-aware execution (default, debug, optimize, release)
   - Improved context tracking with token estimation heuristics
   - Timeline view for visual execution progress
+  - Session persistence with auto-save and resume
   - Per-agent context budgets (~15% each)
   - Smart summarization for large agent responses
-  - New commands: `timeline`, `budget`, `mode`, `continue`
-- Total: 51 commands, 11 skills, 7 agents
+  - New commands: `timeline`, `budget`, `mode`, `continue`, `save`, `history`, `new`
+- Total: 51 commands, 12 skills, 7 agents
 
 ### [1.3.0] - 2025-12-26
 #### Added

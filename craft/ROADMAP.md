@@ -1,22 +1,22 @@
 # Craft Plugin Roadmap
 
-## Current Version: 1.3.0
+## Current Version: 1.4.0
 
 ---
 
-## v1.4.0 - Orchestrator Enhancement + Distribution (In Progress)
+## v1.4.0 - Orchestrator v2.1 Enhancement ✅ RELEASED
 
-### Orchestrator v2 Enhancements (Priority)
+### Orchestrator v2.1 Features (All Complete)
 
-#### Phase 1: Quick Wins (2-3 hours)
+#### Phase 1: Quick Wins ✅
 
-**1. Real Context Tracking**
+**1. Real Context Tracking** ✅
 - Improved heuristics for context usage estimation
 - Watch for Claude Code system warnings about context
 - Smarter compression triggers based on exchange count + content size
 - Per-agent context budget tracking
 
-**2. Mode Integration**
+**2. Mode Integration** ✅
 - Orchestrator respects craft mode system
 - `default` mode: 2 agents, 70% compression threshold
 - `debug` mode: 1 agent (sequential), verbose output, 90% threshold
@@ -29,9 +29,9 @@
 /craft:orchestrate "prep release" release # Thorough
 ```
 
-#### Phase 2: State Persistence (v1.4.0)
+#### Phase 2: State Persistence ✅
 
-**3. Session State File**
+**3. Session State File** ✅
 - Persist orchestrator state to `.claude/orchestrator-session.json`
 - Enable session recovery after disconnects
 - Track completed work, active agents, decisions made
@@ -43,9 +43,9 @@
 /craft:orchestrate history       # Show past sessions
 ```
 
-#### Phase 3: ADHD Enhancements (v1.4.0)
+#### Phase 3: ADHD Enhancements ✅
 
-**4. Timeline View**
+**4. Timeline View** ✅
 - Visual Gantt-style timeline of agent execution
 - ETA countdown with progress bars
 - Reduces anxiety about "what's happening"
@@ -58,6 +58,10 @@ code-1        ░░░░████████████░░░ 🟡
 ─────────┼─────┼─────┼─────┼─────┤
                          NOW ▲
 ```
+
+---
+
+## v1.5.0 - Distribution Commands (Planned)
 
 ### Distribution Commands
 
@@ -96,7 +100,7 @@ Generate curl-based installation scripts:
 
 ---
 
-## v1.5.0 - Release Automation (Future)
+## v1.6.0 - Release Automation (Future)
 
 - `/craft:dist:pypi` - PyPI publishing workflow
 - `/craft:dist:npm` - npm publishing workflow
@@ -107,7 +111,7 @@ Generate curl-based installation scripts:
 
 ---
 
-## v1.6.0 - CI/CD Integration (Future)
+## v1.7.0 - CI/CD Integration (Future)
 
 - `/craft:ci:matrix` - Generate test matrix
 - `/craft:ci:workflow` - Create GitHub Actions workflows
