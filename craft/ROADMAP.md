@@ -1,6 +1,6 @@
 # Craft Plugin Roadmap
 
-## Current Version: 1.4.0
+## Current Version: 1.5.0-dev
 
 ---
 
@@ -71,7 +71,7 @@ Live validation tests completed on aiterm project:
 
 ---
 
-## v1.5.0 - Distribution Commands (Planned)
+## v1.5.0 - Distribution Commands (In Progress)
 
 ### Distribution Commands
 

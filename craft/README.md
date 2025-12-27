@@ -48,7 +48,7 @@ Commands support execution modes for different use cases:
 /craft:arch:analyze optimize    # Performance analysis
 ```
 
-## Commands (50 total)
+## Commands (53 total)
 
 ### Smart Commands (4) - ENHANCED
 | Command | Description |
@@ -140,12 +140,18 @@ Commands support execution modes for different use cases:
 
 **Git Guides:** refcard, undo-guide, safety-rails, learning-guide
 
+### Distribution Commands (2) - NEW in v1.5.0
+| Command | Description |
+|---------|-------------|
+| `/craft:dist:homebrew` | Generate/update Homebrew formula |
+| `/craft:dist:curl-install` | Create curl-based install scripts |
+
 ### Discovery
 | Command | Description |
 |---------|-------------|
 | `/craft:hub` | Command discovery hub |
 
-## Skills (11)
+## Skills (13)
 
 | Skill | Category | Triggers |
 |-------|----------|----------|
@@ -153,14 +159,16 @@ Commands support execution modes for different use cases:
 | `frontend-designer` | Design | UI/UX, components |
 | `devops-helper` | Design | CI/CD, deployment |
 | `test-strategist` | Testing | Test strategy |
-| `cli-test-strategist` | Testing | CLI testing (NEW) |
+| `cli-test-strategist` | Testing | CLI testing |
 | `system-architect` | Architecture | System design |
 | `project-planner` | Planning | Feature planning |
 | `mode-controller` | Modes | Mode behavior |
 | `task-analyzer` | Orchestration | Task routing |
-| `changelog-automation` | Documentation | Changelog patterns (NEW) |
-| `architecture-decision-records` | Documentation | ADR generation (NEW) |
-| `openapi-spec-generation` | Documentation | OpenAPI specs (NEW) |
+| `changelog-automation` | Documentation | Changelog patterns |
+| `architecture-decision-records` | Documentation | ADR generation |
+| `openapi-spec-generation` | Documentation | OpenAPI specs |
+| `distribution-strategist` | Distribution | Release channels (NEW) |
+| `homebrew-formula-expert` | Distribution | Homebrew formulas (NEW) |
 
 ## Agents (7)
 
@@ -196,11 +204,21 @@ Commands support execution modes for different use cases:
 
 ## Version
 
-- **Version:** 1.4.0
+- **Version:** 1.5.0-dev
 - **Author:** DT (Data-Wise)
 - **License:** MIT
 
 ## Changelog
+
+### [1.5.0-dev] - 2025-12-27
+#### Added
+- **Distribution Commands** (2 new commands):
+  - `/craft:dist:homebrew` - Generate/update Homebrew formulas
+  - `/craft:dist:curl-install` - Create curl-based installation scripts
+- **Distribution Skills** (2 new skills):
+  - `distribution-strategist` - Recommend optimal distribution channels
+  - `homebrew-formula-expert` - Homebrew formula best practices
+- Total: 53 commands, 13 skills, 7 agents
 
 ### [1.4.0] - 2025-12-27
 #### Enhanced
