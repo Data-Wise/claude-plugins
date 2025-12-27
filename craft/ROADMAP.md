@@ -59,6 +59,14 @@ code-1        ░░░░████████████░░░ 🟡
                          NOW ▲
 ```
 
+### Dogfooding Phase (Manual Testing)
+
+Live validation tests to run manually:
+
+- [ ] **Live orchestrator test** - Run real multi-agent workflow with `/craft:orchestrate "add feature X" default`
+- [ ] **Stress test** - 4 parallel agents in `optimize` mode with complex task
+- [ ] **Session persistence test** - Start workflow, disconnect, resume with `continue`
+
 ---
 
 ## v1.5.0 - Distribution Commands (Planned)
