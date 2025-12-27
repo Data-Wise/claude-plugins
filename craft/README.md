@@ -1,6 +1,6 @@
 # Craft - Full Stack Developer Toolkit Plugin
 
-A comprehensive full-stack developer toolkit for Claude Code. Craft provides 53 commands, 7 specialized agents, 13 skills with mode support, smart orchestration, intelligent task routing, and **enhanced orchestrator v2.1 with mode-aware execution, context tracking, and timeline visualization**.
+A comprehensive full-stack developer toolkit for Claude Code. Craft provides 54 commands, 7 specialized agents, 15 skills with mode support, smart orchestration, intelligent task routing, and **enhanced orchestrator v2.1 with mode-aware execution, context tracking, and timeline visualization**.
 
 ## Installation
 
