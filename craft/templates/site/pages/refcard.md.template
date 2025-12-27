@@ -1,0 +1,99 @@
+# Quick Reference
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  {{PROJECT_NAME}} QUICK REFERENCE                           │
+├─────────────────────────────────────────────────────────────┤
+│  Version: {{VERSION}}                                       │
+│  Docs: {{DOCS_URL}}                                         │
+│  Repo: {{REPO_URL}}                                         │
+└─────────────────────────────────────────────────────────────┘
+```
+
+## Installation
+
+```bash
+{{INSTALL_COMMAND}}
+```
+
+## Essential Commands
+
+| Command | Description |
+|---------|-------------|
+{{#each COMMANDS}}
+| `{{this.command}}` | {{this.description}} |
+{{/each}}
+
+## Common Workflows
+
+### {{WORKFLOW_1_NAME}}
+
+```bash
+{{WORKFLOW_1_COMMANDS}}
+```
+
+{{#if WORKFLOW_2_NAME}}
+### {{WORKFLOW_2_NAME}}
+
+```bash
+{{WORKFLOW_2_COMMANDS}}
+```
+{{/if}}
+
+{{#if WORKFLOW_3_NAME}}
+### {{WORKFLOW_3_NAME}}
+
+```bash
+{{WORKFLOW_3_COMMANDS}}
+```
+{{/if}}
+
+## Configuration
+
+| Setting | Default | Description |
+|---------|---------|-------------|
+{{#each CONFIG_OPTIONS}}
+| `{{this.name}}` | `{{this.default}}` | {{this.description}} |
+{{/each}}
+
+## Environment Variables
+
+| Variable | Description |
+|----------|-------------|
+{{#each ENV_VARS}}
+| `{{this.name}}` | {{this.description}} |
+{{/each}}
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+{{#each TROUBLESHOOTING}}
+| {{this.issue}} | {{this.solution}} |
+{{/each}}
+
+## Keyboard Shortcuts
+
+{{#if SHORTCUTS}}
+| Shortcut | Action |
+|----------|--------|
+{{#each SHORTCUTS}}
+| `{{this.key}}` | {{this.action}} |
+{{/each}}
+{{else}}
+*No keyboard shortcuts defined.*
+{{/if}}
+
+## Quick Links
+
+- [Full Documentation](guide/overview.md)
+- [GitHub Repository]({{REPO_URL}})
+- [Issue Tracker]({{REPO_URL}}/issues)
+- [Changelog](CHANGELOG.md)
+
+---
+
+<small>
+Generated for {{PROJECT_NAME}} v{{VERSION}}
+Last updated: {{GENERATED_DATE}}
+</small>

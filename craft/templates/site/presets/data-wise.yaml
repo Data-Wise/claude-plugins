@@ -1,0 +1,97 @@
+# Data-Wise Design Preset
+# DT's standard documentation style
+# Modern Material theme with custom colors
+
+preset: "data-wise"
+description: "DT's standard - Material theme with blue/orange accent"
+
+branding:
+  logo: null  # Use text logo by default
+  favicon: null  # Auto-generate from logo
+
+colors:
+  primary: "#1a73e8"      # Google Blue
+  accent: "#ff6b35"       # Vibrant Orange
+  scheme: "auto"          # auto, light, dark
+
+  # Extended palette
+  success: "#28a745"
+  warning: "#ffc107"
+  error: "#dc3545"
+  info: "#17a2b8"
+
+typography:
+  font_text: "Roboto"
+  font_code: "Roboto Mono"
+  font_headings: null     # Use text font
+
+navigation:
+  style: "tabs"           # tabs, sidebar, hybrid
+  max_depth: 3
+  instant: true           # Instant loading
+  tracking: true          # URL tracking
+  sections:
+    - name: "Home"
+      icon: "material/home"
+      priority: 1
+    - name: "Quick Start"
+      icon: "material/rocket-launch"
+      priority: 2
+    - name: "Reference"
+      icon: "material/code-tags"
+      priority: 3
+    - name: "Guide"
+      icon: "material/book-open-page-variant"
+      priority: 4
+
+features:
+  search: true
+  search_suggest: true
+  search_highlight: true
+  dark_mode: true
+  code_copy: true
+  edit_on_github: true
+  navigation_instant: true
+  navigation_tracking: true
+  navigation_top: true      # Back to top button
+  toc_follow: true
+  version_selector: false
+  announcement_bar: false
+
+pages:
+  required:
+    - index.md
+    - QUICK-START.md
+    - REFCARD.md
+  optional:
+    - CHANGELOG.md
+    - CONTRIBUTING.md
+    - LICENSE.md
+
+plugins:
+  - search
+  - minify
+
+extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.details
+  - admonition
+  - tables
+  - toc
+
+# Custom CSS for data-wise preset
+custom_css: |
+  :root {
+    --md-primary-fg-color: #1a73e8;
+    --md-accent-fg-color: #ff6b35;
+  }
+
+  .md-header {
+    background-color: var(--md-primary-fg-color);
+  }
+
+  .md-tabs__link--active {
+    border-bottom: 2px solid var(--md-accent-fg-color);
+  }

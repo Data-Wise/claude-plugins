@@ -1,0 +1,66 @@
+# Minimal Design Preset
+# Clean, simple, fast-loading documentation
+# Best for small projects or personal docs
+
+preset: "minimal"
+description: "Clean and simple - essential features only"
+
+branding:
+  logo: null
+  favicon: null
+
+colors:
+  primary: "#424242"      # Neutral gray
+  accent: "#1976d2"       # Subtle blue
+  scheme: "default"       # Light only
+
+typography:
+  font_text: "system-ui"  # System fonts for speed
+  font_code: "monospace"
+  font_headings: null
+
+navigation:
+  style: "sidebar"        # Simple sidebar
+  max_depth: 2
+  instant: false          # Simpler, full page loads
+  tracking: false
+  sections:
+    - name: "Home"
+      priority: 1
+    - name: "Docs"
+      priority: 2
+    - name: "Reference"
+      priority: 3
+
+features:
+  search: true
+  search_suggest: false
+  search_highlight: false
+  dark_mode: false
+  code_copy: true
+  edit_on_github: false
+  navigation_instant: false
+  navigation_tracking: false
+  navigation_top: false
+  toc_follow: false
+  version_selector: false
+  announcement_bar: false
+
+pages:
+  required:
+    - index.md
+  optional:
+    - QUICK-START.md
+    - REFCARD.md
+
+plugins:
+  - search
+
+extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - tables
+  - toc
+
+custom_css: |
+  /* Minimal - no custom styles needed */

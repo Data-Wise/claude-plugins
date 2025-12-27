@@ -1,0 +1,83 @@
+# {{TITLE}}
+
+{{OVERVIEW}}
+
+## Prerequisites
+
+{{#if PREREQUISITES}}
+{{#each PREREQUISITES}}
+- {{this}}
+{{/each}}
+{{else}}
+- {{PROJECT_NAME}} installed ([Installation Guide](../getting-started/installation.md))
+{{/if}}
+
+## {{MAIN_SECTION_TITLE}}
+
+{{MAIN_CONTENT}}
+
+{{#if SUBSECTIONS}}
+{{#each SUBSECTIONS}}
+### {{this.title}}
+
+{{this.content}}
+
+{{/each}}
+{{/if}}
+
+## Examples
+
+{{#each EXAMPLES}}
+### {{this.title}}
+
+{{this.description}}
+
+```{{this.language}}
+{{this.code}}
+```
+
+{{#if this.output}}
+Output:
+```
+{{this.output}}
+```
+{{/if}}
+
+{{/each}}
+
+## Best Practices
+
+{{#if BEST_PRACTICES}}
+{{#each BEST_PRACTICES}}
+!!! tip "{{this.title}}"
+    {{this.content}}
+
+{{/each}}
+{{/if}}
+
+## Common Issues
+
+{{#if COMMON_ISSUES}}
+{{#each COMMON_ISSUES}}
+??? warning "{{this.issue}}"
+    **Cause:** {{this.cause}}
+
+    **Solution:** {{this.solution}}
+
+{{/each}}
+{{/if}}
+
+## Related
+
+- [{{RELATED_1_TITLE}}]({{RELATED_1_PATH}})
+{{#if RELATED_2_TITLE}}
+- [{{RELATED_2_TITLE}}]({{RELATED_2_PATH}})
+{{/if}}
+{{#if RELATED_3_TITLE}}
+- [{{RELATED_3_TITLE}}]({{RELATED_3_PATH}})
+{{/if}}
+
+---
+
+!!! question "Need Help?"
+    If you have questions, check the [FAQ](../support/faq.md) or [open an issue]({{REPO_URL}}/issues).

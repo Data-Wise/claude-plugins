@@ -1,0 +1,112 @@
+# Open Source Design Preset
+# Community-friendly with badges and contributor info
+# Best for public GitHub projects
+
+preset: "open-source"
+description: "Community-friendly with badges and contribution focus"
+
+branding:
+  logo: null
+  favicon: null
+
+badges:
+  show: true
+  types:
+    - pypi         # PyPI version
+    - license      # License badge
+    - tests        # CI status
+    - coverage     # Code coverage
+    - downloads    # Download count
+
+colors:
+  primary: "#0366d6"      # GitHub blue
+  accent: "#28a745"       # GitHub green (success)
+  scheme: "auto"
+
+typography:
+  font_text: "Roboto"
+  font_code: "Fira Code"
+  font_headings: null
+
+navigation:
+  style: "tabs"
+  max_depth: 3
+  instant: true
+  tracking: true
+  sections:
+    - name: "Home"
+      icon: "material/home"
+      priority: 1
+    - name: "Getting Started"
+      icon: "material/rocket-launch"
+      priority: 2
+    - name: "Guide"
+      icon: "material/book"
+      priority: 3
+    - name: "API"
+      icon: "material/api"
+      priority: 4
+    - name: "Contributing"
+      icon: "material/account-group"
+      priority: 5
+
+features:
+  search: true
+  search_suggest: true
+  search_highlight: true
+  dark_mode: true
+  code_copy: true
+  edit_on_github: true
+  navigation_instant: true
+  navigation_tracking: true
+  navigation_top: true
+  toc_follow: true
+  version_selector: false
+  announcement_bar: false
+
+social:
+  show: true
+  links:
+    - github
+    - twitter
+
+pages:
+  required:
+    - index.md
+    - QUICK-START.md
+    - CONTRIBUTING.md
+  optional:
+    - REFCARD.md
+    - CHANGELOG.md
+    - CODE_OF_CONDUCT.md
+
+plugins:
+  - search
+  - minify
+
+extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.details
+  - admonition
+  - tables
+  - toc
+
+custom_css: |
+  :root {
+    --md-primary-fg-color: #0366d6;
+    --md-accent-fg-color: #28a745;
+  }
+
+  /* Badge styling */
+  .badges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .badges img {
+    height: 20px;
+  }

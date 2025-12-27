@@ -1,0 +1,112 @@
+# Corporate Design Preset
+# Professional and formal documentation
+# Best for enterprise or commercial products
+
+preset: "corporate"
+description: "Professional and formal - enterprise documentation style"
+
+branding:
+  logo: null              # Should be customized
+  favicon: null
+  company_name: null      # For footer
+
+colors:
+  primary: "#003366"      # Deep navy (customize per brand)
+  accent: "#0066cc"       # Lighter blue
+  scheme: "default"       # Light mode only for professionalism
+
+typography:
+  font_text: "Open Sans"
+  font_code: "Source Code Pro"
+  font_headings: "Montserrat"
+
+navigation:
+  style: "tabs"
+  max_depth: 3
+  instant: true
+  tracking: true
+  sections:
+    - name: "Overview"
+      icon: "material/home"
+      priority: 1
+    - name: "Getting Started"
+      icon: "material/rocket-launch"
+      priority: 2
+    - name: "User Guide"
+      icon: "material/book-open"
+      priority: 3
+    - name: "API Reference"
+      icon: "material/api"
+      priority: 4
+    - name: "Support"
+      icon: "material/help-circle"
+      priority: 5
+
+features:
+  search: true
+  search_suggest: true
+  search_highlight: true
+  dark_mode: false        # Light only for consistency
+  code_copy: true
+  edit_on_github: false   # No public editing
+  navigation_instant: true
+  navigation_tracking: true
+  navigation_top: true
+  toc_follow: true
+  version_selector: true  # Important for enterprise
+  announcement_bar: true  # For updates/notices
+  consent: true           # Cookie consent (GDPR)
+
+pages:
+  required:
+    - index.md
+    - getting-started/installation.md
+    - getting-started/quickstart.md
+  optional:
+    - CHANGELOG.md
+    - support/faq.md
+    - support/contact.md
+    - legal/terms.md
+    - legal/privacy.md
+
+plugins:
+  - search
+  - minify
+  - git-revision-date-localized  # Show last updated
+
+extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.details
+  - admonition
+  - tables
+  - toc
+  - attr_list
+  - md_in_html
+
+custom_css: |
+  :root {
+    --md-primary-fg-color: #003366;
+    --md-accent-fg-color: #0066cc;
+  }
+
+  .md-header {
+    background: linear-gradient(135deg, #003366 0%, #004488 100%);
+  }
+
+  /* Professional footer */
+  .md-footer {
+    background-color: #1a1a1a;
+  }
+
+  /* Version selector styling */
+  .md-version {
+    margin-left: 1rem;
+  }
+
+  /* Announcement bar */
+  .md-banner {
+    background-color: #e3f2fd;
+    color: #1565c0;
+  }

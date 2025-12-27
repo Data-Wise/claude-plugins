@@ -1,0 +1,71 @@
+# {{PROJECT_NAME}}
+
+{{#if BADGES}}
+{{BADGES}}
+{{/if}}
+
+> {{TAGLINE}}
+
+## Features
+
+<div class="grid cards" markdown>
+
+- :rocket: **{{FEATURE_1_TITLE}}**
+
+    {{FEATURE_1_DESC}}
+
+- :sparkles: **{{FEATURE_2_TITLE}}**
+
+    {{FEATURE_2_DESC}}
+
+- :zap: **{{FEATURE_3_TITLE}}**
+
+    {{FEATURE_3_DESC}}
+
+- :shield: **{{FEATURE_4_TITLE}}**
+
+    {{FEATURE_4_DESC}}
+
+</div>
+
+## Quick Start
+
+```bash
+{{INSTALL_COMMAND}}
+```
+
+```bash
+{{FIRST_COMMAND}}
+```
+
+[Get Started :material-arrow-right:](QUICK-START.md){ .md-button .md-button--primary }
+[Reference Card :material-file-document:](REFCARD.md){ .md-button }
+
+## Documentation
+
+| Section | Description |
+|---------|-------------|
+| [Quick Start](QUICK-START.md) | Get running in 30 seconds |
+| [Reference Card](REFCARD.md) | Quick command reference |
+| [Installation](getting-started/installation.md) | Detailed setup guide |
+| [Guide](guide/overview.md) | Complete documentation |
+
+## Links
+
+- [:fontawesome-brands-github: GitHub]({{REPO_URL}})
+{{#if PYPI_URL}}
+- [:fontawesome-brands-python: PyPI]({{PYPI_URL}})
+{{/if}}
+{{#if NPM_URL}}
+- [:fontawesome-brands-npm: npm]({{NPM_URL}})
+{{/if}}
+- [:material-file-document: Changelog](CHANGELOG.md)
+
+---
+
+<small>
+{{PROJECT_NAME}} is maintained by [{{AUTHOR}}]({{AUTHOR_URL}}).
+{{#if LICENSE}}
+Licensed under {{LICENSE}}.
+{{/if}}
+</small>

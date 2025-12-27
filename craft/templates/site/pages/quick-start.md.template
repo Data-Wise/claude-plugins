@@ -1,0 +1,75 @@
+# Quick Start
+
+Get up and running with {{PROJECT_NAME}} in 30 seconds.
+
+## Install
+
+=== "{{INSTALL_METHOD_1_NAME}}"
+
+    ```bash
+    {{INSTALL_METHOD_1_COMMAND}}
+    ```
+
+{{#if INSTALL_METHOD_2}}
+=== "{{INSTALL_METHOD_2_NAME}}"
+
+    ```bash
+    {{INSTALL_METHOD_2_COMMAND}}
+    ```
+{{/if}}
+
+{{#if INSTALL_METHOD_3}}
+=== "{{INSTALL_METHOD_3_NAME}}"
+
+    ```bash
+    {{INSTALL_METHOD_3_COMMAND}}
+    ```
+{{/if}}
+
+## Verify Installation
+
+```bash
+{{VERIFY_COMMAND}}
+```
+
+Expected output:
+
+```
+{{VERIFY_OUTPUT}}
+```
+
+## Your First Command
+
+```bash
+{{FIRST_COMMAND}}
+```
+
+{{#if FIRST_COMMAND_OUTPUT}}
+Output:
+
+```
+{{FIRST_COMMAND_OUTPUT}}
+```
+{{/if}}
+
+## What's Next?
+
+<div class="grid cards" markdown>
+
+- :material-book-open: **[Full Guide](guide/overview.md)**
+
+    Complete documentation for all features.
+
+- :material-file-document: **[Reference Card](REFCARD.md)**
+
+    Quick reference for common commands.
+
+- :material-cog: **[Configuration]({{CONFIG_PATH}})**
+
+    Customize {{PROJECT_NAME}} for your workflow.
+
+</div>
+
+!!! tip "Need Help?"
+    - Check the [Troubleshooting Guide]({{TROUBLESHOOTING_PATH}})
+    - Open an [issue on GitHub]({{REPO_URL}}/issues)

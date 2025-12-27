@@ -54,4 +54,6 @@ build/
 # Logs
 logs/
 *.log
-site/
+
+# MkDocs build output (root level only)
+/site/
