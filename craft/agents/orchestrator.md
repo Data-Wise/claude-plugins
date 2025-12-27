@@ -8,9 +8,13 @@ tools:
   - Write
   - Bash
   - TodoWrite
+deprecated: true
+successor: orchestrator-v2
 ---
 
-# Workflow Orchestrator Agent
+> **DEPRECATED:** This agent is superseded by `orchestrator-v2` which adds mode-aware execution, context tracking, timeline visualization, and session persistence. Use `/craft:orchestrate` instead. This agent is preserved for backwards compatibility but will be removed in v2.0.0.
+
+# Workflow Orchestrator Agent (Legacy)
 
 **Purpose:** Coordinate complex workflows by delegating to specialized agents, running tasks in parallel, and synthesizing results.
 
