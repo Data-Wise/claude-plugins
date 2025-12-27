@@ -1,6 +1,6 @@
 # Craft - Full Stack Developer Toolkit Plugin
 
-A comprehensive full-stack developer toolkit for Claude Code. Craft provides 58 commands, 7 specialized agents, 15 skills with mode support, smart orchestration, intelligent task routing, and **enhanced orchestrator v2.1 with mode-aware execution, context tracking, and timeline visualization**.
+A comprehensive full-stack developer toolkit for Claude Code. Craft provides 61 commands, 7 specialized agents, 15 skills with mode support, smart orchestration, intelligent task routing, **enhanced orchestrator v2.1**, and **redesigned site commands with 8 ADHD-friendly design presets**.
 
 ## Installation
 
@@ -130,15 +130,18 @@ Commands support execution modes for different use cases:
 | `/craft:docs:validate` | Validate links |
 | `/craft:docs:nav-update` | Update mkdocs.yml |
 
-### Site Commands (6)
+### Site Commands (9) - REDESIGNED in v1.7.0
 | Command | Description |
 |---------|-------------|
-| `/craft:site:init` | Initialize doc site |
+| `/craft:site:create` | **NEW** Full documentation site wizard with 8 design presets |
+| `/craft:site:update` | **NEW** Update site content from code changes |
+| `/craft:site:status` | **NEW** Dashboard and health check |
+| `/craft:site:theme` | **NEW** Quick theme changes (colors, presets, fonts) |
+| `/craft:site:add` | **NEW** Add new documentation pages |
 | `/craft:site:build` | Build site |
 | `/craft:site:preview` | Preview locally |
 | `/craft:site:deploy` | Deploy to GitHub Pages |
-| `/craft:site:check` | Validate site |
-| `/craft:site:frameworks` | Compare frameworks |
+| `/craft:site:init` | Basic initialization (use `create` for full wizard) |
 
 ### Git Commands (4 + 4 guides)
 | Command | Description |
@@ -212,7 +215,7 @@ Commands support execution modes for different use cases:
 # Routes to: arch:plan → code:test-gen → git:branch
 ```
 
-### Documentation Workflow (NEW in v1.6.0)
+### Documentation Workflow (v1.6.0)
 ```
 # After adding a feature
 /craft:docs:feature
@@ -230,15 +233,56 @@ Commands support execution modes for different use cases:
 /craft:docs:update
 ```
 
+### Site Workflow (NEW in v1.7.0)
+```
+# Create new documentation site with design preset
+/craft:site:create --preset adhd-focus
+
+# Change theme quickly
+/craft:site:theme --preset adhd-calm
+/craft:site:theme --primary "#1a73e8"
+
+# Add new pages
+/craft:site:add guide "Getting Started"
+
+# Update content from code changes
+/craft:site:update
+
+# Check site health
+/craft:site:status
+
+# Build and deploy
+/craft:site:build → /craft:site:deploy
+```
+
 ## Version
 
-- **Version:** 1.6.0-dev
+- **Version:** 1.7.0
 - **Author:** DT (Data-Wise)
 - **License:** MIT
 
 ## Changelog
 
-### [1.6.0-dev] - 2025-12-27
+### [1.7.0] - 2025-12-27
+#### Added
+- **Site Commands Redesign** (5 new commands):
+  - `/craft:site:create` - Full documentation site wizard with design presets
+  - `/craft:site:update` - Smart content sync from code changes
+  - `/craft:site:status` - Site dashboard and health check
+  - `/craft:site:theme` - Quick theme changes (colors, presets, fonts)
+  - `/craft:site:add` - Add new documentation pages with templates
+- **8 Design Presets**:
+  - Standard: `data-wise`, `minimal`, `open-source`, `corporate`
+  - ADHD-Friendly: `adhd-focus`, `adhd-calm`, `adhd-dark`, `adhd-light`
+- **ADHD-Friendly Features**:
+  - Reduced animations, larger click targets
+  - Calm color palettes, clear hierarchy
+  - Warm backgrounds (no harsh white/black)
+- **Design System**: Templates, presets, color palettes
+- **Preset Gallery**: Visual reference for all 8 presets
+- Total: 61 commands, 15 skills, 7 agents
+
+### [1.6.0] - 2025-12-27
 #### Added
 - **Docs Workflow Commands** (4 new commands):
   - `/craft:docs:update [full]` - Smart universal documentation updater
