@@ -65,9 +65,11 @@ git remote get-url origin 2>/dev/null
 │                                                             │
 │ Choose your site's design language:                         │
 │                                                             │
+│ STANDARD PRESETS:                                           │
+│                                                             │
 │   [1] data-wise (Recommended)                               │
 │       DT's standard - Material + custom styling             │
-│       Colors: Blue primary, orange accent                   │
+│       Colors: Blue primary (#1a73e8), orange accent         │
 │       Features: Tabs, dark mode, code copy                  │
 │                                                             │
 │   [2] minimal                                               │
@@ -77,7 +79,7 @@ git remote get-url origin 2>/dev/null
 │                                                             │
 │   [3] open-source                                           │
 │       Community-friendly with badges                        │
-│       Colors: GitHub-inspired                               │
+│       Colors: GitHub-inspired blue/green                    │
 │       Features: Contributors, changelog visible             │
 │                                                             │
 │   [4] corporate                                             │
@@ -85,10 +87,32 @@ git remote get-url origin 2>/dev/null
 │       Colors: Customizable brand colors                     │
 │       Features: Version selector, enterprise look           │
 │                                                             │
-│   [5] custom                                                │
+│ ADHD-FRIENDLY PRESETS:                                      │
+│                                                             │
+│   [5] adhd-focus                                            │
+│       Calm forest green, minimal distractions               │
+│       Colors: Green (#2d6a4f), sage accent                  │
+│       Features: Reduced animations, clear hierarchy         │
+│                                                             │
+│   [6] adhd-calm                                             │
+│       Warm earth tones, cozy reading experience             │
+│       Colors: Brown (#8b5a2b), terracotta accent            │
+│       Features: Cream backgrounds, soft contrasts           │
+│                                                             │
+│   [7] adhd-dark                                             │
+│       Dark-first, reduced eye strain                        │
+│       Colors: Muted sage (#7c9885), dark backgrounds        │
+│       Features: No light mode, night reading optimized      │
+│                                                             │
+│   [8] adhd-light                                            │
+│       Warm light, never harsh white                         │
+│       Colors: Blue-gray (#5a6e78), warm off-white           │
+│       Features: Soft shadows, sepia undertones              │
+│                                                             │
+│   [9] custom                                                │
 │       Configure colors, fonts, features manually            │
 │                                                             │
-│ Select (1-5):                                               │
+│ Select (1-9):                                               │
 └─────────────────────────────────────────────────────────────┘
 ```
 

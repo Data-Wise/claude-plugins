@@ -149,7 +149,57 @@ Change the entire design language:
 
 ```bash
 /craft:site:theme --preset minimal
+/craft:site:theme --preset adhd-focus
 ```
+
+### Available Presets (8 total)
+
+**Standard Presets:**
+
+| Preset | Primary | Description |
+|--------|---------|-------------|
+| `data-wise` | #1a73e8 | DT's standard - blue/orange Material |
+| `minimal` | #424242 | Clean, simple, fast loading |
+| `open-source` | #0366d6 | GitHub-style, community-friendly |
+| `corporate` | #003366 | Professional, formal |
+
+**ADHD-Friendly Presets:**
+
+| Preset | Primary | Description |
+|--------|---------|-------------|
+| `adhd-focus` | #2d6a4f | Forest green, minimal distractions |
+| `adhd-calm` | #8b5a2b | Warm earth tones, cozy feel |
+| `adhd-dark` | #7c9885 | Dark-first, muted sage, reduced eye strain |
+| `adhd-light` | #5a6e78 | Warm off-white, soft contrast |
+
+### Preset Switcher
+
+```bash
+/craft:site:theme --preset
+```
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│ 🎨 SELECT PRESET                                            │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│ Standard:                                                   │
+│   [1] data-wise    - Blue/orange, Material theme            │
+│   [2] minimal      - Clean, simple, fast                    │
+│   [3] open-source  - GitHub-style, badges                   │
+│   [4] corporate    - Professional, formal                   │
+│                                                             │
+│ ADHD-Friendly:                                              │
+│   [5] adhd-focus   - Forest green, calm, focused            │
+│   [6] adhd-calm    - Warm browns, cozy, anxiety-reducing    │
+│   [7] adhd-dark    - Dark mode, muted sage, easy on eyes    │
+│   [8] adhd-light   - Warm light, soft contrast              │
+│                                                             │
+│ Select (1-8):                                               │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Switching Example
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
