@@ -1,25 +1,9 @@
 {
   "name": "craft",
-  "version": "1.0.0",
-  "description": "Full-stack developer toolkit - code, git, site, docs, testing, and architecture commands",
-  "author": "DT (Data-Wise)",
-  "homepage": "https://github.com/Data-Wise/claude-plugins",
-  "commands": "auto",
-  "skills": "auto",
-  "agents": "auto",
-  "keywords": [
-    "development",
-    "full-stack",
-    "git",
-    "documentation",
-    "testing",
-    "architecture",
-    "devops",
-    "code-quality"
-  ],
-  "categories": [
-    "development",
-    "productivity",
-    "devops"
-  ]
+  "version": "1.3.0",
+  "description": "Full-stack developer toolkit - 50 commands, 6 agents, 11 skills for code, git, site, docs, testing, and architecture",
+  "author": {
+    "name": "Data-Wise",
+    "email": "dt@stat-wise.com"
+  }
 }
