@@ -41,6 +41,14 @@ git log --oneline -1 -- site/ 2>/dev/null || echo "Never deployed"
 
 # Get design preset
 cat .craft/site-design.yaml 2>/dev/null | grep "preset:"
+
+# Check Mermaid configuration (CRITICAL for diagram rendering)
+grep -q "custom_fences" mkdocs.yml && echo "✅ custom_fences" || echo "❌ custom_fences missing"
+grep -q "mermaid" mkdocs.yml && echo "✅ mermaid.js" || echo "⚠️ mermaid.js not in extra_javascript"
+grep -rq "\.mermaid" docs/stylesheets/ 2>/dev/null && echo "✅ Mermaid CSS" || echo "⚠️ No Mermaid CSS"
+
+# Count Mermaid diagrams
+grep -r "^\`\`\`mermaid" docs/ 2>/dev/null | wc -l
 ```
 
 ### Step 2: Display Dashboard
@@ -70,6 +78,12 @@ cat .craft/site-design.yaml 2>/dev/null | grep "preset:"
 │   ✅ Internal: 45/45 valid                                  │
 │   ✅ External: 12/12 valid                                  │
 │                                                             │
+│ 📊 MERMAID DIAGRAMS                                         │
+│   ✅ custom_fences configured                               │
+│   ✅ mermaid.js CDN included                                │
+│   ✅ Mermaid CSS present                                    │
+│   ○ 15 diagrams found                                       │
+│                                                             │
 │ 🚀 DEPLOYMENT                                               │
 │   Target: GitHub Pages                                      │
 │   URL: https://data-wise.github.io/aiterm/                  │
@@ -97,14 +111,23 @@ cat .craft/site-design.yaml 2>/dev/null | grep "preset:"
 Calculate overall health:
 
 ```
-SITE HEALTH: 85/100 ████████░░
+SITE HEALTH: 90/100 █████████░
 
 Breakdown:
-  Build:      ✅ 25/25
-  Links:      ✅ 25/25
-  Freshness:  ⚠️  15/25 (docs older than code)
+  Build:      ✅ 20/20
+  Links:      ✅ 20/20
+  Mermaid:    ✅ 15/15 (config OK, 15 diagrams)
+  Freshness:  ⚠️  15/20 (docs older than code)
   Deployment: ✅ 20/25
 ```
+
+**Mermaid Health Scoring:**
+| Check | Points | Criteria |
+|-------|--------|----------|
+| custom_fences | 5 | Must be configured for diagrams to render |
+| mermaid.js | 5 | CDN link in extra_javascript |
+| Mermaid CSS | 5 | Overflow/styling CSS present |
+| Missing any | -10 | Critical: diagrams show as code! |
 
 ## Quick Mode (`--quick`)
 
@@ -151,6 +174,16 @@ Detailed validation report:
 │   ✅ All pages have titles                                  │
 │   ✅ Code blocks have language tags                         │
 │   ⚠️  3 pages missing descriptions                          │
+│                                                             │
+│ MERMAID DIAGRAMS                                            │
+│   Configuration:                                            │
+│   ✅ pymdownx.superfences with custom_fences                │
+│   ✅ mermaid.js CDN in extra_javascript                     │
+│   ✅ Mermaid CSS styles present                             │
+│   Diagrams:                                                 │
+│   ○ 15 mermaid blocks found                                 │
+│   ✅ All diagrams have valid syntax                         │
+│   ⚠️  2 diagrams have long node text (> 20 chars)           │
 │                                                             │
 │ DESIGN CONSISTENCY                                          │
 │   ✅ Preset: data-wise applied                              │

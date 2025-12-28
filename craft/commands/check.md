@@ -26,6 +26,34 @@ Run appropriate checks for your project type and context.
 
 ## Auto-Detection
 
+Detects project type, git context, and worktree status:
+
+### Worktree Detection
+
+```bash
+# Check if running in a worktree
+if git rev-parse --is-inside-work-tree &>/dev/null; then
+  git_dir=$(git rev-parse --git-dir)
+  if [[ "$git_dir" == *".git/worktrees/"* ]]; then
+    echo "🌳 Running in worktree"
+    echo "   Main repo: $(dirname $(dirname $(dirname $git_dir)))"
+    echo "   Branch: $(git branch --show-current)"
+  fi
+fi
+```
+
+**Worktree-aware output:**
+```
+╭─ /craft:check ──────────────────────────────────────╮
+│ Project: scribe (Node.js)                           │
+│ 🌳 Worktree: ~/.git-worktrees/scribe/feat-hud       │
+│    Main: ~/projects/dev-tools/scribe                │
+│    Branch: feat/mission-control-hud                 │
+├─────────────────────────────────────────────────────┤
+│ ✓ Lint         0 issues                             │
+│ ...                                                 │
+```
+
 Detects project type and runs appropriate checks:
 
 ### Python Projects

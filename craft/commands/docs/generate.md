@@ -189,6 +189,69 @@ When updating README or docs/index.md, add relevant badges:
 [![GitHub stars](https://img.shields.io/github/stars/org/repo)](https://github.com/org/repo/stargazers)
 ```
 
+## Mermaid Diagram Guidelines
+
+When generating diagrams, follow these best practices to prevent rendering issues:
+
+### Configuration Requirements (mkdocs.yml)
+
+```yaml
+# REQUIRED for Mermaid diagrams to render
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+```
+
+### CSS Requirements (docs/stylesheets/extra.css)
+
+```css
+/* Prevent overflow issues */
+.mermaid {
+  overflow-x: auto;
+  text-align: center;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.mermaid .nodeLabel {
+  font-size: 12px !important;
+}
+```
+
+### Text Length Rules
+
+| Element | Max Length | Example |
+|---------|------------|---------|
+| Node labels | 15 chars | `"Feature A"` not `"Feature implementation details"` |
+| Path text | Use `...` | `"~/.git-worktrees/.../branch"` |
+| Edge labels | 10 chars | `"creates"` not `"automatically creates"` |
+| Subgraph titles | 20 chars | `"Global Cache"` |
+
+### Good vs Bad Examples
+
+```mermaid
+%% BAD: Text too long - will overflow
+graph LR
+    A["~/projects/dev-tools/aiterm/feature-branch/"] --> B["Installs dependencies automatically"]
+
+%% GOOD: Abbreviated text
+graph LR
+    A["~/.../feature-branch"] --> B["Install deps"]
+```
+
+### Validation
+
+Run `/craft:site:status --check` to validate Mermaid configuration before deploying.
+
 ## Integration
 
 Works with existing craft docs commands:
