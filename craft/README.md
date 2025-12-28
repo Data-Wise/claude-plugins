@@ -1,6 +1,6 @@
 # Craft - Full Stack Developer Toolkit Plugin
 
-A comprehensive full-stack developer toolkit for Claude Code. Craft provides **63 commands**, 7 specialized agents, **16 skills** with mode support, smart orchestration, intelligent task routing, **enhanced orchestrator v2.1**, **redesigned site commands with 8 ADHD-friendly design presets**, **Phase 0.5: Git worktree & Mermaid diagram support**, and **NEW: site:nav, site:audit, site:consolidate for ADHD-friendly docs maintenance**.
+A comprehensive full-stack developer toolkit for Claude Code. Craft provides **64 commands**, 7 specialized agents, **16 skills** with mode support, smart orchestration, intelligent task routing, **enhanced orchestrator v2.1**, **redesigned site commands with 8 ADHD-friendly design presets**, **Phase 0.5: Git worktree & Mermaid diagram support**, and **NEW: site:nav, site:audit, site:consolidate, docs:prompt for ADHD-friendly docs maintenance**.
 
 ## Installation
 
@@ -48,7 +48,7 @@ Commands support execution modes for different use cases:
 /craft:arch:analyze optimize    # Performance analysis
 ```
 
-## Commands (63 total)
+## Commands (64 total)
 
 ### Smart Commands (4) - ENHANCED
 | Command | Description |
@@ -109,7 +109,7 @@ Commands support execution modes for different use cases:
 | `/craft:plan:sprint` | Sprint planning |
 | `/craft:plan:roadmap` | Generate roadmaps |
 
-### Documentation Commands (12)
+### Documentation Commands (13)
 
 #### Workflow Commands (NEW in v1.6.0)
 | Command | Description |
@@ -130,6 +130,7 @@ Commands support execution modes for different use cases:
 | `/craft:docs:validate` | Validate links |
 | `/craft:docs:nav-update` | Update mkdocs.yml |
 | `/craft:docs:mermaid` | **NEW v1.8.0** Mermaid diagram templates (6 types) |
+| `/craft:docs:prompt` | **NEW v1.9.0** Generate reusable maintenance prompts |
 
 ### Site Commands (12) - ENHANCED in v1.9.0
 | Command | Description |
@@ -287,6 +288,11 @@ Commands support execution modes for different use cases:
   - Auto-detect duplicates or merge specific files
   - Preview mode, safety backups, link updates
   - Archive option instead of delete
+- **Docs Prompt Command**:
+  - `/craft:docs:prompt` - Generate reusable maintenance prompts
+  - Types: full, reorganize, audit, edit
+  - Pre-filled with project context
+  - ADHD-friendly design principles included
 - **Sub-command UX Pattern**:
   - Standard menu pattern for commands with modes
   - Argument bypass for power users
