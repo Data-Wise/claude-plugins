@@ -1,6 +1,6 @@
 # Craft - Full Stack Developer Toolkit Plugin
 
-A comprehensive full-stack developer toolkit for Claude Code. Craft provides **61 commands**, 7 specialized agents, **16 skills** with mode support, smart orchestration, intelligent task routing, **enhanced orchestrator v2.1**, **redesigned site commands with 8 ADHD-friendly design presets**, **Phase 0.5: Git worktree & Mermaid diagram support**, and **NEW: site:nav for ADHD-friendly navigation reorganization**.
+A comprehensive full-stack developer toolkit for Claude Code. Craft provides **62 commands**, 7 specialized agents, **16 skills** with mode support, smart orchestration, intelligent task routing, **enhanced orchestrator v2.1**, **redesigned site commands with 8 ADHD-friendly design presets**, **Phase 0.5: Git worktree & Mermaid diagram support**, and **NEW: site:nav & site:audit for ADHD-friendly docs maintenance**.
 
 ## Installation
 
@@ -48,7 +48,7 @@ Commands support execution modes for different use cases:
 /craft:arch:analyze optimize    # Performance analysis
 ```
 
-## Commands (61 total)
+## Commands (62 total)
 
 ### Smart Commands (4) - ENHANCED
 | Command | Description |
@@ -131,11 +131,12 @@ Commands support execution modes for different use cases:
 | `/craft:docs:nav-update` | Update mkdocs.yml |
 | `/craft:docs:mermaid` | **NEW v1.8.0** Mermaid diagram templates (6 types) |
 
-### Site Commands (10) - ENHANCED in v1.9.0
+### Site Commands (11) - ENHANCED in v1.9.0
 | Command | Description |
 |---------|-------------|
 | `/craft:site:create` | Full documentation site wizard with 8 design presets |
 | `/craft:site:nav` | **NEW v1.9.0** Navigation reorganization (ADHD-friendly, max 7 sections) |
+| `/craft:site:audit` | **NEW v1.9.0** Content inventory & audit (outdated, duplicates, gaps) |
 | `/craft:site:update` | Update site content from code changes |
 | `/craft:site:status` | Dashboard and health check |
 | `/craft:site:theme` | Quick theme changes (colors, presets, fonts) |
@@ -275,12 +276,17 @@ Commands support execution modes for different use cases:
   - Interactive mode selection menu (analyze, adhd, apply, preview)
   - Enforces max 7 top-level sections
   - Generates reorganization proposals
-  - Keyboard navigation: ↑↓ Navigate, ⏎ Select, "cancel" to exit
+- **Site Audit Command**:
+  - `/craft:site:audit` - Content inventory & quality audit
+  - Modes: full, outdated, duplicates, gaps
+  - Generates AUDIT-CONTENT-INVENTORY.md
+  - Detects version mismatches, duplicate files, missing docs
 - **Sub-command UX Pattern**:
   - Standard menu pattern for commands with modes
   - Argument bypass for power users
+  - Keyboard: ↑↓ Navigate, ⏎ Select, "cancel" to exit
   - Consistent footer with tips and related commands
-- Total: 61 commands, 16 skills, 7 agents
+- Total: 62 commands, 16 skills, 7 agents
 
 ### [1.8.0] - 2025-12-28
 #### Added
