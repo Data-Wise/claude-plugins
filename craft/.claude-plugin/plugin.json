@@ -1,6 +1,6 @@
 {
   "name": "craft",
-  "version": "1.6.0-dev",
+  "version": "1.8.0",
   "description": "Full-stack developer toolkit - 60 commands, 7 agents, 16 skills for code, git, site, docs, testing, architecture, and distribution",
   "author": {
     "name": "Data-Wise",

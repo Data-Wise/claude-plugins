@@ -1,6 +1,6 @@
 # Craft - Full Stack Developer Toolkit Plugin
 
-A comprehensive full-stack developer toolkit for Claude Code. Craft provides 61 commands, 7 specialized agents, 15 skills with mode support, smart orchestration, intelligent task routing, **enhanced orchestrator v2.1**, and **redesigned site commands with 8 ADHD-friendly design presets**.
+A comprehensive full-stack developer toolkit for Claude Code. Craft provides **60 commands**, 7 specialized agents, **16 skills** with mode support, smart orchestration, intelligent task routing, **enhanced orchestrator v2.1**, **redesigned site commands with 8 ADHD-friendly design presets**, and **Phase 0.5: Git worktree & Mermaid diagram support**.
 
 ## Installation
 
@@ -48,7 +48,7 @@ Commands support execution modes for different use cases:
 /craft:arch:analyze optimize    # Performance analysis
 ```
 
-## Commands (58 total)
+## Commands (60 total)
 
 ### Smart Commands (4) - ENHANCED
 | Command | Description |
@@ -109,7 +109,7 @@ Commands support execution modes for different use cases:
 | `/craft:plan:sprint` | Sprint planning |
 | `/craft:plan:roadmap` | Generate roadmaps |
 
-### Documentation Commands (11)
+### Documentation Commands (12)
 
 #### Workflow Commands (NEW in v1.6.0)
 | Command | Description |
@@ -129,6 +129,7 @@ Commands support execution modes for different use cases:
 | `/craft:docs:claude-md` | Update CLAUDE.md |
 | `/craft:docs:validate` | Validate links |
 | `/craft:docs:nav-update` | Update mkdocs.yml |
+| `/craft:docs:mermaid` | **NEW v1.8.0** Mermaid diagram templates (6 types) |
 
 ### Site Commands (9) - REDESIGNED in v1.7.0
 | Command | Description |
@@ -143,13 +144,14 @@ Commands support execution modes for different use cases:
 | `/craft:site:deploy` | Deploy to GitHub Pages |
 | `/craft:site:init` | Basic initialization (use `create` for full wizard) |
 
-### Git Commands (4 + 4 guides)
+### Git Commands (5 + 4 guides)
 | Command | Description |
 |---------|-------------|
 | `/craft:git:branch` | Branch management |
 | `/craft:git:sync` | Smart git sync |
 | `/craft:git:clean` | Clean merged branches |
 | `/craft:git:recap` | Activity summary |
+| `/craft:git:worktree` | **NEW v1.8.0** Parallel development with git worktrees |
 
 **Git Guides:** refcard, undo-guide, safety-rails, learning-guide
 
@@ -164,7 +166,7 @@ Commands support execution modes for different use cases:
 |---------|-------------|
 | `/craft:hub` | Command discovery hub |
 
-## Skills (13)
+## Skills (16)
 
 | Skill | Category | Triggers |
 |-------|----------|----------|
@@ -180,8 +182,10 @@ Commands support execution modes for different use cases:
 | `changelog-automation` | Documentation | Changelog patterns |
 | `architecture-decision-records` | Documentation | ADR generation |
 | `openapi-spec-generation` | Documentation | OpenAPI specs |
-| `distribution-strategist` | Distribution | Release channels (NEW) |
-| `homebrew-formula-expert` | Distribution | Homebrew formulas (NEW) |
+| `mermaid-linter` | Documentation | **NEW v1.8.0** Mermaid diagram validation |
+| `distribution-strategist` | Distribution | Release channels |
+| `homebrew-formula-expert` | Distribution | Homebrew formulas |
+| `worktree-expert` | Git | Git worktree workflows |
 
 ## Agents (7)
 
