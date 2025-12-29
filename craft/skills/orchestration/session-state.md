@@ -32,8 +32,8 @@ Handles persistent state for orchestrator sessions, enabling resume after discon
   "created": "2025-12-27T10:30:00Z",
   "updated": "2025-12-27T11:45:00Z",
   "project": {
-    "name": "aiterm",
-    "path": "/Users/dt/projects/dev-tools/aiterm",
+    "name": "my-project",
+    "path": "/path/to/my-project",
     "git_branch": "dev"
   },
   "goal": "Add sensitivity analysis to RMediation::medci()",
