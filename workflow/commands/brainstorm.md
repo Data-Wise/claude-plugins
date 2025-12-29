@@ -1,7 +1,7 @@
 ---
 name: brainstorm
 description: Enhanced brainstorming with smart detection, design modes, time budgets, and automatic agent delegation for deep analysis
-version: 2.1.5
+version: 2.1.6
 args:
   - name: mode
     description: "Brainstorm mode: feature|architecture|design|backend|frontend|devops|quick|thorough (optional, shows menu if omitted)"
@@ -55,10 +55,39 @@ No arguments?         → Smart context detection (Step 0.5)
 
 When no arguments provided, automatically detect topic from context:
 
+#### New Session Detection
+
+If this is a **new session** (no prior conversation), first check for resumable sessions:
+
+```
+1. Check if conversation history is empty (new session)
+2. If new session → Invoke /resume behavior
+3. Show recent sessions from before current session started
+4. Let user pick a session to continue, or start fresh
+```
+
+```
+AskUserQuestion:
+  question: "Continue from a previous session or start fresh?"
+  header: "Session"
+  multiSelect: false
+  options:
+    - label: "Resume: [latest session topic]"
+      description: "[project] - [time ago]"
+    - label: "Resume: [2nd latest session]"
+      description: "[project] - [time ago]"
+    - label: "Start fresh"
+      description: "New brainstorm in current context"
+```
+
+If user selects a previous session → load that context, then proceed to Q1: Depth.
+If user selects "Start fresh" → proceed with normal detection below.
+
 #### Detection Sources
 
 | Source | What to look for | Priority |
 |--------|------------------|----------|
+| **Previous sessions** | Recent brainstorm sessions (new session only) | Highest |
 | **Conversation** | Topics discussed, problems mentioned, features planned | High |
 | **Git branch** | Branch name (e.g., `feature/oauth-login`) | Medium |
 | **Recent commits** | Commit messages from last 24h | Medium |
@@ -542,10 +571,19 @@ User: /workflow:brainstorm feature notifications --format json
 flowchart TD
     Start["/brainstorm"] --> HasArgs{Arguments?}
 
-    HasArgs -->|None| SmartDetect["🔍 Smart Context Detection"]
+    HasArgs -->|None| NewSession{New session?}
     HasArgs -->|Topic only| DepthQ["🔘 Q1: Depth?"]
     HasArgs -->|Topic + mode| Execute
     HasArgs -->|Full args| Execute
+
+    NewSession -->|Yes| ResumeQ["🔘 Q-1: Resume session?"]
+    NewSession -->|No| SmartDetect["🔍 Smart Context Detection"]
+
+    ResumeQ --> ResumeChoice{User selects}
+    ResumeChoice -->|Resume session| LoadSession["Load previous context"]
+    ResumeChoice -->|Start fresh| SmartDetect
+
+    LoadSession --> DepthQ
 
     SmartDetect --> HowMany{Topics found?}
     HowMany -->|1 topic| AutoTopic["Use detected topic"]

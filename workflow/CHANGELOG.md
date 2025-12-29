@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.1.6] - 2025-12-29
+
+### Added - Session Resume on New Session
+
+When `/brainstorm` is invoked without arguments in a **new session**:
+
+1. Detects if conversation history is empty (new session)
+2. Shows recent sessions to resume:
+   ```
+   "Continue from a previous session or start fresh?"
+   ○ Resume: [latest session topic] - [project] - [time ago]
+   ○ Resume: [2nd latest session] - [project] - [time ago]
+   ○ Start fresh - New brainstorm in current context
+   ```
+3. If resumed → loads previous context, proceeds to Q1: Depth
+4. If "Start fresh" → proceeds with normal smart detection
+
+This enables seamless continuation of brainstorming across sessions.
+
+---
+
 ## [2.1.5] - 2025-12-29
 
 ### Added - Smart Context Detection
