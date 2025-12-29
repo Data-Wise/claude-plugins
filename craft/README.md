@@ -3,7 +3,7 @@
 [![Craft CI](https://github.com/Data-Wise/claude-plugins/actions/workflows/craft-ci.yml/badge.svg)](https://github.com/Data-Wise/claude-plugins/actions/workflows/craft-ci.yml)
 [![Validate Plugins](https://github.com/Data-Wise/claude-plugins/actions/workflows/validate-plugins.yml/badge.svg)](https://github.com/Data-Wise/claude-plugins/actions/workflows/validate-plugins.yml)
 
-A comprehensive full-stack developer toolkit for Claude Code. Craft provides **65 commands**, 7 specialized agents, **17 skills** with mode support, smart orchestration, intelligent task routing, **enhanced orchestrator v2.1**, **redesigned site commands with 8 ADHD-friendly design presets**, **Phase 0.5: Git worktree & Mermaid diagram support**, **site:nav, site:audit, site:consolidate, docs:prompt for ADHD-friendly docs maintenance**, and **NEW: CI detection with smart project type detection**.
+A comprehensive full-stack developer toolkit for Claude Code. Craft provides **67 commands**, 7 specialized agents, **17 skills** with mode support, smart orchestration, intelligent task routing, **enhanced orchestrator v2.1**, **redesigned site commands with 8 ADHD-friendly design presets**, **Phase 0.5: Git worktree & Mermaid diagram support**, **site:nav, site:audit, site:consolidate, docs:prompt for ADHD-friendly docs maintenance**, and **NEW: Full CI toolkit with detect, generate, and validate commands**.
 
 ## Installation
 
@@ -51,7 +51,7 @@ Commands support execution modes for different use cases:
 /craft:arch:analyze optimize    # Performance analysis
 ```
 
-## Commands (65 total)
+## Commands (67 total)
 
 ### Smart Commands (4) - ENHANCED
 | Command | Description |
@@ -162,10 +162,12 @@ Commands support execution modes for different use cases:
 
 **Git Guides:** refcard, undo-guide, safety-rails, learning-guide
 
-### CI Commands (1) - NEW in v1.10.0
+### CI Commands (3) - NEW in v1.10.0
 | Command | Description |
 |---------|-------------|
-| `/craft:ci:detect` | **NEW** Smart detection of project type, build tools, and CI requirements |
+| `/craft:ci:detect` | Smart detection of project type, build tools, and CI requirements |
+| `/craft:ci:generate` | Generate GitHub Actions workflow from detection |
+| `/craft:ci:validate` | Validate existing CI workflow against project configuration |
 
 ### Distribution Commands (2)
 | Command | Description |
@@ -282,13 +284,16 @@ Commands support execution modes for different use cases:
 
 ### [1.10.0] - 2025-12-28
 #### Added
-- **CI Detection System**:
+- **CI Toolkit** (3 commands):
   - `/craft:ci:detect` - Smart detection of project type, build tools, and CI requirements
-  - `project-detector` skill - Core detection logic for Python, Node, R, Rust, Go, and Claude plugins
-  - Detects test frameworks (pytest, jest, testthat, etc.)
-  - Identifies linting configs (ruff, eslint, lintr)
-  - Recommends appropriate CI templates
-- Total: 65 commands, 17 skills, 7 agents
+  - `/craft:ci:generate` - Generate GitHub Actions workflow from detection (Python, Node, R, Rust, Go templates)
+  - `/craft:ci:validate` - Validate existing CI workflow against project configuration
+- **Project Detector Skill**:
+  - Core detection logic for Python (uv/poetry/pip), Node (npm/pnpm/yarn), R, Rust, Go, Claude plugins
+  - Detects test frameworks (pytest, jest, vitest, testthat, cargo test)
+  - Identifies linting configs (ruff, eslint, lintr, clippy)
+  - Recommends appropriate CI templates based on project type
+- Total: 67 commands, 17 skills, 7 agents
 
 ### [1.9.0] - 2025-12-28
 #### Added

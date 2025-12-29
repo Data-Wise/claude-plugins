@@ -1,7 +1,7 @@
 {
   "name": "@data-wise/claude-craft-plugin",
   "version": "1.10.0",
-  "description": "Full-stack developer toolkit - 65 commands, 7 agents, 17 skills for code, git, site, docs, testing, architecture, CI, and distribution",
+  "description": "Full-stack developer toolkit - 67 commands, 7 agents, 17 skills for code, git, site, docs, testing, architecture, CI, and distribution",
   "main": "index.js",
   "scripts": {
     "test": "python3 tests/test_craft_plugin.py",
