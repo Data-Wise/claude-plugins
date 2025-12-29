@@ -1,5 +1,8 @@
 # Craft - Full Stack Developer Toolkit Plugin
 
+[![Craft CI](https://github.com/Data-Wise/claude-plugins/actions/workflows/craft-ci.yml/badge.svg)](https://github.com/Data-Wise/claude-plugins/actions/workflows/craft-ci.yml)
+[![Validate Plugins](https://github.com/Data-Wise/claude-plugins/actions/workflows/validate-plugins.yml/badge.svg)](https://github.com/Data-Wise/claude-plugins/actions/workflows/validate-plugins.yml)
+
 A comprehensive full-stack developer toolkit for Claude Code. Craft provides **64 commands**, 7 specialized agents, **16 skills** with mode support, smart orchestration, intelligent task routing, **enhanced orchestrator v2.1**, **redesigned site commands with 8 ADHD-friendly design presets**, **Phase 0.5: Git worktree & Mermaid diagram support**, and **NEW: site:nav, site:audit, site:consolidate, docs:prompt for ADHD-friendly docs maintenance**.
 
 ## Installation
