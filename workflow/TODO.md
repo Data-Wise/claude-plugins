@@ -1,8 +1,8 @@
 # TODO - Workflow Plugin
 
-**Current Version:** 0.1.0 (Stable)
-**Next Version:** 0.2.0 (Planning Phase)
-**Last Updated:** 2024-12-24
+**Current Version:** 2.1.6 (Stable)
+**Next Version:** 2.2.0 (Planning Phase)
+**Last Updated:** 2025-12-29
 
 ---
 
@@ -106,11 +106,39 @@
 
 ---
 
+## 🚀 v2.1.6 Brainstorm UX - Future Enhancements
+
+**Added:** 2025-12-29
+**Reference:** `docs/design/BRAINSTORM-UX.md`
+
+### Session Storage (Priority: High)
+- [ ] Persist brainstorm sessions to disk for actual resume functionality
+- [ ] Store: topic, mode, depth, output, timestamp, project
+- [ ] Location: `~/.claude/brainstorm-sessions/` or project `.brainstorm/`
+- [ ] Enable `/brainstorm` to resume from saved state
+
+### Tab-Completion Dropdown (Priority: Medium)
+- [ ] Create folder-based sub-commands for true Tab dropdown
+- [ ] Structure: `brainstorm/quick.md`, `brainstorm/thorough.md`, etc.
+- [ ] Enables: `/brainstorm/` + Tab → shows modes as dropdown
+- [ ] Blocked by: Claude Code feature support
+
+### Multi-Select Questions (Priority: Low)
+- [ ] Combine depth + focus in single question if AskUserQuestion limit increases
+- [ ] Current limit: 4 options max per question
+- [ ] Would reduce from 2 questions to 1
+
+### Voice Input (Priority: Future)
+- [ ] "Hey Claude, brainstorm auth" → same interactive flow
+- [ ] Depends on Claude Code voice input support
+
+---
+
 ## 🐛 Known Issues
 
 **None Currently!**
 
-v0.1.0 is stable with no reported bugs.
+v2.1.6 is stable with no reported bugs.
 
 **Potential Issues to Watch:**
 - Agent delegation timeout edge cases
@@ -121,6 +149,15 @@ v0.1.0 is stable with no reported bugs.
 
 ## 📊 Progress Tracking
 
+### v2.1.6: Interactive Brainstorm UX ✅ COMPLETE (Dec 29, 2025)
+- [x] Two-question interactive flow (Depth → Focus)
+- [x] Smart context detection (conversation, git, .STATUS)
+- [x] Session resume for new sessions
+- [x] Topic-first flow (provide topic, then menus)
+- [x] Skip menus with full args
+- [x] Comprehensive design documentation
+- [x] Updated REFCARD.md and QUICK-START.md
+
 ### v0.1.0: Foundation ✅ COMPLETE
 - [x] 3 auto-activating skills
 - [x] /brainstorm command (6 modes)
@@ -129,7 +166,7 @@ v0.1.0 is stable with no reported bugs.
 - [x] Basic bash tests
 - [x] Comprehensive documentation
 
-### Planning Phase: Documentation ✅ COMPLETE (Dec 24)
+### Planning Phase: Documentation ✅ COMPLETE (Dec 24, 2024)
 - [x] Gap analysis (WORKFLOW-PLUGIN-STATUS.md)
 - [x] RForge improvement plan
 - [x] .STATUS file created
