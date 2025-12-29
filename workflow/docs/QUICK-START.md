@@ -1,6 +1,6 @@
 # Workflow Plugin - Quick Start Guide
 
-> **Get running in 3 minutes** ⚡
+> **Version:** 2.1.6 | **Get running in 3 minutes** ⚡
 
 ---
 
@@ -58,22 +58,49 @@ You: "I need to deploy my Next.js app"
 
 **No commands needed - skills auto-activate!**
 
-### 2. Quick Brainstorm
+### 2. Interactive Brainstorm (NEW in v2.1.6!)
+
+Just type `/brainstorm` and let the menus guide you:
 
 ```bash
-/brainstorm quick feature user notifications
-```
-
-**Output:** 5-7 ideas in Quick Wins / Medium / Long-term format, saved to markdown file.
-
-### 3. Thorough Brainstorm with Agents
-
-```bash
-/brainstorm thorough user authentication with OAuth
+/brainstorm
 ```
 
 **What happens:**
-1. Launches 3-4 specialized agents in background
+1. **New session?** → Asks if you want to resume a previous brainstorm
+2. **Smart detection** → Finds topics from your conversation
+3. **Q1: Depth?** → Choose: default (< 5 min) / quick (< 1 min) / thorough (< 30 min)
+4. **Q2: Focus?** → Choose: auto-detect / feature / architecture / backend
+5. **Execute** → Generates ADHD-friendly output, saves to file
+
+### 3. Topic with Menus
+
+```bash
+/brainstorm "user notifications"
+```
+
+**What happens:**
+1. Skips topic detection (you provided it)
+2. **Q1: Depth?** → default / quick / thorough
+3. **Q2: Focus?** → auto-detect / feature / architecture / backend
+4. Execute with your selections
+
+### 4. Skip Menus Entirely
+
+```bash
+/brainstorm quick feature "user notifications"
+```
+
+**Output:** 5-7 ideas in Quick Wins / Medium / Long-term format, saved to markdown file. No menus - executes immediately.
+
+### 5. Thorough Brainstorm with Agents
+
+```bash
+/brainstorm thorough architecture "OAuth system"
+```
+
+**What happens:**
+1. Launches 2-4 specialized agents in background
 2. Provides immediate ideas
 3. Waits ~1-2 min for agent analysis
 4. Synthesizes comprehensive implementation plan
@@ -155,14 +182,25 @@ You: "I need to deploy my Next.js app"
 - "Existing stack: Next.js, PostgreSQL, Vercel"
 - "Current users: 500, expecting 5K by Q2"
 
-### Choose the Right Mode
+### Choose the Right Approach
 
-| Scenario | Command | Delegation? | Time |
-|----------|---------|-------------|------|
-| **Quick validation** | `/brainstorm quick` | No agents | ~2 min |
-| **Familiar territory** | Let skills auto-activate | No agents | Instant |
-| **Unfamiliar domain** | `/brainstorm thorough` | 2-4 agents | ~3 min |
-| **Big architecture decision** | `/brainstorm architecture` | 3-4 agents | ~5 min |
+| Scenario | Command | What Happens |
+|----------|---------|--------------|
+| **Just exploring** | `/brainstorm` | Menus guide you through options |
+| **Have a topic** | `/brainstorm "topic"` | Q1: Depth → Q2: Focus → Execute |
+| **Quick validation** | `/brainstorm quick "topic"` | < 1 min, no agents, skips menus |
+| **Know exactly what you want** | `/brainstorm quick feature "topic"` | Skips all menus, executes immediately |
+| **Deep dive** | `/brainstorm thorough architecture "topic"` | 2-4 agents, < 30 min |
+| **Resume previous work** | `/brainstorm` (new session) | Shows previous sessions to continue |
+
+### Flow Summary
+
+```
+/brainstorm                    → Smart detect → Q1 → Q2 → Execute
+/brainstorm "topic"            → Q1: Depth → Q2: Focus → Execute
+/brainstorm feature "topic"    → Execute directly (mode provided)
+/brainstorm quick feature "t"  → Execute directly (all args)
+```
 
 ---
 
