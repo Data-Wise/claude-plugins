@@ -44,6 +44,7 @@ DETECTORS = [
     ("python", "poetry", ["pyproject.toml", "poetry.lock"], ["src/"]),
     ("python", "pip", ["pyproject.toml"], ["requirements.txt"]),
     ("python", "setuptools", ["setup.py"], ["setup.cfg"]),
+    ("node", "bun", ["package.json", "bun.lock"], []),
     ("node", "pnpm", ["package.json", "pnpm-lock.yaml"], []),
     ("node", "yarn", ["package.json", "yarn.lock"], []),
     ("node", "npm", ["package.json"], ["package-lock.json"]),
@@ -866,6 +867,340 @@ strict = true
         self.assertEqual(result.test_framework, "vitest")
         self.assertTrue(has_linting_config(self.path))
         self.assertTrue(has_type_checking(self.path))
+
+
+# ============================================================================
+# New Detection Functions (to be added to implementation)
+# ============================================================================
+
+def detect_tauri_project(path: Path) -> bool:
+    """Detect Tauri desktop app project."""
+    return (path / "src-tauri/tauri.conf.json").exists()
+
+
+def detect_swift_project(path: Path) -> Optional[str]:
+    """Detect Swift project type."""
+    if (path / "Package.swift").exists():
+        return "swift-package"
+    xcodeproj = list(path.glob("*.xcodeproj"))
+    if xcodeproj:
+        return "swift-xcode"
+    xcworkspace = list(path.glob("*.xcworkspace"))
+    if xcworkspace:
+        return "swift-xcode"
+    return None
+
+
+def detect_mcp_server(path: Path) -> bool:
+    """Detect MCP server project."""
+    pkg = path / "package.json"
+    if pkg.exists():
+        data = json.loads(pkg.read_text())
+        name = data.get("name", "").lower()
+        if "mcp" in name:
+            return True
+        deps = {**data.get("dependencies", {}), **data.get("devDependencies", {})}
+        if "@modelcontextprotocol/sdk" in deps:
+            return True
+        if any("mcp" in dep.lower() for dep in deps):
+            return True
+    return False
+
+
+def detect_homebrew_tap(path: Path) -> bool:
+    """Detect Homebrew tap project."""
+    if (path / "Formula").exists():
+        rb_files = list((path / "Formula").glob("*.rb"))
+        if rb_files:
+            return True
+    if (path / "Casks").exists():
+        rb_files = list((path / "Casks").glob("*.rb"))
+        if rb_files:
+            return True
+    return False
+
+
+def detect_zsh_plugin(path: Path) -> bool:
+    """Detect ZSH plugin project."""
+    plugin_files = list(path.glob("*.plugin.zsh"))
+    if plugin_files:
+        return True
+    if (path / "functions").exists():
+        zsh_files = list((path / "functions").glob("*.zsh"))
+        if zsh_files:
+            return True
+    if (path / ".zsh_plugins.txt").exists():
+        return True
+    return False
+
+
+def detect_elisp_package(path: Path) -> bool:
+    """Detect Emacs Lisp package project."""
+    pkg_files = list(path.glob("*-pkg.el"))
+    if pkg_files:
+        return True
+    if (path / "Cask").exists():
+        return True
+    el_files = list(path.glob("*.el"))
+    for el_file in el_files:
+        if ";;;###autoload" in el_file.read_text():
+            return True
+    return False
+
+
+# ============================================================================
+# New Test Classes
+# ============================================================================
+
+class TestTauriDetection(unittest.TestCase):
+    """Test Tauri project detection."""
+
+    def setUp(self):
+        self.temp_dir = tempfile.mkdtemp()
+        self.path = Path(self.temp_dir)
+
+    def tearDown(self):
+        import shutil
+        shutil.rmtree(self.temp_dir, ignore_errors=True)
+
+    def test_detect_tauri_project(self):
+        """Detect Tauri project from src-tauri/tauri.conf.json."""
+        (self.path / "src-tauri").mkdir()
+        (self.path / "src-tauri/tauri.conf.json").write_text('{"build": {}}')
+
+        result = detect_tauri_project(self.path)
+
+        self.assertTrue(result)
+
+    def test_not_tauri_without_config(self):
+        """Not a Tauri project without tauri.conf.json."""
+        result = detect_tauri_project(self.path)
+
+        self.assertFalse(result)
+
+
+class TestSwiftDetection(unittest.TestCase):
+    """Test Swift project detection."""
+
+    def setUp(self):
+        self.temp_dir = tempfile.mkdtemp()
+        self.path = Path(self.temp_dir)
+
+    def tearDown(self):
+        import shutil
+        shutil.rmtree(self.temp_dir, ignore_errors=True)
+
+    def test_detect_swift_package(self):
+        """Detect Swift Package Manager project."""
+        (self.path / "Package.swift").write_text('// swift-tools-version:5.9')
+
+        result = detect_swift_project(self.path)
+
+        self.assertEqual(result, "swift-package")
+
+    def test_detect_xcode_project(self):
+        """Detect Xcode project."""
+        (self.path / "MyApp.xcodeproj").mkdir()
+
+        result = detect_swift_project(self.path)
+
+        self.assertEqual(result, "swift-xcode")
+
+    def test_detect_xcode_workspace(self):
+        """Detect Xcode workspace."""
+        (self.path / "MyApp.xcworkspace").mkdir()
+
+        result = detect_swift_project(self.path)
+
+        self.assertEqual(result, "swift-xcode")
+
+    def test_not_swift_empty_dir(self):
+        """Empty directory is not a Swift project."""
+        result = detect_swift_project(self.path)
+
+        self.assertIsNone(result)
+
+
+class TestMCPServerDetection(unittest.TestCase):
+    """Test MCP server detection."""
+
+    def setUp(self):
+        self.temp_dir = tempfile.mkdtemp()
+        self.path = Path(self.temp_dir)
+
+    def tearDown(self):
+        import shutil
+        shutil.rmtree(self.temp_dir, ignore_errors=True)
+
+    def test_detect_mcp_by_name(self):
+        """Detect MCP server by name containing 'mcp'."""
+        (self.path / "package.json").write_text('{"name": "my-mcp-server"}')
+
+        result = detect_mcp_server(self.path)
+
+        self.assertTrue(result)
+
+    def test_detect_mcp_by_sdk_dependency(self):
+        """Detect MCP server by @modelcontextprotocol/sdk dependency."""
+        (self.path / "package.json").write_text(json.dumps({
+            "name": "my-server",
+            "dependencies": {"@modelcontextprotocol/sdk": "^1.0.0"}
+        }))
+
+        result = detect_mcp_server(self.path)
+
+        self.assertTrue(result)
+
+    def test_not_mcp_regular_node(self):
+        """Regular Node.js project is not MCP server."""
+        (self.path / "package.json").write_text('{"name": "my-app"}')
+
+        result = detect_mcp_server(self.path)
+
+        self.assertFalse(result)
+
+
+class TestHomebrewTapDetection(unittest.TestCase):
+    """Test Homebrew tap detection."""
+
+    def setUp(self):
+        self.temp_dir = tempfile.mkdtemp()
+        self.path = Path(self.temp_dir)
+
+    def tearDown(self):
+        import shutil
+        shutil.rmtree(self.temp_dir, ignore_errors=True)
+
+    def test_detect_formula_directory(self):
+        """Detect Homebrew tap with Formula directory."""
+        (self.path / "Formula").mkdir()
+        (self.path / "Formula/myapp.rb").write_text('class Myapp < Formula')
+
+        result = detect_homebrew_tap(self.path)
+
+        self.assertTrue(result)
+
+    def test_detect_casks_directory(self):
+        """Detect Homebrew tap with Casks directory."""
+        (self.path / "Casks").mkdir()
+        (self.path / "Casks/myapp.rb").write_text('cask "myapp" do')
+
+        result = detect_homebrew_tap(self.path)
+
+        self.assertTrue(result)
+
+    def test_not_homebrew_empty_dir(self):
+        """Empty directory is not a Homebrew tap."""
+        result = detect_homebrew_tap(self.path)
+
+        self.assertFalse(result)
+
+
+class TestZSHPluginDetection(unittest.TestCase):
+    """Test ZSH plugin detection."""
+
+    def setUp(self):
+        self.temp_dir = tempfile.mkdtemp()
+        self.path = Path(self.temp_dir)
+
+    def tearDown(self):
+        import shutil
+        shutil.rmtree(self.temp_dir, ignore_errors=True)
+
+    def test_detect_plugin_zsh_file(self):
+        """Detect ZSH plugin by .plugin.zsh file."""
+        (self.path / "myplugin.plugin.zsh").write_text('# ZSH plugin')
+
+        result = detect_zsh_plugin(self.path)
+
+        self.assertTrue(result)
+
+    def test_detect_functions_directory(self):
+        """Detect ZSH plugin by functions directory."""
+        (self.path / "functions").mkdir()
+        (self.path / "functions/myfunction.zsh").write_text('myfunction() {}')
+
+        result = detect_zsh_plugin(self.path)
+
+        self.assertTrue(result)
+
+    def test_detect_zsh_plugins_txt(self):
+        """Detect ZSH plugin by .zsh_plugins.txt."""
+        (self.path / ".zsh_plugins.txt").write_text('zsh-users/zsh-autosuggestions')
+
+        result = detect_zsh_plugin(self.path)
+
+        self.assertTrue(result)
+
+    def test_not_zsh_empty_dir(self):
+        """Empty directory is not a ZSH plugin."""
+        result = detect_zsh_plugin(self.path)
+
+        self.assertFalse(result)
+
+
+class TestElispPackageDetection(unittest.TestCase):
+    """Test Emacs Lisp package detection."""
+
+    def setUp(self):
+        self.temp_dir = tempfile.mkdtemp()
+        self.path = Path(self.temp_dir)
+
+    def tearDown(self):
+        import shutil
+        shutil.rmtree(self.temp_dir, ignore_errors=True)
+
+    def test_detect_pkg_el_file(self):
+        """Detect Elisp package by *-pkg.el file."""
+        (self.path / "mypackage-pkg.el").write_text('(define-package "mypackage" "1.0")')
+
+        result = detect_elisp_package(self.path)
+
+        self.assertTrue(result)
+
+    def test_detect_cask_file(self):
+        """Detect Elisp package by Cask file."""
+        (self.path / "Cask").write_text('(source melpa)')
+
+        result = detect_elisp_package(self.path)
+
+        self.assertTrue(result)
+
+    def test_detect_autoload_marker(self):
+        """Detect Elisp package by ;;;###autoload marker."""
+        (self.path / "mypackage.el").write_text(';;;###autoload\n(defun my-func () nil)')
+
+        result = detect_elisp_package(self.path)
+
+        self.assertTrue(result)
+
+    def test_not_elisp_empty_dir(self):
+        """Empty directory is not an Elisp package."""
+        result = detect_elisp_package(self.path)
+
+        self.assertFalse(result)
+
+
+class TestBunDetection(unittest.TestCase):
+    """Test Bun package manager detection."""
+
+    def setUp(self):
+        self.temp_dir = tempfile.mkdtemp()
+        self.path = Path(self.temp_dir)
+
+    def tearDown(self):
+        import shutil
+        shutil.rmtree(self.temp_dir, ignore_errors=True)
+
+    def test_detect_bun_project(self):
+        """Detect Bun project by bun.lock file."""
+        (self.path / "package.json").write_text('{"name": "test"}')
+        (self.path / "bun.lock").write_text('# bun lockfile')
+
+        result = detect_project(self.path)
+
+        self.assertEqual(result.type, "node")
+        self.assertEqual(result.variant, "bun")
 
 
 if __name__ == "__main__":

@@ -23,19 +23,27 @@ Detection runs in priority order (first match wins for primary type):
 | Priority | Type | Marker Files | Stack |
 |----------|------|--------------|-------|
 | 1 | Claude Plugin | `.claude-plugin/plugin.json` | plugin |
-| 2 | R Package | `DESCRIPTION` + `NAMESPACE` | r |
-| 3 | R Quarto | `_quarto.yml` + `*.qmd` | r |
-| 4 | Python UV | `pyproject.toml` + `uv.lock` | python |
-| 5 | Python Poetry | `pyproject.toml` + `poetry.lock` | python |
-| 6 | Python Pip | `pyproject.toml` OR `setup.py` | python |
-| 7 | Node PNPM | `package.json` + `pnpm-lock.yaml` | node |
-| 8 | Node Yarn | `package.json` + `yarn.lock` | node |
-| 9 | Node NPM | `package.json` + `package-lock.json` | node |
-| 10 | Rust | `Cargo.toml` | rust |
-| 11 | Go | `go.mod` | go |
-| 12 | Java Maven | `pom.xml` | java |
-| 13 | Java Gradle | `build.gradle` OR `build.gradle.kts` | java |
-| 14 | Shell | `*.sh` + no other markers | shell |
+| 2 | MCP Server | `package.json` + `mcp` in name/deps | mcp |
+| 3 | Tauri | `src-tauri/tauri.conf.json` | tauri |
+| 4 | Swift Package | `Package.swift` | swift |
+| 5 | Swift iOS/macOS | `*.xcodeproj` OR `*.xcworkspace` | swift |
+| 6 | R Package | `DESCRIPTION` + `NAMESPACE` | r |
+| 7 | R Quarto | `_quarto.yml` + `*.qmd` | r |
+| 8 | Python UV | `pyproject.toml` + `uv.lock` | python |
+| 9 | Python Poetry | `pyproject.toml` + `poetry.lock` | python |
+| 10 | Python Pip | `pyproject.toml` OR `setup.py` | python |
+| 11 | Node Bun | `package.json` + `bun.lock` | node |
+| 12 | Node PNPM | `package.json` + `pnpm-lock.yaml` | node |
+| 13 | Node Yarn | `package.json` + `yarn.lock` | node |
+| 14 | Node NPM | `package.json` + `package-lock.json` | node |
+| 15 | Rust | `Cargo.toml` | rust |
+| 16 | Go | `go.mod` | go |
+| 17 | Java Maven | `pom.xml` | java |
+| 18 | Java Gradle | `build.gradle` OR `build.gradle.kts` | java |
+| 19 | Homebrew Tap | `Formula/*.rb` OR `Casks/*.rb` | homebrew |
+| 20 | ZSH Plugin | `*.plugin.zsh` OR `functions/*.zsh` | zsh |
+| 21 | Emacs Package | `*.el` + `-pkg.el` | elisp |
+| 22 | Shell | `*.sh` + no other markers | shell |
 
 ## Detection Algorithm
 
@@ -59,18 +67,35 @@ class ProjectInfo:
 
 DETECTORS = [
     # (type, variant, required_files, optional_files)
+    # Priority 1-5: Specialized/hybrid projects
     ("plugin", "claude", [".claude-plugin/plugin.json"], []),
+    ("mcp", "server", ["package.json"], []),  # Check for mcp in name/deps
+    ("tauri", "app", ["src-tauri/tauri.conf.json"], ["src-tauri/Cargo.toml"]),
+    ("swift", "package", ["Package.swift"], ["Sources/"]),
+    ("swift", "xcode", [], []),  # Special: glob for *.xcodeproj
+    # Priority 6-7: R ecosystem
     ("r", "package", ["DESCRIPTION", "NAMESPACE"], ["R/", "tests/"]),
     ("r", "quarto", ["_quarto.yml"], ["*.qmd"]),
+    # Priority 8-10: Python ecosystem
     ("python", "uv", ["pyproject.toml", "uv.lock"], ["src/"]),
     ("python", "poetry", ["pyproject.toml", "poetry.lock"], ["src/"]),
     ("python", "pip", ["pyproject.toml"], ["requirements.txt"]),
     ("python", "setuptools", ["setup.py"], ["setup.cfg"]),
+    # Priority 11-14: Node ecosystem
+    ("node", "bun", ["package.json", "bun.lock"], []),
     ("node", "pnpm", ["package.json", "pnpm-lock.yaml"], []),
     ("node", "yarn", ["package.json", "yarn.lock"], []),
     ("node", "npm", ["package.json"], ["package-lock.json"]),
+    # Priority 15-18: Other compiled languages
     ("rust", "cargo", ["Cargo.toml"], ["Cargo.lock"]),
     ("go", "mod", ["go.mod"], ["go.sum"]),
+    ("java", "maven", ["pom.xml"], []),
+    ("java", "gradle", ["build.gradle"], ["build.gradle.kts"]),
+    # Priority 19-22: Tooling/config projects
+    ("homebrew", "tap", [], []),  # Special: glob for Formula/*.rb
+    ("zsh", "plugin", [], []),  # Special: glob for *.plugin.zsh
+    ("elisp", "package", [], []),  # Special: glob for *-pkg.el
+    ("shell", "script", [], []),  # Fallback for *.sh
 ]
 
 def detect_project(path: Path) -> Optional[ProjectInfo]:
@@ -226,6 +251,174 @@ def detect_go_test_framework(path: Path) -> str:
     return "go-test"  # Built-in Go testing
 ```
 
+### Tauri (Rust + Node hybrid)
+```python
+def detect_tauri_project(path: Path) -> bool:
+    """Detect Tauri desktop app project."""
+    return (path / "src-tauri/tauri.conf.json").exists()
+
+def detect_tauri_test_framework(path: Path) -> dict:
+    """Detect test frameworks for both Rust and Node sides."""
+    result = {"rust": "cargo-test", "node": "vitest"}
+
+    # Check Rust side
+    cargo = path / "src-tauri/Cargo.toml"
+    if cargo.exists():
+        content = cargo.read_text()
+        if "rstest" in content:
+            result["rust"] = "rstest"
+
+    # Check Node side
+    pkg = path / "package.json"
+    if pkg.exists():
+        content = pkg.read_text()
+        if "vitest" in content:
+            result["node"] = "vitest"
+        elif "jest" in content:
+            result["node"] = "jest"
+
+    return result
+```
+
+### Swift
+```python
+def detect_swift_project(path: Path) -> Optional[str]:
+    """Detect Swift project type."""
+    # Swift Package Manager
+    if (path / "Package.swift").exists():
+        return "swift-package"
+
+    # Xcode project
+    xcodeproj = list(path.glob("*.xcodeproj"))
+    if xcodeproj:
+        return "swift-xcode"
+
+    # Xcode workspace
+    xcworkspace = list(path.glob("*.xcworkspace"))
+    if xcworkspace:
+        return "swift-xcode"
+
+    return None
+
+def detect_swift_test_framework(path: Path) -> str:
+    """Detect Swift test framework."""
+    # Check for Quick/Nimble (BDD)
+    pkg = path / "Package.swift"
+    if pkg.exists():
+        content = pkg.read_text()
+        if "Quick" in content or "Nimble" in content:
+            return "quick-nimble"
+
+    # Check for test targets in Package.swift
+    if pkg.exists():
+        content = pkg.read_text()
+        if ".testTarget" in content:
+            return "xctest"
+
+    # Default to XCTest
+    return "xctest"
+```
+
+### MCP Server
+```python
+def detect_mcp_server(path: Path) -> bool:
+    """Detect MCP (Model Context Protocol) server project."""
+    pkg = path / "package.json"
+    if pkg.exists():
+        import json
+        data = json.loads(pkg.read_text())
+
+        # Check name contains mcp
+        name = data.get("name", "").lower()
+        if "mcp" in name:
+            return True
+
+        # Check for @modelcontextprotocol dependency
+        deps = {**data.get("dependencies", {}), **data.get("devDependencies", {})}
+        if "@modelcontextprotocol/sdk" in deps:
+            return True
+        if any("mcp" in dep.lower() for dep in deps):
+            return True
+
+    return False
+```
+
+### Homebrew Tap
+```python
+def detect_homebrew_tap(path: Path) -> bool:
+    """Detect Homebrew tap project."""
+    # Check for Formula directory
+    if (path / "Formula").exists():
+        rb_files = list((path / "Formula").glob("*.rb"))
+        if rb_files:
+            return True
+
+    # Check for Casks directory
+    if (path / "Casks").exists():
+        rb_files = list((path / "Casks").glob("*.rb"))
+        if rb_files:
+            return True
+
+    return False
+```
+
+### ZSH Plugin
+```python
+def detect_zsh_plugin(path: Path) -> bool:
+    """Detect ZSH plugin project."""
+    # Check for .plugin.zsh file
+    plugin_files = list(path.glob("*.plugin.zsh"))
+    if plugin_files:
+        return True
+
+    # Check for functions directory with .zsh files
+    if (path / "functions").exists():
+        zsh_files = list((path / "functions").glob("*.zsh"))
+        if zsh_files:
+            return True
+
+    # Check for antidote/antigen/oh-my-zsh markers
+    if (path / ".zsh_plugins.txt").exists():
+        return True
+
+    return False
+```
+
+### Emacs Lisp Package
+```python
+def detect_elisp_package(path: Path) -> bool:
+    """Detect Emacs Lisp package project."""
+    # Check for *-pkg.el file (MELPA convention)
+    pkg_files = list(path.glob("*-pkg.el"))
+    if pkg_files:
+        return True
+
+    # Check for Cask file (dependency management)
+    if (path / "Cask").exists():
+        return True
+
+    # Check for .el files with ;;;### autoload markers
+    el_files = list(path.glob("*.el"))
+    for el_file in el_files:
+        if ";;;###autoload" in el_file.read_text():
+            return True
+
+    return False
+
+def detect_elisp_test_framework(path: Path) -> str:
+    """Detect Emacs test framework."""
+    # Check for ERT tests
+    test_files = list(path.glob("test*.el")) + list(path.glob("*-test.el"))
+    for test_file in test_files:
+        content = test_file.read_text()
+        if "ert-deftest" in content:
+            return "ert"
+        if "buttercup" in content:
+            return "buttercup"
+
+    return "ert"  # Default to ERT
+```
+
 ## CI Template Selection
 
 Based on detection, recommend appropriate CI template:
@@ -237,11 +430,19 @@ Based on detection, recommend appropriate CI template:
 | `python-pip` | `python-pip-ci.yml` | pip install, pytest |
 | `node-npm` | `node-npm-ci.yml` | npm ci, jest/vitest |
 | `node-pnpm` | `node-pnpm-ci.yml` | pnpm install, tests |
+| `node-bun` | `node-bun-ci.yml` | bun install, bun test |
 | `r-package` | `r-package-ci.yml` | R CMD check, testthat |
 | `r-quarto` | `r-quarto-ci.yml` | quarto render |
 | `rust-cargo` | `rust-cargo-ci.yml` | cargo test, clippy |
 | `go-mod` | `go-mod-ci.yml` | go test, go vet |
 | `plugin-claude` | `plugin-ci.yml` | Structure validation |
+| `tauri-app` | `tauri-ci.yml` | Rust + Node build, tauri-action |
+| `swift-package` | `swift-ci.yml` | swift build, swift test |
+| `swift-xcode` | `xcode-ci.yml` | xcodebuild, xctest |
+| `mcp-server` | `mcp-ci.yml` | Node tests, MCP validation |
+| `homebrew-tap` | `homebrew-ci.yml` | Formula syntax check, brew audit |
+| `zsh-plugin` | `zsh-ci.yml` | Shellcheck, zsh -n syntax check |
+| `elisp-package` | `elisp-ci.yml` | Emacs batch compile, ert tests |
 
 ## Version Detection
 
