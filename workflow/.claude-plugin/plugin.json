@@ -1,7 +1,7 @@
 {
   "name": "workflow",
-  "version": "2.1.6",
-  "description": "ADHD-friendly workflow automation: brainstorm, focus, next, done, recap, stuck, task management, and design patterns",
+  "version": "2.2.0",
+  "description": "ADHD-friendly workflow automation: brainstorm (with spec capture), spec-review, focus, next, done, recap, stuck, task management, and design patterns",
   "author": {
     "name": "Data-Wise"
   }

@@ -39,7 +39,26 @@ Analyze what happened this session:
    - Read current "🎯 Next Action"
    - Check "🔴 Blockers"
 
-### Step 1.5: Check Documentation Health (NEW! Phase 1)
+### Step 1.5: Check for Completed Specs (NEW! v1.1.0)
+
+Check if any specs were being implemented this session:
+
+```bash
+# Find specs with status: implementing
+find docs/specs -name "SPEC-*.md" -exec grep -l "Status: implementing" {} \;
+
+# Check if current work matches any spec topics
+for spec in docs/specs/SPEC-*.md; do
+    topic=$(basename "$spec" | sed 's/SPEC-//;s/-[0-9].*\.md//')
+    if git log --oneline -5 | grep -qi "$topic"; then
+        echo "Spec match: $spec"
+    fi
+done
+```
+
+If implementing specs found, offer archival in summary (Step 2).
+
+### Step 1.6: Check Documentation Health (Phase 1)
 
 Run documentation detectors to identify gaps and staleness:
 
@@ -108,6 +127,10 @@ Present findings and ask user to confirm/edit:
 │    • 🔴 7 orphaned docs not in mkdocs.yml                  │
 │    • 🟡 README/docs divergence (version mismatch)           │
 │                                                             │
+│ 📋 SPECS: [if implementing specs found]                     │
+│    • SPEC-auth-system-2025-12-30.md (status: implementing)  │
+│      → Archive as complete?                                 │
+│                                                             │
 │ 📁 FILES CHANGED:                                           │
 │    • [file1.py] - [brief description of change]            │
 │    • [file2.md] - [brief description]                      │
@@ -127,6 +150,30 @@ Present findings and ask user to confirm/edit:
 ### Step 3: Handle User Choice
 
 #### Option A: Full Update (Default)
+
+0. **Archive completed specs** (if any found with status: implementing)
+
+   If specs were being implemented this session:
+
+   ```
+   AskUserQuestion:
+     question: "Archive spec as complete?"
+     header: "Spec"
+     multiSelect: false
+     options:
+       - label: "Yes - Implementation complete"
+         description: "Move to docs/specs/_archive/, status → done"
+       - label: "No - Still in progress"
+         description: "Keep as implementing"
+       - label: "No - Needs more work"
+         description: "Revert to approved, note what's missing"
+   ```
+
+   If "Yes":
+   - Move spec to `docs/specs/_archive/`
+   - Update status to `done`
+   - Add completion timestamp
+   - Link to commit/PR if available
 
 1. **Update .STATUS file** (if exists)
    ```

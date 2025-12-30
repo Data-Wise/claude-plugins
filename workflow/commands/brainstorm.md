@@ -1,7 +1,7 @@
 ---
 name: brainstorm
-description: Enhanced brainstorming with smart detection, design modes, time budgets, and automatic agent delegation for deep analysis
-version: 2.1.6
+description: Enhanced brainstorming with smart detection, design modes, time budgets, agent delegation, and spec capture for implementation
+version: 2.2.0
 args:
   - name: mode
     description: "Brainstorm mode: feature|architecture|design|backend|frontend|devops|quick|thorough (optional, shows menu if omitted)"
@@ -12,11 +12,14 @@ args:
   - name: format
     description: "Output format: terminal|json|markdown (default: terminal)"
     required: false
+  - name: save-spec
+    description: "Capture brainstorm as formal spec (--save-spec or --save-spec=full|quick)"
+    required: false
 ---
 
 # /workflow:brainstorm - Enhanced Brainstorm
 
-ADHD-friendly brainstorming with smart mode detection, time budgets, and agent delegation.
+ADHD-friendly brainstorming with smart mode detection, time budgets, agent delegation, and **spec capture for implementation**.
 
 ## Arguments
 
@@ -31,6 +34,9 @@ ADHD-friendly brainstorming with smart mode detection, time budgets, and agent d
 | `devops` | CI/CD pipelines, deployment, infrastructure |
 | `quick` | < 1 min, 5-7 ideas, no agents |
 | `thorough` | < 30 min, 2-4 agents for deep analysis |
+| `--save-spec` | Capture brainstorm as formal spec after completion |
+| `--save-spec=full` | Full spec: user stories + technical + UI/UX |
+| `--save-spec=quick` | Quick spec: user stories + key requirements only |
 
 ## When Invoked
 
@@ -463,6 +469,114 @@ Show footer:
 
 ---
 
+### Step 5.5: Spec Capture (Optional)
+
+After showing results, offer to capture as formal spec for implementation.
+
+#### When to Trigger
+
+| Condition | Trigger |
+|-----------|---------|
+| `--save-spec` flag provided | Always capture |
+| Mode is `feature`, `architecture`, `backend` | Prompt to capture |
+| Mode is `quick` | Skip (too brief for spec) |
+| User selects "Yes" in prompt | Capture |
+
+#### Spec Capture Question
+
+```
+AskUserQuestion:
+  question: "Capture this brainstorm as a formal spec for implementation?"
+  header: "Spec"
+  multiSelect: false
+  options:
+    - label: "Yes - Full Spec (Recommended)"
+      description: "User stories, technical requirements, UI/UX specs"
+    - label: "Yes - Quick Spec"
+      description: "User stories + key requirements only"
+    - label: "No - Keep as Brainstorm"
+      description: "Save brainstorm file only"
+```
+
+#### If User Selects Yes
+
+Ask clarifying questions to fill spec template:
+
+```
+AskUserQuestion:
+  question: "Who is the primary user for this feature?"
+  header: "User Type"
+  multiSelect: false
+  options:
+    - label: "Developer"
+      description: "Building/integrating the feature"
+    - label: "End User"
+      description: "Using the feature directly"
+    - label: "Admin"
+      description: "Managing/configuring the feature"
+```
+
+Then ask for acceptance criteria:
+
+```
+AskUserQuestion:
+  question: "What's the primary acceptance criterion?"
+  header: "Acceptance"
+  multiSelect: false
+  options:
+    - label: "Feature works as described"
+      description: "Basic functionality complete"
+    - label: "Tests pass"
+      description: "Automated tests validate behavior"
+    - label: "Documentation complete"
+      description: "Usage docs available"
+    - label: "Custom criterion"
+      description: "Enter your own"
+```
+
+#### Generate Spec
+
+1. Load spec template from `workflow/templates/SPEC-TEMPLATE.md`
+2. Fill in values from brainstorm output + user answers
+3. Save to `docs/specs/SPEC-[topic]-[date].md`
+4. Create `docs/specs/` directory if needed
+5. Show confirmation with file path
+
+#### Spec Capture Output
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│ 📋 SPEC CAPTURED                                            │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│ Spec: SPEC-auth-system-2025-12-30.md                        │
+│ Type: Full Spec                                             │
+│ From: BRAINSTORM-auth-system-2025-12-30.md                  │
+│                                                             │
+│ Sections:                                                   │
+│   ✓ User Stories (1 primary, 2 secondary)                   │
+│   ✓ Technical Requirements                                  │
+│   ✓ UI/UX Specifications                                    │
+│   ⚠ Open Questions (2 items need review)                    │
+│                                                             │
+│ Status: draft                                               │
+│                                                             │
+├─────────────────────────────────────────────────────────────┤
+│ 🔗 Next steps:                                              │
+│    /spec:review auth-system   ← review & approve spec       │
+│    /craft:do "implement auth" ← will use this spec          │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+#### Skip Spec Capture
+
+If user selects "No" or mode is `quick`:
+- Save only the brainstorm file
+- Show standard footer (Step 5)
+
+---
+
 ## Agent Delegation (Thorough Mode)
 
 When depth is `thorough`, launch relevant agents in background:
@@ -628,7 +742,23 @@ flowchart TD
     JSON --> Save
     Markdown --> Save
 
-    Save --> Report["Report time + next steps"]
+    Save --> SpecQ{Spec capture?}
+    SpecQ -->|--save-spec| SpecCapture[Capture as spec]
+    SpecQ -->|feature/arch/backend| SpecPrompt["🔘 Q3: Capture as spec?"]
+    SpecQ -->|quick/no| Report["Report time + next steps"]
+
+    SpecPrompt -->|Yes - Full| SpecCapture
+    SpecPrompt -->|Yes - Quick| QuickSpec[Quick spec capture]
+    SpecPrompt -->|No| Report
+
+    SpecCapture --> UserQ["🔘 Q4: User type?"]
+    QuickSpec --> UserQ
+    UserQ --> AcceptQ["🔘 Q5: Acceptance criterion?"]
+    AcceptQ --> GenSpec[Generate SPEC.md]
+    GenSpec --> SaveSpec[Save to docs/specs/]
+    SaveSpec --> SpecReport[Spec capture report]
+    SpecReport --> Report
+
     Report --> End[Complete]
 ```
 
@@ -636,7 +766,23 @@ flowchart TD
 
 ## Version History
 
-### v2.1.3 (Current)
+### v2.2.0 (Current)
+
+**Spec Capture Integration:**
+- ✅ Added `--save-spec` flag for automatic spec capture
+- ✅ Step 5.5: Spec capture flow after brainstorm
+- ✅ Prompts for Full Spec or Quick Spec
+- ✅ User type and acceptance criteria questions
+- ✅ Saves to `docs/specs/SPEC-[topic]-[date].md`
+- ✅ Links to `/spec:review` for approval workflow
+- ✅ Updated flowchart with spec capture branch
+
+**Triggers:**
+- `--save-spec` flag → always capture
+- `feature`, `architecture`, `backend` modes → prompt to capture
+- `quick` mode → skip (too brief)
+
+### v2.1.3
 
 **AskUserQuestion Compliance:**
 - ✅ Two-question flow (max 4 options each)

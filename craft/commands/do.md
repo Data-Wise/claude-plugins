@@ -18,10 +18,11 @@ Intelligently analyze your task and execute the right craft commands.
 
 ## How It Works
 
-1. **Analyze** - Parse task description for intent
-2. **Route** - Select appropriate craft commands
-3. **Execute** - Run commands in optimal order
-4. **Report** - Summarize what was done
+1. **Check Spec** - Look for existing spec matching task (NEW in v1.1.0)
+2. **Analyze** - Parse task description for intent
+3. **Route** - Select appropriate craft commands
+4. **Execute** - Run commands in optimal order
+5. **Report** - Summarize what was done
 
 ## Examples
 
@@ -137,8 +138,83 @@ Works with all craft commands and skills:
 - Uses skills for specialized analysis
 - Chains commands for complex workflows
 
+## Spec Integration (NEW in v1.1.0)
+
+Before routing, `/craft:do` checks for existing specs that match the task.
+
+### Spec Check Flow
+
+```bash
+# Check for specs in project
+find docs/specs -name "SPEC-*.md" 2>/dev/null | while read spec; do
+    # Extract topic from filename
+    topic=$(basename "$spec" | sed 's/SPEC-//;s/-[0-9].*\.md//')
+
+    # Check if task matches topic
+    if [[ "$task" == *"$topic"* ]]; then
+        # Found matching spec
+        show_spec_prompt "$spec"
+    fi
+done
+```
+
+### Spec Found Prompt
+
+```
+AskUserQuestion:
+  question: "Found spec for this task. How should we proceed?"
+  header: "Spec"
+  multiSelect: false
+  options:
+    - label: "Review spec, then implement"
+      description: "Show spec summary first"
+    - label: "Implement with spec context"
+      description: "Use spec as implementation guide"
+    - label: "Skip spec"
+      description: "Proceed without spec reference"
+    - label: "Create new spec first"
+      description: "Current spec may be outdated"
+```
+
+### Example: Spec-Aware Execution
+
+```
+User: /craft:do implement user authentication
+
+Claude: Found spec: SPEC-auth-system-2025-12-30.md (status: approved)
+
+        [AskUserQuestion: Review/Implement/Skip/New?]
+
+User: Selects "Implement with spec context"
+
+Claude: Loading spec context...
+        - User Stories: 1 primary, 2 secondary
+        - Acceptance Criteria: 3 items
+        - Technical Requirements: OAuth2, JWT tokens
+        - Dependencies: auth0 SDK
+
+        Proceeding with implementation...
+        Step 1: /craft:arch:plan (using spec requirements)
+        Step 2: /craft:code:test-gen (from acceptance criteria)
+        ...
+```
+
+### No Spec Found
+
+If no matching spec exists and task is a feature:
+
+```
+Note: No spec found for "user authentication"
+      Consider: /workflow:brainstorm --save-spec "user authentication"
+      Proceeding with standard routing...
+```
+
+---
+
 ## Tips
 
 - Be specific for better routing
 - Use domain keywords (auth, api, ui, db)
 - Add mode hint if needed: "thoroughly test the api"
+- Create specs for complex features: `/workflow:brainstorm --save-spec "feature"`
+- Review specs before implementation: `/spec:review [topic]`
