@@ -1,7 +1,7 @@
 ---
 name: brainstorm
 description: Enhanced brainstorming with smart detection, design modes, time budgets, agent delegation, and spec capture for implementation
-version: 2.3.0
+version: 2.3.1
 args:
   - name: depth
     description: "Analysis depth: q|quick|d|deep|m|max (default: balanced, shows menu if omitted)"
@@ -736,28 +736,66 @@ AskUserQuestion:
 
 #### Generate Spec
 
+**IMPORTANT: Generate comprehensive specs with ALL template sections. Mark sections as "N/A - Not applicable for this feature" if they don't apply.**
+
 1. Load spec template from `workflow/templates/SPEC-TEMPLATE.md`
-2. Fill in values from brainstorm output + user answers
-3. Save to `docs/specs/SPEC-[topic]-[date].md`
-4. Create `docs/specs/` directory if needed
-5. Show confirmation with file path
+2. Fill in ALL sections from brainstorm output + user answers:
+
+**Required Sections (Always Include):**
+
+| Section | Content Source |
+|---------|----------------|
+| **Metadata** | Status: draft, Created: today, From Brainstorm: link |
+| **Overview** | From brainstorm summary (2-3 sentences) |
+| **Primary User Story** | From user type question + brainstorm goals |
+| **Acceptance Criteria** | From brainstorm quick wins + requirements |
+| **Secondary User Stories** | Additional user perspectives, or "N/A" |
+| **Architecture** | Mermaid diagram from brainstorm structure |
+| **API Design** | Endpoint table from backend requirements, or "N/A - No API changes" |
+| **Data Models** | Schema from data requirements, or "N/A - No data model changes" |
+| **Dependencies** | Libraries/tools from implementation plan |
+| **UI/UX Specifications** | User flow, wireframes (ASCII), accessibility checklist, or "N/A - CLI only" |
+| **Open Questions** | Unresolved items from brainstorm |
+| **Review Checklist** | Standard checklist (always include) |
+| **Implementation Notes** | Key considerations from brainstorm |
+| **History** | Initial entry with today's date |
+
+3. For each section:
+   - If applicable: Fill with brainstorm content
+   - If not applicable: Include section header with "N/A - [reason]"
+   - Never omit sections entirely
+
+4. Save to `docs/specs/SPEC-[topic]-[date].md`
+5. Create `docs/specs/` directory if needed
+6. Show confirmation with section summary
 
 #### Spec Capture Output
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│ 📋 SPEC CAPTURED                                            │
+│ 📋 SPEC CAPTURED (Comprehensive)                            │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
 │ Spec: SPEC-auth-system-2025-12-30.md                        │
-│ Type: Full Spec                                             │
+│ Type: Full Spec (all sections)                              │
 │ From: BRAINSTORM-auth-system-2025-12-30.md                  │
 │                                                             │
 │ Sections:                                                   │
+│   ✓ Overview                                                │
 │   ✓ User Stories (1 primary, 2 secondary)                   │
 │   ✓ Technical Requirements                                  │
+│       ✓ Architecture (with diagram)                         │
+│       ✓ API Design (table)                                  │
+│       ✓ Data Models                                         │
+│       ✓ Dependencies                                        │
 │   ✓ UI/UX Specifications                                    │
-│   ⚠ Open Questions (2 items need review)                    │
+│       ✓ User Flow (diagram)                                 │
+│       ✓ Wireframes (ASCII)                                  │
+│       ✓ Accessibility Checklist                             │
+│   ⚠ Open Questions (2 items)                                │
+│   ✓ Review Checklist                                        │
+│   ✓ Implementation Notes                                    │
+│   ✓ History                                                 │
 │                                                             │
 │ Status: draft                                               │
 │                                                             │
@@ -768,6 +806,11 @@ AskUserQuestion:
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
+
+**Section Status Legend:**
+- `✓` = Section filled with content
+- `⚠` = Section needs review/has items
+- `N/A` = Section marked not applicable (but still present)
 
 #### Skip Spec Capture
 
@@ -966,7 +1009,24 @@ flowchart TD
 
 ## Version History
 
-### v2.3.0 (Current)
+### v2.3.1 (Current)
+
+**Comprehensive Spec Generation Fix:**
+- ✅ Fixed: Generated specs now include ALL template sections
+- ✅ Added explicit section mapping table in Generate Spec step
+- ✅ Non-applicable sections marked as "N/A - [reason]" (never omitted)
+- ✅ Updated Spec Capture Output to show all sections
+- ✅ Added section status legend (✓/⚠/N/A)
+
+**Sections Now Always Included:**
+- Overview, User Stories (primary + secondary)
+- Architecture (with Mermaid diagram)
+- API Design (table), Data Models, Dependencies
+- UI/UX Specifications (User Flow, Wireframes, Accessibility)
+- Open Questions, Review Checklist
+- Implementation Notes, History
+
+### v2.3.0
 
 **Three-Layer Argument System:**
 - ✅ New syntax: `/brainstorm [depth] [focus] [action] "topic"`
