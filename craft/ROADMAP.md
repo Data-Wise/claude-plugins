@@ -1,6 +1,8 @@
 # Craft Plugin Roadmap
 
-## Current Version: 1.6.0-dev
+## Current Version: 1.8.0-dev
+
+**Next Priority:** v1.8.0 - Homebrew Automation 🎯
 
 ---
 
@@ -245,7 +247,82 @@ Standard pages with consistent structure:
 
 ---
 
-## v1.8.0 - Release Automation (Future)
+## v1.8.0 - Homebrew Automation 🎯 TOP PRIORITY
+
+**Theme:** Automated Homebrew formula management with zero manual intervention
+
+**Background:** Built reusable workflow system for Data-Wise tap (Dec 31, 2025)
+- Centralized workflow: `homebrew-tap/.github/workflows/update-formula.yml`
+- Auto-merge PRs on release
+- Multi-source support (GitHub tarballs, PyPI packages)
+- Token management with fine-grained PAT
+
+### Phase 1: Quick Wins (This Week)
+
+| Task | Status | Description |
+|------|--------|-------------|
+| `homebrew-workflow-expert` skill | 🚧 TODO | Generate release workflows for any repo |
+| Enhanced `/craft:dist:homebrew` | 🚧 TODO | Add subcommands: `formula`, `workflow`, `token`, `setup` |
+| Formula validation | 🚧 TODO | Run `brew audit` before release |
+
+### Phase 2: Setup Wizard (Next Week)
+
+| Task | Status | Description |
+|------|--------|-------------|
+| `/craft:dist:homebrew setup` | 🚧 TODO | Full guided setup: detect → generate → token → release |
+| PyPI resource updater | 🚧 TODO | Fix stale URLs automatically from PyPI API |
+
+### Phase 3: Advanced Features (Future)
+
+| Task | Status | Description |
+|------|--------|-------------|
+| Multi-formula coordinator | 📋 PLANNED | Batch releases with dependency order |
+| Homebrew Cask support | 📋 PLANNED | Desktop apps (DMG/PKG) |
+| Cross-platform packages | 📋 PLANNED | apt, chocolatey, scoop |
+
+### New Commands
+
+```bash
+# Formula management
+/craft:dist:homebrew formula       # Generate formula (existing, enhanced)
+/craft:dist:homebrew workflow      # Generate release workflow
+/craft:dist:homebrew validate      # Run brew audit
+/craft:dist:homebrew setup         # Full setup wizard
+
+# Updates
+/craft:dist:homebrew update-resources  # Fix PyPI URLs
+/craft:dist:homebrew release-batch     # Multi-formula release
+```
+
+### New Skill
+
+**`homebrew-workflow-expert.md`** - Expert knowledge on:
+- Reusable workflow patterns
+- GitHub Actions for formula updates
+- Token setup and management
+- PyPI → Homebrew integration
+- Auto-merge strategies
+
+### Reusable Workflow Pattern
+
+```yaml
+# In any repo's .github/workflows/homebrew-release.yml
+uses: Data-Wise/homebrew-tap/.github/workflows/update-formula.yml@main
+with:
+  formula_name: myapp
+  version: ${{ needs.prepare.outputs.version }}
+  sha256: ${{ needs.prepare.outputs.sha256 }}
+  source_type: github  # or pypi
+  auto_merge: true
+secrets:
+  tap_token: ${{ secrets.HOMEBREW_TAP_GITHUB_TOKEN }}
+```
+
+**See:** `BRAINSTORM-homebrew-automation-2025-12-31.md` for full details
+
+---
+
+## v1.9.0 - Release Automation (Future)
 
 - `/craft:dist:pypi` - PyPI publishing workflow
 - `/craft:dist:npm` - npm publishing workflow
@@ -256,7 +333,7 @@ Standard pages with consistent structure:
 
 ---
 
-## v1.9.0 - CI/CD Integration (Future)
+## v1.10.0 - CI/CD Integration (Future)
 
 - `/craft:ci:matrix` - Generate test matrix
 - `/craft:ci:workflow` - Create GitHub Actions workflows
