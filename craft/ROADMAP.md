@@ -269,12 +269,16 @@ Standard pages with consistent structure:
 - Created `skills/distribution/homebrew-workflow-expert.md` (260 lines)
 - Enhanced `commands/dist/homebrew.md` with 5 subcommands (473 lines)
 
-### Phase 2: Setup Wizard (Next Week)
+### Phase 2: Setup Wizard ✅ COMPLETE
 
 | Task | Status | Description |
 |------|--------|-------------|
-| `/craft:dist:homebrew setup` | 🚧 TODO | Full guided setup: detect → generate → token → release |
-| PyPI resource updater | 🚧 TODO | Fix stale URLs automatically from PyPI API |
+| `/craft:dist:homebrew setup` | ✅ DONE | Full guided setup: detect → generate → token → release |
+| PyPI resource updater | ✅ DONE | Fix stale URLs automatically from PyPI API |
+
+**Completed:** Dec 31, 2025
+- Created `skills/distribution/homebrew-setup-wizard.md` (implementation logic)
+- Added `update-resources` subcommand to `commands/dist/homebrew.md`
 
 ### Phase 3: Advanced Features (Future)
 

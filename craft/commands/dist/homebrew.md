@@ -26,6 +26,7 @@ Complete Homebrew formula management with automated workflows.
 | `validate` | Run `brew audit` validation |
 | `token` | Guide for setting up tap access token |
 | `setup` | Full setup wizard (formula + workflow + token) |
+| `update-resources` | Fix stale PyPI resource URLs |
 
 ## Quick Start
 
@@ -446,6 +447,105 @@ end
 
 ---
 
+## /craft:dist:homebrew update-resources
+
+Fix stale PyPI resource URLs in formulas automatically.
+
+### The Problem
+
+PyPI occasionally changes the directory structure for package downloads, causing formulas with `resource` blocks to break:
+
+```
+Error: Failed to download resource "click"
+expected sha256 checksum <old>, got <new>
+```
+
+### Usage
+
+```bash
+/craft:dist:homebrew update-resources myapp        # Update specific formula
+/craft:dist:homebrew update-resources --all        # Update all formulas
+/craft:dist:homebrew update-resources --dry-run    # Preview changes only
+```
+
+### How It Works
+
+1. **Parse Formula** - Extract all `resource` blocks
+2. **Query PyPI API** - Get current URLs and checksums for each package
+3. **Update Formula** - Replace stale URLs and SHA256 values
+4. **Validate** - Run `brew audit` on updated formula
+
+### Example
+
+**Before (stale):**
+```ruby
+resource "click" do
+  url "https://files.pythonhosted.org/packages/old/path/click-8.0.0.tar.gz"
+  sha256 "abc123..."
+end
+```
+
+**After (updated):**
+```ruby
+resource "click" do
+  url "https://files.pythonhosted.org/packages/source/c/click/click-8.1.7.tar.gz"
+  sha256 "def456..."
+end
+```
+
+### PyPI API Integration
+
+```bash
+# Fetch package info
+curl -s "https://pypi.org/pypi/click/json" | jq '{
+  name: .info.name,
+  version: .info.version,
+  url: .urls[] | select(.packagetype == "sdist") | .url,
+  sha256: .urls[] | select(.packagetype == "sdist") | .digests.sha256
+}'
+```
+
+### Output
+
+```
+Updating resources for: nexus-cli
+
+Checking 5 resources...
+  ✓ click: 8.0.0 → 8.1.7 (URL updated)
+  ✓ rich: 13.0.0 → 13.7.0 (URL updated)
+  - typer: 0.9.0 (no changes)
+  - httpx: 0.24.0 (no changes)
+  ✓ pydantic: 2.0.0 → 2.5.3 (URL updated)
+
+Updated 3 resources in Formula/nexus-cli.rb
+Running brew audit... ✓ passed
+```
+
+### Options
+
+| Option | Description |
+|--------|-------------|
+| `--dry-run` | Show what would change without modifying |
+| `--all` | Update all formulas in tap |
+| `--pin` | Don't upgrade versions, only fix URLs |
+| `--commit` | Auto-commit changes |
+
+### Common Issues
+
+**Issue: Package renamed on PyPI**
+```
+Warning: Package 'old-name' not found on PyPI
+Hint: Check if package was renamed or deprecated
+```
+
+**Issue: Source distribution not available**
+```
+Warning: No sdist found for 'package-name'
+Only wheel distributions available
+```
+
+---
+
 ## Integration
 
 | Command | Use With |
@@ -459,6 +559,7 @@ end
 
 - `homebrew-formula-expert` - Formula syntax and patterns
 - `homebrew-workflow-expert` - GitHub Actions automation
+- `homebrew-setup-wizard` - Setup wizard implementation
 - `distribution-strategist` - Multi-channel distribution
 
 ---
