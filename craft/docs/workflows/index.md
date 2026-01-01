@@ -84,7 +84,10 @@ flowchart LR
     BRAND --> GEN
     NAV --> GEN
 
-    GEN --> FILES["mkdocs.yml<br/>docs/index.md<br/>docs/QUICK-START.md<br/>.github/workflows/docs.yml"]
+    GEN --> FILES["mkdocs.yml
+docs/index.md
+docs/QUICK-START.md
+.github/workflows/docs.yml"]
 
     FILES --> BUILD["/craft:site:build"]
     BUILD --> PREVIEW["/craft:site:preview"]
@@ -185,8 +188,10 @@ flowchart TD
 flowchart TD
     START([New Feature]) --> WORKTREE["/craft:git:worktree add feature-name"]
 
-    WORKTREE --> CLONE["Create worktree<br/>~/.git-wt/project/feature-name"]
-    CLONE --> SWITCH["Switch terminal<br/>to worktree"]
+    WORKTREE --> CLONE["Create worktree
+~/.git-wt/project/feature-name"]
+    CLONE --> SWITCH["Switch terminal
+to worktree"]
 
     SWITCH --> DEV{Development}
     DEV -->|Write code| CODE["Implement feature"]

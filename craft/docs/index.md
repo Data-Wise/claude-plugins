@@ -4,7 +4,6 @@
 [![Validate Plugins](https://github.com/Data-Wise/claude-plugins/actions/workflows/validate-plugins.yml/badge.svg)](https://github.com/Data-Wise/claude-plugins/actions/workflows/validate-plugins.yml)
 
 > **TL;DR** (30 seconds)
->
 > - **What:** Full-stack developer toolkit with 69 commands, 7 AI agents, and 17 auto-triggered skills
 > - **Why:** Automate documentation, testing, git workflows, and site creation with one command
 > - **How:** Install via `claude plugin install craft@local-plugins`

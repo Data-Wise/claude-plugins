@@ -1,6 +1,6 @@
 # Accessibility Features
 
-⏱️ **3 minutes** • 🟢 All Users • ✓ WCAG AA Compliant
+⏱️ **3 minutes** • 🟢 Reference • ✓ WCAG AA Compliant
 
 > **TL;DR** (30 seconds)
 > - **What:** craft documentation meets WCAG AA accessibility standards for all users

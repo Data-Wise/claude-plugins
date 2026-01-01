@@ -84,7 +84,6 @@ nav:
     - Getting Started: guide/getting-started.md
     - Skills & Agents: guide/skills-agents.md
     - Orchestrator: guide/orchestrator.md
-  - Reference:
     - Configuration: reference/configuration.md
     - Presets: reference/presets.md
     - Accessibility: ACCESSIBILITY.md
