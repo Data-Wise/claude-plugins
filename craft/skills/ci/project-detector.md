@@ -650,7 +650,7 @@ jobs:
 
 ## CI Templates Reference
 
-For production-ready CI examples, see **[CI-TEMPLATES.md](../docs/CI-TEMPLATES.md)** with templates from:
+For production-ready CI examples, see **CI-TEMPLATES.md** with templates from:
 
 | Template Source | Project Type | Key Features |
 |-----------------|--------------|--------------|
