@@ -3,12 +3,12 @@
 ⏱️ **6 minutes** • 🟡 Intermediate • ✓ Understanding AI automation
 
 > **TL;DR** (30 seconds)
-> - **What:** 17 auto-triggered skills + 7 specialized agents for backend, docs, testing, and architecture
+> - **What:** 21 auto-triggered skills + 8 specialized agents for backend, docs, testing, and architecture
 > - **Why:** AI automatically selects the right expertise for your task without manual intervention
 > - **How:** Skills trigger on context (e.g., "API" → backend-designer), agents handle long-running tasks
 > - **Next:** Read [Orchestrator](orchestrator.md) to learn how they work together
 
-## Skills (17 total)
+## Skills (21 total)
 
 Skills are auto-triggered expertise modules that activate based on context.
 
@@ -34,8 +34,23 @@ Skills are auto-triggered expertise modules that activate based on context.
 
 - **changelog-automation** - Patterns for changelogs
 - **architecture-decision-records** - ADR generation
+- **doc-classifier** - Documentation type detection (guide, reference, tutorial, etc.)
+- **mermaid-linter** - Mermaid diagram syntax validation and fixing
 
-## Agents (7 specialized)
+### Distribution Skills
+
+- **distribution-strategist** - Multi-channel distribution planning (Homebrew, PyPI, npm)
+- **homebrew-formula-expert** - Homebrew formula syntax and best practices
+- **homebrew-workflow-expert** - GitHub Actions automation for tap releases
+- **homebrew-setup-wizard** - Guided Homebrew setup implementation
+- **homebrew-multi-formula** - Managing multiple formulas in a tap
+
+### Infrastructure Skills
+
+- **session-state** - Orchestrator state tracking and session management
+- **project-detector** - Auto-detect project type (Python, Node, R, Rust, Go, etc.)
+
+## Agents (8 specialized)
 
 Agents are long-running AI assistants for complex tasks.
 
@@ -74,6 +89,21 @@ Agents are long-running AI assistants for complex tasks.
 - Flowcharts, sequence diagrams
 - ERDs, architecture diagrams
 - All Mermaid diagram types
+
+**demo-engineer**
+- VHS tape file generation
+- Terminal recording scripts
+- GIF demonstration creation
+
+### Orchestration
+
+**orchestrator-v2**
+- Multi-agent task decomposition
+- Parallel execution with monitoring
+- Context compression and session management
+- ADHD-friendly status tracking
+
+*Note: The original `orchestrator` agent still exists for backward compatibility but orchestrator-v2 is the recommended version with enhanced features (v1.1.0+).*
 
 ## How They Work Together
 

@@ -1,12 +1,12 @@
 # Site Management Commands
 
 > **TL;DR** (30 seconds)
-> - **What:** 12 commands for complete documentation site lifecycle (create, update, deploy, theme)
+> - **What:** 15 commands for complete documentation site lifecycle (create, update, deploy, theme)
 > - **Why:** Zero-to-deployed in minutes with 8 ADHD-friendly presets and smart automation
 > - **How:** `/craft:site:create --preset adhd-focus` for instant site, `/craft:site:status` for health check
 > - **Next:** Explore the 8 design presets below or run `/craft:site:update` for content sync
 
-Full documentation site wizard with 8 ADHD-friendly design presets - 12 commands.
+Full documentation site wizard with 8 ADHD-friendly design presets - 15 commands.
 
 ## /craft:site:create
 
@@ -90,3 +90,36 @@ Deploy to GitHub Pages
 ### /craft:site:init
 
 Basic initialization (use `create` for full wizard)
+
+### /craft:site:add
+
+Add new pages to existing site with proper navigation integration
+
+```bash
+/craft:site:add guide/authentication  # Add new page to navigation
+```
+
+### /craft:site:check
+
+Validate site configuration, broken links, and deployment readiness
+
+```bash
+/craft:site:check           # Full validation
+/craft:site:check --links   # Links only
+```
+
+## Framework Support
+
+### /craft:site:docs/frameworks
+
+Show supported documentation frameworks and their features
+
+```bash
+/craft:site:docs/frameworks
+```
+
+**Supported:**
+- MkDocs Material (default)
+- Docusaurus
+- VuePress
+- Sphinx

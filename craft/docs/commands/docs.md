@@ -1,12 +1,12 @@
 # Documentation Commands
 
 > **TL;DR** (30 seconds)
-> - **What:** 13 smart documentation commands from generation to ADHD-friendly enhancement
+> - **What:** 17 smart documentation commands from generation to ADHD-friendly enhancement
 > - **Why:** Automate docs updates, validation, and website optimization with one command
 > - **How:** Use `/craft:docs:update` for full smart cycle or `/craft:docs:website` for ADHD enhancements
 > - **Next:** Try `/craft:docs:sync` to check for stale docs in under 10 seconds
 
-Smart documentation generation, validation, and enhancement - 13 commands consolidated from the original 16.
+Smart documentation generation, validation, and enhancement - 17 commands.
 
 ## Super Commands
 
@@ -109,6 +109,16 @@ Update mkdocs.yml navigation
 ### /craft:docs:prompt
 
 Generate reusable maintenance prompts
+
+## Integration Commands
+
+### /craft:docs:site
+
+Site-wide documentation updates (integrates with site commands)
+
+```bash
+/craft:docs:site sync    # Sync docs with site structure
+```
 
 ## Internal Commands
 
