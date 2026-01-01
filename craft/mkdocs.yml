@@ -80,6 +80,9 @@ nav:
     - Site Management: commands/site.md
     - Code & Testing: commands/code.md
     - Git & CI: commands/git.md
+    - Architecture: commands/arch.md
+    - Distribution: commands/dist.md
+    - Planning: commands/plan.md
   - Guide:
     - Getting Started: guide/getting-started.md
     - Skills & Agents: guide/skills-agents.md
