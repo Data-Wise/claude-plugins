@@ -2,18 +2,48 @@
 
 [![Craft CI](https://github.com/Data-Wise/claude-plugins/actions/workflows/craft-ci.yml/badge.svg)](https://github.com/Data-Wise/claude-plugins/actions/workflows/craft-ci.yml)
 [![Validate Plugins](https://github.com/Data-Wise/claude-plugins/actions/workflows/validate-plugins.yml/badge.svg)](https://github.com/Data-Wise/claude-plugins/actions/workflows/validate-plugins.yml)
+[![Version](https://img.shields.io/badge/version-1.16.0-blue.svg)](https://github.com/Data-Wise/claude-plugins/releases/tag/craft-v1.16.0)
+[![Documentation](https://img.shields.io/badge/docs-complete-green.svg)](https://data-wise.github.io/claude-plugins/craft/)
 
-A comprehensive full-stack developer toolkit for Claude Code. Craft provides **74 commands**, 8 specialized agents, **21 skills** with mode support, smart orchestration, intelligent task routing, **enhanced orchestrator v2.1**, **redesigned site commands with 8 ADHD-friendly design presets**, **Git worktree & Mermaid diagram support**, **Smart docs consolidation with `update`, `sync`, `check` super commands**, and **NEW v1.15.0: ADHD-friendly website enhancement with comprehensive workflow documentation and visual GIF demonstrations**.
+> **v1.16.0 - Documentation Complete** 🎉
+> **74 commands** | **21 skills** | **8 agents** | **10 workflow GIFs**
+> All features fully documented with visual demonstrations
 
-## Installation
+A comprehensive production-ready toolkit for Claude Code featuring smart orchestration, ADHD-friendly workflows, multi-agent coordination, and complete documentation coverage.
+
+## Quick Install
 
 ```bash
-# From local marketplace
+# One-command installation
+curl -fsSL https://raw.githubusercontent.com/Data-Wise/claude-plugins/main/craft/install.sh | bash
+```
+
+**Then restart Claude Code to load the plugin.**
+
+### Alternative Installation Methods
+
+```bash
+# From local marketplace (if available)
 claude plugin install craft@local-plugins
 
-# Or create symlink
-ln -s /path/to/claude-plugins/craft ~/.claude/plugins/craft
+# Manual installation
+git clone --depth 1 --filter=blob:none --sparse https://github.com/Data-Wise/claude-plugins.git
+cd claude-plugins && git sparse-checkout set craft
+cp -r craft ~/.claude/plugins/
+
+# Development (symlink)
+ln -s ~/projects/dev-tools/claude-plugins/craft ~/.claude/plugins/craft
 ```
+
+## 📚 Documentation
+
+**Full documentation:** https://data-wise.github.io/claude-plugins/craft/
+
+- [Quick Start](https://data-wise.github.io/claude-plugins/craft/QUICK-START/) (30 seconds)
+- [ADHD Guide](https://data-wise.github.io/claude-plugins/craft/ADHD-QUICK-START/) (neurodivergent-friendly)
+- [Visual Workflows](https://data-wise.github.io/claude-plugins/craft/workflows/) (10 GIF demonstrations)
+- [Command Reference](https://data-wise.github.io/claude-plugins/craft/REFCARD/) (all 74 commands)
+- [Skills & Agents](https://data-wise.github.io/claude-plugins/craft/guide/skills-agents/) (21 skills, 8 agents)
 
 ## Quick Start - Smart Commands
 
