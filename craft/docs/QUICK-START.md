@@ -12,6 +12,9 @@ Get craft running in 30 seconds.
 
 ## Install
 
+!!! abstract "Progress: Step 1 of 4"
+    Installing the plugin - takes 5 seconds
+
 === "Claude Code Plugin"
 
     ```bash
@@ -27,6 +30,9 @@ Get craft running in 30 seconds.
     ```
 
 ## Verify Installation
+
+!!! abstract "Progress: Step 2 of 4"
+    Verifying the installation - takes 5 seconds
 
 ```bash
 /craft:hub
@@ -45,6 +51,9 @@ Expected output:
 ```
 
 ## First Commands
+
+!!! abstract "Progress: Step 3 of 4"
+    Trying essential commands - takes 20 seconds
 
 ### Universal Task Execution
 
@@ -90,6 +99,9 @@ The AI routes your task to the best workflow automatically.
 ```
 
 ## Next Steps
+
+!!! abstract "Progress: Step 4 of 4 - You're Done! 🎉"
+    Choose your learning path
 
 - **[Commands Overview](commands/overview.md)** - Explore all 69 commands
 - **[Skills & Agents](guide/skills-agents.md)** - Understand the AI system

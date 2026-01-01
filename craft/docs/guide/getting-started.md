@@ -12,6 +12,9 @@ Complete guide to using the craft plugin for Claude Code.
 
 ## Installation
 
+!!! abstract "Progress: Step 1/5"
+    Installing craft - choose your method
+
 ### Method 1: Claude Code Plugin System
 
 ```bash
@@ -26,6 +29,9 @@ ln -s ~/projects/dev-tools/claude-plugins/craft ~/.claude/plugins/craft
 
 ## Verify Installation
 
+!!! abstract "Progress: Step 2/5"
+    Verify everything works
+
 ```bash
 /craft:hub
 ```
@@ -33,6 +39,9 @@ ln -s ~/projects/dev-tools/claude-plugins/craft ~/.claude/plugins/craft
 You should see all 69 commands listed.
 
 ## Your First Commands
+
+!!! abstract "Progress: Step 3/5"
+    Try these 4 essential commands
 
 ### 1. Universal Task Execution
 
@@ -84,6 +93,9 @@ Check for stale docs:
 
 ## Understanding the System
 
+!!! abstract "Progress: Step 4/5"
+    Learn the 3-layer architecture
+
 Craft has three levels of automation:
 
 1. **Commands** (69 total) - Direct actions
@@ -93,6 +105,9 @@ Craft has three levels of automation:
 When you use `/craft:do`, the system determines which combination to use.
 
 ## Next Steps
+
+!!! abstract "Progress: Step 5/5 - Complete! 🎉"
+    Continue your journey
 
 - [Skills & Agents](skills-agents.md) - Understanding the AI system
 - [Orchestrator](orchestrator.md) - Advanced mode-aware execution

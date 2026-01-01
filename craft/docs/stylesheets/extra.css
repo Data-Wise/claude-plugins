@@ -55,3 +55,155 @@ code {
   padding: 0.1em 0.3em;
   border-radius: 0.2em;
 }
+
+/* ============================================
+   MOBILE RESPONSIVE ENHANCEMENTS
+   ============================================ */
+
+/* Mermaid diagram overflow fix - CRITICAL for mobile */
+.mermaid {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  margin: 1.5em 0;
+}
+
+/* Ensure mermaid SVGs are responsive */
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Mobile breakpoint - tablets and smaller */
+@media screen and (max-width: 768px) {
+  /* Reduce mermaid font size for mobile readability */
+  .mermaid {
+    font-size: 12px;
+  }
+
+  /* Card grid adjustments for mobile */
+  .grid.cards {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  /* Reduce heading spacing on mobile */
+  .md-content h2 {
+    margin-top: 1.5em;
+    font-size: 1.5em;
+  }
+
+  .md-content h3 {
+    margin-top: 1.2em;
+    font-size: 1.2em;
+  }
+
+  /* Table horizontal scroll on mobile */
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 0.8em;
+  }
+
+  /* Code block improvements for mobile */
+  .highlight code {
+    font-size: 0.75em;
+  }
+
+  /* Touch-friendly spacing */
+  .md-content p {
+    line-height: 1.7;
+  }
+}
+
+/* Extra small screens - phones in portrait */
+@media screen and (max-width: 480px) {
+  .mermaid {
+    font-size: 10px;
+  }
+
+  .md-content h2 {
+    font-size: 1.3em;
+  }
+
+  .md-content h3 {
+    font-size: 1.1em;
+  }
+
+  /* Ensure admonitions (callout boxes) stack nicely */
+  .admonition {
+    margin: 1em 0;
+    padding: 0.75em;
+  }
+
+  .admonition-title {
+    font-size: 0.9em;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY ENHANCEMENTS
+   ============================================ */
+
+/* Improve focus visibility for keyboard navigation */
+a:focus,
+button:focus {
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: 2px;
+}
+
+/* Ensure sufficient contrast for links */
+.md-content a {
+  text-decoration: underline;
+  text-decoration-color: var(--md-accent-fg-color);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.md-content a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .grid.cards > * {
+    border-width: 2px;
+  }
+
+  code {
+    border: 1px solid var(--md-default-fg-color--light);
+  }
+}
+
+/* Reduced motion support for ADHD users */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  /* Ensure mermaid diagrams print correctly */
+  .mermaid {
+    page-break-inside: avoid;
+  }
+
+  /* Better code block printing */
+  .highlight {
+    page-break-inside: avoid;
+  }
+
+  /* Ensure tables don't break awkwardly */
+  table {
+    page-break-inside: avoid;
+  }
+}

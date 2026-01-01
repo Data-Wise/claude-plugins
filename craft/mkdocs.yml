@@ -71,6 +71,7 @@ nav:
   - 🚀 Quick Start: QUICK-START.md
   - 🧠 ADHD Guide: ADHD-QUICK-START.md
   - 📊 Visual Workflows: workflows/index.md
+  - 🎮 Playground: PLAYGROUND.md
   - 📚 Reference Card: REFCARD.md
   - Commands:
     - Overview: commands/overview.md
@@ -86,3 +87,4 @@ nav:
   - Reference:
     - Configuration: reference/configuration.md
     - Presets: reference/presets.md
+    - Accessibility: ACCESSIBILITY.md

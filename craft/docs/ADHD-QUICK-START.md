@@ -10,6 +10,9 @@
 
 ## ⏱️ First 30 Seconds
 
+!!! abstract "Progress: 1/3 - First Win"
+    0:00 → 0:30 | Install and verify
+
 **Install and verify:**
 
 ```bash
@@ -24,6 +27,9 @@ claude plugin install craft@local-plugins  # Install the plugin
 
 ## ⏱️ Next 90 Seconds
 
+!!! abstract "Progress: 2/3 - Core Commands"
+    0:30 → 2:00 | Try essential commands
+
 **Try these three essential commands:**
 
 ```bash
@@ -33,6 +39,9 @@ claude plugin install craft@local-plugins  # Install the plugin
 ```
 
 ## ⏱️ Next 5 Minutes
+
+!!! abstract "Progress: 3/3 - Deep Dive"
+    2:00 → 7:00 | Explore by category
 
 **Explore by category:**
 
