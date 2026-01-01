@@ -5,7 +5,7 @@
 │  CRAFT PLUGIN QUICK REFERENCE                               │
 ├─────────────────────────────────────────────────────────────┤
 │  Version: 1.15.0                                            │
-│  Commands: 69 | Agents: 7 | Skills: 17                      │
+│  Commands: 74 | Agents: 8 | Skills: 21                      │
 │  Docs: https://data-wise.github.io/claude-plugins/craft/    │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -19,7 +19,7 @@
 | `/craft:help` | Context-aware help and suggestions |
 | `/craft:hub` | Command discovery hub |
 
-## Smart Documentation (13 commands)
+## Smart Documentation (17 commands)
 
 | Command | Description |
 |---------|-------------|
@@ -38,7 +38,7 @@
 /craft:docs:check --report-only       # CI-safe mode
 ```
 
-## Site Commands (12 commands)
+## Site Commands (15 commands)
 
 | Command | Description |
 |---------|-------------|
@@ -55,7 +55,7 @@
 /craft:site:status
 ```
 
-## Code & Testing (12 commands)
+## Code & Testing (17 commands)
 
 | Command | Modes | Description |
 |---------|-------|-------------|
@@ -72,7 +72,7 @@
 /craft:test:run debug           # Verbose with suggestions
 ```
 
-## Git Commands (9 commands)
+## Git Commands (5 commands)
 
 | Command | Description |
 |---------|-------------|
@@ -105,7 +105,7 @@
 - Chat compression
 - ADHD-optimized status tracking
 
-## Skills (17 total)
+## Skills (21 total)
 
 Auto-triggered expertise:
 
@@ -116,16 +116,25 @@ Auto-triggered expertise:
 | `test-strategist` | Test strategy |
 | `system-architect` | System design |
 | `project-planner` | Feature planning |
+| `distribution-strategist` | Homebrew, PyPI, packaging |
+| `homebrew-formula-expert` | Homebrew formulas |
+| `doc-classifier` | Documentation type detection |
+| `mermaid-linter` | Mermaid diagram validation |
+| `session-state` | Orchestrator state tracking |
+| ...and 11 more | See [Skills & Agents Guide](guide/skills-agents.md) |
 
-## Agents (7 specialized)
+## Agents (8 specialized)
 
 | Agent | Specialty |
 |-------|-----------|
+| `orchestrator-v2` | Mode-aware execution, monitoring |
 | `backend-architect` | Scalable APIs, microservices |
 | `docs-architect` | Technical documentation |
 | `api-documenter` | OpenAPI, developer portals |
 | `tutorial-engineer` | Step-by-step tutorials |
 | `mermaid-expert` | Diagram creation |
+| `reference-builder` | API reference documentation |
+| `demo-engineer` | VHS demo creation |
 
 ## Configuration
 

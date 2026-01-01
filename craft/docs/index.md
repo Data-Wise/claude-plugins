@@ -4,28 +4,28 @@
 [![Validate Plugins](https://github.com/Data-Wise/claude-plugins/actions/workflows/validate-plugins.yml/badge.svg)](https://github.com/Data-Wise/claude-plugins/actions/workflows/validate-plugins.yml)
 
 > **TL;DR** (30 seconds)
-> - **What:** Full-stack developer toolkit with 69 commands, 7 AI agents, and 17 auto-triggered skills
+> - **What:** Full-stack developer toolkit with 74 commands, 8 AI agents, and 21 auto-triggered skills
 > - **Why:** Automate documentation, testing, git workflows, and site creation with one command
 > - **How:** Install via `claude plugin install craft@local-plugins`
 > - **Next:** Run `/craft:do "your task"` and let AI route to the best workflow
 
-> Full-stack developer toolkit for Claude Code - 69 commands, 7 agents, 17 skills with smart orchestration and ADHD-friendly workflows
+> Full-stack developer toolkit for Claude Code - 74 commands, 8 agents, 21 skills with smart orchestration and ADHD-friendly workflows
 
 ## Features
 
 <div class="grid cards" markdown>
 
-- :rocket: **69 Commands**
+- :rocket: **74 Commands**
 
-    Smart commands, docs, site management, code, testing, git, CI, and distribution - all in one toolkit
+    Smart commands, docs, site management, code, testing, git, CI, architecture, distribution, and planning - all in one toolkit
 
-- :brain: **7 Specialized Agents**
+- :brain: **8 Specialized Agents**
 
-    Backend architect, docs architect, mermaid expert, API documenter, tutorial engineer, and more
+    Backend architect, docs architect, mermaid expert, API documenter, tutorial engineer, demo engineer, reference builder, and orchestrators
 
-- :sparkles: **17 Skills**
+- :sparkles: **21 Skills**
 
-    Auto-triggered expertise for backend design, frontend, DevOps, testing, architecture, and planning
+    Auto-triggered expertise for backend/frontend design, DevOps, testing, architecture, planning, distribution, and documentation automation
 
 - :zap: **Smart Orchestration**
 
@@ -140,15 +140,16 @@ New `/craft:docs:website` command with ADHD scoring algorithm (0-100) across 5 c
 
 | Category | Count | Description |
 |----------|-------|-------------|
-| **Smart** | 4 | Universal command, orchestrator, checks, help |
-| **Documentation** | 13 | Smart docs with update, sync, check, website enhancement |
-| **Site** | 12 | Full site wizard with 8 ADHD-friendly presets |
-| **Code & Testing** | 12 | Linting, testing, debugging, refactoring |
-| **Git** | 9 | Branch management, worktrees, sync, recap |
+| **Smart** | 4 | Universal command, orchestrator, checks, help, hub |
+| **Documentation** | 17 | Smart docs with update, sync, check, website, API, changelog, guides |
+| **Site** | 15 | Full site wizard with 8 ADHD-friendly presets, theme, nav, audit |
+| **Code & Testing** | 17 | Linting, testing, debugging, refactoring, CI fixes, deps management |
+| **Git** | 5 | Branch management, worktrees, sync, recap, clean |
 | **CI** | 3 | Detection, generation, validation |
-| **Architecture** | 7 | Analysis, design patterns, tech stack |
-| **Distribution** | 2 | Homebrew, curl installers |
-| **Planning** | 3 | Feature, sprint, roadmap |
+| **Architecture** | 4 | Analysis, diagrams, planning, reviews |
+| **Distribution** | 3 | Homebrew, PyPI, curl installers |
+| **Planning** | 3 | Feature planning, sprints, roadmaps |
+| **Total** | **74** | **Complete development workflow coverage** |
 
 ## Links
 

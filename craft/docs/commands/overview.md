@@ -1,12 +1,12 @@
 # Commands Overview
 
 > **TL;DR** (30 seconds)
-> - **What:** 69 commands organized into 9 categories (Smart, Docs, Site, Code, Git, CI, etc.)
+> - **What:** 74 commands organized into 9 categories (Smart, Docs, Site, Code, Git, CI, Architecture, Distribution, Planning)
 > - **Why:** One plugin handles your entire development workflow from docs to deployment
 > - **How:** Use `/craft:hub` to discover all commands by category
 > - **Next:** Start with `/craft:do` for AI-powered task routing or `/craft:check` for pre-flight validation
 
-Craft provides **69 commands** across 9 categories for full-stack development workflows.
+Craft provides **74 commands** across 9 categories for full-stack development workflows.
 
 ## Command Categories
 
