@@ -134,12 +134,13 @@ jobs:
           cd craft
           errors=0
 
-          if grep -r "/Users/" commands/ agents/ skills/ 2>/dev/null; then
+          # Exclude ci/ directory (contains the test code itself)
+          if grep -r "/Users/" commands/ agents/ skills/ --exclude-dir=ci 2>/dev/null; then
             echo "❌ Found hardcoded /Users/ paths"
             errors=1
           fi
 
-          if grep -r "/home/" commands/ agents/ skills/ 2>/dev/null; then
+          if grep -r "/home/" commands/ agents/ skills/ --exclude-dir=ci 2>/dev/null; then
             echo "❌ Found hardcoded /home/ paths"
             errors=1
           fi
