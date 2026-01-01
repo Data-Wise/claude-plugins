@@ -1,0 +1,24 @@
+status: Production Ready
+version: 1.16.0
+release_date: 2025-12-31
+milestone: Documentation Complete
+
+progress: 100%
+
+documentation_coverage:
+  commands: 74/74 (100%)
+  skills: 21/21 (100%)
+  agents: 8/8 (100%)
+  workflow_gifs: 10/10 (100%)
+
+next: Community feedback and feature requests
+target: Stable production use
+
+badges:
+  - Production Ready ✅
+  - Documentation Complete 📚
+  - 100% Coverage 💯
+
+install: curl -fsSL https://raw.githubusercontent.com/Data-Wise/claude-plugins/main/craft/install.sh | bash
+docs: https://data-wise.github.io/claude-plugins/craft/
+release: https://github.com/Data-Wise/claude-plugins/releases/tag/craft-v1.16.0
