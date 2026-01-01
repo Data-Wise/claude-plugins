@@ -1,0 +1,35 @@
+preset: "data-wise"
+
+branding:
+  name: "Craft Plugin"
+  tagline: "Full-stack developer toolkit - 69 commands, 7 agents, 17 skills"
+  logo: null
+
+colors:
+  primary: "#1a73e8"
+  accent: "#ff6b35"
+  scheme: "auto"
+
+navigation:
+  style: "tabs"
+  max_depth: 3
+  sections:
+    - name: "Home"
+      icon: "home"
+    - name: "Quick Start"
+      icon: "rocket"
+    - name: "Commands"
+      icon: "terminal"
+    - name: "Guide"
+      icon: "book"
+    - name: "Reference"
+      icon: "code"
+
+features:
+  search: true
+  dark_mode: true
+  code_copy: true
+  edit_on_github: true
+  navigation_instant: true
+  navigation_tracking: true
+  version_selector: false
