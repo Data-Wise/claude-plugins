@@ -1,0 +1,57 @@
+/* Craft Plugin Documentation - Custom Styles */
+
+:root {
+  --craft-primary: #1a73e8;
+  --craft-accent: #ff6b35;
+}
+
+/* Custom primary color */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: var(--craft-primary);
+  --md-accent-fg-color: var(--craft-accent);
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: var(--craft-primary);
+  --md-accent-fg-color: var(--craft-accent);
+}
+
+/* Card grid for features */
+.grid.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.grid.cards > * {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.2rem;
+  padding: 1rem;
+}
+
+/* Code block improvements */
+.highlight code {
+  font-size: 0.85em;
+}
+
+/* Table improvements */
+table {
+  font-size: 0.9em;
+}
+
+/* ADHD-friendly spacing */
+.md-content h2 {
+  margin-top: 2.5em;
+}
+
+.md-content h3 {
+  margin-top: 2em;
+}
+
+/* Command syntax highlighting */
+code {
+  background-color: var(--md-code-bg-color);
+  padding: 0.1em 0.3em;
+  border-radius: 0.2em;
+}
