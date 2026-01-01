@@ -12,6 +12,9 @@
 
 The orchestrator coordinates multiple agents and tools for complex, multi-step tasks.
 
+!!! warning "Advanced Feature"
+    The orchestrator is powerful but complex. Start with simple commands like `/craft:do` and `/craft:check` first. Come back here when you need parallel agent execution.
+
 **Key Features:**
 - Mode-aware execution (default/debug/optimize/release)
 - Subagent delegation and monitoring

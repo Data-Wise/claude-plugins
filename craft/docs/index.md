@@ -60,6 +60,9 @@ ln -s ~/projects/dev-tools/claude-plugins/craft ~/.claude/plugins/craft
 
 The universal `/craft:do` command routes your task to the best workflow automatically.
 
+!!! success "Quick Win: Try It Now"
+    Run `/craft:hub` to see all 69 commands organized by category - takes 5 seconds and shows everything craft can do.
+
 ## What's New in v1.15.0
 
 **ADHD-Friendly Website Enhancement**
@@ -74,12 +77,65 @@ New `/craft:docs:website` command with ADHD scoring algorithm (0-100) across 5 c
 
 3-phase enhancement: Quick Wins (<2h), Structure (<4h), Polish (<8h)
 
+## Popular Workflows
+
+<div class="grid cards" markdown>
+
+- :memo: **Documentation Automation**
+
+    Update all docs from code changes in one command
+
+    → [Learn more](workflows/index.md#documentation-workflow)
+
+- :globe_with_meridians: **Site Creation**
+
+    Zero to deployed docs site in < 5 minutes
+
+    → [Learn more](workflows/index.md#site-creation-workflow)
+
+- :rocket: **Release Management**
+
+    Pre-release checks to published in one flow
+
+    → [Learn more](workflows/index.md#release-workflow)
+
+- :computer: **Development Workflow**
+
+    Feature branches with git worktrees
+
+    → [Learn more](workflows/index.md#development-workflow)
+
+</div>
+
 ## Documentation
 
-- **[Quick Start](QUICK-START.md)** - Get running in 30 seconds
-- **[Commands Overview](commands/overview.md)** - All 69 commands organized
-- **[Skills & Agents](guide/skills-agents.md)** - Understanding the AI system
-- **[Quick Reference](REFCARD.md)** - Command cheat sheet
+<div class="grid cards" markdown>
+
+- :rocket: **[Quick Start](QUICK-START.md)**
+
+    Get running in 30 seconds
+
+- :brain: **[ADHD Guide](ADHD-QUICK-START.md)**
+
+    Under 2 minutes, zero cognitive load
+
+- :bar_chart: **[Visual Workflows](workflows/index.md)**
+
+    5 diagrams showing complete flows
+
+- :books: **[Commands Overview](commands/overview.md)**
+
+    All 69 commands organized
+
+- :sparkles: **[Skills & Agents](guide/skills-agents.md)**
+
+    Understanding the AI system
+
+- :page_facing_up: **[Quick Reference](REFCARD.md)**
+
+    Command cheat sheet
+
+</div>
 
 ## Key Command Categories
 

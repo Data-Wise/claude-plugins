@@ -19,6 +19,9 @@ claude plugin install craft@local-plugins  # Install the plugin
 
 **Expected:** You'll see a categorized list of all craft commands.
 
+!!! success "First Win: You're In!"
+    If you see the command listing, you're all set! craft is installed and working. Everything else is just trying commands.
+
 ## ⏱️ Next 90 Seconds
 
 **Try these three essential commands:**

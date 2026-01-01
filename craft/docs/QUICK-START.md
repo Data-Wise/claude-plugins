@@ -54,12 +54,18 @@ Expected output:
 
 The AI routes your task to the best workflow automatically.
 
+!!! success "Quick Win: Try It Now"
+    Run `/craft:do "show me what you can do"` - the AI will analyze your project and suggest the most useful commands for your current context.
+
 ### Pre-Flight Checks
 
 ```bash
 /craft:check                    # Quick validation
 /craft:check --for release      # Full release audit
 ```
+
+!!! tip "Pro Tip: Run Before Every Commit"
+    Make `/craft:check` part of your commit workflow - it catches issues in seconds and prevents broken commits.
 
 ### Context-Aware Help
 
