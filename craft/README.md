@@ -3,7 +3,7 @@
 [![Craft CI](https://github.com/Data-Wise/claude-plugins/actions/workflows/craft-ci.yml/badge.svg)](https://github.com/Data-Wise/claude-plugins/actions/workflows/craft-ci.yml)
 [![Validate Plugins](https://github.com/Data-Wise/claude-plugins/actions/workflows/validate-plugins.yml/badge.svg)](https://github.com/Data-Wise/claude-plugins/actions/workflows/validate-plugins.yml)
 
-A comprehensive full-stack developer toolkit for Claude Code. Craft provides **68 commands**, 7 specialized agents, **17 skills** with mode support, smart orchestration, intelligent task routing, **enhanced orchestrator v2.1**, **redesigned site commands with 8 ADHD-friendly design presets**, **Phase 0.5: Git worktree & Mermaid diagram support**, and **NEW: Smart docs consolidation (16→12 commands) with `update`, `sync`, `check` super commands**.
+A comprehensive full-stack developer toolkit for Claude Code. Craft provides **69 commands**, 7 specialized agents, **17 skills** with mode support, smart orchestration, intelligent task routing, **enhanced orchestrator v2.1**, **redesigned site commands with 8 ADHD-friendly design presets**, **Phase 0.5: Git worktree & Mermaid diagram support**, **Smart docs consolidation (16→13 commands) with `update`, `sync`, `check` super commands**, and **NEW v1.15.0: ADHD-friendly website enhancement with scoring algorithm**.
 
 ## Installation
 
@@ -51,7 +51,7 @@ Commands support execution modes for different use cases:
 /craft:arch:analyze optimize    # Performance analysis
 ```
 
-## Commands (68 total)
+## Commands (69 total)
 
 ### Smart Commands (4) - ENHANCED
 | Command | Description |
@@ -112,7 +112,7 @@ Commands support execution modes for different use cases:
 | `/craft:plan:sprint` | Sprint planning |
 | `/craft:plan:roadmap` | Generate roadmaps |
 
-### Documentation Commands (12) - CONSOLIDATED in v1.11.0
+### Documentation Commands (13) - CONSOLIDATED in v1.11.0
 
 #### Super Commands (3) - Smart defaults, do everything useful
 | Command | Description |
@@ -128,14 +128,23 @@ Commands support execution modes for different use cases:
 /craft:docs:sync                      # Quick: "3 stale, guide recommended"
 /craft:docs:check                     # Full check cycle, auto-fixes issues
 /craft:docs:check --report-only       # CI-safe mode (no modifications)
+
+# ADHD-friendly website enhancement (NEW v1.15.0)
+/craft:docs:website                   # Full enhancement (all 3 phases)
+/craft:docs:website --analyze         # Show ADHD score only
+/craft:docs:website --phase 1         # Quick wins: TL;DR, mermaid fixes, time estimates
+/craft:docs:website --phase 2         # Structure: Visual workflows, navigation
+/craft:docs:website --phase 3         # Polish: Mobile responsive, interactions
+/craft:docs:website --dry-run         # Preview changes without writing
 ```
 
-#### Specialized Commands (8)
+#### Specialized Commands (9)
 | Command | Description |
 |---------|-------------|
 | `/craft:docs:api` | OpenAPI/Swagger documentation |
 | `/craft:docs:changelog` | Auto-update CHANGELOG |
 | `/craft:docs:site` | Website-focused updates with optional deploy |
+| `/craft:docs:website` | **NEW v1.15.0** ADHD-friendly website enhancement (scoring, TL;DR, mermaid fixes) |
 | `/craft:docs:mermaid` | Mermaid diagram templates (6 types) |
 | `/craft:docs:nav-update` | Update mkdocs.yml navigation |
 | `/craft:docs:prompt` | Generate reusable maintenance prompts |

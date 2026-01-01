@@ -1,8 +1,129 @@
 # Craft Plugin Roadmap
 
-## Current Version: 1.14.0
+## Current Version: 1.15.0
 
-**Released:** v1.14.0 - Homebrew Automation ✅
+**In Progress:** v1.15.0 - ADHD-Friendly Website Enhancements 🚧
+
+---
+
+## v1.15.0 - ADHD-Friendly Website Enhancements 🚧 IN PROGRESS
+
+**Theme:** Comprehensive website optimization for ADHD users
+
+**Spec:** [SPEC-craft-website-enhancements-2025-12-31.md](../../aiterm/docs/specs/SPEC-craft-website-enhancements-2025-12-31.md)
+**Brainstorm:** [BRAINSTORM-website-enhancements-2025-12-31.md](../../aiterm/BRAINSTORM-website-enhancements-2025-12-31.md)
+
+### Strategic Approach
+
+1. **Build in Craft First** - Test on craft's own documentation
+2. **Validate Approach** - Measure improvements with ADHD scoring
+3. **Apply to Aiterm** - Use proven patterns on aiterm docs
+4. **Generalize** - Make it work for any MkDocs site
+
+### New Command: `/craft:docs:website`
+
+**Purpose:** One command to make any documentation site ADHD-friendly
+
+**Usage:**
+```bash
+/craft:docs:website                  # Full enhancement (all 3 phases)
+/craft:docs:website --analyze        # Show ADHD score only
+/craft:docs:website --phase 1        # Quick wins only
+/craft:docs:website --phase 2        # Structure improvements
+/craft:docs:website --phase 3        # Polish & mobile
+/craft:docs:website --dry-run        # Preview changes
+```
+
+**ADHD Score Algorithm (0-100):**
+- Visual Hierarchy (25%): TL;DR boxes, headings, emojis
+- Time Estimates (20%): Tutorials have duration info
+- Workflow Diagrams (20%): Mermaid diagrams present, no errors
+- Mobile Responsive (15%): Overflow fixes, touch targets
+- Content Density (20%): Paragraph length, scanability
+
+### Phase 1: Quick Wins (Week 1) ⏱️ < 2 hours
+
+**Goal:** Raise ADHD score from 62 → 77 (+15 points)
+
+- [ ] Fix all mermaid syntax errors (acceptance criterion)
+- [ ] Add TL;DR boxes to major pages
+- [ ] Add time estimates to tutorials
+- [ ] Create ADHD Quick Start page
+- [ ] Validate with `mkdocs build --strict`
+
+**Template: TL;DR Box**
+```markdown
+> **TL;DR** (30 seconds)
+> - **What:** [One sentence]
+> - **Why:** [One benefit]
+> - **How:** [One command/link]
+> - **Next:** [One next step]
+```
+
+**Template: Time Estimate**
+```markdown
+⏱️ **10 minutes** • 🟢 Beginner • ✓ 7 steps
+```
+
+### Phase 2: Structure (Week 2) ⏱️ < 4 hours
+
+**Goal:** Raise ADHD score from 77 → 89 (+12 points)
+
+- [ ] Create Visual Workflows page with 5 diagrams
+- [ ] Flatten navigation (ADHD features to top-level)
+- [ ] Add visual callout boxes (Pro Tip, Warning, Success)
+- [ ] Homepage restructure with card-based layout
+- [ ] Interactive mermaid diagrams (clickable nodes)
+
+**Navigation Structure:**
+```yaml
+nav:
+  - Home: index.md
+  - 🚀 Quick Start: QUICK-START.md
+  - 🧠 ADHD Guide: ADHD-QUICK-START.md  # Promoted!
+  - 📊 Visual Workflows: workflows/index.md  # New!
+  - 📚 Reference Card: REFCARD.md
+  # ... rest of nav
+```
+
+### Phase 3: Polish (Week 3+) ⏱️ < 8 hours
+
+**Goal:** Raise ADHD score from 89 → 97 (+8 points)
+
+- [ ] Mobile responsive CSS (mermaid overflow fix)
+- [ ] Progress indicators in tutorials
+- [ ] Command playground (interactive terminal demo)
+- [ ] Video walkthrough embeds
+- [ ] Accessibility audit (WCAG AA compliance)
+
+### Enhanced Commands
+
+**`/craft:docs:update --website-mode`** - Include website optimizations
+**`/craft:site:status`** - Show ADHD score in output
+
+### Success Metrics
+
+| Metric | Current | Target | Measurement |
+|--------|---------|--------|-------------|
+| ADHD Score | 62/100 | 97/100 | Automated algorithm |
+| Time-to-first-success | ~15 min | < 5 min | User testing |
+| Tutorial completion | Unknown | > 70% | Analytics tracking |
+| Mermaid errors | 5+ | 0 | CI validation |
+
+### Dogfooding Plan
+
+1. **Test on Craft** - Run on craft's own documentation
+2. **Measure Baseline** - Get current ADHD score
+3. **Phase 1 Only** - Quick wins, validate score improvement
+4. **Iterate** - Refine based on results
+5. **Apply to Aiterm** - Use proven patterns
+6. **Generalize** - Package for any MkDocs site
+
+**Stats (after completion):** 60+ commands, 16 skills, 8 agents
+
+---
+
+## v1.14.0 - Homebrew Automation ✅ RELEASED
 
 ---
 
