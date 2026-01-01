@@ -13,7 +13,7 @@ Validate Mermaid diagrams in markdown files for syntax errors, text overflow iss
 
 ### 1. Configuration Validation (mkdocs.yml)
 
-Check that MkDocs is properly configured for Mermaid:
+Check that MkDocs is properly configured for enhanced markdown features:
 
 ```yaml
 # Required in mkdocs.yml
@@ -23,12 +23,40 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list          # Required for icon attributes { .lg .middle }
+  - md_in_html         # Required for card grids and markdown in HTML
 
 extra_javascript:
   - https://unpkg.com/mermaid@10/dist/mermaid.min.js
 ```
 
-**Missing custom_fences?** Diagrams will render as code blocks!
+**Common Configuration Issues:**
+
+| Missing Extension | Symptom | Fix |
+|------------------|---------|-----|
+| `custom_fences` | Mermaid renders as code blocks | Add superfences custom_fences |
+| `pymdownx.emoji` | `:rocket:` shows as text | Add emoji extension |
+| `attr_list` | Icon attributes not working | Add attr_list |
+| `md_in_html` | Card grids show as raw text | Add md_in_html |
+
+**Material for MkDocs Card Grids:**
+
+Card grids require **BOTH** `attr_list` AND `md_in_html`:
+
+```markdown
+<div class="grid cards" markdown>
+
+-   :material-rocket:{ .lg .middle } **Title**
+
+    Description text
+
+</div>
+```
+
+Without `md_in_html`, the markdown inside `<div>` tags won't be processed!
 
 ### 2. CSS Validation
 
