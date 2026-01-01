@@ -573,7 +573,7 @@ This project is optimized for ADHD users:
 
 Ready for more? Check out:
 
-- [Full Getting Started Guide](GETTING-STARTED.md)
+- Full Getting Started Guide (comprehensive setup instructions)
 - [Reference Card](REFCARD.md)
 - [Interactive Tutorials](tutorials/index.md)
 - [Visual Workflows](workflows/index.md)

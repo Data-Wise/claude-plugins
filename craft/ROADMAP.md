@@ -10,8 +10,7 @@
 
 **Theme:** Comprehensive website optimization for ADHD users
 
-**Spec:** [SPEC-craft-website-enhancements-2025-12-31.md](../../aiterm/docs/specs/SPEC-craft-website-enhancements-2025-12-31.md)
-**Brainstorm:** [BRAINSTORM-website-enhancements-2025-12-31.md](../../aiterm/BRAINSTORM-website-enhancements-2025-12-31.md)
+**Status:** In Progress - Mermaid integration improvements completed (v1.15.0)
 
 ### Strategic Approach
 
