@@ -13,10 +13,14 @@ Validate Mermaid diagrams in markdown files for syntax errors, text overflow iss
 
 ### 1. Configuration Validation (mkdocs.yml)
 
-Check that MkDocs is properly configured for enhanced markdown features:
+Check that MkDocs is properly configured for enhanced markdown features.
+
+**✅ RECOMMENDED: Native Integration (Material for MkDocs)**
+
+Per [official Material docs](https://squidfunk.github.io/mkdocs-material/reference/diagrams/), native Mermaid integration requires ONLY the superfences extension:
 
 ```yaml
-# Required in mkdocs.yml
+# Required in mkdocs.yml - Native integration
 markdown_extensions:
   - pymdownx.superfences:
       custom_fences:
@@ -29,8 +33,37 @@ markdown_extensions:
   - attr_list          # Required for icon attributes { .lg .middle }
   - md_in_html         # Required for card grids and markdown in HTML
 
+# NO extra_javascript needed - superfences handles it natively!
+```
+
+**⚠️ WARNING: Adding extra_javascript CDN can cause conflicts**
+
+If you have this in your config, **remove it**:
+```yaml
 extra_javascript:
-  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js  # ❌ NOT NEEDED
+```
+
+Material for MkDocs handles Mermaid natively. Adding the CDN manually can cause:
+- Double initialization
+- Version conflicts
+- Theme styling issues
+
+**Only add extra_javascript if:**
+- Using custom Mermaid configuration (ELK layouts, etc.)
+- Need specific Mermaid version for compatibility
+- Using non-Material theme
+
+If custom config is needed, use:
+```yaml
+extra_javascript:
+  - javascripts/mermaid-config.js  # Your custom config
+```
+
+With `javascripts/mermaid-config.js`:
+```javascript
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: false, securityLevel: 'loose' });
 ```
 
 **Common Configuration Issues:**
@@ -81,33 +114,88 @@ Check for Mermaid overflow CSS in stylesheets:
 
 ### 3. Syntax Validation
 
-Check each mermaid block for valid syntax:
+Per [official Mermaid docs](https://mermaid.js.org/syntax/flowchart.html), check each diagram for valid syntax:
 
-- Valid diagram types: `graph`, `flowchart`, `sequenceDiagram`, `classDiagram`, `stateDiagram`, `erDiagram`, `gantt`, `pie`, `mindmap`
-- Proper directional keywords: `LR`, `RL`, `TB`, `BT`, `TD`
-- Matching brackets and quotes
-- Valid node definitions
+**Diagram Types:**
+- **Fully supported by Material theme:** `flowchart`, `sequenceDiagram`, `classDiagram`, `stateDiagram`, `erDiagram`
+- **Work but no theme styling:** `graph`, `gantt`, `pie`, `journey`, `gitGraph`, `mindmap`, `quadrantChart`
 
-### 4. Text Length Validation
+**Direction Keywords:**
+- `TB` or `TD` - Top to bottom (recommended for mobile)
+- `BT` - Bottom to top
+- `LR` - Left to right (simple linear flows only)
+- `RL` - Right to left
 
-**Critical for preventing overflow:**
+**Critical Syntax Rules:**
+
+1. **Reserved "end" keyword** - Must capitalize to avoid breaking diagram:
+   ```mermaid
+   flowchart TD
+       A[Start] --> B[End]      ✅ Capitalized "End"
+       A[Start] --> B[end]      ❌ BREAKS diagram
+   ```
+
+2. **First letter 'o' or 'x'** - Add space or capitalize:
+   ```mermaid
+   flowchart LR
+       A --> oNode    ❌ Treated as circle edge
+       A --> O_Node   ✅ Capitalize or use underscore
+   ```
+
+3. **Prefer `flowchart` over `graph`** - Both work identically, but `flowchart` is clearer intent
+
+4. **All nodes must be connected** - Orphaned nodes cause syntax errors:
+   ```mermaid
+   flowchart TD
+       A --> B
+       C[Orphan]      ❌ Not connected to anything
+   ```
+
+### 4. Text Formatting Best Practices
+
+Per [official Mermaid docs](https://mermaid.js.org/syntax/flowchart.html), use automatic text wrapping instead of manual line breaks.
+
+**❌ AVOID: Manual `<br/>` tags**
+```mermaid
+flowchart TD
+    A[Getting Started<br/>7 steps]    ❌ Manual breaks
+    B[Intermediate<br/>11 steps]
+```
+
+**✅ RECOMMENDED: Markdown strings with automatic wrapping**
+```mermaid
+flowchart TD
+    A["`**Getting Started**
+    7 steps · 10 minutes
+    Essential commands`"]           ✅ Auto-wraps, supports markdown
+```
+
+Markdown string syntax (backticks with quotes):
+- Supports **bold**, *italic*, `code`
+- Automatic text wrapping at node width
+- More maintainable than `<br/>` tags
+- Better mobile responsiveness
+
+**Text Length Guidelines:**
 
 | Element | Max Length | Recommendation |
 |---------|------------|----------------|
-| Node text | 15 chars | Use abbreviations, `...` for paths |
+| Node text (single line) | 15-20 chars | Use abbreviations, `...` for paths |
 | Edge labels | 10 chars | Keep brief |
 | Subgraph titles | 20 chars | Short descriptive names |
 
-**Examples of good vs bad:**
+**Examples:**
 
 ```mermaid
 %% BAD: Text too long, will overflow
 graph LR
     A["~/.git-worktrees/aiterm/feature-mcp/"] --> B
 
-%% GOOD: Abbreviated
-graph LR
-    A["~/.git-worktrees/.../feature-mcp"] --> B
+%% GOOD: Abbreviated with markdown string
+flowchart LR
+    A["`**Worktrees**
+    ~/.git-worktrees/
+    .../feature-mcp`"] --> B["`Next Step`"]
 ```
 
 ### 5. Layout Direction Best Practices
@@ -160,6 +248,7 @@ Report all mermaid diagrams found:
 - Total count per file
 - Diagram types used
 - Files with most diagrams
+- Diagrams using `<br/>` tags (flag for modernization)
 
 ## Validation Commands
 
@@ -167,11 +256,20 @@ Report all mermaid diagrams found:
 # Check all docs
 grep -r "^\`\`\`mermaid" docs/ | wc -l
 
+# Find diagrams using <br/> tags (should use markdown strings instead)
+grep -r "<br/>" docs/**/*.md | grep -B5 mermaid
+
 # Find long node text (> 20 chars between quotes)
 grep -E '\["[^"]{20,}"\]' docs/**/*.md
 
 # Check for custom_fences config
 grep -A5 "superfences" mkdocs.yml | grep -q "custom_fences"
+
+# Check for unnecessary extra_javascript (native integration doesn't need it)
+grep -A3 "extra_javascript" mkdocs.yml | grep -q "mermaid"
+
+# Find diagrams using deprecated 'graph' keyword
+grep -A1 "^\`\`\`mermaid" docs/**/*.md | grep -c "^graph "
 ```
 
 ## Output Format
@@ -221,17 +319,29 @@ Recommendations:
 
 ## Best Practices
 
-1. **Keep text short** - Use abbreviations, ellipsis for long paths
-2. **Test locally** - Run `mkdocs serve` to preview diagrams
-3. **Use subgraphs** - Group related nodes for clarity
-4. **Consistent styling** - Use same diagram type throughout a doc
-5. **Add CSS early** - Include Mermaid CSS in every docs site
+Per [official Mermaid documentation](https://mermaid.js.org/syntax/flowchart.html) and [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/reference/diagrams/):
+
+1. **Use native integration** - Let Material handle Mermaid, don't add extra_javascript unless needed
+2. **Markdown strings over `<br/>`** - Use backtick syntax for multi-line text with auto-wrapping
+3. **Prefer `flowchart` keyword** - Clearer intent than `graph` (both work identically)
+4. **Vertical layouts (TD)** - Better mobile rendering, reduced text overlap
+5. **Capitalize "end" keyword** - Use "End" or "END" to avoid breaking diagrams
+6. **Connect all nodes** - Orphaned nodes cause syntax errors
+7. **Test locally** - Run `mkdocs serve` to preview diagrams before deployment
+8. **Use subgraphs** - Group related nodes for clarity and structure
+9. **Consistent diagram types** - Stick to one type per document (flowchart, sequence, etc.)
+10. **Add comments** - Use `%%` for documentation within diagrams
+11. **Keep it simple** - Avoid over-engineering, Swedish "lagom" principle applies
 
 ## Common Issues
 
 | Issue | Cause | Fix |
 |-------|-------|-----|
-| Diagrams show as code | Missing custom_fences | Add to mkdocs.yml |
-| Text overflows boxes | Node labels too long | Shorten to < 15 chars |
-| Diagrams don't appear | Missing mermaid.js | Add CDN to extra_javascript |
-| Layout broken | Missing CSS | Add overflow CSS |
+| Diagrams show as code | Missing custom_fences | Add superfences to mkdocs.yml |
+| Diagram broken ("end" keyword) | Used lowercase "end" | Capitalize to "End" or "END" |
+| Orphaned node error | Node not connected | Connect with arrow or remove |
+| Text overflows boxes | Using `<br/>` tags | Switch to markdown strings with backticks |
+| Double rendering | Extra_javascript + native | Remove extra_javascript, use native integration |
+| Poor mobile rendering | Horizontal (LR) layout | Switch to vertical (TD) layout |
+| Theme colors not applied | Using unsupported diagram type | Use flowchart/sequence/class/state/ER only |
+| Syntax error on 'o' or 'x' | First letter treated as edge | Capitalize or add space before name |
