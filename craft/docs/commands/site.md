@@ -1,5 +1,11 @@
 # Site Management Commands
 
+> **TL;DR** (30 seconds)
+> - **What:** 12 commands for complete documentation site lifecycle (create, update, deploy, theme)
+> - **Why:** Zero-to-deployed in minutes with 8 ADHD-friendly presets and smart automation
+> - **How:** `/craft:site:create --preset adhd-focus` for instant site, `/craft:site:status` for health check
+> - **Next:** Explore the 8 design presets below or run `/craft:site:update` for content sync
+
 Full documentation site wizard with 8 ADHD-friendly design presets - 12 commands.
 
 ## /craft:site:create

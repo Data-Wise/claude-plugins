@@ -2,7 +2,11 @@
 
 ⏱️ **8 minutes** • 🔴 Advanced • ✓ Power user features
 
-Enhanced orchestrator v2.1 with mode-aware execution, subagent monitoring, and ADHD-optimized tracking.
+> **TL;DR** (30 seconds)
+> - **What:** Advanced task orchestrator coordinating multiple agents with 4 execution modes (10s, 2min, 3min, 5min)
+> - **Why:** Handle complex multi-step tasks with proper delegation, monitoring, and ADHD-friendly tracking
+> - **How:** `/craft:orchestrate "task" [mode]` where mode = default/debug/optimize/release
+> - **Next:** Try `/craft:orchestrate "add auth" debug` for verbose execution tracking
 
 ## Overview
 

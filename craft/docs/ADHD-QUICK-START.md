@@ -2,7 +2,11 @@
 
 ⏱️ **Under 2 minutes** • 🟢 Beginner • ✓ Fastest path to success
 
-> Get started with craft in **under 2 minutes** - designed for quick wins and minimal cognitive load.
+> **TL;DR** (30 seconds)
+> - **What:** Ultra-fast guide to craft with zero cognitive load - install, verify, and run in under 2 minutes
+> - **Why:** ADHD-optimized workflow with time-boxed steps, clear wins, and smart defaults
+> - **How:** `claude plugin install craft@local-plugins` → `/craft:hub` → `/craft:do "task"`
+> - **Next:** Try the [5-minute exploration](#next-5-minutes) or jump to [docs automation](commands/docs.md)
 
 ## ⏱️ First 30 Seconds
 

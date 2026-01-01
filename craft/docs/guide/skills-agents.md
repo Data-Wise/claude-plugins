@@ -2,7 +2,11 @@
 
 ⏱️ **6 minutes** • 🟡 Intermediate • ✓ Understanding AI automation
 
-Understanding craft's AI-powered automation system.
+> **TL;DR** (30 seconds)
+> - **What:** 17 auto-triggered skills + 7 specialized agents for backend, docs, testing, and architecture
+> - **Why:** AI automatically selects the right expertise for your task without manual intervention
+> - **How:** Skills trigger on context (e.g., "API" → backend-designer), agents handle long-running tasks
+> - **Next:** Read [Orchestrator](orchestrator.md) to learn how they work together
 
 ## Skills (17 total)
 
