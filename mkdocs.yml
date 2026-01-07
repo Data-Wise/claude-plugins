@@ -12,6 +12,7 @@ nav:
   - Usage Guide: MODE-USAGE-GUIDE.md
   - Quick Reference: MODE-QUICK-REFERENCE.md
   - Command Cheatsheet: COMMAND-CHEATSHEET.md
+  - Format Examples: FORMAT-EXAMPLES.md
   - Architecture: MODE-SYSTEM.md
 - CI/CD Guide: CICD.md
 - Command Reference: COMMAND-REFERENCE.md
