@@ -602,6 +602,11 @@ This plugin follows "solid indie" principles:
 3. Suggest patterns that saved time
 4. Report what felt over-engineered
 
+**For plugin development:**
+- 📖 **[Developer Guide (CLAUDE.md)](../CLAUDE.md)** - Comprehensive guide for working with this monorepo
+- Development commands, architecture patterns, CI/CD workflows
+- Quality standards and troubleshooting
+
 ---
 
 ## License

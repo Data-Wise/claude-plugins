@@ -332,6 +332,18 @@ Commands support execution modes for different use cases:
 - **Author:** DT (Data-Wise)
 - **License:** MIT
 
+## Development
+
+**For plugin development and contributions:**
+
+- 📖 **[Developer Guide (CLAUDE.md)](../CLAUDE.md)** - Comprehensive guide for working with this monorepo
+- Development commands (testing, validation, documentation)
+- Architecture patterns and plugin structure
+- CI/CD workflows and quality standards
+- Common tasks and troubleshooting
+
+See the root-level [CLAUDE.md](../CLAUDE.md) for detailed guidance on plugin development.
+
 ## Changelog
 
 ### [1.11.0] - 2025-12-30

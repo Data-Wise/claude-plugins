@@ -731,5 +731,42 @@ Central catalog of plugins:
 
 **This document is living** - Update as patterns evolve and new best practices emerge.
 
-**Last Updated:** 2025-12-23
+---
+
+## Recent Updates
+
+### 2026-01-07: CLAUDE.md Developer Guide
+
+**Added:**
+- Comprehensive CLAUDE.md file (401 lines) with developer guidance
+- Development commands for testing, validation, documentation
+- Architecture patterns and plugin structure standards
+- CI/CD workflows and quality standards documentation
+- Plugin-specific notes for all 4 plugins
+
+**Integration:**
+- Added to repository root for local development access
+- Linked in main README navigation bar (🛠️ Developer Guide)
+- Integrated with MkDocs documentation site
+- Referenced in all plugin-specific READMEs (statistical-research, craft, workflow, rforge)
+
+**Purpose:**
+Future Claude Code instances now have immediate access to:
+- How to build, test, and validate plugins
+- Architecture patterns and design principles
+- CI/CD workflows and automation
+- Common tasks and troubleshooting
+- Plugin standards and quality criteria
+
+**Files Updated:**
+- `CLAUDE.md` - New comprehensive developer guide
+- `README.md` - Added Developer Guide link
+- `docs/CLAUDE.md` - Copy for MkDocs site
+- `mkdocs.yml` - Added to navigation
+- `.STATUS` - Updated with documentation completion
+- All plugin READMEs - Added CLAUDE.md references
+
+---
+
+**Last Updated:** 2026-01-07
 **Contributors:** Data-Wise Team

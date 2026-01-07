@@ -682,6 +682,20 @@ Inspired by the needs of statistical researchers working on mediation analysis, 
 
 ---
 
+## Development
+
+**For plugin development and contributions:**
+
+- 📖 **[Developer Guide (CLAUDE.md)](../CLAUDE.md)** - Comprehensive guide for working with this monorepo
+- Development commands (testing, validation, documentation)
+- Architecture patterns and plugin structure
+- CI/CD workflows and quality standards
+- Common tasks and troubleshooting
+
+See the root-level [CLAUDE.md](../CLAUDE.md) for detailed guidance on plugin development.
+
+---
+
 ## Support
 
 - **Issues:** [GitHub Issues](https://github.com/Data-Wise/statistical-research-plugin/issues)
