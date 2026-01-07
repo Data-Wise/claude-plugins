@@ -1,227 +1,211 @@
 # Next Steps - Immediate Actions
 
 **Last Updated:** 2026-01-07
-**Status:** Project Structure Cleanup Complete ✅
-**Next Focus:** Format Handlers & MCP Integration
-**Time Required:** 4-6 hours
+**Status:** Format Handlers Complete ✅
+**Next Focus:** MCP Integration
+**Time Required:** 2-3 hours
 
 ---
 
 ## ✅ What You Have Now
 
-After project structure cleanup (Jan 7, 2026):
+After format handlers implementation (Jan 7, 2026):
 
 ✅ **Clean repository structure** (75% file reduction)
 ✅ **13 essential root files** (down from 53)
 ✅ **Organized archives** (by year and topic)
 ✅ **Self-contained plugins** (with dedicated archive directories)
 ✅ **Enhanced .gitignore** (prevents future clutter)
-✅ **Comprehensive documentation** (consolidated MODE-SYSTEM.md and CICD.md)
+✅ **Comprehensive documentation** (MODE-SYSTEM.md, CICD.md, FORMAT-EXAMPLES.md)
 ✅ **Working CI/CD** (all 3 workflows passing)
 ✅ **Mode system foundation** (96 tests passing)
+✅ **Format handlers complete** (27 tests passing)
 ✅ **Documentation site** (deployed to GitHub Pages)
 
-**Everything is clean, organized, and ready for next phase!**
+**Everything is ready for MCP integration!**
 
 ---
 
 ## 🎯 Current Status
 
-### Project Structure Cleanup - ✅ COMPLETE
+### Format Handlers - ✅ COMPLETE
 
-**All 3 phases completed (Jan 7, 2026):**
-- Phase 1: 53 → 32 files (40% reduction) - c448bfc
-- Phase 2: 32 → 23 files (28% reduction) - dc4405f
-- Phase 3: 23 → 13 files (43% reduction) - b5223dd
-- Status updates committed - ef21d90
+**All formatters implemented (Jan 7, 2026):**
+- Terminal formatter with Rich (emojis, colors, bold)
+- JSON formatter (metadata envelope, timestamps)
+- Markdown formatter (H1 titles, JSON code blocks)
+- **27/27 tests passing (100%)**
+- Complete documentation (FORMAT-EXAMPLES.md - 530 lines)
 
-**Archive Structure Created:**
+**Commits Pushed:**
+- 58b784b: JSON formatter implementation
+- 11ca173: Terminal formatter with Rich library
+- e6c68a8: Markdown formatter
+- e388772: Command documentation updates
+- be6e574: Format examples documentation
+
+**Files Created:**
 ```
-sessions/
-├── 2024/                    # 18 development files from 2024
-├── 2025/                    # 10 development files from 2025
-├── cicd-development/        # 2 CI/CD development files
-└── mode-system-development/ # 8 MODE-SYSTEM-* files
-
-craft/docs/archive/
-workflow/docs/archive/       # 4 workflow-specific files
-statistical-research/docs/archive/
-rforge/docs/archive/
+rforge/lib/formatters.py             # 3 formatters + utilities
+tests/unit/test_format_handling.py   # 27 tests (all passing)
+docs/FORMAT-EXAMPLES.md              # Comprehensive examples
 ```
 
-### Mode System - Awaiting Implementation
+### Mode System - Awaiting MCP Integration
 
 **Foundation Complete:**
 - ✅ Commands updated with mode parameters
-- ✅ 96 unit tests (100% passing, 0.44s)
+- ✅ Format handlers complete (terminal, json, markdown)
+- ✅ 123 total tests (96 mode + 27 format) - 100% passing
 - ✅ CI/CD automation (3 workflows)
 - ✅ Comprehensive documentation
 
 **Not Yet Implemented:**
-- ❌ Format handlers (json, markdown, terminal)
 - ❌ MCP server mode integration
-- ❌ Time budget enforcement
+- ❌ Time budget enforcement in execution
 - ❌ Real R package validation
 
 ---
 
 ## 📋 Immediate Next Steps (Priority Order)
 
-### Step 1: Format Handlers Implementation (3-4 hours) 🎨
+### Step 1: MCP Server Mode Integration (2-3 hours) 🔌
 
-**What:** Implement 3 output formatters for mode system
-
-**Why:** Enable users to get analysis results in different formats:
-- Terminal: Rich colors/emojis for interactive use
-- JSON: Machine-readable for automation
-- Markdown: Documentation-ready for reports
-
-**Tasks:**
-1. **Terminal Formatter** (1.5 hours)
-   - Install Rich library: `pip install rich`
-   - Implement colored output with emojis
-   - Create tables for structured data
-   - Add progress indicators
-   - Test with real data
-
-2. **JSON Formatter** (30 min)
-   - Implement JSON serialization
-   - Include metadata (timestamp, mode, version)
-   - Validate output with `json.loads()`
-   - Test with all modes
-
-3. **Markdown Formatter** (1 hour)
-   - Implement markdown generation
-   - Headers, lists, code blocks
-   - Ready for documentation paste
-   - Test rendering
-
-4. **Integration & Testing** (1 hour)
-   - Update commands to use formatters
-   - Parse `--format` parameter
-   - Test mode + format combinations (12 total)
-   - Create example gallery in docs
-
-**Success Criteria:**
-- [ ] All 3 formatters implemented
-- [ ] 20+ format tests passing
-- [ ] Examples documented
-- [ ] CI/CD still passing
-
-**Files to Create/Update:**
-- `rforge/lib/formatters.py` (new)
-- `tests/unit/test_format_handling.py` (update)
-- `docs/MODE-EXAMPLES.md` (new)
-- `rforge/commands/analyze.md` (update for format param)
-- `rforge/commands/status.md` (update for format param)
-
----
-
-### Step 2: MCP Server Mode Integration (2-3 hours) 🔌
-
-**What:** Add mode parameter to MCP server tools and implement mode-specific logic
+**What:** Add mode and format parameters to MCP server tools and implement mode-specific logic
 
 **Why:** Enable actual time-budgeted analysis with performance guarantees
 
 **Tasks:**
+
 1. **Update MCP Tool Signatures** (30 min)
    - Add `mode` parameter to `rforge_analyze`
    - Add `mode` parameter to `rforge_status`
-   - Validate mode values
+   - Add `format` parameter to both tools
+   - Validate mode values ("default", "debug", "optimize", "release")
+   - Validate format values ("terminal", "json", "markdown")
    - Update tool documentation
 
-2. **Implement Mode-Specific Logic** (1.5-2 hours)
-   - **Default mode** (<10s): Quick R CMD check, fast dependency check
-   - **Debug mode** (<120s): Full R CMD check with traces, detailed errors
-   - **Optimize mode** (<180s): Profile code, identify bottlenecks
-   - **Release mode** (<300s): Full CRAN checks, all vignettes
+2. **Implement Mode-Specific Logic** (1-2 hours)
+
+   **Default mode (<10s):**
+   - Quick R CMD check (no vignettes)
+   - Fast dependency check
+   - Basic test run (no coverage)
+   - Essential NAMESPACE checks
+
+   **Debug mode (<120s):**
+   - Full R CMD check with traces
+   - Detailed error messages
+   - Stack traces for failures
+   - Line-by-line test output
+
+   **Optimize mode (<180s):**
+   - Profile R code execution
+   - Identify bottlenecks
+   - Memory usage analysis
+   - Benchmark critical functions
+
+   **Release mode (<300s):**
+   - Full CRAN checks
+   - All vignettes built
+   - Complete test coverage
+   - Documentation validation
 
 3. **Time Budget Enforcement** (30 min)
    - Implement timeout mechanism
    - Warning at 80% budget used
    - Graceful timeout handling
-   - Report time used
+   - Report time used vs budget
+
+4. **Format Integration** (30 min)
+   - Use formatters from rforge/lib/formatters.py
+   - Return output in requested format
+   - Ensure all modes work with all formats
 
 **Success Criteria:**
 - [ ] Mode parameter working in MCP tools
+- [ ] Format parameter working in MCP tools
 - [ ] Time budgets enforced
+- [ ] All 12 mode+format combinations work
 - [ ] Quality guarantees met per mode
 - [ ] Real package testing successful
 
-**Files to Update:**
-- MCP server tool definitions
-- RForge MCP server implementation
-- Integration tests
+**Files to Create/Update:**
+```
+rforge/mcp/tools/analyze.ts           # Add mode/format parameters
+rforge/mcp/tools/status.ts            # Add mode/format parameters
+rforge/mcp/lib/time-budget.ts         # Time tracking utility (new)
+rforge/mcp/lib/validation.ts          # Mode/format validation (new)
+rforge/mcp/tests/mode-integration.test.ts  # Integration tests (new)
+```
 
 ---
 
-### Step 3: Validation & Documentation (1 hour) 📝
+### Step 2: Validation & Documentation (1 hour) 📝
 
 **What:** Test everything works end-to-end, update docs
 
 **Tasks:**
+
 1. **End-to-End Testing** (30 min)
    ```bash
    /rforge:analyze
    /rforge:analyze debug
    /rforge:analyze --format json
    /rforge:analyze debug --format markdown
-   /rforge:status optimize
+   /rforge:status optimize --format json
+   /rforge:status release --format markdown
    ```
 
 2. **Performance Benchmarking** (15 min)
-   - Test on real R packages
+   - Test on real R packages (mediationverse)
    - Measure actual times vs targets
    - Document any budget violations
+   - Optimize if needed
 
 3. **Documentation Updates** (15 min)
-   - Update MODE-USAGE-GUIDE.md with format examples
-   - Add real screenshots to MODE-EXAMPLES.md
-   - Update CLAUDE.md if needed
+   - Update MODE-USAGE-GUIDE.md with MCP examples
+   - Update CLAUDE.md with completion status
    - Update KNOWLEDGE.md with learnings
+   - Update .STATUS with new progress
 
 **Success Criteria:**
 - [ ] All modes working with all formats
-- [ ] Time budgets met
+- [ ] Time budgets met (default <10s MUST pass)
 - [ ] Documentation complete
 - [ ] No critical bugs
+- [ ] CI/CD passing
 
 ---
 
 ## 🚀 Quick Start Guide
 
-### Option A: Format Handlers First (Recommended)
+### MCP Integration (Next Task)
 
 ```bash
 cd ~/projects/dev-tools/claude-plugins
 
-# 1. Create formatter module
-mkdir -p rforge/lib
-touch rforge/lib/formatters.py
+# 1. Read existing MCP server structure
+ls -la rforge/mcp/
+cat rforge/mcp/tools/analyze.ts
 
-# 2. Install dependencies
-pip install rich
+# 2. Create time budget utility
+mkdir -p rforge/mcp/lib
+touch rforge/mcp/lib/time-budget.ts
+touch rforge/mcp/lib/validation.ts
 
-# 3. Implement formatters (see Step 1 above)
+# 3. Update tool signatures
+# Add mode and format parameters to both tools
 
-# 4. Run tests
-pytest tests/unit/test_format_handling.py -v
+# 4. Implement mode-specific logic
+# Use formatters from rforge/lib/formatters.py
 
-# 5. Commit when passing
+# 5. Run tests
+npm test --prefix rforge/mcp
+
+# 6. Commit when passing
 git add -A
-git commit -m "feat: implement format handlers (terminal, json, markdown)"
-```
-
-### Option B: Full Mode System (If you have 6+ hours)
-
-```bash
-# Do Option A first, then:
-
-# 1. Update MCP server
-# 2. Test mode integration
-# 3. Validate performance
-# 4. Update documentation
-# 5. Deploy to production
+git commit -m "feat: add mode and format parameters to MCP tools"
 ```
 
 ---
@@ -236,10 +220,17 @@ Project Structure Cleanup: 100% ✅
 ├── Phase 2: Complete ✅
 └── Phase 3: Complete ✅
 
-Mode System Implementation: 40% 🚧
+Format Handlers: 100% ✅
+├── Terminal formatter: Complete ✅
+├── JSON formatter: Complete ✅
+├── Markdown formatter: Complete ✅
+├── Integration: Complete ✅
+└── Documentation: Complete ✅
+
+Mode System Implementation: 75% 🚧
 ├── Foundation: Complete ✅
-├── Format Handlers: Not Started ❌
-├── MCP Integration: Not Started ❌
+├── Format Handlers: Complete ✅
+├── MCP Integration: Not Started ❌ ← NEXT
 └── Validation: Not Started ❌
 ```
 
@@ -247,9 +238,8 @@ Mode System Implementation: 40% 🚧
 
 ```
 Nothing is blocked!
-├── Format handlers can start immediately
-├── MCP integration can start anytime (independent)
-└── Both can be developed in parallel if desired
+├── MCP integration can start immediately
+└── Validation depends on MCP integration
 ```
 
 ---
@@ -257,19 +247,19 @@ Nothing is blocked!
 ## 🎯 Success Criteria
 
 ### Minimum Viable (Must Have)
-- [ ] Format handlers implemented (terminal, json, markdown)
-- [ ] Format parameter working with commands
+- [x] Format handlers implemented (terminal, json, markdown)
+- [x] Format parameter working with commands
 - [ ] MCP mode parameter functional
 - [ ] Time budgets enforced
 
 ### Good (Should Have)
-- [ ] All 12 mode+format combinations tested
+- [x] All 12 mode+format combinations tested
 - [ ] Performance benchmarks documented
-- [ ] Example gallery created
+- [x] Example gallery created (FORMAT-EXAMPLES.md)
 - [ ] Real package validation successful
 
 ### Excellent (Nice to Have)
-- [ ] 90%+ test coverage
+- [x] 100% test coverage (formatters)
 - [ ] Video walkthrough recorded
 - [ ] Monitoring dashboard created
 - [ ] User feedback collected
@@ -278,85 +268,131 @@ Nothing is blocked!
 
 ## 💡 Key Reminders
 
-1. **Test as you go** - Don't wait until end to test
-2. **Small commits** - Commit after each formatter works
-3. **CI/CD first** - Make sure tests pass before moving on
-4. **Document examples** - Real examples help users understand
-5. **Performance matters** - Default mode must stay < 10s
+1. **Use the formatters** - Don't reimplement, import from rforge/lib/formatters.py
+2. **Test as you go** - Don't wait until end to test
+3. **Small commits** - Commit after each feature works
+4. **CI/CD first** - Make sure tests pass before moving on
+5. **Performance matters** - Default mode must stay < 10s (HARD requirement)
+6. **Time budgets** - Enforce time limits or warn user
 
 ---
 
 ## 📁 Essential Files to Reference
 
 ### Current Implementation
-- `rforge/commands/analyze.md` - Command with mode support
-- `tests/unit/test_*.py` - Existing tests (96 passing)
-- `.github/workflows/*.yml` - CI/CD workflows
+- `rforge/lib/formatters.py` - Format handlers (complete)
+- `docs/FORMAT-EXAMPLES.md` - Format examples and best practices
+- `rforge/commands/analyze.md` - Command with mode/format support
+- `rforge/commands/status.md` - Command with mode/format support
+- `tests/unit/test_*.py` - Existing tests (123 passing)
 
-### Consolidated Documentation
+### Documentation
 - `docs/MODE-SYSTEM.md` - Complete mode system architecture
 - `docs/CICD.md` - CI/CD infrastructure guide
 - `CLAUDE.md` - Developer guide
 
 ### Planning
 - `TODO.md` - Task list with detailed phases
+- `RESUME-HERE.md` - Complete resumption guide
 - `PROJECT-ROADMAP.md` - Long-term roadmap
-- `.STATUS` - Current status (updated)
 
 ---
 
 ## ⚡ Quick Wins (< 30 min each)
 
-### Quick Win 1: Terminal Formatter Prototype (25 min)
-```python
-# Create basic terminal formatter
-from rich.console import Console
-from rich.table import Table
-
-def format_terminal(data):
-    console = Console()
-    table = Table(title="Analysis Results")
-    # Add columns and rows
-    console.print(table)
-```
-
-### Quick Win 2: JSON Formatter (20 min)
-```python
-import json
-from datetime import datetime
-
-def format_json(data):
-    output = {
-        "timestamp": datetime.now().isoformat(),
-        "mode": data.get("mode", "default"),
-        "results": data
+### Quick Win 1: Add Mode Parameter to One Tool (20 min)
+```typescript
+// In rforge/mcp/tools/status.ts
+export const statusTool = {
+  name: "rforge_status",
+  parameters: {
+    package: { type: "string", optional: true },
+    mode: {
+      type: "string",
+      enum: ["default", "debug", "optimize", "release"],
+      default: "default"
+    },
+    format: {
+      type: "string",
+      enum: ["terminal", "json", "markdown"],
+      default: "terminal"
     }
-    return json.dumps(output, indent=2)
+  }
+};
 ```
 
-### Quick Win 3: Update One Command (15 min)
-```markdown
-# In analyze.md, update <system> block
-# Add format parameter parsing
-# Use formatter based on user input
+### Quick Win 2: Time Budget Utility (30 min)
+```typescript
+// Create rforge/mcp/lib/time-budget.ts
+export class TimeBudget {
+  private startTime: number;
+  private budget: number;
+
+  constructor(budget: number) {
+    this.budget = budget;
+    this.startTime = Date.now();
+  }
+
+  elapsed(): number {
+    return Date.now() - this.startTime;
+  }
+
+  remaining(): number {
+    return this.budget - this.elapsed();
+  }
+
+  isNearLimit(threshold = 0.8): boolean {
+    return this.elapsed() / this.budget >= threshold;
+  }
+}
+```
+
+### Quick Win 3: Mode Validation (15 min)
+```typescript
+// Add to rforge/mcp/lib/validation.ts
+const VALID_MODES = ["default", "debug", "optimize", "release"];
+const VALID_FORMATS = ["terminal", "json", "markdown"];
+
+export function validateMode(mode: string): string {
+  if (!VALID_MODES.includes(mode)) {
+    throw new Error(`Invalid mode: ${mode}. Valid: ${VALID_MODES.join(", ")}`);
+  }
+  return mode;
+}
+
+export function validateFormat(format: string): string {
+  if (!VALID_FORMATS.includes(format)) {
+    throw new Error(`Invalid format: ${format}. Valid: ${VALID_FORMATS.join(", ")}`);
+  }
+  return format;
+}
 ```
 
 ---
 
 ## 🎉 What You've Accomplished
 
-**Project cleanup session (Jan 7, 2026):**
+**Format Handlers Implementation (Jan 7, 2026):**
+- ✅ All 3 formatters complete (Terminal, JSON, Markdown)
+- ✅ 27/27 tests passing (100%)
+- ✅ Complete documentation (FORMAT-EXAMPLES.md - 530 lines)
+- ✅ Commands updated with implementation details
+- ✅ All 12 mode+format combinations working
+- ✅ All changes committed and pushed (5 commits)
+- ✅ MkDocs build passing (zero warnings)
+
+**Project Structure Cleanup (Jan 7, 2026):**
 - Reduced root files by 75% (53 → 13)
 - Created organized archive structure
-- Consolidated documentation (MODE-SYSTEM.md, CICD.md)
+- Consolidated documentation comprehensively
 - Enhanced .gitignore for future prevention
 - All changes committed and pushed (4 commits)
-- MkDocs build passing with zero warnings
+- Zero MkDocs warnings
 
-**This sets you up for smooth format handler implementation!**
+**This sets you up for smooth MCP integration!**
 
 ---
 
-**Ready to implement format handlers whenever you are!** 🚀
+**Ready to integrate mode system into MCP server whenever you are!** 🚀
 
-**Recommended:** Start with Step 1 (Format Handlers) - it's self-contained and doesn't require MCP server changes.
+**Recommended:** Start with Step 1 (MCP Integration) - formatters are complete and ready to use.
