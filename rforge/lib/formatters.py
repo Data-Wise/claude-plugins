@@ -122,9 +122,7 @@ def format_terminal(data: Dict[str, Any], mode: str = "default") -> str:
 
 def format_markdown(data: Dict[str, Any], mode: str = "default") -> str:
     """
-    Format analysis results as Markdown (placeholder).
-
-    TODO: Implement markdown generation.
+    Format analysis results as Markdown.
 
     Args:
         data: Analysis results dictionary
@@ -132,11 +130,30 @@ def format_markdown(data: Dict[str, Any], mode: str = "default") -> str:
 
     Returns:
         Formatted markdown string
+
+    Example:
+        >>> data = {"title": "Test", "status": "success", "data": {"tests": 15}}
+        >>> output = format_markdown(data, mode="debug")
+        >>> "# Test" in output
+        True
+        >>> "**Status:** success" in output
+        True
     """
-    # Placeholder - will implement markdown generation
-    md = f"# Analysis Results\n\n"
-    md += f"**Mode:** {mode}\n\n"
-    md += f"```json\n{json.dumps(data, indent=2)}\n```\n"
+    # Title as H1
+    title = data.get("title", "Analysis Results")
+    md = f"# {title}\n\n"
+
+    # Status
+    status = data.get("status", "unknown")
+    md += f"**Status:** {status}\n\n"
+
+    # Data section if present
+    if "data" in data and data["data"]:
+        md += "## Data\n\n"
+        md += "```json\n"
+        md += json.dumps(data["data"], indent=2)
+        md += "\n```\n"
+
     return md
 
 
