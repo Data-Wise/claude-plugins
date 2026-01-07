@@ -70,19 +70,54 @@ def validate_json_output(json_string: str) -> bool:
 
 def format_terminal(data: Dict[str, Any], mode: str = "default") -> str:
     """
-    Format analysis results for terminal output (placeholder).
-
-    TODO: Implement with Rich library for colored output.
+    Format analysis results for terminal output with Rich formatting.
 
     Args:
         data: Analysis results dictionary
         mode: Mode used for analysis
 
     Returns:
-        Formatted terminal output string
+        Formatted terminal output string with colors and emojis
+
+    Example:
+        >>> data = {"title": "Test", "status": "success", "data": {"tests": 15}}
+        >>> output = format_terminal(data, mode="debug")
+        >>> "✅" in output
+        True
     """
-    # Placeholder - will implement with Rich library
-    return f"Terminal format (mode: {mode})\n{json.dumps(data, indent=2)}"
+    from io import StringIO
+    from rich.console import Console
+
+    # Create console that writes to string
+    output = StringIO()
+    console = Console(file=output, force_terminal=True, width=80)
+
+    # Status emoji based on status field
+    status = data.get("status", "unknown")
+    if status == "success":
+        status_emoji = "✅"
+    elif status in ["error", "failed", "failure"]:
+        status_emoji = "❌"
+    elif status in ["warning", "warn"]:
+        status_emoji = "⚠️"
+    else:
+        status_emoji = "ℹ️"
+
+    # Title line with emoji
+    title = data.get("title", "Result")
+    console.print(f"{status_emoji} {title}", style="bold")
+    console.print()  # Empty line
+
+    # Display data as bullet points if present
+    if "data" in data and isinstance(data["data"], dict):
+        for key, value in data["data"].items():
+            console.print(f"  • {key}: {value}")
+
+    # Get the string output
+    result = output.getvalue()
+    output.close()
+
+    return result
 
 
 def format_markdown(data: Dict[str, Any], mode: str = "default") -> str:
