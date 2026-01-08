@@ -155,7 +155,29 @@ target: Phase 1 production-ready (achieved 2026-01-08) | Documentation Quick Sta
 3. R CMD check integration (2-3 hours) - Execute actual checks
 4. Mode-specific logic (3-4 hours) - Differentiate mode behaviors
 
-**Option D) Other Projects:**
+**Option D) Documentation Tabs Redesign (NEW - Medium Priority, 14-20 hours):**
+- Spec: docs/specs/SPEC-plugin-documentation-tabs-2026-01-09.md
+- Transform hierarchical navigation into tabbed interface
+- **Quick Wins (3.5 hours):**
+  - Enable Material tabs (15 min)
+  - Create Workflows & Examples template (1 hour)
+  - Merge Overview into Quick Start (1.5 hours)
+- **Core Features (10 hours):**
+  - Tab navigation structure (2 hours)
+  - Workflows sections for all plugins (3 hours)
+  - Mermaid diagrams (2 hours)
+  - Inline tabbed content (2 hours)
+  - Search optimization (2 hours)
+- **Visual Content (6 hours):**
+  - Create 8 GIFs (2 per plugin, 4-6 hours)
+  - GIF optimization (1 hour)
+- **Structure:**
+  - 4 plugin tabs: RForge | Craft | Workflow | Statistical Research
+  - 5 sub-tabs each: Quick Start, Commands, Skills & Agents, Architecture, Workflows & Examples
+  - Quick Start shows on tab click (merged from Overview pages)
+- **Brainstorm:** BRAINSTORM-plugin-documentation-tabs-2026-01-09.md
+
+**Option E) Other Projects:**
 - Work on other dev-tools projects
 - Teaching materials
 - Research projects

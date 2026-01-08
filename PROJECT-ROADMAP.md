@@ -268,6 +268,65 @@
 **Priority: MEDIUM**
 **Timeline: 1 week (after Track 1)**
 
+#### ⭐ NEW: Documentation Tabs Redesign (Jan 9, 2026)
+
+**Status:** Spec complete, ready for implementation
+**Spec:** docs/specs/SPEC-plugin-documentation-tabs-2026-01-09.md
+**Brainstorm:** BRAINSTORM-plugin-documentation-tabs-2026-01-09.md
+**Effort:** 14-20 hours (core + visual content)
+
+**Overview:**
+Transform hierarchical plugin navigation into tabbed interface with rich visual content (Mermaid diagrams, GIFs, inline code examples).
+
+**Structure:**
+- 4 plugin tabs: RForge | Craft | Workflow | Statistical Research
+- 5 sub-tabs per plugin: Quick Start, Commands, Skills & Agents, Architecture, Workflows & Examples
+- Quick Start shows on tab click (merged from Overview pages)
+
+**Phase Breakdown:**
+
+1. **Phase 1: Foundation** (2 hours)
+   - Enable Material tabs (15 min)
+   - Merge Overview into Quick Start (1.5 hours)
+   - Validation: Tabs visible, content consolidated
+
+2. **Phase 2: Navigation** (2 hours)
+   - Implement complete tab structure in mkdocs.yml
+   - Move files to align with new structure
+   - Fix internal links
+
+3. **Phase 3: Visual Content Foundation** (2 hours)
+   - Create Workflows & Examples template
+   - Implement for RForge (proof of concept)
+   - Add Mermaid diagram to RForge Architecture
+
+4. **Phase 4: Content Rollout** (6 hours)
+   - Roll out Workflows to all 4 plugins (3 hours)
+   - Add Mermaid diagrams to all Architecture pages (2 hours)
+   - Implement inline tabbed content (1 hour)
+
+5. **Phase 5: Polish** (6+ hours, ongoing)
+   - Create 8 GIFs (2 per plugin, 4-6 hours)
+   - Add search optimization (2 hours)
+   - Optional: Interactive command playground (6-8 hours)
+
+**Success Criteria:**
+- [ ] Click plugin tab → land on Quick Start immediately
+- [ ] 5 sub-tabs visible under each plugin
+- [ ] Visual content (diagrams, GIFs) enhances learning
+- [ ] Mobile users get collapsible hamburger menu
+- [ ] No more than 2 clicks to any documentation page
+- [ ] mkdocs build succeeds with all enhancements
+- [ ] GitHub Pages deployment successful
+
+**Open Questions:**
+1. Mode System location: Keep separate or integrate into RForge tab?
+2. Plugin-agnostic docs: Keep separate or create "Developer" tab?
+3. GIF hosting: In-repo (docs/assets/gifs/) or external CDN?
+4. Architecture diagrams: Integrate into plugin tabs or keep centralized?
+
+---
+
 #### Documentation Improvements
 1. **Mode usage guide**
    - When to use each mode
