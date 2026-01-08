@@ -409,7 +409,9 @@ flowchart TD
 - Keeping it monorepo-level signals it's a shared pattern
 - Doesn't clutter RForge tab with cross-cutting concern
 
-**Decision:** _(Pending user input)_
+**Decision:** ✅ Keep separate (Option A)
+- Mode System stays in separate section at monorepo level
+- Other plugins may adopt Mode System pattern in future
 
 ---
 
@@ -437,7 +439,9 @@ flowchart TD
 - Publishing applies to all plugins
 - Developer Guide is meta-documentation
 
-**Decision:** _(Pending user input)_
+**Decision:** ✅ Keep as separate top-level items (Option A)
+- Clear separation between plugin content and meta-documentation
+- Publishing, CI/CD, and Plugin Development remain accessible outside tabs
 
 ---
 
@@ -463,7 +467,10 @@ flowchart TD
 - GIFs optimized to < 1MB each (8 GIFs = ~8MB total)
 - GitHub Pages has 1GB soft limit (plenty of room)
 
-**Decision:** _(Pending user input)_
+**Decision:** ✅ In repo: docs/assets/gifs/ (Option A)
+- GIFs stored in repository under docs/assets/gifs/
+- Version controlled, no external dependencies
+- ~8MB total (8 GIFs optimized to <1MB each)
 
 ---
 
@@ -496,7 +503,10 @@ flowchart TD
 - docs/diagrams/craft-structure.md → embed in docs/craft/architecture.md
 - etc.
 
-**Decision:** _(Pending user input)_
+**Decision:** ✅ Integrate into each plugin's Architecture sub-tab (Option A)
+- Move docs/diagrams/rforge-flow.md → embed in docs/rforge/architecture.md
+- Move docs/diagrams/craft-structure.md → embed in docs/craft/architecture.md
+- All plugin content consolidated within plugin tabs
 
 ---
 
