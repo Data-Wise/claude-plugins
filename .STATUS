@@ -1,7 +1,7 @@
-status: Phase 1 Complete - Production Ready ✅
+status: Phase 1 Complete + Documentation Architecture Planned ✅
 progress: 95
-next: Phase 2 optional enhancements (time budgets, R CMD check, mode-specific logic) OR deploy Phase 1 to production
-target: Phase 1 production-ready (achieved 2026-01-08) | Phase 2 optional (6-8 hours)
+next: Documentation reorganization (10-14 hours) OR deploy Phase 1 to production
+target: Phase 1 production-ready (achieved 2026-01-08) | Documentation architecture planned (2026-01-09) | Spec ready for implementation
 
 # Phase 1 Complete - January 8, 2026
 
@@ -52,6 +52,22 @@ target: Phase 1 production-ready (achieved 2026-01-08) | Phase 2 optional (6-8 h
 
 ## 🔄 Current Work (Jan 9, 2026)
 
+**Documentation Architecture Decision (Jan 9):**
+- ✅ Deep brainstorm completed (8 expert questions, 4 architecture options)
+- ✅ Decision: Hybrid Mono-Repo with Plugin-Scoped Documentation
+- ✅ Comprehensive spec created: docs/specs/SPEC-documentation-architecture-2026-01-09.md
+- ✅ Implementation plan: 5 phases, 10-14 hours total
+
+**Key Decision:**
+- Keep mono-repo structure (preserves cross-plugin development velocity)
+- Reorganize documentation into clear plugin vs shared infrastructure sections
+- Create unified MkDocs site with plugin-specific navigation sections
+- Address content gaps as primary blocker (not restructuring)
+
+**Files Created:**
+- BRAINSTORM-plugin-organization-architecture-2026-01-09.md (~400 lines)
+- docs/specs/SPEC-documentation-architecture-2026-01-09.md (~800 lines)
+
 **Minor Settings Update:**
 - Updated .claude/settings.local.json
 - Added gh release commands to auto-approve list
@@ -59,18 +75,38 @@ target: Phase 1 production-ready (achieved 2026-01-08) | Phase 2 optional (6-8 h
 
 ## 🎯 Next Action
 
-**Option A) Deploy Phase 1 (Recommended):** ⚡
+**Option A) Documentation Reorganization (Recommended - High Priority):** ⚡
+- Implement Hybrid Mono-Repo documentation architecture
+- Quick wins available: 2 hours (landing pages + navigation update)
+- Full implementation: 10-14 hours (5 phases)
+- Addresses: Content gaps, navigation confusion, plugin discoverability
+- Spec: docs/specs/SPEC-documentation-architecture-2026-01-09.md
+
+**Phase-by-Phase:**
+1. Phase 1: Reorganize structure (2-3 hours) - Create docs/mono-repo/, docs/plugins/
+2. Phase 2: Update MkDocs nav (1-2 hours) - Plugin sections + Shared Infrastructure
+3. Phase 3: Fill content gaps (4-6 hours) - All 4 plugin landing pages + docs
+4. Phase 4: Automate (optional, 2 hours) - Navigation generation script
+5. Phase 5: Update CI/CD (1 hour) - Automated deployment
+
+**Quick Start (This Week - 2 hours):**
+- Create docs/plugins/index.md (plugin overview)
+- Create landing pages for all 4 plugins
+- Update mkdocs.yml navigation (add Plugins section)
+- Test locally: mkdocs serve
+
+**Option B) Deploy Phase 1 (RForge Mode System):**
 - Start using mode system in production
 - Gather user feedback
 - Monitor performance in real workflows
 
-**Option B) Phase 2 Enhancements (Optional - 6-8 hours):**
+**Option C) Phase 2 Enhancements (Optional - 6-8 hours):**
 1. Filter artifact directories (30 min) - Remove .Rcheck duplicates
 2. Time budget enforcement (1-2 hours) - Timeout mechanisms
 3. R CMD check integration (2-3 hours) - Execute actual checks
 4. Mode-specific logic (3-4 hours) - Differentiate mode behaviors
 
-**Option C) Other Projects:**
+**Option D) Other Projects:**
 - Work on other dev-tools projects
 - Teaching materials
 - Research projects
