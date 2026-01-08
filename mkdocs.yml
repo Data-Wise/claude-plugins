@@ -15,16 +15,18 @@ nav:
   - Skills & Agents: craft/skills-agents.md
   - Architecture: craft/architecture.md
   - Orchestrator: craft/orchestrator.md
+  - Workflows & Examples: craft/workflows.md
 - Workflow:
   - Quick Start: workflow/quick-start.md
   - Commands: workflow/commands.md
   - Skills & Agents: workflow/skills-agents.md
+  - Workflows & Examples: workflow/workflows.md
 - Statistical Research:
   - Quick Start: statistical-research/quick-start.md
   - Commands: statistical-research/commands.md
   - Skills: statistical-research/skills.md
   - API Wrappers: statistical-research/api-wrappers.md
-  - Examples: statistical-research/examples.md
+  - Workflows & Examples: statistical-research/workflows.md
 - Getting Started:
   - Installation: installation.md
   - Quick Start: quick-start.md

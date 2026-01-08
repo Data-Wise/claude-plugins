@@ -4,23 +4,57 @@ Craft is a comprehensive full-stack development toolkit built on intelligent orc
 
 ## Architecture Overview
 
-```
-User Request
-    ↓
-Smart Routing (/craft:do)
-    ↓
-┌─────────────────────────────────────┐
-│  Orchestrator v2                     │
-│  - Pattern recognition               │
-│  - Agent selection                   │
-│  - Mode-aware execution              │
-└─────────────────────────────────────┘
-    ↓
-Parallel Agent Execution
-    ↓
-Result Synthesis
-    ↓
-User-Friendly Output
+```mermaid
+graph TB
+    User[User Request] --> Router{Smart Router<br/>/craft:do}
+
+    Router --> |Auth| PatternA[Authentication Pattern]
+    Router --> |Perf| PatternP[Performance Pattern]
+    Router --> |Release| PatternR[Release Pattern]
+    Router --> |Custom| PatternC[Custom Pattern]
+
+    PatternA --> Orch[Orchestrator v2]
+    PatternP --> Orch
+    PatternR --> Orch
+    PatternC --> Orch
+
+    Orch --> Mode{Execution Mode}
+
+    Mode --> |default <10s| Mode1[Quick Checks]
+    Mode --> |debug <120s| Mode2[Verbose Output]
+    Mode --> |optimize <180s| Mode3[Max Parallel]
+    Mode --> |release <300s| Mode4[Full Audit]
+
+    Mode1 --> Agents
+    Mode2 --> Agents
+    Mode3 --> Agents
+    Mode4 --> Agents
+
+    Agents[Agent Pool] --> |Parallel| A1[backend-architect]
+    Agents --> |Parallel| A2[frontend-specialist]
+    Agents --> |Parallel| A3[database-architect]
+    Agents --> |Parallel| A4[security-specialist]
+    Agents --> |Parallel| A5[performance-engineer]
+    Agents --> |Parallel| A6[devops-engineer]
+    Agents --> |Parallel| A7[ux-ui-designer]
+
+    A1 --> Synthesis[Result Synthesis]
+    A2 --> Synthesis
+    A3 --> Synthesis
+    A4 --> Synthesis
+    A5 --> Synthesis
+    A6 --> Synthesis
+    A7 --> Synthesis
+
+    Synthesis --> Output[User-Friendly Output]
+
+    style User fill:#e1f5ff
+    style Router fill:#ffe1f5
+    style Orch fill:#fff4e1
+    style Mode fill:#e1ffe1
+    style Agents fill:#f0e1ff
+    style Synthesis fill:#ffe1e1
+    style Output fill:#e1f5ff
 ```
 
 ## Core Components
