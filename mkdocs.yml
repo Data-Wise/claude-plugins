@@ -4,33 +4,30 @@
 
 nav:
 - Home: index.md
+- RForge:
+  - Quick Start: rforge/quick-start.md
+  - Commands: rforge/docs/commands.md
+  - Architecture: rforge/docs/architecture.md
+- Craft:
+  - Quick Start: craft/quick-start.md
+  - Commands: craft/docs/commands.md
+  - Skills & Agents: craft/docs/skills-agents.md
+  - Architecture: craft/docs/architecture.md
+  - Orchestrator: craft/docs/orchestrator.md
+- Workflow:
+  - Quick Start: workflow/quick-start.md
+  - Commands: workflow/docs/commands.md
+  - Skills & Agents: workflow/docs/skills-agents.md
+- Statistical Research:
+  - Quick Start: statistical-research/quick-start.md
+  - Commands: statistical-research/docs/commands.md
+  - Skills: statistical-research/docs/skills.md
+  - API Wrappers: statistical-research/docs/api-wrappers.md
+  - Examples: statistical-research/docs/examples.md
 - Getting Started:
   - Installation: installation.md
   - Quick Start: quick-start.md
 - Developer Guide: CLAUDE.md
-- Plugins:
-  - Overview: plugins/index.md
-  - RForge - R Package Ecosystem:
-    - Overview: plugins/rforge.md
-    - Quick Start: rforge/docs/quickstart.md
-    - Commands: rforge/docs/commands.md
-    - Architecture: rforge/docs/architecture.md
-  - Craft - Full-Stack Toolkit:
-    - Overview: plugins/craft.md
-    - Commands: craft/docs/commands.md
-    - Skills & Agents: craft/docs/skills-agents.md
-    - Architecture: craft/docs/architecture.md
-    - Orchestrator: craft/docs/orchestrator.md
-  - Workflow - ADHD Tools:
-    - Overview: plugins/workflow.md
-    - Commands: workflow/docs/commands.md
-    - Skills & Agents: workflow/docs/skills-agents.md
-  - Statistical Research - Research Toolkit:
-    - Overview: plugins/statistical-research.md
-    - Commands: statistical-research/docs/commands.md
-    - Skills: statistical-research/docs/skills.md
-    - API Wrappers: statistical-research/docs/api-wrappers.md
-    - Examples: statistical-research/docs/examples.md
 - Mode System:
   - Usage Guide: MODE-USAGE-GUIDE.md
   - Quick Reference: MODE-QUICK-REFERENCE.md
@@ -58,6 +55,8 @@ theme:
   name: material
   features:
   - navigation.tabs
+  - navigation.tabs.sticky
+  - navigation.indexes
   - navigation.sections
   - navigation.expand
   - search.suggest
@@ -65,8 +64,13 @@ theme:
   - content.code.copy
 markdown_extensions:
 - pymdownx.highlight
-- pymdownx.superfences
-- pymdownx.tabbed
+- pymdownx.superfences:
+    custom_fences:
+    - name: mermaid
+      class: mermaid
+      format: !!python/name:pymdownx.superfences.fence_code_format
+- pymdownx.tabbed:
+    alternate_style: true
 - pymdownx.details
 - admonition
 - tables
