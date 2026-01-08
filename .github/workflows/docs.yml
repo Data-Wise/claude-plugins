@@ -52,11 +52,12 @@ jobs:
           python3 scripts/generate-architecture-diagrams.py
           echo "✅ Architecture diagrams generated"
 
-      - name: Update MkDocs navigation
-        run: |
-          echo "Updating MkDocs navigation..."
-          python3 scripts/update-mkdocs-nav.py
-          echo "✅ MkDocs navigation updated"
+      # Navigation is now manually managed with tabbed interface
+      # - name: Update MkDocs navigation
+      #   run: |
+      #     echo "Updating MkDocs navigation..."
+      #     python3 scripts/update-mkdocs-nav.py
+      #     echo "✅ MkDocs navigation updated"
 
       - name: Verify documentation files
         run: |
@@ -103,5 +104,5 @@ jobs:
           echo "Updated:"
           echo "  ✅ Command reference (17 commands)"
           echo "  ✅ Architecture diagrams (8 diagrams)"
-          echo "  ✅ MkDocs navigation"
+          echo "  ✅ Documentation site with tabbed navigation"
           echo ""
