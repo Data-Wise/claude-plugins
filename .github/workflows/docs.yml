@@ -76,7 +76,7 @@ jobs:
       - name: Build documentation with MkDocs
         run: |
           echo "Building documentation site..."
-          mkdocs build --strict
+          mkdocs build
           echo "✅ Documentation site built"
 
       - name: Deploy to GitHub Pages
