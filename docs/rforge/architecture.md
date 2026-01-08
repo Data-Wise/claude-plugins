@@ -8,6 +8,53 @@ RForge is an **orchestrator plugin** that intelligently delegates to RForge MCP 
 
 **Key Innovation:** Auto-delegation with parallel execution that completes 4 tool calls in the time it takes to execute 1.
 
+## System Architecture
+
+```mermaid
+graph TB
+    User[User Request] --> Plugin[RForge Claude Plugin]
+    Plugin --> Pattern[Pattern Recognition]
+
+    Pattern --> |CODE_CHANGE| ToolSelect1[Tool Selection]
+    Pattern --> |BUG_FIX| ToolSelect2[Tool Selection]
+    Pattern --> |CRAN_RELEASE| ToolSelect3[Tool Selection]
+    Pattern --> |ECOSYSTEM| ToolSelect4[Tool Selection]
+
+    ToolSelect1 --> MCP[RForge MCP Server]
+    ToolSelect2 --> MCP
+    ToolSelect3 --> MCP
+    ToolSelect4 --> MCP
+
+    MCP --> |Parallel Execution| Tool1[rforge-mcp.analyze]
+    MCP --> |Parallel Execution| Tool2[rforge-mcp.detect]
+    MCP --> |Parallel Execution| Tool3[rforge-mcp.deps]
+    MCP --> |Parallel Execution| Tool4[rforge-mcp.impact]
+
+    Tool1 --> R[R Environment]
+    Tool2 --> R
+    Tool3 --> R
+    Tool4 --> R
+
+    R --> Results[Results Collection]
+    Results --> Synthesis[Result Synthesis]
+
+    Synthesis --> Format{Output Format}
+    Format --> |terminal| Terminal[Rich Terminal Output]
+    Format --> |json| JSON[JSON Response]
+    Format --> |markdown| Markdown[Markdown Document]
+
+    Terminal --> Display[Display to User]
+    JSON --> Display
+    Markdown --> Display
+
+    style User fill:#e1f5ff
+    style Plugin fill:#ffe1f5
+    style Pattern fill:#fff4e1
+    style MCP fill:#e1ffe1
+    style R fill:#f0e1ff
+    style Display fill:#e1f5ff
+```
+
 ## Architecture Layers
 
 ```

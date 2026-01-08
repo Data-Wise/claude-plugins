@@ -8,6 +8,7 @@ nav:
   - Quick Start: rforge/quick-start.md
   - Commands: rforge/commands.md
   - Architecture: rforge/architecture.md
+  - Workflows & Examples: rforge/workflows.md
 - Craft:
   - Quick Start: craft/quick-start.md
   - Commands: craft/commands.md
