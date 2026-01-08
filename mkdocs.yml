@@ -6,24 +6,24 @@ nav:
 - Home: index.md
 - RForge:
   - Quick Start: rforge/quick-start.md
-  - Commands: rforge/docs/commands.md
-  - Architecture: rforge/docs/architecture.md
+  - Commands: rforge/commands.md
+  - Architecture: rforge/architecture.md
 - Craft:
   - Quick Start: craft/quick-start.md
-  - Commands: craft/docs/commands.md
-  - Skills & Agents: craft/docs/skills-agents.md
-  - Architecture: craft/docs/architecture.md
-  - Orchestrator: craft/docs/orchestrator.md
+  - Commands: craft/commands.md
+  - Skills & Agents: craft/skills-agents.md
+  - Architecture: craft/architecture.md
+  - Orchestrator: craft/orchestrator.md
 - Workflow:
   - Quick Start: workflow/quick-start.md
-  - Commands: workflow/docs/commands.md
-  - Skills & Agents: workflow/docs/skills-agents.md
+  - Commands: workflow/commands.md
+  - Skills & Agents: workflow/skills-agents.md
 - Statistical Research:
   - Quick Start: statistical-research/quick-start.md
-  - Commands: statistical-research/docs/commands.md
-  - Skills: statistical-research/docs/skills.md
-  - API Wrappers: statistical-research/docs/api-wrappers.md
-  - Examples: statistical-research/docs/examples.md
+  - Commands: statistical-research/commands.md
+  - Skills: statistical-research/skills.md
+  - API Wrappers: statistical-research/api-wrappers.md
+  - Examples: statistical-research/examples.md
 - Getting Started:
   - Installation: installation.md
   - Quick Start: quick-start.md

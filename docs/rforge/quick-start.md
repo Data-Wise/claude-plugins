@@ -206,7 +206,7 @@ cd ~/my-r-package
 
 - **[Commands](commands.md)** - Complete command reference
 - **[Architecture](architecture.md)** - Technical implementation details
-- **[Mode System](../../MODE-USAGE-GUIDE.md)** - Deep dive into analysis modes
+- **[Mode System](../MODE-USAGE-GUIDE.md)** - Deep dive into analysis modes
 
 ---
 
