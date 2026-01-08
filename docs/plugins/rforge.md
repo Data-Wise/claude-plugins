@@ -240,9 +240,9 @@ Tested on mediationverse ecosystem (5 R packages).
 
 ## Documentation
 
-- **Quick Start:** [rforge/docs/quickstart.md](../../rforge/docs/quickstart.md) *(coming soon)*
-- **Commands Reference:** [rforge/docs/commands.md](../../rforge/docs/commands.md) *(coming soon)*
-- **Architecture:** [rforge/docs/architecture.md](../../rforge/docs/architecture.md) *(coming soon)*
+- **[Quick Start Guide](../rforge/docs/quickstart.md)** - Get started in 5 minutes
+- **[Commands Reference](../rforge/docs/commands.md)** - Complete command documentation
+- **[Architecture Deep Dive](../rforge/docs/architecture.md)** - How orchestration works
 - **Mode System Guide:** [MODE-USAGE-GUIDE.md](../MODE-USAGE-GUIDE.md)
 - **Format Examples:** [FORMAT-EXAMPLES.md](../FORMAT-EXAMPLES.md)
 - **Testing Results:** [REAL-WORLD-TESTING-RESULTS.md](../REAL-WORLD-TESTING-RESULTS.md)

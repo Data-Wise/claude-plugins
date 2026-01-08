@@ -380,9 +380,9 @@ Reduces paralysis with:
 
 ## Documentation
 
-- **Commands Reference:** [workflow/docs/commands.md](../../workflow/docs/commands.md) *(coming soon)*
+- **[Commands Reference](../workflow/docs/commands.md)** - All 12 ADHD-friendly commands
 - **ADHD Guide:** Available via `/workflow:docs:adhd-guide`
-- **Skills & Agents:** [workflow/docs/skills-agents.md](../../workflow/docs/skills-agents.md) *(coming soon)*
+- **[Skills & Agents](../workflow/docs/skills-agents.md)** - Auto-activating skills and agent delegation
 
 ## Related
 

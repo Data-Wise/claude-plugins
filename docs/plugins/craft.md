@@ -236,10 +236,10 @@ pytest -m integration       # Integration tests
 
 ## Documentation
 
-- **Commands Reference:** [craft/docs/commands.md](../../craft/docs/commands.md) *(coming soon)*
-- **Skills & Agents:** [craft/docs/skills-agents.md](../../craft/docs/skills-agents.md) *(coming soon)*
-- **Architecture:** [craft/docs/architecture.md](../../craft/docs/architecture.md) *(coming soon)*
-- **Orchestrator Guide:** [craft/docs/orchestrator.md](../../craft/docs/orchestrator.md) *(coming soon)*
+- **[Commands Reference](../craft/docs/commands.md)** - All 67 commands with examples
+- **[Skills & Agents](../craft/docs/skills-agents.md)** - Auto-activating skills and specialized agents
+- **[Architecture](../craft/docs/architecture.md)** - Smart routing and orchestrator design
+- **[Orchestrator Guide](../craft/docs/orchestrator.md)** - Multi-agent coordination
 
 ## Related
 

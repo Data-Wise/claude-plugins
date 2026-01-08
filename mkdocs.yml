@@ -10,10 +10,27 @@ nav:
 - Developer Guide: CLAUDE.md
 - Plugins:
   - Overview: plugins/index.md
-  - RForge - R Package Ecosystem: plugins/rforge.md
-  - Craft - Full-Stack Toolkit: plugins/craft.md
-  - Workflow - ADHD Tools: plugins/workflow.md
-  - Statistical Research - Research Toolkit: plugins/statistical-research.md
+  - RForge - R Package Ecosystem:
+    - Overview: plugins/rforge.md
+    - Quick Start: rforge/docs/quickstart.md
+    - Commands: rforge/docs/commands.md
+    - Architecture: rforge/docs/architecture.md
+  - Craft - Full-Stack Toolkit:
+    - Overview: plugins/craft.md
+    - Commands: craft/docs/commands.md
+    - Skills & Agents: craft/docs/skills-agents.md
+    - Architecture: craft/docs/architecture.md
+    - Orchestrator: craft/docs/orchestrator.md
+  - Workflow - ADHD Tools:
+    - Overview: plugins/workflow.md
+    - Commands: workflow/docs/commands.md
+    - Skills & Agents: workflow/docs/skills-agents.md
+  - Statistical Research - Research Toolkit:
+    - Overview: plugins/statistical-research.md
+    - Commands: statistical-research/docs/commands.md
+    - Skills: statistical-research/docs/skills.md
+    - API Wrappers: statistical-research/docs/api-wrappers.md
+    - Examples: statistical-research/docs/examples.md
 - Mode System:
   - Usage Guide: MODE-USAGE-GUIDE.md
   - Quick Reference: MODE-QUICK-REFERENCE.md

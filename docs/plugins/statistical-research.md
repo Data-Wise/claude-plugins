@@ -356,10 +356,10 @@ Lightweight, portable, and fast:
 
 ## Documentation
 
-- **Commands Reference:** [statistical-research/docs/commands.md](../../statistical-research/docs/commands.md) *(coming soon)*
-- **Skills Guide:** [statistical-research/docs/skills.md](../../statistical-research/docs/skills.md) *(coming soon)*
-- **API Wrappers:** [statistical-research/docs/api-wrappers.md](../../statistical-research/docs/api-wrappers.md) *(coming soon)*
-- **Examples:** [statistical-research/docs/examples.md](../../statistical-research/docs/examples.md) *(coming soon)*
+- **[Commands Reference](../statistical-research/docs/commands.md)** - All 14 commands with usage examples
+- **[Skills Guide](../statistical-research/docs/skills.md)** - 17 A-grade research skills
+- **[API Wrappers](../statistical-research/docs/api-wrappers.md)** - Shell-based APIs (arXiv, Crossref, BibTeX)
+- **[Examples](../statistical-research/docs/examples.md)** - Complete research workflows
 
 ## Related
 
