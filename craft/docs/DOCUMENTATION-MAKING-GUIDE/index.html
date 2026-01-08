@@ -1,0 +1,3844 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Documentation Making Guide - Claude Code Plugins</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#documentation-making-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Claude Code Plugins" class="md-header__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Code Plugins
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Documentation Making Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../rforge/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  RForge
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Craft
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../workflow/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Workflow
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../statistical-research/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Statistical Research
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../installation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../CLAUDE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Developer Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../MODE-USAGE-GUIDE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Mode System
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../CICD/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  CI/CD Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../COMMAND-REFERENCE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../PLUGIN-DEVELOPMENT/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Plugin Development
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../PUBLISHING/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publishing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../diagrams/DEPENDENCIES/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Claude Code Plugins" class="md-nav__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Claude Code Plugins
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RForge
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rforge/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rforge/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rforge/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rforge/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Craft
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Craft
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../orchestrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orchestrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflow/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflow/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflow/skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflow/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistical Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistical-research/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistical-research/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistical-research/skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistical-research/api-wrappers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Wrappers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistical-research/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CLAUDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mode System
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mode System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MODE-USAGE-GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MODE-QUICK-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../COMMAND-CHEATSHEET/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FORMAT-EXAMPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Format Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MCP-INTEGRATION-TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Integration Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../REAL-WORLD-TESTING-RESULTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Real-World Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MODE-SYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CICD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../COMMAND-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../PLUGIN-DEVELOPMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugin Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../PUBLISHING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publishing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/DEPENDENCIES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependencies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/ECOSYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/rforge-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/rforge-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/statistical-research-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/statistical-research-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/workflow-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/workflow-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table of Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-guide-covers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Guide Covers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#who-this-is-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who This Is For
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-philosophy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation Philosophy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation Philosophy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adhd-friendly-design-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ADHD-Friendly Design Principles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ADHD-Friendly Design Principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-progressive-disclosure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Progressive Disclosure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-visual-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Visual Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-scannable-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Scannable Content
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-practical-examples-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Practical Examples First
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-synopsis-section-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Synopsis Section (Commands)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-see-also-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. See Also Section
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standardization-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standardization Process
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Standardization Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-proven-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3 Proven Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-inventory-planning-30-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Inventory &amp; Planning (30 min)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-batch-planning-15-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Batch Planning (15 min)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-template-application-per-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Template Application (Per File)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-testing-per-batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Testing (Per Batch)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-commit-track-per-batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Commit &amp; Track (Per Batch)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-deploy-after-all-batches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Deploy (After All Batches)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality Standards
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quality Standards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#checklist-for-standardized-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checklist for Standardized Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Checklist for Standardized Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template-marker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Template Marker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#synopsis-section-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synopsis Section (Commands)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standard-footer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standard Footer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Content Quality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-ai-assistants-future-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For AI Assistants / Future Work
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="For AI Assistants / Future Work">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-context-gathering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Context Gathering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create Audit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-execute-batches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Execute Batches
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Documentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools &amp; Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tools &amp; Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documentation-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality Scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-after-command-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before &amp; After: Command Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Before &amp; After: Command Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-non-compliant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before (Non-Compliant)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arguments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-it-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What It Does
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="See Also">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#after" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="See Also">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-too-many-warnings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue: Too Many Warnings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-template-compliance-not-improving" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue: Template Compliance Not Improving
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-batch-takes-too-long" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue: Batch Takes Too Long
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process-improvements-from-phase-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Process Improvements from Phase 3
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Process Improvements from Phase 3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-worked-well" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Worked Well
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-to-do-differently" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to Do Differently
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technical-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prompt-template-for-ai-assistants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt Template for AI Assistants
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version History
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="documentation-making-guide">Documentation Making Guide</h1>
+<blockquote>
+<p><strong>Comprehensive guide for creating and standardizing ADHD-friendly documentation</strong></p>
+</blockquote>
+<p><strong>Created:</strong> 2026-01-07
+<strong>Version:</strong> 1.0.0
+<strong>Status:</strong> ✅ Production - Based on Phase 3 implementation</p>
+<hr />
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#documentation-philosophy">Documentation Philosophy</a></li>
+<li><a href="#templates-reference">Templates Reference</a></li>
+<li><a href="#standardization-process">Standardization Process</a></li>
+<li><a href="#quality-standards">Quality Standards</a></li>
+<li><a href="#implementation-workflow">Implementation Workflow</a></li>
+<li><a href="#tools--commands">Tools &amp; Commands</a></li>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+</ol>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>This guide documents the complete process for creating and standardizing documentation in the flow-cli project. It's based on the successful Phase 3 implementation that achieved 100% command documentation standardization.</p>
+<h3 id="what-this-guide-covers">What This Guide Covers</h3>
+<ul>
+<li><strong>ADHD-friendly design principles</strong> - Progressive disclosure, visual hierarchy</li>
+<li><strong>Template application</strong> - How to use the 6 standard templates</li>
+<li><strong>Standardization workflow</strong> - Step-by-step process for updating existing docs</li>
+<li><strong>Quality assurance</strong> - Checklists and validation steps</li>
+<li><strong>Batch processing</strong> - Efficient approach to large-scale updates</li>
+</ul>
+<h3 id="who-this-is-for">Who This Is For</h3>
+<ul>
+<li>Contributors updating existing documentation</li>
+<li>Developers adding new commands or features</li>
+<li>Maintainers ensuring documentation consistency</li>
+<li>Future AI assistants working on documentation tasks</li>
+</ul>
+<hr />
+<h2 id="documentation-philosophy">Documentation Philosophy</h2>
+<h3 id="adhd-friendly-design-principles">ADHD-Friendly Design Principles</h3>
+<p>All flow-cli documentation follows these core principles:</p>
+<h4 id="1-progressive-disclosure">1. Progressive Disclosure</h4>
+<p><strong>Don't overwhelm with details upfront.</strong></p>
+<div class="highlight"><pre><span></span><code>✅ Good: Show what, then explain how
+<span class="gh"># command</span>
+
+<span class="k">&gt; </span><span class="ge">Brief one-line description</span>
+
+<span class="gu">## Synopsis</span>
+Quick usage examples
+
+<span class="gu">## Description</span>
+Detailed explanation
+
+✖️ Bad: Wall of text without structure
+<span class="gh"># command</span>
+Long paragraph explaining everything at once...
+</code></pre></div>
+<h4 id="2-visual-hierarchy">2. Visual Hierarchy</h4>
+<p><strong>Use structure to guide the eye.</strong></p>
+<ul>
+<li>Headers create clear sections</li>
+<li>Blockquotes for callouts</li>
+<li>Tables for comparisons</li>
+<li>Code blocks for examples</li>
+<li>Emojis for status indicators (✅ ❌ 🎯 ⚡)</li>
+</ul>
+<h4 id="3-scannable-content">3. Scannable Content</h4>
+<p><strong>Readers should find info without reading everything.</strong></p>
+<ul>
+<li>Synopsis sections with quick examples</li>
+<li>Tables of contents for long pages</li>
+<li>Consistent structure across similar pages</li>
+<li>Template markers that describe purpose</li>
+<li>Standard footers with version info</li>
+</ul>
+<h4 id="4-practical-examples-first">4. Practical Examples First</h4>
+<p><strong>Show don't tell.</strong></p>
+<div class="highlight"><pre><span></span><code>✅ Good: Example then explanation
+```bash
+<span class="gh"># Quick example</span>
+flow work my-project
+</code></pre></div>
+<p>This starts a work session on <code>my-project</code>.</p>
+<p>✖️ Bad: Theory then maybe example
+The work command initializes a session context...
+(3 paragraphs later) Here's an example maybe.
+<div class="highlight"><pre><span></span><code>#### 5. Consistent Patterns
+
+**Same types of content look the same.**
+
+- All command docs have same structure
+- All reference cards follow same format
+- All tutorials have progression indicators
+- All guides use same section headers
+
+---
+
+## Templates Reference
+
+### Available Templates
+
+Located in `docs/conventions/adhd/`:
+
+1. **HELP-PAGE-TEMPLATE.md** - Command documentation
+2. **REFCARD-TEMPLATE.md** - Quick reference cards
+3. **QUICK-START-TEMPLATE.md** - Getting started guides
+4. **TUTORIAL-TEMPLATE.md** - Step-by-step tutorials
+5. **WORKFLOW-TEMPLATE.md** - Workflow guides
+6. **GETTING-STARTED-TEMPLATE.md** - Installation/setup
+
+### Template Selection Guide
+
+| Content Type | Template | Example |
+|-------------|----------|---------|
+| Command docs | HELP-PAGE-TEMPLATE | `docs/commands/work.md` |
+| Dispatcher reference | REFCARD-TEMPLATE | `docs/reference/CC-DISPATCHER-REFERENCE.md` |
+| Quick reference | REFCARD-TEMPLATE | `docs/reference/ALIAS-REFERENCE-CARD.md` |
+| Getting started | QUICK-START-TEMPLATE | `docs/getting-started/quick-start.md` |
+| Step-by-step guide | TUTORIAL-TEMPLATE | `docs/tutorials/01-first-session.md` |
+| Workflow pattern | WORKFLOW-TEMPLATE | `docs/guides/WORKFLOWS-QUICK-WINS.md` |
+
+### Core Template Elements
+
+Every template includes:
+
+#### 1. Template Marker (Blockquote)
+
+```markdown
+&gt; Brief description of what this document provides
+</code></pre></div></p>
+<p><strong>Purpose:</strong> Immediate context for what reader will learn
+<strong>Location:</strong> Top of document after title
+<strong>Length:</strong> One sentence, under 15 words
+<strong>Style:</strong> Clear, action-oriented, specific</p>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code>✅ Good markers
+<span class="k">&gt; </span><span class="ge">Interactive project picker with FZF interface for quick navigation</span>
+<span class="k">&gt; </span><span class="ge">Smart git dispatcher with feature branch workflow support</span>
+<span class="k">&gt; </span><span class="ge">Complete reference for all flow-cli commands and aliases</span>
+
+✖️ Bad markers
+<span class="k">&gt; </span><span class="ge">This document describes the work command</span>
+<span class="k">&gt; </span><span class="ge">Information about commands</span>
+<span class="k">&gt; </span><span class="ge">Read this to learn about flow-cli</span>
+</code></pre></div></p>
+<h4 id="2-synopsis-section-commands">2. Synopsis Section (Commands)</h4>
+<div class="highlight"><pre><span></span><code><span class="gu">## Synopsis</span>
+
+```bash
+command [OPTIONS] [ARGUMENTS]
+</code></pre></div>
+<p><strong>Quick examples:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Most common usage</span>
+<span class="nb">command</span><span class="w"> </span>arg
+
+<span class="c1"># With options</span>
+<span class="nb">command</span><span class="w"> </span>--option<span class="w"> </span>arg
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>**Purpose:** Show usage before explaining
+**Location:** After description, before detailed content
+**Contents:**
+- Command syntax with placeholders
+- 2-3 most common usage patterns
+- No explanations (that&#39;s for later)
+
+#### 3. Standard Footer
+
+```markdown
+---
+
+**Last Updated:** YYYY-MM-DD
+**Command Version:** vX.Y.Z (component vA.B.C)
+**Status:** ✅ Production ready with [key features]
+</code></pre></div></p>
+<p><strong>Purpose:</strong> Version tracking and status indication
+<strong>Location:</strong> End of document
+<strong>Format:</strong>
+- <strong>Last Updated:</strong> Date of last content change
+- <strong>Command Version:</strong> Plugin version (component version if different)
+- <strong>Status:</strong> Production status with 1-3 key feature highlights</p>
+<p><strong>Status Format:</strong>
+<div class="highlight"><pre><span></span><code>✅ Production ready with [feature1, feature2, feature3]
+🚧 Beta - [known limitations]
+📝 Draft - [completion status]
+</code></pre></div></p>
+<h4 id="4-see-also-section">4. See Also Section</h4>
+<div class="highlight"><pre><span></span><code><span class="gu">## See Also</span>
+
+<span class="k">-</span><span class="w"> </span><span class="gs">**Command:**</span> [<span class="nt">Related Command</span>](<span class="na">../commands/related.md</span>) - Why it&#39;s related
+<span class="k">-</span><span class="w"> </span><span class="gs">**Tutorial:**</span> [<span class="nt">Tutorial Name</span>](<span class="na">../tutorials/01-name.md</span>) - What it teaches
+<span class="k">-</span><span class="w"> </span><span class="gs">**Reference:**</span> [<span class="nt">Reference Name</span>](<span class="na">../reference/NAME.md</span>) - What it documents
+</code></pre></div>
+<p><strong>Purpose:</strong> Improve discoverability and cross-referencing
+<strong>Location:</strong> Before footer
+<strong>Format:</strong> Category prefix, link, brief context</p>
+<hr />
+<h2 id="standardization-process">Standardization Process</h2>
+<h3 id="phase-3-proven-workflow">Phase 3 Proven Workflow</h3>
+<p>This workflow standardized 32 files (100% of commands) in 4.5 hours across 3 sessions.</p>
+<h3 id="step-1-inventory-planning-30-min">Step 1: Inventory &amp; Planning (30 min)</h3>
+<p><strong>Create audit document:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create planning document</span>
+touch<span class="w"> </span>docs/planning/CONTENT-AUDIT.md
+</code></pre></div>
+<p><strong>Document structure:</strong>
+<div class="highlight"><pre><span></span><code><span class="gh"># Content Audit</span>
+
+<span class="gu">## Inventory</span>
+<span class="k">-</span><span class="w"> </span>Total files: X
+<span class="k">-</span><span class="w"> </span>By category: commands (X), guides (X), reference (X)
+
+<span class="gu">## Current Status</span>
+| File | Template Marker | Synopsis | Footer | Status | Priority |
+|------|----------------|----------|--------|--------|----------|
+| cmd.md | ❌ | ❌ | ❌ | ❌ | High |
+
+<span class="gu">## Prioritization</span>
+<span class="k">1.</span> High-traffic pages first
+<span class="k">2.</span> Commands second
+<span class="k">3.</span> Guides/tutorials last
+
+<span class="gu">## Batch Plan</span>
+<span class="k">-</span><span class="w"> </span>Batch 1: 4-5 high-priority files
+<span class="k">-</span><span class="w"> </span>Batch 2: 4-9 similar files
+<span class="k">-</span><span class="w"> </span>Batch 3: Remaining files
+</code></pre></div></p>
+<p><strong>Identify priorities:</strong>
+1. Most-viewed pages (index, quick-start, top commands)
+2. Complete categories (all commands, all dispatchers)
+3. Lower-traffic content</p>
+<h3 id="step-2-batch-planning-15-min">Step 2: Batch Planning (15 min)</h3>
+<p><strong>Optimal batch sizes:</strong>
+- Small batch (4-5 files): High-priority or complex files
+- Medium batch (6-9 files): Similar files with same pattern
+- Large batch (10+ files): Simple updates (e.g., footer-only)</p>
+<p><strong>Batch composition:</strong>
+<div class="highlight"><pre><span></span><code>✅ Good batching
+<span class="k">-</span><span class="w"> </span>Batch 1: Core workflow commands (work, finish, hop, dash, status) - 5 files
+<span class="k">-</span><span class="w"> </span>Batch 2: Setup commands (install, upgrade, config, doctor) - 4 files
+<span class="k">-</span><span class="w"> </span>Batch 3: Utility commands (remaining 11) - can split into 2 batches
+
+✖️ Bad batching
+<span class="k">-</span><span class="w"> </span>Batch 1: Random mix of 20 different file types
+<span class="k">-</span><span class="w"> </span>Batch 2: Just 2 files (inefficient)
+<span class="k">-</span><span class="w"> </span>Batch 3: 30 files at once (error-prone)
+</code></pre></div></p>
+<h3 id="step-3-template-application-per-file">Step 3: Template Application (Per File)</h3>
+<p><strong>For each file in batch:</strong></p>
+<ol>
+<li><strong>Read current file</strong> - Understand existing structure</li>
+<li><strong>Identify template</strong> - Select appropriate template</li>
+<li><strong>Add template marker</strong> - Top of file after title</li>
+<li><strong>Add/enhance synopsis</strong> - Commands only, show usage first</li>
+<li><strong>Update footer</strong> - Standard format with status</li>
+<li><strong>Enhance cross-references</strong> - Update "See Also" section</li>
+<li><strong>Check formatting</strong> - Consistent with template</li>
+</ol>
+<p><strong>Time estimates:</strong>
+- Simple (footer only): 2-3 minutes
+- Medium (synopsis + footer): 5-10 minutes
+- Complex (full restructure): 15-20 minutes</p>
+<h3 id="step-4-testing-per-batch">Step 4: Testing (Per Batch)</h3>
+<p><strong>After each batch, before committing:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Build documentation</span>
+mkdocs<span class="w"> </span>build
+
+<span class="c1"># Check for errors</span>
+<span class="c1"># - Build should succeed</span>
+<span class="c1"># - Only expected warnings</span>
+<span class="c1"># - No broken internal links</span>
+
+<span class="c1"># Manual spot-check</span>
+<span class="c1"># - Open 2-3 random files from batch</span>
+<span class="c1"># - Verify footer format</span>
+<span class="c1"># - Check template marker</span>
+<span class="c1"># - Test internal links</span>
+</code></pre></div>
+<p><strong>Expected warnings:</strong>
+<div class="highlight"><pre><span></span><code>✅ Acceptable warnings
+- External links to other repos
+- Planning docs not in nav
+- Archive docs not in nav
+
+❌ Fix immediately
+- Broken internal links
+- Missing files
+- Build failures
+- Malformed markdown
+</code></pre></div></p>
+<h3 id="step-5-commit-track-per-batch">Step 5: Commit &amp; Track (Per Batch)</h3>
+<p><strong>Commit message format:</strong></p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;docs: standardize [category] batch X/Y - [N files]</span>
+
+<span class="s2">Brief description of changes</span>
+
+<span class="s2">Files updated (N):</span>
+<span class="s2">- file1.md - what was changed</span>
+<span class="s2">- file2.md - what was changed</span>
+
+<span class="s2">Impact:</span>
+<span class="s2">- Template compliance: X% → Y% (+Zpp)</span>
+<span class="s2">- [Category] now N% complete</span>
+
+<span class="s2">mkdocs build: ✅ [time]s ([warnings] expected)</span>
+
+<span class="s2">🤖 Generated with [Claude Code](https://claude.com/claude-code)</span>
+
+<span class="s2">Co-Authored-By: Claude Sonnet 4.5 &lt;noreply@anthropic.com&gt;&quot;</span>
+</code></pre></div>
+<p><strong>Track progress:</strong>
+<div class="highlight"><pre><span></span><code><span class="gu">## Progress Tracking</span>
+
+| Batch | Files | Status | Commit | Compliance |
+|-------|-------|--------|--------|------------|
+| 1 | 5 | ✅ | abc1234 | 25% → 35% |
+| 2 | 4 | ✅ | def5678 | 35% → 45% |
+| 3 | 9 | 🚧 | - | - |
+</code></pre></div></p>
+<h3 id="step-6-deploy-after-all-batches">Step 6: Deploy (After All Batches)</h3>
+<p><strong>Final deployment:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Build one more time</span>
+mkdocs<span class="w"> </span>build
+
+<span class="c1"># Deploy to GitHub Pages</span>
+mkdocs<span class="w"> </span>gh-deploy<span class="w"> </span>--force
+
+<span class="c1"># Verify deployment</span>
+<span class="c1"># Check: https://Data-Wise.github.io/flow-cli/</span>
+</code></pre></div>
+<hr />
+<h2 id="quality-standards">Quality Standards</h2>
+<h3 id="checklist-for-standardized-documentation">Checklist for Standardized Documentation</h3>
+<h4 id="template-marker">Template Marker</h4>
+<ul>
+<li>[ ] Present at top of document after title</li>
+<li>[ ] Uses blockquote format (<code>&gt;</code>)</li>
+<li>[ ] One sentence, under 15 words</li>
+<li>[ ] Clear, specific, action-oriented</li>
+<li>[ ] Describes what reader will learn/do</li>
+</ul>
+<h4 id="synopsis-section-commands">Synopsis Section (Commands)</h4>
+<ul>
+<li>[ ] Present after description</li>
+<li>[ ] Shows command syntax with placeholders</li>
+<li>[ ] Includes 2-3 quick examples</li>
+<li>[ ] Examples are practical and common</li>
+<li>[ ] No explanations in synopsis (save for later)</li>
+</ul>
+<h4 id="standard-footer">Standard Footer</h4>
+<ul>
+<li>[ ] Present at end of document</li>
+<li>[ ] Horizontal rule separator (<code>---</code>)</li>
+<li>[ ] Last Updated date (YYYY-MM-DD)</li>
+<li>[ ] Command Version with component version</li>
+<li>[ ] Status line with key features (1-3 features max)</li>
+<li>[ ] Emoji status indicator (✅/🚧/📝)</li>
+</ul>
+<h4 id="content-quality">Content Quality</h4>
+<ul>
+<li>[ ] Headers create logical hierarchy</li>
+<li>[ ] Examples before explanations</li>
+<li>[ ] Tables for comparisons</li>
+<li>[ ] Code blocks for all commands</li>
+<li>[ ] Consistent terminology</li>
+<li>[ ] Active voice preferred</li>
+<li>[ ] No broken internal links</li>
+</ul>
+<h4 id="cross-references">Cross-References</h4>
+<ul>
+<li>[ ] "See Also" section present</li>
+<li>[ ] Links include context (not just link text)</li>
+<li>[ ] Category prefixes (Command:, Tutorial:, etc.)</li>
+<li>[ ] Links to related content</li>
+<li>[ ] All links work (tested in mkdocs)</li>
+</ul>
+<hr />
+<h2 id="implementation-workflow">Implementation Workflow</h2>
+<h3 id="for-ai-assistants-future-work">For AI Assistants / Future Work</h3>
+<p>When tasked with documentation standardization:</p>
+<h4 id="step-1-context-gathering">Step 1: Context Gathering</h4>
+<div class="highlight"><pre><span></span><code><span class="gs">**Read these files first:**</span>
+<span class="k">1.</span> docs/conventions/DOCUMENTATION-MAKING-GUIDE.md (this file)
+<span class="k">2.</span> docs/planning/PHASE-3-CONTENT-AUDIT.md (example audit)
+<span class="k">3.</span> Relevant template from docs/conventions/adhd/
+
+<span class="gs">**Understand:**</span>
+<span class="k">-</span><span class="w"> </span>What category of files (commands, guides, tutorials)
+<span class="k">-</span><span class="w"> </span>Current state (what&#39;s missing)
+<span class="k">-</span><span class="w"> </span>Target state (which template to apply)
+</code></pre></div>
+<h4 id="step-2-create-audit">Step 2: Create Audit</h4>
+<div class="highlight"><pre><span></span><code><span class="gs">**Create:**</span> docs/planning/[TASK-NAME]-AUDIT.md
+
+<span class="gs">**Include:**</span>
+<span class="k">-</span><span class="w"> </span>File inventory by category
+<span class="k">-</span><span class="w"> </span>Current template compliance (%)
+<span class="k">-</span><span class="w"> </span>Priority ranking
+<span class="k">-</span><span class="w"> </span>Batch groupings
+<span class="k">-</span><span class="w"> </span>Time estimates
+</code></pre></div>
+<h4 id="step-3-execute-batches">Step 3: Execute Batches</h4>
+<div class="highlight"><pre><span></span><code><span class="gs">**For each batch:**</span>
+<span class="k">1.</span> Read all files in batch
+<span class="k">2.</span> Apply template elements
+<span class="k">3.</span> Test with mkdocs build
+<span class="k">4.</span> Commit with detailed message
+<span class="k">5.</span> Update audit document
+<span class="k">6.</span> Proceed to next batch
+
+<span class="gs">**Don&#39;t:**</span>
+<span class="k">-</span><span class="w"> </span>Process too many files at once
+<span class="k">-</span><span class="w"> </span>Commit without testing
+<span class="k">-</span><span class="w"> </span>Skip audit updates
+</code></pre></div>
+<h4 id="step-4-validation">Step 4: Validation</h4>
+<div class="highlight"><pre><span></span><code><span class="gs">**After all batches:**</span>
+<span class="k">1.</span> Run full mkdocs build
+<span class="k">2.</span> Check all updated files manually (spot-check)
+<span class="k">3.</span> Verify compliance improved
+<span class="k">4.</span> Deploy to GitHub Pages
+<span class="k">5.</span> Update project .STATUS file
+</code></pre></div>
+<h4 id="step-5-documentation">Step 5: Documentation</h4>
+<div class="highlight"><pre><span></span><code><span class="gs">**Update:**</span>
+<span class="k">1.</span> Audit document with completion summary
+<span class="k">2.</span> .STATUS file with results
+<span class="k">3.</span> CHANGELOG if preparing release
+<span class="k">4.</span> Any relevant roadmap documents
+</code></pre></div>
+<hr />
+<h2 id="tools-commands">Tools &amp; Commands</h2>
+<h3 id="documentation-tools">Documentation Tools</h3>
+<p><strong>MkDocs:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Build locally</span>
+mkdocs<span class="w"> </span>build
+
+<span class="c1"># Serve for testing (http://127.0.0.1:8000)</span>
+mkdocs<span class="w"> </span>serve
+
+<span class="c1"># Deploy to GitHub Pages</span>
+mkdocs<span class="w"> </span>gh-deploy<span class="w"> </span>--force
+</code></pre></div></p>
+<p><strong>File Management:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Count files by category</span>
+ls<span class="w"> </span>docs/commands/*.md<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+ls<span class="w"> </span>docs/guides/*.md<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+ls<span class="w"> </span>docs/reference/*.md<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+
+<span class="c1"># Find files without template markers</span>
+<span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>docs/commands/*.md<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>grep<span class="w"> </span>-q<span class="w"> </span><span class="s2">&quot;^&gt;&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+
+<span class="c1"># Find files without footers</span>
+<span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>docs/commands/*.md<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>grep<span class="w"> </span>-q<span class="w"> </span><span class="s2">&quot;**Last Updated:**&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+</code></pre></div></p>
+<p><strong>Link Checking:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check for broken links (CI does this)</span>
+<span class="c1"># See: .github/workflows/ci.yml</span>
+
+<span class="c1"># Manual check</span>
+mkdocs<span class="w"> </span>build<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>warning
+</code></pre></div></p>
+<h3 id="quality-scripts">Quality Scripts</h3>
+<p><strong>Template Compliance Check:</strong>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1"># check-compliance.sh</span>
+
+<span class="nv">total</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">compliant</span><span class="o">=</span><span class="m">0</span>
+
+<span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>docs/commands/*.md<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="nv">total</span><span class="o">=</span><span class="k">$((</span><span class="nv">total</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="k">))</span>
+
+<span class="w">  </span><span class="nv">has_marker</span><span class="o">=</span><span class="k">$(</span>grep<span class="w"> </span>-q<span class="w"> </span><span class="s2">&quot;^&gt;&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="k">)</span>
+<span class="w">  </span><span class="nv">has_footer</span><span class="o">=</span><span class="k">$(</span>grep<span class="w"> </span>-q<span class="w"> </span><span class="s2">&quot;**Status:**&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="k">)</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$has_marker</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$has_footer</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nv">compliant</span><span class="o">=</span><span class="k">$((</span><span class="nv">compliant</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="k">))</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ </span><span class="nv">$file</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ </span><span class="nv">$file</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="k">fi</span>
+<span class="k">done</span>
+
+<span class="nv">percentage</span><span class="o">=</span><span class="k">$((</span><span class="nv">compliant</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nv">total</span><span class="k">))</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Compliance: </span><span class="nv">$compliant</span><span class="s2">/</span><span class="nv">$total</span><span class="s2"> (</span><span class="nv">$percentage</span><span class="s2">%)&quot;</span>
+</code></pre></div></p>
+<hr />
+<h2 id="examples">Examples</h2>
+<h3 id="before-after-command-documentation">Before &amp; After: Command Documentation</h3>
+<h4 id="before-non-compliant">Before (Non-Compliant)</h4>
+<div class="highlight"><pre><span></span><code><span class="gh"># work</span>
+
+Start working on a project.
+
+<span class="gu">## Arguments</span>
+
+<span class="k">-</span><span class="w"> </span><span class="sb">`project`</span> - Project name
+
+<span class="gu">## Usage</span>
+
+```bash
+work my-project
+</code></pre></div>
+<p>Last updated: 2025-12-15
+<div class="highlight"><pre><span></span><code>**Problems:**
+- No template marker
+- No synopsis section
+- Examples buried in usage section
+- Footer not in standard format
+- No &quot;See Also&quot; section
+- No status information
+
+#### After (Compliant)
+```markdown
+# work
+
+&gt; **Start a focused work session on a project with full context setup**
+
+---
+
+## Synopsis
+
+```bash
+work [PROJECT] [EDITOR]
+</code></pre></div></p>
+<p><strong>Quick examples:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Interactive project selection</span>
+work
+
+<span class="c1"># Start working on specific project</span>
+work<span class="w"> </span>my-project
+
+<span class="c1"># With specific editor</span>
+work<span class="w"> </span>my-project<span class="w"> </span>cursor
+</code></pre></div></p>
+<hr />
+<h2 id="description">Description</h2>
+<p>The <code>work</code> command is the <strong>primary entry point</strong> for flow-cli. It sets up your entire development context...</p>
+<h2 id="arguments">Arguments</h2>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>project</code></td>
+<td>Project name or path</td>
+<td>Interactive picker</td>
+</tr>
+<tr>
+<td><code>editor</code></td>
+<td>Editor to open</td>
+<td><code>$EDITOR</code> or <code>code</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-it-does">What It Does</h2>
+<ol>
+<li>Checks for existing sessions</li>
+<li>Locates project directory</li>
+<li>Changes to project directory</li>
+<li>Records session start</li>
+<li>Displays project context</li>
+<li>Opens editor</li>
+</ol>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><strong>Tutorial:</strong> <a href="../tutorials/01-first-session.md">First Session Tutorial</a></li>
+<li><strong>Command:</strong> <a href="finish.md">finish</a> - End work session</li>
+<li><strong>Command:</strong> <a href="hop.md">hop</a> - Quick project switch</li>
+</ul>
+<hr />
+<p><strong>Last Updated:</strong> 2026-01-07
+<strong>Command Version:</strong> v4.8.0
+<strong>Status:</strong> ✅ Production ready with session tracking and editor integration
+<div class="highlight"><pre><span></span><code>**Improvements:**
+- ✅ Template marker at top
+- ✅ Synopsis with quick examples first
+- ✅ Standard footer with status
+- ✅ Enhanced cross-references
+- ✅ Table for arguments
+- ✅ Clear section hierarchy
+
+### Before &amp; After: Reference Card
+
+#### Before
+```markdown
+# CC Dispatcher Reference
+
+Commands for Claude Code integration.
+
+## Commands
+
+- `cc` - Launch Claude Code
+- `cc pick` - Pick project
+- `cc yolo` - YOLO mode
+</code></pre></div></p>
+<p><strong>Problems:</strong>
+- No template marker
+- Incomplete command listings
+- No examples
+- No footer
+- Missing usage patterns</p>
+<h4 id="after">After</h4>
+<div class="highlight"><pre><span></span><code><span class="gh"># CC Dispatcher Reference</span>
+
+<span class="k">&gt; </span><span class="ge">**Claude Code dispatcher with unified grammar and smart project targeting**</span>
+
+<span class="gs">**Quick Reference:**</span>
+
+| Pattern | Description | Example |
+|---------|-------------|---------|
+| <span class="sb">`cc`</span> | Launch HERE (current dir) | <span class="sb">`cc`</span> |
+| <span class="sb">`cc &lt;project&gt;`</span> | Jump to project → launch | <span class="sb">`cc flow`</span> |
+| <span class="sb">`cc pick`</span> | Interactive picker → launch | <span class="sb">`cc pick`</span> |
+| <span class="sb">`cc &lt;mode&gt;`</span> | Launch HERE in mode | <span class="sb">`cc yolo`</span> |
+| <span class="sb">`cc &lt;mode&gt; pick`</span> | Pick → launch in mode | <span class="sb">`cc opus pick`</span> |
+| <span class="sb">`cc &lt;project&gt; &lt;mode&gt;`</span> | Jump → launch in mode | <span class="sb">`cc flow yolo`</span> |
+
+<span class="gu">## Core Patterns</span>
+
+<span class="gu">### Default (HERE)</span>
+Launch Claude Code in current directory:
+```bash
+cc              # Current directory, acceptEdits mode
+cc .            # Explicit HERE target
+cc here         # Explicit HERE target
+</code></pre></div>
+<h3 id="modes">Modes</h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Shortcut</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>yolo</code></td>
+<td><code>y</code></td>
+<td>Skip all permission prompts</td>
+</tr>
+<tr>
+<td><code>plan</code></td>
+<td><code>p</code></td>
+<td>Start in planning mode</td>
+</tr>
+<tr>
+<td><code>opus</code></td>
+<td><code>o</code></td>
+<td>Use Opus 4.5 model</td>
+</tr>
+<tr>
+<td><code>haiku</code></td>
+<td><code>h</code></td>
+<td>Use Haiku 3.5 model</td>
+</tr>
+</tbody>
+</table>
+<p>[... complete reference ...]</p>
+<h2 id="see-also_1">See Also</h2>
+<ul>
+<li><strong>Command:</strong> <a href="../commands/pick.md">pick</a> - Project picker</li>
+<li><strong>Tutorial:</strong> <a href="../tutorials/10-cc-dispatcher.md">CC Dispatcher Tutorial</a></li>
+<li><strong>Reference:</strong> <a href="DISPATCHER-REFERENCE.md">DISPATCHER-REFERENCE.md</a> - All dispatchers</li>
+</ul>
+<hr />
+<p><strong>Last Updated:</strong> 2026-01-07
+<strong>Reference Version:</strong> v4.8.0
+<strong>Status:</strong> ✅ Complete with unified grammar and all pattern combinations
+<div class="highlight"><pre><span></span><code>---
+
+## Troubleshooting
+
+### Common Issues
+
+#### Issue: MkDocs Build Fails
+
+**Symptoms:**
+</code></pre></div>
+ERROR - Error building page 'file.md': ...
+<div class="highlight"><pre><span></span><code>**Diagnosis:**
+```bash
+# Check syntax
+mkdocs build 2&gt;&amp;1 | grep ERROR
+
+# Common causes:
+# - Malformed markdown
+# - Missing closing tags
+# - Invalid YAML frontmatter
+# - Broken relative links
+</code></pre></div></p>
+<p><strong>Fix:</strong>
+- Check file for markdown syntax errors
+- Validate links with mkdocs serve
+- Check for missing closing code blocks
+- Ensure tables are properly formatted</p>
+<h4 id="issue-too-many-warnings">Issue: Too Many Warnings</h4>
+<p><strong>Symptoms:</strong>
+<div class="highlight"><pre><span></span><code>INFO - Doc file contains unrecognized link...
+</code></pre></div></p>
+<p><strong>Diagnosis:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Count warnings</span>
+mkdocs<span class="w"> </span>build<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;WARNING\|INFO.*link&quot;</span>
+
+<span class="c1"># Expected warnings (acceptable):</span>
+<span class="c1"># - External links to other repos</span>
+<span class="c1"># - Planning docs not in navigation</span>
+<span class="c1"># - Archive docs not in navigation</span>
+
+<span class="c1"># Unexpected warnings (fix these):</span>
+<span class="c1"># - Broken internal links</span>
+<span class="c1"># - Missing referenced files</span>
+</code></pre></div></p>
+<p><strong>Fix:</strong>
+- Update broken internal links
+- Move planning docs to planning/ (excluded from nav)
+- Archive old docs to .archive/</p>
+<h4 id="issue-template-compliance-not-improving">Issue: Template Compliance Not Improving</h4>
+<p><strong>Symptoms:</strong>
+- Files updated but compliance % unchanged</p>
+<p><strong>Diagnosis:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check if files have all required elements</span>
+<span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>docs/commands/*.md<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;=== </span><span class="nv">$file</span><span class="s2"> ===&quot;</span>
+<span class="w">  </span>grep<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;^&gt;&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="w">  </span><span class="c1"># Template marker</span>
+<span class="w">  </span>grep<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;**Last Updated:**&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="w">  </span><span class="c1"># Footer</span>
+<span class="w">  </span>grep<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;**Status:**&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="w">  </span><span class="c1"># Status line</span>
+<span class="k">done</span>
+</code></pre></div></p>
+<p><strong>Fix:</strong>
+- Ensure ALL required elements present:
+  1. Template marker (blockquote)
+  2. Last Updated line
+  3. Command Version line
+  4. Status line
+- Recalculate compliance after fixes</p>
+<h4 id="issue-batch-takes-too-long">Issue: Batch Takes Too Long</h4>
+<p><strong>Symptoms:</strong>
+- Single batch taking &gt;2 hours
+- Complex files requiring research</p>
+<p><strong>Solution:</strong>
+<div class="highlight"><pre><span></span><code><span class="gs">**Split the batch:**</span>
+<span class="k">-</span><span class="w"> </span>If 10 files taking too long → split into 2 batches of 5
+<span class="k">-</span><span class="w"> </span>Group similar files together
+<span class="k">-</span><span class="w"> </span>Do complex files separately
+
+<span class="gs">**Reduce scope:**</span>
+<span class="k">-</span><span class="w"> </span>Phase 1: Just add footers
+<span class="k">-</span><span class="w"> </span>Phase 2: Add template markers
+<span class="k">-</span><span class="w"> </span>Phase 3: Add synopsis sections
+</code></pre></div></p>
+<hr />
+<h2 id="process-improvements-from-phase-3">Process Improvements from Phase 3</h2>
+<h3 id="what-worked-well">What Worked Well</h3>
+<ol>
+<li><strong>Batching approach</strong> - Groups of 4-9 files manageable</li>
+<li><strong>Test after each batch</strong> - Caught issues early</li>
+<li><strong>Progressive enhancement</strong> - Started with highest-impact files</li>
+<li><strong>Commit frequently</strong> - Clear history, easy rollback</li>
+<li><strong>Template compliance tracking</strong> - Showed progress clearly</li>
+</ol>
+<h3 id="what-to-do-differently">What to Do Differently</h3>
+<ol>
+<li><strong>Batch size sweet spot:</strong> 4-9 files per batch</li>
+<li><strong>Always test mkdocs build</strong> between batches</li>
+<li><strong>Update footers last</strong> - Quick wins for motivation</li>
+<li><strong>Keep templates accessible</strong> - In docs/conventions/ for reference</li>
+<li><strong>Track percentage</strong> - Motivating to see progress</li>
+</ol>
+<h3 id="technical-notes">Technical Notes</h3>
+<ul>
+<li>mkdocs-exclude plugin needed for planning/ directory</li>
+<li>1 expected warning (external link) is acceptable</li>
+<li>Footer format: Date, Version, Status with feature highlight</li>
+<li>Synopsis format: Command syntax + quick examples section</li>
+<li>Template markers use blockquote (<code>&gt;</code>) format</li>
+</ul>
+<hr />
+<h2 id="prompt-template-for-ai-assistants">Prompt Template for AI Assistants</h2>
+<p>When requesting documentation standardization work, use this prompt:</p>
+<div class="highlight"><pre><span></span><code><span class="gu">## Task: Standardize [Category] Documentation</span>
+
+<span class="gs">**Context:**</span>
+<span class="k">-</span><span class="w"> </span>Category: [commands/guides/tutorials/reference]
+<span class="k">-</span><span class="w"> </span>Files: [list specific files or &quot;all files in category&quot;]
+<span class="k">-</span><span class="w"> </span>Current compliance: [X%]
+<span class="k">-</span><span class="w"> </span>Target compliance: [Y%]
+
+<span class="gs">**Required Reading:**</span>
+<span class="k">1.</span> docs/conventions/DOCUMENTATION-MAKING-GUIDE.md
+<span class="k">2.</span> docs/conventions/adhd/[RELEVANT-TEMPLATE].md
+<span class="k">3.</span> docs/planning/PHASE-3-CONTENT-AUDIT.md (reference example)
+
+<span class="gs">**Deliverables:**</span>
+<span class="k">1.</span> Create audit document: docs/planning/[TASK-NAME]-AUDIT.md
+<span class="k">2.</span> Standardize files in batches (4-9 files per batch)
+<span class="k">3.</span> Test mkdocs build after each batch
+<span class="k">4.</span> Commit each batch with detailed message
+<span class="k">5.</span> Deploy to GitHub Pages when complete
+<span class="k">6.</span> Update .STATUS file with results
+
+<span class="gs">**Success Criteria:**</span>
+<span class="k">- [ ]</span> All files have template markers
+<span class="k">- [ ]</span> All files have standard footers
+<span class="k">- [ ]</span> Commands have synopsis sections
+<span class="k">- [ ]</span> mkdocs build succeeds
+<span class="k">- [ ]</span> Template compliance improved by [X]pp
+<span class="k">- [ ]</span> Documentation deployed successfully
+
+<span class="gs">**Workflow:**</span>
+<span class="k">1.</span> Read context files
+<span class="k">2.</span> Create audit document
+<span class="k">3.</span> Identify batch groupings
+<span class="k">4.</span> Execute batch 1 → test → commit
+<span class="k">5.</span> Execute batch 2 → test → commit
+<span class="k">6.</span> [Repeat for all batches]
+<span class="k">7.</span> Deploy to GitHub Pages
+<span class="k">8.</span> Update project .STATUS
+<span class="k">9.</span> Update audit with completion summary
+
+<span class="gs">**Quality Standards:**</span>
+<span class="k">-</span><span class="w"> </span>Follow ADHD-friendly design principles
+<span class="k">-</span><span class="w"> </span>Use progressive disclosure (show usage before explanation)
+<span class="k">-</span><span class="w"> </span>Maintain consistent structure within categories
+<span class="k">-</span><span class="w"> </span>Include practical examples first
+<span class="k">-</span><span class="w"> </span>Test builds between batches
+</code></pre></div>
+<hr />
+<h2 id="version-history">Version History</h2>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0.0</td>
+<td>2026-01-07</td>
+<td>Initial guide based on Phase 3 implementation</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Last Updated:</strong> 2026-01-07
+<strong>Guide Version:</strong> 1.0.0
+<strong>Status:</strong> ✅ Complete - Based on successful Phase 3 (100% command standardization)</p>
+<p><strong>See Also:</strong>
+- <a href="../planning/PHASE-3-CONTENT-AUDIT.md">Phase 3 Content Audit</a> - Implementation example
+- <a href="adhd/">Template Directory</a> - All available templates
+- <a href="README.md">Project Conventions</a> - All project standards</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

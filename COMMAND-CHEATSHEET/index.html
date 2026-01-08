@@ -1,0 +1,3992 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../MODE-QUICK-REFERENCE/">
+      
+      
+        <link rel="next" href="../FORMAT-EXAMPLES/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Command Cheatsheet - Claude Code Plugins</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#command-cheatsheet-with-mode-system" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Claude Code Plugins" class="md-header__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Code Plugins
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Command Cheatsheet
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../rforge/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  RForge
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../craft/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Craft
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../workflow/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Workflow
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../statistical-research/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Statistical Research
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../installation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CLAUDE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Developer Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../MODE-USAGE-GUIDE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Mode System
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CICD/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  CI/CD Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../COMMAND-REFERENCE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../PLUGIN-DEVELOPMENT/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Plugin Development
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../PUBLISHING/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publishing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../diagrams/DEPENDENCIES/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Claude Code Plugins" class="md-nav__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Claude Code Plugins
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RForge
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rforge/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rforge/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rforge/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rforge/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Craft
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Craft
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../craft/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../craft/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../craft/skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../craft/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../craft/orchestrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orchestrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../craft/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistical Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistical-research/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistical-research/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistical-research/skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistical-research/api-wrappers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Wrappers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistical-research/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLAUDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mode System
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mode System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MODE-USAGE-GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MODE-QUICK-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mode-system-quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mode System Quick Start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mode System Quick Start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mode-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mode Syntax
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#format-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Format Syntax
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combined-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combined Syntax
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mode-comparison-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mode Comparison Table
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rforge-commands-13-total" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RForge Commands (13 total)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RForge Commands (13 total)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analysis Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analysis Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rforgequick" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /rforge:quick ⚡
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rforgeanalyze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /rforge:analyze 🔍
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rforgestatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /rforge:status 📊
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rforgethorough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /rforge:thorough 🏗️
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecosystem-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ecosystem Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-management-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task Management Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mode-specific-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mode-Specific Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mode-Specific Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-mode-10s-daily-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default Mode (&lt; 10s) - Daily Use
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-mode-2m-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debug Mode (&lt; 2m) - Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimize-mode-3m-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optimize Mode (&lt; 3m) - Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-mode-5m-cran-submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Mode (&lt; 5m) - CRAN Submission
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Format Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Format Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminal-format-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal Format (Default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-format-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Format (Automation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markdown-format-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Markdown Format (Reports)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pattern-1-quick-iteration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern 1: Quick Iteration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-2-deep-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern 2: Deep Debugging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-3-performance-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern 3: Performance Work
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-4-release-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern 4: Release Preparation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statistical-research-commands-13-total" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Statistical Research Commands (13 total)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Statistical Research Commands (13 total)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#literature-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Literature Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manuscript-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manuscript Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#research-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Research Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulation-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simulation Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-commands-1-total" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow Commands (1 total)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-budget-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time Budget Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mode-decision-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mode Decision Tree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-shortcuts-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Shortcuts (Aliases)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ DO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dont" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ DON'T
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FORMAT-EXAMPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Format Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MCP-INTEGRATION-TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Integration Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../REAL-WORLD-TESTING-RESULTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Real-World Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MODE-SYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CICD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../COMMAND-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLUGIN-DEVELOPMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugin Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PUBLISHING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publishing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/DEPENDENCIES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependencies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/ECOSYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/rforge-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/rforge-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/statistical-research-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/statistical-research-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/workflow-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/workflow-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mode-system-quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mode System Quick Start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mode System Quick Start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mode-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mode Syntax
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#format-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Format Syntax
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combined-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combined Syntax
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mode-comparison-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mode Comparison Table
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rforge-commands-13-total" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RForge Commands (13 total)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RForge Commands (13 total)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analysis Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analysis Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rforgequick" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /rforge:quick ⚡
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rforgeanalyze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /rforge:analyze 🔍
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rforgestatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /rforge:status 📊
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rforgethorough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /rforge:thorough 🏗️
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecosystem-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ecosystem Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-management-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task Management Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mode-specific-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mode-Specific Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mode-Specific Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-mode-10s-daily-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default Mode (&lt; 10s) - Daily Use
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-mode-2m-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debug Mode (&lt; 2m) - Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimize-mode-3m-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optimize Mode (&lt; 3m) - Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-mode-5m-cran-submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Mode (&lt; 5m) - CRAN Submission
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Format Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Format Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminal-format-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal Format (Default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-format-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Format (Automation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markdown-format-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Markdown Format (Reports)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pattern-1-quick-iteration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern 1: Quick Iteration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-2-deep-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern 2: Deep Debugging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-3-performance-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern 3: Performance Work
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-4-release-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern 4: Release Preparation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statistical-research-commands-13-total" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Statistical Research Commands (13 total)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Statistical Research Commands (13 total)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#literature-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Literature Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manuscript-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manuscript Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#research-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Research Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulation-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simulation Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-commands-1-total" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow Commands (1 total)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-budget-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time Budget Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mode-decision-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mode Decision Tree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-shortcuts-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Shortcuts (Aliases)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ DO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dont" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ DON'T
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="command-cheatsheet-with-mode-system">Command Cheatsheet with Mode System</h1>
+<p><strong>Quick reference for all RForge commands with mode and format options</strong></p>
+<hr />
+<h2 id="mode-system-quick-start">Mode System Quick Start</h2>
+<h3 id="mode-syntax">Mode Syntax</h3>
+<div class="highlight"><pre><span></span><code>/command<span class="w">                          </span><span class="c1"># Default mode (fast, &lt; 10s)</span>
+/command<span class="w"> </span>--mode<span class="w"> </span>debug<span class="w">             </span><span class="c1"># Debug mode (detailed, &lt; 2m)</span>
+/command<span class="w"> </span>--mode<span class="w"> </span>optimize<span class="w">          </span><span class="c1"># Optimize mode (performance, &lt; 3m)</span>
+/command<span class="w"> </span>--mode<span class="w"> </span>release<span class="w">           </span><span class="c1"># Release mode (comprehensive, &lt; 5m)</span>
+</code></pre></div>
+<h3 id="format-syntax">Format Syntax</h3>
+<div class="highlight"><pre><span></span><code>/command<span class="w">                          </span><span class="c1"># Terminal format (default)</span>
+/command<span class="w"> </span>--format<span class="w"> </span>json<span class="w">            </span><span class="c1"># JSON output (automation)</span>
+/command<span class="w"> </span>--format<span class="w"> </span>markdown<span class="w">        </span><span class="c1"># Markdown output (reports)</span>
+</code></pre></div>
+<h3 id="combined-syntax">Combined Syntax</h3>
+<div class="highlight"><pre><span></span><code>/command<span class="w"> </span>--mode<span class="w"> </span>debug<span class="w"> </span>--format<span class="w"> </span>json
+/command<span class="w"> </span>--mode<span class="w"> </span>release<span class="w"> </span>--format<span class="w"> </span>markdown
+</code></pre></div>
+<hr />
+<h2 id="mode-comparison-table">Mode Comparison Table</h2>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Time</th>
+<th>Purpose</th>
+<th>Commands Supporting Modes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>default</strong></td>
+<td>&lt; 10s</td>
+<td>Daily checks, quick status</td>
+<td>All commands</td>
+</tr>
+<tr>
+<td><strong>debug</strong></td>
+<td>&lt; 2m</td>
+<td>Troubleshooting, investigation</td>
+<td><code>/rforge:analyze</code>, <code>/rforge:status</code></td>
+</tr>
+<tr>
+<td><strong>optimize</strong></td>
+<td>&lt; 3m</td>
+<td>Performance analysis</td>
+<td><code>/rforge:analyze</code>, <code>/rforge:status</code></td>
+</tr>
+<tr>
+<td><strong>release</strong></td>
+<td>&lt; 5m</td>
+<td>CRAN validation, pre-release</td>
+<td><code>/rforge:analyze</code>, <code>/rforge:status</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> Most commands use default mode. Only <code>/rforge:analyze</code> and <code>/rforge:status</code> support all four modes.</p>
+<hr />
+<h2 id="rforge-commands-13-total">RForge Commands (13 total)</h2>
+<h3 id="analysis-commands">Analysis Commands</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Default Time</th>
+<th>Modes</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/rforge:quick</code></td>
+<td>&lt; 10s</td>
+<td>None</td>
+<td>Ultra-fast analysis (always fast, no modes)</td>
+</tr>
+<tr>
+<td><code>/rforge:analyze</code></td>
+<td>&lt; 10s</td>
+<td>All 4</td>
+<td>Balanced analysis with auto-delegation</td>
+</tr>
+<tr>
+<td><code>/rforge:status</code></td>
+<td>2-5s</td>
+<td>All 4</td>
+<td>Ecosystem status dashboard</td>
+</tr>
+<tr>
+<td><code>/rforge:thorough</code></td>
+<td>2-5m</td>
+<td>None</td>
+<td>Comprehensive analysis (deprecated - use <code>/rforge:analyze --mode release</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mode Support Details:</strong></p>
+<h4 id="rforgequick"><code>/rforge:quick</code> ⚡</h4>
+<p><div class="highlight"><pre><span></span><code>/rforge:quick<span class="w">                     </span><span class="c1"># Always &lt; 10s, no mode support</span>
+</code></pre></div>
+- <strong>Purpose:</strong> Instant status check
+- <strong>Time:</strong> &lt; 10 seconds (fixed)
+- <strong>Modes:</strong> None (ignores --mode flag)</p>
+<h4 id="rforgeanalyze"><code>/rforge:analyze</code> 🔍</h4>
+<p><div class="highlight"><pre><span></span><code>/rforge:analyze<span class="w">                   </span><span class="c1"># Default: &lt; 10s</span>
+/rforge:analyze<span class="w"> </span>--mode<span class="w"> </span>debug<span class="w">      </span><span class="c1"># Debug: &lt; 2m</span>
+/rforge:analyze<span class="w"> </span>--mode<span class="w"> </span>optimize<span class="w">   </span><span class="c1"># Optimize: &lt; 3m</span>
+/rforge:analyze<span class="w"> </span>--mode<span class="w"> </span>release<span class="w">    </span><span class="c1"># Release: &lt; 5m</span>
+</code></pre></div>
+- <strong>Purpose:</strong> Main analysis command
+- <strong>Modes:</strong> All 4 supported
+- <strong>Formats:</strong> terminal, json, markdown</p>
+<h4 id="rforgestatus"><code>/rforge:status</code> 📊</h4>
+<p><div class="highlight"><pre><span></span><code>/rforge:status<span class="w">                    </span><span class="c1"># Default: 2-5s</span>
+/rforge:status<span class="w"> </span>--mode<span class="w"> </span>debug<span class="w">       </span><span class="c1"># Debug: 15-30s</span>
+/rforge:status<span class="w"> </span>--mode<span class="w"> </span>optimize<span class="w">    </span><span class="c1"># Optimize: 30s-1m</span>
+/rforge:status<span class="w"> </span>--mode<span class="w"> </span>release<span class="w">     </span><span class="c1"># Release: 1-2m</span>
+</code></pre></div>
+- <strong>Purpose:</strong> Status dashboard
+- <strong>Modes:</strong> All 4 supported
+- <strong>Formats:</strong> terminal, json, markdown</p>
+<h4 id="rforgethorough"><code>/rforge:thorough</code> 🏗️</h4>
+<p><div class="highlight"><pre><span></span><code>/rforge:thorough<span class="w">                  </span><span class="c1"># Always 2-5m (deprecated)</span>
+</code></pre></div>
+- <strong>Purpose:</strong> Comprehensive analysis
+- <strong>Time:</strong> 2-5 minutes (fixed)
+- <strong>Modes:</strong> None (deprecated - use <code>/rforge:analyze --mode release</code> instead)</p>
+<hr />
+<h3 id="ecosystem-commands">Ecosystem Commands</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Time</th>
+<th>Modes</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/rforge:detect</code></td>
+<td>&lt; 5s</td>
+<td>Default only</td>
+<td>Auto-detect project structure</td>
+</tr>
+<tr>
+<td><code>/rforge:deps</code></td>
+<td>5-10s</td>
+<td>Default only</td>
+<td>Build dependency graph</td>
+</tr>
+<tr>
+<td><code>/rforge:impact</code></td>
+<td>10-30s</td>
+<td>Default only</td>
+<td>Analyze change impact</td>
+</tr>
+<tr>
+<td><code>/rforge:cascade</code></td>
+<td>15-45s</td>
+<td>Default only</td>
+<td>Plan coordinated updates</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code>/rforge:detect<span class="w">                    </span><span class="c1"># Auto-detect ecosystem</span>
+/rforge:deps<span class="w">                      </span><span class="c1"># Visualize dependencies</span>
+/rforge:impact<span class="w"> </span><span class="s2">&quot;API change&quot;</span><span class="w">       </span><span class="c1"># Analyze impact</span>
+/rforge:cascade<span class="w"> </span><span class="s2">&quot;v2.1.0&quot;</span><span class="w">          </span><span class="c1"># Plan cascade updates</span>
+</code></pre></div></p>
+<hr />
+<h3 id="task-management-commands">Task Management Commands</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Time</th>
+<th>Modes</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/rforge:capture</code></td>
+<td>&lt; 2s</td>
+<td>Default only</td>
+<td>Quick capture ideas</td>
+</tr>
+<tr>
+<td><code>/rforge:next</code></td>
+<td>2-5s</td>
+<td>Default only</td>
+<td>Get next task</td>
+</tr>
+<tr>
+<td><code>/rforge:complete</code></td>
+<td>2-10s</td>
+<td>Default only</td>
+<td>Mark task complete</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code>/rforge:capture<span class="w"> </span><span class="s2">&quot;Add sensitivity analysis&quot;</span>
+/rforge:next
+/rforge:complete<span class="w"> </span><span class="s2">&quot;Fix bootstrap bug&quot;</span>
+</code></pre></div></p>
+<hr />
+<h3 id="release-commands">Release Commands</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Time</th>
+<th>Modes</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/rforge:release</code></td>
+<td>30s-2m</td>
+<td>Default only</td>
+<td>Plan CRAN submission</td>
+</tr>
+<tr>
+<td><code>/rforge:doc-check</code></td>
+<td>10-20s</td>
+<td>Default only</td>
+<td>Check documentation</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code>/rforge:release<span class="w"> </span><span class="s2">&quot;v2.1.0&quot;</span>
+/rforge:doc-check
+</code></pre></div></p>
+<hr />
+<h2 id="mode-specific-examples">Mode-Specific Examples</h2>
+<h3 id="default-mode-10s-daily-use">Default Mode (&lt; 10s) - Daily Use</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Morning check-in</span>
+/rforge:status
+
+<span class="c1"># Before making changes</span>
+/rforge:analyze<span class="w"> </span><span class="s2">&quot;Planning refactor&quot;</span>
+
+<span class="c1"># After commit</span>
+/rforge:analyze
+
+<span class="c1"># Quick dependency check</span>
+/rforge:deps
+</code></pre></div>
+<h3 id="debug-mode-2m-troubleshooting">Debug Mode (&lt; 2m) - Troubleshooting</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Investigate test failures</span>
+/rforge:analyze<span class="w"> </span>--mode<span class="w"> </span>debug<span class="w"> </span><span class="s2">&quot;Test failures&quot;</span>
+
+<span class="c1"># Detailed status with traces</span>
+/rforge:status<span class="w"> </span>--mode<span class="w"> </span>debug
+
+<span class="c1"># Debug with JSON output for logging</span>
+/rforge:analyze<span class="w"> </span>--mode<span class="w"> </span>debug<span class="w"> </span>--format<span class="w"> </span>json<span class="w"> </span>&gt;<span class="w"> </span>debug.json
+</code></pre></div>
+<h3 id="optimize-mode-3m-performance">Optimize Mode (&lt; 3m) - Performance</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Analyze package performance</span>
+/rforge:analyze<span class="w"> </span>--mode<span class="w"> </span>optimize
+
+<span class="c1"># Get performance metrics</span>
+/rforge:status<span class="w"> </span>--mode<span class="w"> </span>optimize
+
+<span class="c1"># Export performance report</span>
+/rforge:analyze<span class="w"> </span>--mode<span class="w"> </span>optimize<span class="w"> </span>--format<span class="w"> </span>markdown<span class="w"> </span>&gt;<span class="w"> </span>perf-report.md
+</code></pre></div>
+<h3 id="release-mode-5m-cran-submission">Release Mode (&lt; 5m) - CRAN Submission</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Pre-release validation</span>
+/rforge:analyze<span class="w"> </span>--mode<span class="w"> </span>release
+
+<span class="c1"># Release readiness check</span>
+/rforge:status<span class="w"> </span>--mode<span class="w"> </span>release
+
+<span class="c1"># Generate release report</span>
+/rforge:analyze<span class="w"> </span>--mode<span class="w"> </span>release<span class="w"> </span>--format<span class="w"> </span>markdown<span class="w"> </span>&gt;<span class="w"> </span>release-checklist.md
+
+<span class="c1"># CI/CD validation</span>
+/rforge:analyze<span class="w"> </span>--mode<span class="w"> </span>release<span class="w"> </span>--format<span class="w"> </span>json<span class="w"> </span>&gt;<span class="w"> </span>validation.json
+</code></pre></div>
+<hr />
+<h2 id="format-examples">Format Examples</h2>
+<h3 id="terminal-format-default">Terminal Format (Default)</h3>
+<div class="highlight"><pre><span></span><code>/rforge:analyze
+/rforge:status<span class="w"> </span>--mode<span class="w"> </span>debug
+</code></pre></div>
+<p><strong>Output:</strong> Colorful, human-readable terminal output</p>
+<hr />
+<h3 id="json-format-automation">JSON Format (Automation)</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># CI/CD pipeline</span>
+/rforge:analyze<span class="w"> </span>--mode<span class="w"> </span>release<span class="w"> </span>--format<span class="w"> </span>json<span class="w"> </span>&gt;<span class="w"> </span>results.json
+
+<span class="c1"># Check health score</span>
+/rforge:status<span class="w"> </span>--format<span class="w"> </span>json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.health_score&#39;</span>
+
+<span class="c1"># Nightly health log</span>
+/rforge:status<span class="w"> </span>--mode<span class="w"> </span>debug<span class="w"> </span>--format<span class="w"> </span>json<span class="w"> </span>&gt;&gt;<span class="w"> </span>health-log.jsonl
+
+<span class="c1"># Performance tracking</span>
+/rforge:analyze<span class="w"> </span>--mode<span class="w"> </span>optimize<span class="w"> </span>--format<span class="w"> </span>json<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>jq<span class="w"> </span><span class="s1">&#39;{date: now, load_time: .performance.load_time}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>&gt;&gt;<span class="w"> </span>performance.jsonl
+</code></pre></div>
+<hr />
+<h3 id="markdown-format-reports">Markdown Format (Reports)</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Weekly status report</span>
+/rforge:status<span class="w"> </span>--mode<span class="w"> </span>debug<span class="w"> </span>--format<span class="w"> </span>markdown<span class="w"> </span>&gt;<span class="w"> </span>weekly-report.md
+
+<span class="c1"># Release notes</span>
+/rforge:analyze<span class="w"> </span>--mode<span class="w"> </span>release<span class="w"> </span>--format<span class="w"> </span>markdown<span class="w"> </span>&gt;<span class="w"> </span>RELEASE-NOTES.md
+
+<span class="c1"># Performance audit</span>
+/rforge:analyze<span class="w"> </span>--mode<span class="w"> </span>optimize<span class="w"> </span>--format<span class="w"> </span>markdown<span class="w"> </span>&gt;<span class="w"> </span>performance-audit.md
+</code></pre></div>
+<hr />
+<h2 id="workflow-patterns">Workflow Patterns</h2>
+<h3 id="pattern-1-quick-iteration">Pattern 1: Quick Iteration</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Fast checks between commits (5-10 seconds each)</span>
+/rforge:analyze
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;fix: bootstrap algorithm&quot;</span>
+/rforge:analyze
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;docs: update README&quot;</span>
+</code></pre></div>
+<h3 id="pattern-2-deep-debugging">Pattern 2: Deep Debugging</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Progressive investigation (total: ~2 minutes)</span>
+/rforge:status<span class="w">                         </span><span class="c1"># 3s - Quick check</span>
+/rforge:analyze<span class="w"> </span>--mode<span class="w"> </span>debug<span class="w">           </span><span class="c1"># 45s - Deep dive</span>
+<span class="c1"># Fix issue</span>
+/rforge:analyze<span class="w">                        </span><span class="c1"># 5s - Verify fix</span>
+</code></pre></div>
+<h3 id="pattern-3-performance-work">Pattern 3: Performance Work</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Performance optimization (total: ~4 minutes)</span>
+/rforge:status<span class="w"> </span>--mode<span class="w"> </span>optimize<span class="w">         </span><span class="c1"># 45s - Baseline</span>
+<span class="c1"># Optimize code</span>
+/rforge:analyze<span class="w"> </span>--mode<span class="w"> </span>optimize<span class="w">        </span><span class="c1"># 90s - Re-analyze</span>
+<span class="c1"># Compare results</span>
+/rforge:analyze<span class="w"> </span>--mode<span class="w"> </span>optimize<span class="w"> </span>--format<span class="w"> </span>json<span class="w"> </span>&gt;<span class="w"> </span>after.json
+</code></pre></div>
+<h3 id="pattern-4-release-preparation">Pattern 4: Release Preparation</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Release workflow (total: ~10 minutes)</span>
+/rforge:analyze<span class="w"> </span>--mode<span class="w"> </span>release<span class="w">         </span><span class="c1"># 3m - Initial check</span>
+<span class="c1"># Fix issues</span>
+/rforge:analyze<span class="w"> </span>--mode<span class="w"> </span>release<span class="w">         </span><span class="c1"># 3m - Verify</span>
+<span class="c1"># Generate documentation</span>
+/rforge:analyze<span class="w"> </span>--mode<span class="w"> </span>release<span class="w"> </span>--format<span class="w"> </span>markdown<span class="w"> </span>&gt;<span class="w"> </span>RELEASE.md
+devtools::submit_cran<span class="o">()</span>
+</code></pre></div>
+<hr />
+<h2 id="statistical-research-commands-13-total">Statistical Research Commands (13 total)</h2>
+<h3 id="literature-commands">Literature Commands</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Time</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/research:arxiv</code></td>
+<td>5-15s</td>
+<td>Search arXiv for papers</td>
+</tr>
+<tr>
+<td><code>/research:doi</code></td>
+<td>2-5s</td>
+<td>Look up paper by DOI</td>
+</tr>
+<tr>
+<td><code>/research:bib:search</code></td>
+<td>&lt; 2s</td>
+<td>Search BibTeX files</td>
+</tr>
+<tr>
+<td><code>/research:bib:add</code></td>
+<td>&lt; 2s</td>
+<td>Add BibTeX entry</td>
+</tr>
+</tbody>
+</table>
+<h3 id="manuscript-commands">Manuscript Commands</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Time</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/research:manuscript:methods</code></td>
+<td>Variable</td>
+<td>Write methods section</td>
+</tr>
+<tr>
+<td><code>/research:manuscript:results</code></td>
+<td>Variable</td>
+<td>Write results section</td>
+</tr>
+<tr>
+<td><code>/research:manuscript:proof</code></td>
+<td>Variable</td>
+<td>Review proofs</td>
+</tr>
+<tr>
+<td><code>/research:manuscript:reviewer</code></td>
+<td>Variable</td>
+<td>Generate reviewer responses</td>
+</tr>
+</tbody>
+</table>
+<h3 id="research-commands">Research Commands</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Time</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/research:analysis-plan</code></td>
+<td>Variable</td>
+<td>Create analysis plan</td>
+</tr>
+<tr>
+<td><code>/research:hypothesis</code></td>
+<td>Variable</td>
+<td>Generate hypotheses</td>
+</tr>
+<tr>
+<td><code>/research:lit-gap</code></td>
+<td>Variable</td>
+<td>Identify research gaps</td>
+</tr>
+</tbody>
+</table>
+<h3 id="simulation-commands">Simulation Commands</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Time</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/research:simulation:design</code></td>
+<td>Variable</td>
+<td>Design simulation study</td>
+</tr>
+<tr>
+<td><code>/research:simulation:analysis</code></td>
+<td>Variable</td>
+<td>Analyze simulation results</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> Statistical research commands don't support modes. They adapt based on context and user input.</p>
+<hr />
+<h2 id="workflow-commands-1-total">Workflow Commands (1 total)</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Time</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/brainstorm</code></td>
+<td>Variable</td>
+<td>Enhanced brainstorming with auto-delegation</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="time-budget-summary">Time Budget Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Range</th>
+<th>Commands</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Instant</td>
+<td>&lt; 2s</td>
+<td><code>/rforge:capture</code></td>
+</tr>
+<tr>
+<td>Very Fast</td>
+<td>2-5s</td>
+<td><code>/rforge:status</code> (default), <code>/rforge:next</code>, <code>/rforge:detect</code></td>
+</tr>
+<tr>
+<td>Fast</td>
+<td>5-10s</td>
+<td><code>/rforge:analyze</code> (default), <code>/rforge:quick</code>, <code>/rforge:deps</code></td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>10-30s</td>
+<td><code>/rforge:impact</code>, <code>/rforge:doc-check</code>, <code>/rforge:status</code> (debug)</td>
+</tr>
+<tr>
+<td>Slow</td>
+<td>30s-2m</td>
+<td><code>/rforge:analyze</code> (debug), <code>/rforge:cascade</code>, <code>/rforge:release</code></td>
+</tr>
+<tr>
+<td>Very Slow</td>
+<td>2-5m</td>
+<td><code>/rforge:analyze</code> (release), <code>/rforge:thorough</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="mode-decision-tree">Mode Decision Tree</h2>
+<div class="highlight"><pre><span></span><code>What do you need?
+│
+├─ Instant status? ──────────────────&gt; /rforge:quick
+│
+├─ Quick check? ─────────────────────&gt; /rforge:analyze
+│
+├─ Something broken? ────────────────&gt; /rforge:analyze --mode debug
+│
+├─ Performance issue? ───────────────&gt; /rforge:analyze --mode optimize
+│
+└─ CRAN submission? ─────────────────&gt; /rforge:analyze --mode release
+</code></pre></div>
+<hr />
+<h2 id="common-shortcuts-aliases">Common Shortcuts (Aliases)</h2>
+<p>Add to your <code>.zshrc</code> or <code>.bashrc</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Quick commands</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">rf</span><span class="o">=</span><span class="s1">&#39;/rforge:analyze&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">rfs</span><span class="o">=</span><span class="s1">&#39;/rforge:status&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">rfq</span><span class="o">=</span><span class="s1">&#39;/rforge:quick&#39;</span>
+
+<span class="c1"># Mode shortcuts</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">rfd</span><span class="o">=</span><span class="s1">&#39;/rforge:analyze --mode debug&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">rfo</span><span class="o">=</span><span class="s1">&#39;/rforge:analyze --mode optimize&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">rfr</span><span class="o">=</span><span class="s1">&#39;/rforge:analyze --mode release&#39;</span>
+
+<span class="c1"># Format shortcuts</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">rfj</span><span class="o">=</span><span class="s1">&#39;/rforge:analyze --format json&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">rfm</span><span class="o">=</span><span class="s1">&#39;/rforge:analyze --format markdown&#39;</span>
+
+<span class="c1"># Combined</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">rfrj</span><span class="o">=</span><span class="s1">&#39;/rforge:analyze --mode release --format json&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">rfrm</span><span class="o">=</span><span class="s1">&#39;/rforge:analyze --mode release --format markdown&#39;</span>
+</code></pre></div>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code>rf<span class="w">                  </span><span class="c1"># Quick analyze</span>
+rfs<span class="w">                 </span><span class="c1"># Quick status</span>
+rfd<span class="w">                 </span><span class="c1"># Debug mode</span>
+rfr<span class="w">                 </span><span class="c1"># Release mode</span>
+rfrj<span class="w">                </span><span class="c1"># Release mode + JSON</span>
+</code></pre></div></p>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="do">✅ DO</h3>
+<ul>
+<li>Use default mode for 90% of daily work</li>
+<li>Switch to debug mode when troubleshooting</li>
+<li>Use release mode before CRAN submission</li>
+<li>Use JSON format for automation</li>
+<li>Use markdown format for reports</li>
+<li>Check time budgets before running</li>
+</ul>
+<h3 id="dont">❌ DON'T</h3>
+<ul>
+<li>Don't use debug mode for quick checks (too slow)</li>
+<li>Don't use release mode daily (overkill)</li>
+<li>Don't expect auto mode detection (be explicit)</li>
+<li>Don't ignore time budgets (plan accordingly)</li>
+<li>Don't use <code>/rforge:thorough</code> (deprecated - use <code>--mode release</code> instead)</li>
+</ul>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Command too slow</td>
+<td>Use default mode (no --mode flag)</td>
+</tr>
+<tr>
+<td>Need more details</td>
+<td>Add <code>--mode debug</code></td>
+</tr>
+<tr>
+<td>Invalid mode error</td>
+<td>Check spelling (debug, optimize, release)</td>
+</tr>
+<tr>
+<td>Mode ignored</td>
+<td>Command doesn't support modes (check table above)</td>
+</tr>
+<tr>
+<td>Need JSON output</td>
+<td>Add <code>--format json</code></td>
+</tr>
+<tr>
+<td>Timeout occurred</td>
+<td>Mode exceeded budget, partial results returned</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><strong><a href="../MODE-USAGE-GUIDE/">MODE-USAGE-GUIDE.md</a></strong> - Comprehensive mode system guide with real-world examples</li>
+<li><strong><a href="../MODE-QUICK-REFERENCE/">MODE-QUICK-REFERENCE.md</a></strong> - One-page quick reference card</li>
+<li><strong><a href="../COMMAND-REFERENCE/">COMMAND-REFERENCE.md</a></strong> - Complete command reference with descriptions</li>
+</ul>
+<hr />
+<p><strong>Last Updated:</strong> 2024-12-24
+<strong>Mode System Version:</strong> 1.0</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

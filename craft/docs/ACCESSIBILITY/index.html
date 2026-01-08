@@ -1,0 +1,3107 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Accessibility Features - Claude Code Plugins</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#accessibility-features" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Claude Code Plugins" class="md-header__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Code Plugins
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Accessibility Features
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../rforge/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  RForge
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Craft
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../workflow/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Workflow
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../statistical-research/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Statistical Research
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../installation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../CLAUDE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Developer Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../MODE-USAGE-GUIDE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Mode System
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../CICD/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  CI/CD Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../COMMAND-REFERENCE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../PLUGIN-DEVELOPMENT/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Plugin Development
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../PUBLISHING/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publishing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../diagrams/DEPENDENCIES/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Claude Code Plugins" class="md-nav__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Claude Code Plugins
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RForge
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rforge/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rforge/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rforge/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rforge/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Craft
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Craft
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../orchestrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orchestrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflow/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflow/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflow/skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflow/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistical Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistical-research/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistical-research/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistical-research/skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistical-research/api-wrappers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Wrappers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistical-research/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CLAUDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mode System
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mode System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MODE-USAGE-GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MODE-QUICK-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../COMMAND-CHEATSHEET/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FORMAT-EXAMPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Format Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MCP-INTEGRATION-TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Integration Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../REAL-WORLD-TESTING-RESULTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Real-World Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MODE-SYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CICD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../COMMAND-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../PLUGIN-DEVELOPMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugin Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../PUBLISHING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publishing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/DEPENDENCIES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependencies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/ECOSYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/rforge-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/rforge-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/statistical-research-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/statistical-research-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/workflow-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/workflow-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#wcag-aa-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WCAG AA Compliance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WCAG AA Compliance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compliance-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compliance Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keyboard-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keyboard Navigation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Keyboard Navigation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keyboard-shortcuts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keyboard Shortcuts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#focus-indicators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Focus Indicators
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#screen-reader-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Screen Reader Support
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Screen Reader Support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#semantic-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantic HTML
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aria-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ARIA Labels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skip-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skip Links
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-accessibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Accessibility
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Visual Accessibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#color-contrast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Color Contrast
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-contrast-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High Contrast Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-independence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Color Independence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motion-and-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motion and Animation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Motion and Animation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reduced-motion-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reduced Motion Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mobile-and-touch-accessibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mobile and Touch Accessibility
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mobile and Touch Accessibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#touch-target-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Touch Target Size
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsive-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responsive Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mermaid-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mermaid Diagrams
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#content-readability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Content Readability
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Content Readability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clear-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clear Language
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heading-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Heading Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adhd-friendly-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ADHD-Friendly Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automated-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known Limitations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Known Limitations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mermaid-diagrams_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mermaid Diagrams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#third-party-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Third-Party Content
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reporting-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reporting Issues
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reporting Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response Time
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standards-and-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standards and Guidelines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commitment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commitment
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="accessibility-features">Accessibility Features</h1>
+<p>⏱️ <strong>3 minutes</strong> • 🟢 Reference • ✓ WCAG AA Compliant</p>
+<blockquote>
+<p><strong>TL;DR</strong> (30 seconds)
+- <strong>What:</strong> craft documentation meets WCAG AA accessibility standards for all users
+- <strong>Why:</strong> Everyone deserves equal access to documentation, including users with disabilities
+- <strong>How:</strong> Keyboard navigation, screen reader support, high contrast, reduced motion
+- <strong>Next:</strong> Report accessibility issues on <a href="https://github.com/Data-Wise/claude-plugins/issues">GitHub</a></p>
+</blockquote>
+<p>This page documents the accessibility features built into craft's documentation.</p>
+<hr />
+<h2 id="wcag-aa-compliance">WCAG AA Compliance</h2>
+<p>craft documentation is designed to meet <strong>WCAG 2.1 Level AA</strong> standards.</p>
+<h3 id="compliance-summary">Compliance Summary</h3>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Level</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1.1 Text Alternatives</strong></td>
+<td>A</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td><strong>1.3 Adaptable</strong></td>
+<td>A</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td><strong>1.4.3 Contrast (Minimum)</strong></td>
+<td>AA</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td><strong>1.4.10 Reflow</strong></td>
+<td>AA</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td><strong>1.4.11 Non-text Contrast</strong></td>
+<td>AA</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td><strong>2.1 Keyboard Accessible</strong></td>
+<td>A</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td><strong>2.4 Navigable</strong></td>
+<td>A/AA</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td><strong>2.5.5 Target Size</strong></td>
+<td>AAA</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td><strong>3.1 Readable</strong></td>
+<td>A</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td><strong>3.2 Predictable</strong></td>
+<td>A</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td><strong>4.1 Compatible</strong></td>
+<td>A/AA</td>
+<td>✅ Complete</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="keyboard-navigation">Keyboard Navigation</h2>
+<p>All interactive elements are accessible via keyboard.</p>
+<h3 id="keyboard-shortcuts">Keyboard Shortcuts</h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Keys</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Navigate links</td>
+<td><code>Tab</code> / <code>Shift+Tab</code></td>
+</tr>
+<tr>
+<td>Activate link</td>
+<td><code>Enter</code></td>
+</tr>
+<tr>
+<td>Skip to content</td>
+<td><code>Tab</code> (to skip link)</td>
+</tr>
+<tr>
+<td>Search</td>
+<td><code>/</code> (Material theme)</td>
+</tr>
+<tr>
+<td>Navigate search results</td>
+<td><code>↑</code> / <code>↓</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="focus-indicators">Focus Indicators</h3>
+<p>All focusable elements have visible focus outlines:
+- <strong>Color:</strong> Accent color (#ff6b35)
+- <strong>Thickness:</strong> 2px
+- <strong>Offset:</strong> 2px from element
+- <strong>Visibility:</strong> High contrast on all backgrounds</p>
+<p><strong>CSS Implementation:</strong>
+<div class="highlight"><pre><span></span><code><span class="nt">a</span><span class="p">:</span><span class="nd">focus</span><span class="o">,</span>
+<span class="nt">button</span><span class="p">:</span><span class="nd">focus</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">outline</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--md-accent-fg-color</span><span class="p">);</span>
+<span class="w">  </span><span class="k">outline-offset</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h2 id="screen-reader-support">Screen Reader Support</h2>
+<h3 id="semantic-html">Semantic HTML</h3>
+<ul>
+<li>Proper heading hierarchy (H1 → H2 → H3)</li>
+<li>Semantic landmarks (<code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>)</li>
+<li>Descriptive link text (no "click here")</li>
+<li>Table headers with <code>&lt;th&gt;</code> and <code>scope</code></li>
+</ul>
+<h3 id="aria-labels">ARIA Labels</h3>
+<p>Material for MkDocs provides built-in ARIA support:
+- Navigation menus have <code>role="navigation"</code>
+- Search has <code>role="search"</code>
+- Code blocks have <code>aria-label</code>
+- Expandable sections have <code>aria-expanded</code></p>
+<h3 id="skip-links">Skip Links</h3>
+<p>Users can skip repetitive navigation:
+- Material theme provides automatic skip link
+- Appears on first <code>Tab</code> press
+- Jumps directly to main content</p>
+<hr />
+<h2 id="visual-accessibility">Visual Accessibility</h2>
+<h3 id="color-contrast">Color Contrast</h3>
+<p>All text meets WCAG AA contrast ratios:</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Contrast Ratio</th>
+<th>Requirement</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Body text</td>
+<td>7:1</td>
+<td>4.5:1 (AA)</td>
+<td>✅ Pass</td>
+</tr>
+<tr>
+<td>Headings</td>
+<td>8:1</td>
+<td>4.5:1 (AA)</td>
+<td>✅ Pass</td>
+</tr>
+<tr>
+<td>Links</td>
+<td>4.6:1</td>
+<td>4.5:1 (AA)</td>
+<td>✅ Pass</td>
+</tr>
+<tr>
+<td>Code blocks</td>
+<td>6:1</td>
+<td>4.5:1 (AA)</td>
+<td>✅ Pass</td>
+</tr>
+<tr>
+<td>Buttons</td>
+<td>5:1</td>
+<td>3:1 (AA)</td>
+<td>✅ Pass</td>
+</tr>
+</tbody>
+</table>
+<h3 id="high-contrast-mode">High Contrast Mode</h3>
+<p>Automatically adjusts for users with <code>prefers-contrast: high</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="o">(</span><span class="nt">prefers-contrast</span><span class="o">:</span><span class="w"> </span><span class="nt">high</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">.</span><span class="nc">grid</span><span class="p">.</span><span class="nc">cards</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">border-width</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nt">code</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--md-default-fg-color--light</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="color-independence">Color Independence</h3>
+<p>Information is never conveyed by color alone:
+- Links have underlines
+- Callout boxes have icons
+- Code syntax uses shapes and patterns
+- Status indicators use text labels</p>
+<hr />
+<h2 id="motion-and-animation">Motion and Animation</h2>
+<h3 id="reduced-motion-support">Reduced Motion Support</h3>
+<p>Respects <code>prefers-reduced-motion</code> for users with vestibular disorders or ADHD:</p>
+<div class="highlight"><pre><span></span><code><span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="o">(</span><span class="nt">prefers-reduced-motion</span><span class="o">:</span><span class="w"> </span><span class="nt">reduce</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="o">*</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">animation-duration</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="kt">ms</span><span class="w"> </span><span class="cp">!important</span><span class="p">;</span>
+<span class="w">    </span><span class="k">animation-iteration-count</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="cp">!important</span><span class="p">;</span>
+<span class="w">    </span><span class="k">transition-duration</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="kt">ms</span><span class="w"> </span><span class="cp">!important</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>What This Does:</strong>
+- Disables smooth scrolling
+- Removes animated transitions
+- Stops auto-playing content
+- Reduces cognitive load</p>
+<hr />
+<h2 id="mobile-and-touch-accessibility">Mobile and Touch Accessibility</h2>
+<h3 id="touch-target-size">Touch Target Size</h3>
+<p>All interactive elements meet <strong>AAA standards</strong> (44×44px minimum):
+- Navigation links: 48×44px
+- Buttons: 48×36px
+- Card links: Full card area
+- Mermaid diagram nodes: Clickable area extended</p>
+<h3 id="responsive-design">Responsive Design</h3>
+<p>Documentation adapts to all screen sizes:
+- <strong>Desktop:</strong> Full navigation sidebar
+- <strong>Tablet:</strong> Collapsible navigation
+- <strong>Mobile:</strong> Hamburger menu, single column layout
+- <strong>Zoom:</strong> Supports up to 200% zoom without horizontal scroll</p>
+<h3 id="mermaid-diagrams">Mermaid Diagrams</h3>
+<p>Diagrams are fully responsive:
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">mermaid</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">overflow-x</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="w">  </span><span class="k">overflow-y</span><span class="p">:</span><span class="w"> </span><span class="kc">hidden</span><span class="p">;</span>
+<span class="w">  </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">mermaid</span><span class="w"> </span><span class="nt">svg</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Mobile Enhancements:</strong>
+- Font size reduces at breakpoints
+- Horizontal scroll for wide diagrams
+- No content cutoff</p>
+<hr />
+<h2 id="content-readability">Content Readability</h2>
+<h3 id="clear-language">Clear Language</h3>
+<ul>
+<li><strong>Reading level:</strong> 8th-9th grade (Flesch-Kincaid)</li>
+<li><strong>Sentence length:</strong> Average 15-20 words</li>
+<li><strong>Paragraph length:</strong> 3-5 sentences</li>
+<li><strong>Technical terms:</strong> Explained on first use</li>
+</ul>
+<h3 id="heading-structure">Heading Structure</h3>
+<p>Logical hierarchy on every page:</p>
+<div class="highlight"><pre><span></span><code>H1: Page Title
+  H2: Major Section
+    H3: Subsection
+      Code examples, lists, etc.
+  H2: Next Major Section
+</code></pre></div>
+<p><strong>No skipped levels:</strong> Never H1 → H3 without H2</p>
+<h3 id="adhd-friendly-features">ADHD-Friendly Features</h3>
+<ul>
+<li><strong>TL;DR boxes</strong> at page top (30-second summary)</li>
+<li><strong>Progress indicators</strong> in tutorials</li>
+<li><strong>Time estimates</strong> on all guides</li>
+<li><strong>Visual hierarchy</strong> with emojis and callouts</li>
+<li><strong>Chunked content</strong> with frequent headings</li>
+</ul>
+<hr />
+<h2 id="testing">Testing</h2>
+<h3 id="automated-testing">Automated Testing</h3>
+<p>Documentation is tested with:
+- <strong>axe DevTools</strong> - No violations
+- <strong>WAVE</strong> - No errors
+- <strong>Lighthouse</strong> - 100 accessibility score
+- <strong>mkdocs build --strict</strong> - No warnings</p>
+<h3 id="manual-testing">Manual Testing</h3>
+<p>Verified with:
+- <strong>Keyboard only</strong> navigation
+- <strong>NVDA</strong> screen reader (Windows)
+- <strong>JAWS</strong> screen reader (Windows)
+- <strong>VoiceOver</strong> screen reader (macOS)
+- <strong>High contrast mode</strong> (Windows)
+- <strong>200% zoom</strong> (all browsers)
+- <strong>Mobile devices</strong> (iOS, Android)</p>
+<hr />
+<h2 id="known-limitations">Known Limitations</h2>
+<h3 id="mermaid-diagrams_1">Mermaid Diagrams</h3>
+<p>While mermaid diagrams are visually accessible:
+- <strong>Screen readers:</strong> Cannot read diagram content
+- <strong>Workaround:</strong> Each diagram has descriptive text above/below
+- <strong>Example:</strong> "Documentation Workflow - From code changes to deployed docs in one command"</p>
+<h3 id="third-party-content">Third-Party Content</h3>
+<p>Some third-party embeds may have accessibility issues:
+- GitHub badges (images with alt text)
+- External links (icons indicate external)</p>
+<hr />
+<h2 id="reporting-issues">Reporting Issues</h2>
+<p>Found an accessibility issue? We want to know!</p>
+<h3 id="how-to-report">How to Report</h3>
+<ol>
+<li><strong>Open an issue</strong> on <a href="https://github.com/Data-Wise/claude-plugins/issues">GitHub</a></li>
+<li><strong>Include:</strong></li>
+<li>Page URL</li>
+<li>Description of the issue</li>
+<li>Assistive technology used (if applicable)</li>
+<li>Expected vs. actual behavior</li>
+<li><strong>Label:</strong> Add <code>accessibility</code> label</li>
+</ol>
+<h3 id="response-time">Response Time</h3>
+<ul>
+<li><strong>Critical issues:</strong> Fixed within 48 hours</li>
+<li><strong>Non-critical:</strong> Fixed within 1 week</li>
+<li><strong>Enhancements:</strong> Triaged for next release</li>
+</ul>
+<hr />
+<h2 id="resources">Resources</h2>
+<h3 id="standards-and-guidelines">Standards and Guidelines</h3>
+<ul>
+<li><a href="https://www.w3.org/WAI/WCAG21/quickref/">WCAG 2.1</a></li>
+<li><a href="https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#color-scheme">Material for MkDocs Accessibility</a></li>
+<li><a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a></li>
+</ul>
+<h3 id="tools">Tools</h3>
+<ul>
+<li><a href="https://www.deque.com/axe/devtools/">axe DevTools</a> - Browser extension</li>
+<li><a href="https://wave.webaim.org/">WAVE</a> - Web accessibility evaluation tool</li>
+<li><a href="https://developers.google.com/web/tools/lighthouse">Lighthouse</a> - Built into Chrome DevTools</li>
+</ul>
+<h3 id="further-reading">Further Reading</h3>
+<ul>
+<li><a href="https://www.a11yproject.com/">A11Y Project</a> - Community-driven accessibility resources</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility">MDN Accessibility</a> - Technical guides</li>
+<li><a href="https://webaim.org/articles/">WebAIM Articles</a> - In-depth accessibility topics</li>
+</ul>
+<hr />
+<h2 id="commitment">Commitment</h2>
+<p>craft is committed to accessibility for all users. If you encounter barriers, please let us know so we can fix them.</p>
+<p><strong>Everyone deserves equal access to documentation.</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3236 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>SPEC: Plugin Documentation Tabs Redesign - Claude Code Plugins</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#spec-plugin-documentation-tabs-redesign" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Claude Code Plugins" class="md-header__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Code Plugins
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SPEC: Plugin Documentation Tabs Redesign
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../rforge/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  RForge
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../craft/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Craft
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../workflow/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Workflow
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../statistical-research/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Statistical Research
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../installation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../CLAUDE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Developer Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../MODE-USAGE-GUIDE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Mode System
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../CICD/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  CI/CD Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../COMMAND-REFERENCE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../PLUGIN-DEVELOPMENT/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Plugin Development
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../PUBLISHING/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publishing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../diagrams/DEPENDENCIES/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Claude Code Plugins" class="md-nav__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Claude Code Plugins
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RForge
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rforge/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rforge/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rforge/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rforge/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Craft
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Craft
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/orchestrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orchestrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistical Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistical-research/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistical-research/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistical-research/skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistical-research/api-wrappers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Wrappers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistical-research/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CLAUDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mode System
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mode System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MODE-USAGE-GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MODE-QUICK-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../COMMAND-CHEATSHEET/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FORMAT-EXAMPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Format Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MCP-INTEGRATION-TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Integration Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../REAL-WORLD-TESTING-RESULTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Real-World Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MODE-SYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CICD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../COMMAND-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PLUGIN-DEVELOPMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugin Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PUBLISHING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publishing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/DEPENDENCIES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependencies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/ECOSYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/rforge-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/rforge-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/statistical-research-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/statistical-research-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/workflow-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/workflow-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#primary-user-story" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Primary User Story
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secondary-user-stories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secondary User Stories
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Secondary User Stories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-story-2-content-creator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Story 2: Content Creator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-story-3-mobile-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Story 3: Mobile User
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uiux-specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UI/UX Specifications
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UI/UX Specifications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wireframes-ascii" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wireframes (ASCII)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessibility-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessibility Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open Questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Open Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-mode-system-documentation-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1: Mode System Documentation Location
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2-plugin-agnostic-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q2: Plugin-Agnostic Documentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3-gif-file-hosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q3: GIF File Hosting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4-architecture-diagrams-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q4: Architecture Diagrams Migration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#review-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Review Checklist
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Review Checklist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-foundation-2-hours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: Foundation (2 hours)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-navigation-2-hours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2: Navigation (2 hours)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-visual-content-foundation-2-hours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3: Visual Content Foundation (2 hours)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-4-content-rollout-6-hours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 4: Content Rollout (6 hours)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-5-polish-6-hours-ongoing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 5: Polish (6+ hours, ongoing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        History
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="History">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2026-01-09" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-01-09
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="spec-plugin-documentation-tabs-redesign">SPEC: Plugin Documentation Tabs Redesign</h1>
+<p><strong>Status:</strong> draft
+<strong>Created:</strong> 2026-01-09
+<strong>From Brainstorm:</strong> BRAINSTORM-plugin-documentation-tabs-2026-01-09.md
+<strong>Priority:</strong> MEDIUM
+<strong>Effort:</strong> 14-20 hours (core + GIFs)
+<strong>Target Completion:</strong> 2026-01-15</p>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>Transform the hierarchical plugin documentation navigation into a tabbed interface where each plugin is a top-level tab with consistent sub-sections. This redesign eliminates redundant Overview pages, reduces clicks to access content, and adds rich visual content (Mermaid diagrams, animated GIFs, inline tabbed examples) to enhance learning.</p>
+<p><strong>Key Changes:</strong>
+- Material theme tabs: 4 plugin tabs (RForge, Craft, Workflow, Statistical Research)
+- 5 sub-tabs per plugin: Quick Start, Commands, Skills &amp; Agents, Architecture, Workflows &amp; Examples
+- Merge Overview landing pages into Quick Start sub-tabs
+- Add visual content: Mermaid diagrams, GIFs, inline code tabs
+- Mobile-responsive with hamburger menu</p>
+<hr />
+<h2 id="primary-user-story">Primary User Story</h2>
+<p><strong>As a</strong> developer exploring Claude Code plugins</p>
+<p><strong>I want</strong> a tabbed interface where each plugin is a top-level tab with consistent sub-sections (Quick Start, Commands, Skills &amp; Agents, Architecture, Workflows &amp; Examples)</p>
+<p><strong>So that</strong> I can quickly navigate to specific aspects across different plugins without excessive clicking through hierarchical menus</p>
+<p><strong>Acceptance Criteria:</strong>
+1. Clicking a plugin tab immediately shows Quick Start (landing page)
+2. 5 sub-tabs visible under each plugin tab
+3. Visual content enhances learning:
+   - Mermaid diagrams in Architecture sections
+   - Animated GIFs in Workflows &amp; Examples
+   - Inline tabbed content for command output formats
+4. Mobile experience uses Material default hamburger menu
+5. No more than 2 clicks to reach any documentation page
+6. mkdocs build succeeds with all visual enhancements
+7. GitHub Pages deployment successful</p>
+<hr />
+<h2 id="secondary-user-stories">Secondary User Stories</h2>
+<h3 id="user-story-2-content-creator">User Story 2: Content Creator</h3>
+<p><strong>As a</strong> plugin maintainer</p>
+<p><strong>I want</strong> a consistent template for Workflows &amp; Examples sections</p>
+<p><strong>So that</strong> I can easily add visual demonstrations across all plugins with uniform structure</p>
+<p><strong>Acceptance Criteria:</strong>
+- Template includes Mermaid diagram, GIF, and code example sections
+- Applied to all 4 plugins
+- Documentation on creating GIFs and diagrams</p>
+<hr />
+<h3 id="user-story-3-mobile-user">User Story 3: Mobile User</h3>
+<p><strong>As a</strong> mobile developer browsing documentation on a tablet</p>
+<p><strong>I want</strong> the tabbed navigation to collapse into a responsive menu</p>
+<p><strong>So that</strong> I can access all content on smaller screens without horizontal scrolling</p>
+<p><strong>Acceptance Criteria:</strong>
+- Hamburger menu on screens &lt; 768px
+- All tabs and sub-tabs accessible via collapsed menu
+- Content readable without zooming</p>
+<hr />
+<h2 id="technical-requirements">Technical Requirements</h2>
+<h3 id="architecture">Architecture</h3>
+<p><strong>Navigation Structure:</strong></p>
+<pre class="mermaid"><code>graph TB
+    Home[Home Page] --&gt; Tabs{Top-Level Tabs}
+    Tabs --&gt; RForge[RForge Tab]
+    Tabs --&gt; Craft[Craft Tab]
+    Tabs --&gt; Workflow[Workflow Tab]
+    Tabs --&gt; StatRes[Statistical Research Tab]
+
+    RForge --&gt; R_QS[Quick Start]
+    RForge --&gt; R_CMD[Commands]
+    RForge --&gt; R_SA[Skills &amp; Agents]
+    RForge --&gt; R_ARCH[Architecture]
+    RForge --&gt; R_WF[Workflows &amp; Examples]
+
+    Craft --&gt; C_QS[Quick Start]
+    Craft --&gt; C_CMD[Commands]
+    Craft --&gt; C_SA[Skills &amp; Agents]
+    Craft --&gt; C_ARCH[Architecture]
+    Craft --&gt; C_WF[Workflows &amp; Examples]
+
+    Workflow --&gt; W_QS[Quick Start]
+    Workflow --&gt; W_CMD[Commands]
+    Workflow --&gt; W_SA[Skills &amp; Agents]
+    Workflow --&gt; W_ARCH[Architecture]
+    Workflow --&gt; W_WF[Workflows &amp; Examples]
+
+    StatRes --&gt; S_QS[Quick Start]
+    StatRes --&gt; S_CMD[Commands]
+    StatRes --&gt; S_SKILLS[Skills]
+    StatRes --&gt; S_API[API Wrappers]
+    StatRes --&gt; S_WF[Workflows &amp; Examples]</code></pre>
+<p><strong>Component Diagram:</strong></p>
+<pre class="mermaid"><code>graph LR
+    A[mkdocs.yml] --&gt; B[Material Theme]
+    B --&gt; C[Tab Navigation]
+    C --&gt; D[Plugin Tabs]
+    D --&gt; E[Sub-Tabs]
+    E --&gt; F[Content Pages]
+
+    G[Markdown Extensions] --&gt; H[pymdownx.tabbed]
+    G --&gt; I[pymdownx.superfences]
+    I --&gt; J[Mermaid Diagrams]
+    H --&gt; K[Inline Tabs]
+
+    L[Assets] --&gt; M[GIFs]
+    L --&gt; N[CSS]
+    M --&gt; F
+    N --&gt; B</code></pre>
+<hr />
+<h3 id="api-design">API Design</h3>
+<p>N/A - No API changes. This is a documentation structure redesign using existing MkDocs/Material theme capabilities.</p>
+<hr />
+<h3 id="data-models">Data Models</h3>
+<p><strong>mkdocs.yml Navigation Structure:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nt">nav</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Home</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">index.md</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Getting Started</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Installation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">installation.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Quick Start</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">quick-start.md</span>
+
+<span class="w">  </span><span class="c1"># PLUGIN TABS (4 top-level tabs)</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">RForge</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Quick Start</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rforge/quick-start.md</span><span class="w">      </span><span class="c1"># Landing page</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Commands</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rforge/commands.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Skills &amp; Agents</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rforge/skills-agents.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Architecture</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rforge/architecture.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Workflows &amp; Examples</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rforge/workflows.md</span><span class="w">  </span><span class="c1"># NEW</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Craft</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Quick Start</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">craft/quick-start.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Commands</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">craft/commands.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Skills &amp; Agents</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">craft/skills-agents.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Architecture</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">craft/architecture.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Workflows &amp; Examples</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">craft/workflows.md</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Workflow</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Quick Start</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">workflow/quick-start.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Commands</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">workflow/commands.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Skills &amp; Agents</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">workflow/skills-agents.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Architecture</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">workflow/architecture.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Workflows &amp; Examples</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">workflow/workflows.md</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Statistical Research</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Quick Start</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">statistical-research/quick-start.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Commands</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">statistical-research/commands.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Skills</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">statistical-research/skills.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">API Wrappers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">statistical-research/api-wrappers.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Workflows &amp; Examples</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">statistical-research/workflows.md</span>
+
+<span class="w">  </span><span class="c1"># NON-PLUGIN SECTIONS (keep separate)</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Developer Guide</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CLAUDE.md</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Publishing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PUBLISHING.md</span>
+</code></pre></div>
+<p><strong>Material Theme Configuration:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nt">theme</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">material</span>
+<span class="w">  </span><span class="nt">features</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">navigation.tabs</span><span class="w">              </span><span class="c1"># Enable tabs</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">navigation.tabs.sticky</span><span class="w">       </span><span class="c1"># Keep tabs visible on scroll</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">navigation.sections</span><span class="w">          </span><span class="c1"># Collapsible sections</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">navigation.indexes</span><span class="w">           </span><span class="c1"># Index pages for tabs</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">navigation.expand</span><span class="w">            </span><span class="c1"># Expand sections by default</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">search.suggest</span><span class="w">               </span><span class="c1"># Search suggestions</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">search.highlight</span><span class="w">             </span><span class="c1"># Highlight search terms</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">content.code.copy</span><span class="w">            </span><span class="c1"># Copy code button</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">content.tabs.link</span><span class="w">            </span><span class="c1"># Link tabbed content</span>
+</code></pre></div>
+<p><strong>Markdown Extensions:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nt">markdown_extensions</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">pymdownx.highlight</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">use_pygments</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">pymdownx.superfences</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">custom_fences</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mermaid</span>
+<span class="w">          </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mermaid</span>
+<span class="w">          </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="kt">!!python/name:pymdownx.superfences.fence_code_format</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">pymdownx.tabbed</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">alternate_style</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pymdownx.details</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admonition</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tables</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">attr_list</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">def_list</span>
+</code></pre></div>
+<hr />
+<h3 id="dependencies">Dependencies</h3>
+<p><strong>Existing:</strong>
+- mkdocs (already installed)
+- mkdocs-material (already installed)
+- pymdownx extensions (already configured)</p>
+<p><strong>New:</strong>
+- None (all features supported by existing dependencies)</p>
+<p><strong>GIF Creation Tools (optional, for content creators):</strong>
+- asciinema (terminal recording) - <code>brew install asciinema</code>
+- agg (asciinema to GIF) - <code>cargo install agg</code>
+- gifsicle (GIF optimization) - <code>brew install gifsicle</code>
+- ffmpeg (screen recording conversion) - <code>brew install ffmpeg</code></p>
+<hr />
+<h2 id="uiux-specifications">UI/UX Specifications</h2>
+<h3 id="user-flow">User Flow</h3>
+<p><strong>User Journey: Finding a Command</strong></p>
+<pre class="mermaid"><code>sequenceDiagram
+    User-&gt;&gt;Site: Visit documentation
+    Site-&gt;&gt;User: Show Home with 4 plugin tabs
+    User-&gt;&gt;Tab: Click "RForge" tab
+    Tab-&gt;&gt;User: Show Quick Start (landing)
+    User-&gt;&gt;SubTab: Click "Commands" sub-tab
+    SubTab-&gt;&gt;User: Show Commands page with search
+    User-&gt;&gt;Search: Search for "analyze"
+    Search-&gt;&gt;User: Highlight /rforge:analyze
+    User-&gt;&gt;Command: Click command
+    Command-&gt;&gt;User: Show syntax, examples, inline tabs</code></pre>
+<p><strong>Flow Diagram:</strong></p>
+<pre class="mermaid"><code>flowchart TD
+    A[Land on Home] --&gt; B{Select Plugin}
+    B --&gt;|RForge| C[RForge Quick Start]
+    B --&gt;|Craft| D[Craft Quick Start]
+    B --&gt;|Workflow| E[Workflow Quick Start]
+    B --&gt;|Stat Research| F[Stat Research Quick Start]
+
+    C --&gt; G{Select Sub-Tab}
+    G --&gt;|Commands| H[Commands Page]
+    G --&gt;|Skills &amp; Agents| I[Skills &amp; Agents Page]
+    G --&gt;|Architecture| J[Architecture Page]
+    G --&gt;|Workflows| K[Workflows &amp; Examples Page]
+
+    H --&gt; L{Need More Info?}
+    L --&gt;|Yes| K
+    L --&gt;|No| M[Use Command]</code></pre>
+<hr />
+<h3 id="wireframes-ascii">Wireframes (ASCII)</h3>
+<p><strong>Desktop View:</strong></p>
+<div class="highlight"><pre><span></span><code>┌────────────────────────────────────────────────────────────┐
+│ Claude Code Plugins                            🔍 Search   │
+├─────┬──────┬──────────┬────────────────┬────────┬──────────┤
+│ Home│RForge│  Craft   │   Workflow     │ Stat R.│  Dev     │  ← Tabs
+├─────┴──────┴──────────┴────────────────┴────────┴──────────┤
+│                                                            │
+│  RForge Tab                                                │
+│  ┌──────────────────────────────────────────────────────┐ │
+│  │ Quick Start │ Commands │ Skills │ Arch │ Workflows   │ │  ← Sub-tabs
+│  └──────────────────────────────────────────────────────┘ │
+│                                                            │
+│  # Quick Start                                             │
+│                                                            │
+│  &gt; Complete R package ecosystem orchestrator with 15 cmds  │
+│                                                            │
+│  ## Installation                                           │
+│  ```bash                                                   │
+│  npm install -g @data-wise/rforge-plugin                   │
+│  ```                                                       │
+│                                                            │
+│  ## First Command                                          │
+│  ...                                                       │
+│                                                            │
+└────────────────────────────────────────────────────────────┘
+</code></pre></div>
+<p><strong>Mobile View (&lt; 768px):</strong></p>
+<div class="highlight"><pre><span></span><code>┌─────────────────────────────────┐
+│ Claude Code Plugins      ☰      │  ← Hamburger menu
+├─────────────────────────────────┤
+│                                 │
+│  # Quick Start                  │
+│                                 │
+│  &gt; Complete R package...        │
+│                                 │
+│  ## Installation                │
+│  ...                            │
+│                                 │
+└─────────────────────────────────┘
+
+[Hamburger Menu Expanded]
+┌─────────────────────────────────┐
+│ ☰ Navigation                    │
+├─────────────────────────────────┤
+│ ▼ RForge                        │
+│   • Quick Start                 │
+│   • Commands                    │
+│   • Skills &amp; Agents             │
+│   • Architecture                │
+│   • Workflows &amp; Examples        │
+│ ▸ Craft                         │
+│ ▸ Workflow                      │
+│ ▸ Statistical Research          │
+│ • Developer Guide               │
+└─────────────────────────────────┘
+</code></pre></div>
+<hr />
+<h3 id="accessibility-checklist">Accessibility Checklist</h3>
+<ul>
+<li>[ ] <strong>Keyboard Navigation:</strong></li>
+<li>[ ] Tab key cycles through plugin tabs</li>
+<li>[ ] Arrow keys navigate between sub-tabs</li>
+<li>[ ] Enter key activates selected tab</li>
+<li>
+<p>[ ] Escape key closes mobile menu</p>
+</li>
+<li>
+<p>[ ] <strong>Screen Readers:</strong></p>
+</li>
+<li>[ ] Tab roles: <code>role="navigation"</code> on tab container</li>
+<li>[ ] Active tab: <code>aria-current="page"</code></li>
+<li>[ ] Tab labels: Clear, descriptive text</li>
+<li>
+<p>[ ] Images: Alt text for all GIFs and diagrams</p>
+</li>
+<li>
+<p>[ ] <strong>Visual:</strong></p>
+</li>
+<li>[ ] Color contrast ratio ≥ 4.5:1 (WCAG AA)</li>
+<li>[ ] Focus indicators visible on all interactive elements</li>
+<li>[ ] Text size adjustable without breaking layout</li>
+<li>
+<p>[ ] No information conveyed by color alone</p>
+</li>
+<li>
+<p>[ ] <strong>Mermaid Diagrams:</strong></p>
+</li>
+<li>[ ] Alternative text descriptions provided</li>
+<li>[ ] High contrast colors used</li>
+<li>
+<p>[ ] Diagrams scalable without pixelation</p>
+</li>
+<li>
+<p>[ ] <strong>GIFs:</strong></p>
+</li>
+<li>[ ] Autoplay disabled or pauseable</li>
+<li>[ ] Alternative static image or description provided</li>
+<li>[ ] No flashing content (seizure risk)</li>
+</ul>
+<hr />
+<h2 id="open-questions">Open Questions</h2>
+<h3 id="q1-mode-system-documentation-location">Q1: Mode System Documentation Location</h3>
+<p><strong>Question:</strong> Should Mode System docs stay in separate section or integrate into RForge tab?</p>
+<p><strong>Current State:</strong> Separate "Mode System" section in top-level nav</p>
+<p><strong>Options:</strong>
+- <strong>A) Keep separate</strong> (Recommended)
+  - <strong>Pros:</strong> Mode System is RForge-specific but documented at monorepo level, other plugins may adopt in future
+  - <strong>Cons:</strong> Adds extra top-level item outside tabs</p>
+<ul>
+<li><strong>B) Move to RForge tab as sub-tab</strong></li>
+<li><strong>Pros:</strong> Mode System is RForge-specific, keeps all RForge content in one tab</li>
+<li><strong>Cons:</strong> Hides Mode System from other plugins that might benefit</li>
+</ul>
+<p><strong>Recommendation:</strong> Keep separate (Option A)
+- Mode System could be adopted by other plugins
+- Keeping it monorepo-level signals it's a shared pattern
+- Doesn't clutter RForge tab with cross-cutting concern</p>
+<p><strong>Decision:</strong> ✅ Keep separate (Option A)
+- Mode System stays in separate section at monorepo level
+- Other plugins may adopt Mode System pattern in future</p>
+<hr />
+<h3 id="q2-plugin-agnostic-documentation">Q2: Plugin-Agnostic Documentation</h3>
+<p><strong>Question:</strong> How to organize CI/CD Guide, Publishing, and Plugin Development docs?</p>
+<p><strong>Current State:</strong> Separate top-level items</p>
+<p><strong>Options:</strong>
+- <strong>A) Keep as separate top-level items</strong> (Recommended)
+  - <strong>Pros:</strong> Clear separation of plugin content vs meta-docs
+  - <strong>Cons:</strong> More items outside tabs</p>
+<ul>
+<li><strong>B) Create "Developer" tab for all development docs</strong></li>
+<li><strong>Pros:</strong> Consolidates meta-documentation</li>
+<li>
+<p><strong>Cons:</strong> Developer tab doesn't fit plugin-focused tab structure</p>
+</li>
+<li>
+<p><strong>C) Distribute to relevant plugins</strong> (e.g., CI/CD → Craft)</p>
+</li>
+<li><strong>Pros:</strong> Colocates related content</li>
+<li><strong>Cons:</strong> These docs apply to all plugins, not just one</li>
+</ul>
+<p><strong>Recommendation:</strong> Keep separate (Option A)
+- These docs are monorepo-level, not plugin-specific
+- Publishing applies to all plugins
+- Developer Guide is meta-documentation</p>
+<p><strong>Decision:</strong> ✅ Keep as separate top-level items (Option A)
+- Clear separation between plugin content and meta-documentation
+- Publishing, CI/CD, and Plugin Development remain accessible outside tabs</p>
+<hr />
+<h3 id="q3-gif-file-hosting">Q3: GIF File Hosting</h3>
+<p><strong>Question:</strong> Where to host GIF files for best performance?</p>
+<p><strong>Options:</strong>
+- <strong>A) In repo: docs/assets/gifs/</strong> (Recommended)
+  - <strong>Pros:</strong> Version controlled, always available, no external dependencies
+  - <strong>Cons:</strong> Increases repo size (~10-20MB for 8 GIFs)</p>
+<ul>
+<li><strong>B) External CDN (e.g., GitHub releases, Cloudinary)</strong></li>
+<li><strong>Pros:</strong> Doesn't bloat repo, faster loading</li>
+<li>
+<p><strong>Cons:</strong> External dependency, broken links if service fails</p>
+</li>
+<li>
+<p><strong>C) Git LFS (Large File Storage)</strong></p>
+</li>
+<li><strong>Pros:</strong> Version controlled, doesn't bloat git history</li>
+<li><strong>Cons:</strong> Requires LFS setup, GitHub bandwidth limits</li>
+</ul>
+<p><strong>Recommendation:</strong> Option A (docs/assets/gifs/)
+- Simplest solution, no external dependencies
+- GIFs optimized to &lt; 1MB each (8 GIFs = ~8MB total)
+- GitHub Pages has 1GB soft limit (plenty of room)</p>
+<p><strong>Decision:</strong> ✅ In repo: docs/assets/gifs/ (Option A)
+- GIFs stored in repository under docs/assets/gifs/
+- Version controlled, no external dependencies
+- ~8MB total (8 GIFs optimized to &lt;1MB each)</p>
+<hr />
+<h3 id="q4-architecture-diagrams-migration">Q4: Architecture Diagrams Migration</h3>
+<p><strong>Question:</strong> Should centralized diagrams (docs/diagrams/) be integrated into plugin tabs?</p>
+<p><strong>Current State:</strong> Separate "Architecture" section with all diagrams</p>
+<p><strong>Options:</strong>
+- <strong>A) Integrate into each plugin's Architecture sub-tab</strong> (Recommended)
+  - <strong>Pros:</strong> All plugin content in one tab, reduces navigation complexity
+  - <strong>Cons:</strong> Requires moving files and updating links</p>
+<ul>
+<li><strong>B) Keep centralized for cross-plugin viewing</strong></li>
+<li><strong>Pros:</strong> Easy comparison across plugins</li>
+<li>
+<p><strong>Cons:</strong> Doesn't align with tabbed structure</p>
+</li>
+<li>
+<p><strong>C) Hybrid: Keep centralized + duplicate in plugin tabs</strong></p>
+</li>
+<li><strong>Pros:</strong> Best of both worlds</li>
+<li><strong>Cons:</strong> Duplicate maintenance, content drift risk</li>
+</ul>
+<p><strong>Recommendation:</strong> Option A (integrate)
+- Each diagram is plugin-specific (rforge-flow, craft-structure, etc.)
+- Embedding diagrams in Architecture pages improves context
+- Users can still compare by opening multiple tabs</p>
+<p><strong>Migration:</strong>
+- docs/diagrams/rforge-flow.md → embed in docs/rforge/architecture.md
+- docs/diagrams/craft-structure.md → embed in docs/craft/architecture.md
+- etc.</p>
+<p><strong>Decision:</strong> ✅ Integrate into each plugin's Architecture sub-tab (Option A)
+- Move docs/diagrams/rforge-flow.md → embed in docs/rforge/architecture.md
+- Move docs/diagrams/craft-structure.md → embed in docs/craft/architecture.md
+- All plugin content consolidated within plugin tabs</p>
+<hr />
+<h2 id="review-checklist">Review Checklist</h2>
+<h3 id="planning">Planning</h3>
+<ul>
+<li>[ ] User stories validated with stakeholders</li>
+<li>[ ] Technical approach reviewed and approved</li>
+<li>[ ] Open questions resolved or deferred</li>
+<li>[ ] Effort estimates reviewed (14-20 hours core + GIFs)</li>
+</ul>
+<h3 id="design">Design</h3>
+<ul>
+<li>[ ] Wireframes reviewed (desktop + mobile)</li>
+<li>[ ] Accessibility requirements documented</li>
+<li>[ ] Visual content standards defined (Mermaid, GIFs, inline tabs)</li>
+<li>[ ] Navigation structure validated</li>
+</ul>
+<h3 id="implementation">Implementation</h3>
+<ul>
+<li>[ ] mkdocs.yml configuration drafted</li>
+<li>[ ] File operations documented (merge, create, move, delete)</li>
+<li>[ ] Custom CSS requirements identified (optional)</li>
+<li>[ ] GIF creation workflow defined</li>
+</ul>
+<h3 id="testing">Testing</h3>
+<ul>
+<li>[ ] mkdocs build validation plan</li>
+<li>[ ] Cross-browser testing plan (Chrome, Firefox, Safari)</li>
+<li>[ ] Mobile responsive testing plan</li>
+<li>[ ] Accessibility testing plan (keyboard, screen reader)</li>
+</ul>
+<h3 id="documentation">Documentation</h3>
+<ul>
+<li>[ ] Implementation phases documented</li>
+<li>[ ] Success criteria defined and measurable</li>
+<li>[ ] GIF creation guide written (for content creators)</li>
+<li>[ ] Migration guide for existing content</li>
+</ul>
+<hr />
+<h2 id="implementation-notes">Implementation Notes</h2>
+<h3 id="phase-1-foundation-2-hours">Phase 1: Foundation (2 hours)</h3>
+<p><strong>Goal:</strong> Enable tabs and consolidate content</p>
+<p><strong>Tasks:</strong>
+1. Update mkdocs.yml with tab configuration (15 min)
+2. Merge Overview pages into Quick Start (1.5 hours):
+   - docs/plugins/rforge.md → docs/rforge/quick-start.md
+   - docs/plugins/craft.md → docs/craft/quick-start.md
+   - docs/plugins/workflow.md → docs/workflow/quick-start.md
+   - docs/plugins/statistical-research.md → docs/statistical-research/quick-start.md
+3. Test build and deployment (15 min)</p>
+<p><strong>Validation:</strong>
+- mkdocs build succeeds
+- Tabs visible in local preview
+- Quick Start pages render correctly</p>
+<hr />
+<h3 id="phase-2-navigation-2-hours">Phase 2: Navigation (2 hours)</h3>
+<p><strong>Goal:</strong> Implement full tab structure</p>
+<p><strong>Tasks:</strong>
+1. Update mkdocs.yml with complete nav structure (1 hour)
+2. Move files to align with new structure (30 min):
+   - docs/rforge/docs/<em> → docs/rforge/</em>
+   - docs/craft/docs/<em> → docs/craft/</em>
+   - docs/workflow/docs/<em> → docs/workflow/</em>
+   - docs/statistical-research/docs/<em> → docs/statistical-research/</em>
+3. Fix internal links (30 min)
+4. Delete obsolete directories (docs/plugins/, docs/*/docs/)</p>
+<p><strong>Validation:</strong>
+- All sub-tabs accessible
+- No broken links
+- Mobile menu works</p>
+<hr />
+<h3 id="phase-3-visual-content-foundation-2-hours">Phase 3: Visual Content Foundation (2 hours)</h3>
+<p><strong>Goal:</strong> Establish visual content patterns</p>
+<p><strong>Tasks:</strong>
+1. Create Workflows &amp; Examples template (30 min)
+2. Implement template for RForge (30 min)
+3. Add Mermaid diagram to RForge Architecture (1 hour)</p>
+<p><strong>Template:</strong> docs/rforge/workflows.md</p>
+<p><strong>Validation:</strong>
+- Mermaid diagram renders
+- Inline tabs work
+- Template reusable for other plugins</p>
+<hr />
+<h3 id="phase-4-content-rollout-6-hours">Phase 4: Content Rollout (6 hours)</h3>
+<p><strong>Goal:</strong> Apply visual content to all plugins</p>
+<p><strong>Tasks:</strong>
+1. Create Workflows &amp; Examples for Craft (1 hour)
+2. Create Workflows &amp; Examples for Workflow (1 hour)
+3. Create Workflows &amp; Examples for Statistical Research (1 hour)
+4. Add Mermaid diagrams to all Architecture pages (2 hours)
+5. Add inline tabbed content to Commands pages (1 hour)</p>
+<p><strong>Validation:</strong>
+- All 4 plugins have Workflows section
+- All Architecture pages have diagrams
+- Inline tabs functional</p>
+<hr />
+<h3 id="phase-5-polish-6-hours-ongoing">Phase 5: Polish (6+ hours, ongoing)</h3>
+<p><strong>Goal:</strong> Add animations and optimize</p>
+<p><strong>Tasks:</strong>
+1. Create 2 GIFs per plugin (4-6 hours):
+   - Record terminal sessions with asciinema
+   - Convert to GIF with agg
+   - Optimize with gifsicle
+   - Target: &lt; 1MB per GIF
+2. Add search keywords to frontmatter (1 hour)
+3. Implement "See Also" cross-plugin links (1 hour)</p>
+<p><strong>Validation:</strong>
+- GIFs load quickly
+- Search results relevant
+- Cross-links functional</p>
+<hr />
+<h2 id="history">History</h2>
+<h3 id="2026-01-09">2026-01-09</h3>
+<ul>
+<li>Created from brainstorm session</li>
+<li>Deep feature analysis completed</li>
+<li>User answered 8 expert questions</li>
+<li>Spec drafted with all required sections</li>
+</ul>
+<hr />
+<p><strong>Last Updated:</strong> 2026-01-09
+<strong>Spec Version:</strong> 1.0.0
+<strong>Status:</strong> 📝 Draft - Ready for review and implementation</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

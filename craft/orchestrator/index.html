@@ -1,0 +1,3154 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../architecture/">
+      
+      
+        <link rel="next" href="../workflows/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Orchestrator - Claude Code Plugins</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#craft-orchestrator-v2-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Claude Code Plugins" class="md-header__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Code Plugins
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Orchestrator
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../rforge/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  RForge
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Craft
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../workflow/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Workflow
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../statistical-research/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Statistical Research
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../installation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../CLAUDE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Developer Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../MODE-USAGE-GUIDE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Mode System
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../CICD/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  CI/CD Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../COMMAND-REFERENCE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../PLUGIN-DEVELOPMENT/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Plugin Development
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../PUBLISHING/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publishing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../diagrams/DEPENDENCIES/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Claude Code Plugins" class="md-nav__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Claude Code Plugins
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RForge
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rforge/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rforge/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rforge/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rforge/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Craft
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Craft
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orchestrator
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orchestrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optimize-mode-fast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optimize Mode (Fast)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-mode-comprehensive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Mode (Comprehensive)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-mode-verbose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debug Mode (Verbose)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-coordination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Coordination
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Agent Coordination">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parallel-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parallel Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Communication
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring &amp; Status
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring &amp; Status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#status-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status Dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeline-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timeline View
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context-budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context Budget
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#result-synthesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Result Synthesis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Result Synthesis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#synthesis-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthesis Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-agent-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dynamic Agent Selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resource Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-orchestrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use Orchestrator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mode-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mode Selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistical Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistical-research/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistical-research/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistical-research/skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistical-research/api-wrappers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Wrappers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistical-research/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CLAUDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mode System
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mode System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MODE-USAGE-GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MODE-QUICK-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../COMMAND-CHEATSHEET/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FORMAT-EXAMPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Format Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MCP-INTEGRATION-TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Integration Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../REAL-WORLD-TESTING-RESULTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Real-World Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MODE-SYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CICD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../COMMAND-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PLUGIN-DEVELOPMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugin Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PUBLISHING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publishing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/DEPENDENCIES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependencies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/ECOSYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/rforge-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/rforge-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/statistical-research-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/statistical-research-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/workflow-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/workflow-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optimize-mode-fast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optimize Mode (Fast)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-mode-comprehensive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Mode (Comprehensive)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-mode-verbose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debug Mode (Verbose)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-coordination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Coordination
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Agent Coordination">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parallel-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parallel Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Communication
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring &amp; Status
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring &amp; Status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#status-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status Dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeline-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timeline View
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context-budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context Budget
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#result-synthesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Result Synthesis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Result Synthesis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#synthesis-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthesis Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-agent-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dynamic Agent Selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resource Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-orchestrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use Orchestrator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mode-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mode Selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="craft-orchestrator-v2-guide">Craft Orchestrator v2 Guide</h1>
+<p>The orchestrator coordinates multiple specialized agents to handle complex development tasks through intelligent delegation and parallel execution.</p>
+<h2 id="overview">Overview</h2>
+<p>Orchestrator v2 provides:
+- <strong>Mode-aware execution</strong> - Adapts based on urgency and complexity
+- <strong>Subagent monitoring</strong> - Real-time progress tracking
+- <strong>Context tracking</strong> - Token budget management
+- <strong>Timeline view</strong> - Execution visualization
+- <strong>Result synthesis</strong> - Unified, actionable output</p>
+<h2 id="basic-usage">Basic Usage</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Let orchestrator choose mode</span>
+/craft:orchestrate<span class="w"> </span><span class="s2">&quot;add authentication&quot;</span>
+
+<span class="c1"># Specify mode explicitly</span>
+/craft:orchestrate<span class="w"> </span><span class="s2">&quot;add auth&quot;</span><span class="w"> </span>optimize<span class="w">    </span><span class="c1"># Fast parallel</span>
+/craft:orchestrate<span class="w"> </span><span class="s2">&quot;prep release&quot;</span><span class="w"> </span>release<span class="w"> </span><span class="c1"># Thorough</span>
+
+<span class="c1"># Monitor execution</span>
+/craft:orchestrate<span class="w"> </span>status<span class="w">                 </span><span class="c1"># Agent dashboard</span>
+/craft:orchestrate<span class="w"> </span>timeline<span class="w">               </span><span class="c1"># Execution timeline</span>
+/craft:orchestrate<span class="w"> </span>budget<span class="w">                 </span><span class="c1"># Context tracking</span>
+</code></pre></div>
+<h2 id="modes">Modes</h2>
+<h3 id="optimize-mode-fast">Optimize Mode (Fast)</h3>
+<p><strong>Time:</strong> &lt;180s
+<strong>Agents:</strong> 3-4 in parallel
+<strong>Use case:</strong> Feature development, quick iterations</p>
+<div class="highlight"><pre><span></span><code>/craft:orchestrate<span class="w"> </span><span class="s2">&quot;implement user profiles&quot;</span><span class="w"> </span>optimize
+</code></pre></div>
+<p><strong>Workflow:</strong>
+1. Launches 3-4 agents simultaneously
+2. Monitors progress in real-time
+3. Synthesizes results as agents complete
+4. Provides actionable recommendations</p>
+<h3 id="release-mode-comprehensive">Release Mode (Comprehensive)</h3>
+<p><strong>Time:</strong> &lt;300s
+<strong>Agents:</strong> 4+ comprehensive checks
+<strong>Use case:</strong> Production preparation, quality audit</p>
+<div class="highlight"><pre><span></span><code>/craft:orchestrate<span class="w"> </span><span class="s2">&quot;prepare for production&quot;</span><span class="w"> </span>release
+</code></pre></div>
+<p><strong>Workflow:</strong>
+1. Security audit (security-specialist)
+2. Performance check (performance-engineer)
+3. Test suite (testing-specialist)
+4. Deployment readiness (devops-engineer)
+5. Code quality (code-quality-reviewer)</p>
+<h3 id="debug-mode-verbose">Debug Mode (Verbose)</h3>
+<p><strong>Time:</strong> &lt;120s
+<strong>Agents:</strong> 2-3 with detailed logging
+<strong>Use case:</strong> Troubleshooting, diagnostics</p>
+<div class="highlight"><pre><span></span><code>/craft:orchestrate<span class="w"> </span><span class="s2">&quot;why is CI failing&quot;</span><span class="w"> </span>debug
+</code></pre></div>
+<h2 id="agent-coordination">Agent Coordination</h2>
+<h3 id="parallel-execution">Parallel Execution</h3>
+<p><strong>Sequential (Old):</strong>
+<div class="highlight"><pre><span></span><code>Agent 1: ████████ (60s)
+Agent 2:         ████████ (60s)
+Agent 3:                 ████████ (60s)
+Total:   ████████████████████████ (180s)
+</code></pre></div></p>
+<p><strong>Parallel (Orchestrator v2):</strong>
+<div class="highlight"><pre><span></span><code>Agent 1: ████████ (60s)
+Agent 2: ████████ (60s)
+Agent 3: ████████ (60s)
+Total:   ████████ (~60s)
+</code></pre></div></p>
+<p><strong>Performance gain:</strong> 3× faster</p>
+<h3 id="agent-communication">Agent Communication</h3>
+<p>Agents can share context and coordinate:</p>
+<div class="highlight"><pre><span></span><code>security-specialist: &quot;SQL injection vulnerability found&quot;
+→ Notifies backend-architect
+
+backend-architect: &quot;Implementing parameterized queries&quot;
+→ Notifies testing-specialist
+
+testing-specialist: &quot;Adding security test cases&quot;
+</code></pre></div>
+<h2 id="monitoring-status">Monitoring &amp; Status</h2>
+<h3 id="status-dashboard">Status Dashboard</h3>
+<div class="highlight"><pre><span></span><code>/craft:orchestrate<span class="w"> </span>status
+</code></pre></div>
+<p><strong>Output:</strong>
+<div class="highlight"><pre><span></span><code>╭──────────────────────────────────────────╮
+│ 📊 Orchestrator Status                   │
+├──────────────────────────────────────────┤
+│                                          │
+│ Active Agents: 3                         │
+│                                          │
+│ ✅ security-specialist    [Complete]     │
+│ 🔄 performance-engineer   [Running 45s]  │
+│ ⏳ testing-specialist     [Queued]       │
+│                                          │
+│ Mode: optimize                           │
+│ Est. completion: 30s                     │
+│                                          │
+╰──────────────────────────────────────────╯
+</code></pre></div></p>
+<h3 id="timeline-view">Timeline View</h3>
+<div class="highlight"><pre><span></span><code>/craft:orchestrate<span class="w"> </span>timeline
+</code></pre></div>
+<p><strong>Visualizes:</strong>
+- Agent start/end times
+- Parallel execution periods
+- Idle time (if any)
+- Total execution time</p>
+<h3 id="context-budget">Context Budget</h3>
+<div class="highlight"><pre><span></span><code>/craft:orchestrate<span class="w"> </span>budget
+</code></pre></div>
+<p><strong>Tracks:</strong>
+- Tokens used per agent
+- Total token consumption
+- Budget remaining
+- Cost estimate</p>
+<h2 id="result-synthesis">Result Synthesis</h2>
+<p>After agents complete, orchestrator synthesizes results:</p>
+<h3 id="synthesis-process">Synthesis Process</h3>
+<ol>
+<li><strong>Collect Results</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>Agent 1: Security audit → No critical issues
+Agent 2: Performance → 2 slow queries
+Agent 3: Tests → 245/245 passing
+</code></pre></div>
+<ol>
+<li><strong>Identify Priorities</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>Critical: None
+Important: Optimize 2 queries
+Optional: Increase coverage
+</code></pre></div>
+<ol>
+<li><strong>Generate Summary</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>╭──────────────────────────────────────────╮
+│ 🎯 Orchestration Complete                │
+├──────────────────────────────────────────┤
+│                                          │
+│ ✅ Security: No vulnerabilities          │
+│ ⚠️  Performance: 2 queries to optimize   │
+│ ✅ Tests: 245/245 passing (85% coverage) │
+│                                          │
+│ 📋 Next Steps:                           │
+│    1. Optimize identified queries        │
+│    2. Increase coverage to 90%           │
+│    3. Ready for staging deployment       │
+│                                          │
+╰──────────────────────────────────────────╯
+</code></pre></div>
+<h2 id="advanced-features">Advanced Features</h2>
+<h3 id="dynamic-agent-selection">Dynamic Agent Selection</h3>
+<p>Orchestrator intelligently selects agents based on:
+- Task pattern
+- Mode
+- Project context
+- Previous results</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code>Task: &quot;add authentication&quot;
+Pattern: FEATURE_IMPLEMENTATION + SECURITY
+Mode: optimize
+
+Selected agents:
+→ backend-architect (API design)
+→ security-specialist (OAuth2/JWT)
+→ testing-specialist (test strategy)
+</code></pre></div></p>
+<h3 id="error-handling">Error Handling</h3>
+<p>If an agent fails, orchestrator continues gracefully:</p>
+<div class="highlight"><pre><span></span><code>Agent 1: ✅ Success
+Agent 2: ❌ Timeout
+Agent 3: ✅ Success
+
+→ Continues with 2 results
+→ Notes &quot;Agent 2 unavailable&quot;
+→ Still provides actionable output
+</code></pre></div>
+<h3 id="resource-management">Resource Management</h3>
+<p>Orchestrator manages:
+- <strong>Token budget:</strong> Prevents context overflow
+- <strong>Time budget:</strong> Respects mode time limits
+- <strong>Agent limits:</strong> Max 4-6 agents simultaneously
+- <strong>Memory:</strong> Efficient result storage</p>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="when-to-use-orchestrator">When to Use Orchestrator</h3>
+<p><strong>Good use cases:</strong>
+- Complex multi-faceted tasks
+- Production readiness checks
+- Comprehensive code reviews
+- Architecture decisions</p>
+<p><strong>Not ideal for:</strong>
+- Simple single-command tasks
+- Quick status checks
+- Narrow focused operations</p>
+<h3 id="mode-selection">Mode Selection</h3>
+<ul>
+<li><strong>Daily work:</strong> Use <code>optimize</code> mode</li>
+<li><strong>Troubleshooting:</strong> Use <code>debug</code> mode</li>
+<li><strong>Release prep:</strong> Use <code>release</code> mode</li>
+<li><strong>Quick tasks:</strong> Skip orchestrator, use direct commands</li>
+</ul>
+<h3 id="monitoring">Monitoring</h3>
+<p>Always check status for long-running tasks:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Start long task</span>
+/craft:orchestrate<span class="w"> </span><span class="s2">&quot;comprehensive audit&quot;</span><span class="w"> </span>release
+
+<span class="c1"># Check progress (separate prompt)</span>
+/craft:orchestrate<span class="w"> </span>status
+
+<span class="c1"># View timeline when complete</span>
+/craft:orchestrate<span class="w"> </span>timeline
+</code></pre></div>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><strong><a href="../commands/">Commands Reference</a></strong> - All commands</li>
+<li><strong><a href="../skills-agents/">Skills &amp; Agents</a></strong> - Agent details</li>
+<li><strong><a href="../architecture/">Architecture Guide</a></strong> - System design</li>
+</ul>
+<hr />
+<p><strong>Last Updated:</strong> 2026-01-09
+<strong>Document Version:</strong> v1.10.0
+<strong>Status:</strong> ✅ Production ready - Multi-agent orchestration and monitoring</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

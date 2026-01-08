@@ -1,0 +1,3723 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../PLUGIN-DEVELOPMENT/">
+      
+      
+        <link rel="next" href="../diagrams/DEPENDENCIES/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Publishing - Claude Code Plugins</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#publishing-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Claude Code Plugins" class="md-header__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Code Plugins
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Publishing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../rforge/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  RForge
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../craft/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Craft
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../workflow/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Workflow
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../statistical-research/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Statistical Research
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../installation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CLAUDE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Developer Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../MODE-USAGE-GUIDE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Mode System
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CICD/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  CI/CD Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../COMMAND-REFERENCE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../PLUGIN-DEVELOPMENT/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Plugin Development
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publishing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../diagrams/DEPENDENCIES/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Claude Code Plugins" class="md-nav__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Claude Code Plugins
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RForge
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rforge/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rforge/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rforge/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rforge/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Craft
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Craft
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../craft/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../craft/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../craft/skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../craft/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../craft/orchestrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orchestrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../craft/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistical Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistical-research/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistical-research/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistical-research/skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistical-research/api-wrappers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Wrappers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistical-research/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLAUDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mode System
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mode System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MODE-USAGE-GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MODE-QUICK-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../COMMAND-CHEATSHEET/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FORMAT-EXAMPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Format Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MCP-INTEGRATION-TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Integration Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../REAL-WORLD-TESTING-RESULTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Real-World Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MODE-SYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CICD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../COMMAND-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLUGIN-DEVELOPMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugin Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publishing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publishing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publishing-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publishing Checklist
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publishing Checklist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Quality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Package Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publishing-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publishing Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publishing Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-prepare-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Prepare Release
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1: Prepare Release">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-update-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Update Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-update-changelogmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Update CHANGELOG.md
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-test-package-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Test Package Contents
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-commit-and-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Commit and Tag
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-publish-to-npm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Publish to npm
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3: Publish to npm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-time-publishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        First-Time Publishing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-create-github-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Create GitHub Release
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versioning-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versioning Strategy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Versioning Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#major-version-x00" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Major Version (X.0.0)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minor-version-1x0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minor Version (1.X.0)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patch-version-10x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Patch Version (1.0.X)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packagejson-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Package.json Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package.json Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimal-packagejson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimal package.json
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#npm-commands-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        npm Commands Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monorepo-publishing-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monorepo Publishing Pattern
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monorepo Publishing Pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#directory-structure-after-publishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Directory Structure After Publishing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-tags-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Tags Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-publishing-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Continuous Publishing (Optional)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Continuous Publishing (Optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-actions-for-npm-publishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Actions for npm Publishing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-you-do-not-have-permission-to-publish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue: "You do not have permission to publish"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-package-already-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue: "Package already exists"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-file-not-found-in-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue: "File not found in package"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-tag-already-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue: Tag already exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-publishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Post-Publishing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-complete-release-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Complete Release Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/DEPENDENCIES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependencies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/ECOSYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/rforge-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/rforge-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/statistical-research-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/statistical-research-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/workflow-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/workflow-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publishing-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publishing Checklist
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publishing Checklist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Quality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Package Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publishing-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publishing Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publishing Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-prepare-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Prepare Release
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1: Prepare Release">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-update-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Update Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-update-changelogmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Update CHANGELOG.md
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-test-package-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Test Package Contents
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-commit-and-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Commit and Tag
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-publish-to-npm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Publish to npm
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3: Publish to npm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-time-publishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        First-Time Publishing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-create-github-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Create GitHub Release
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versioning-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versioning Strategy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Versioning Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#major-version-x00" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Major Version (X.0.0)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minor-version-1x0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minor Version (1.X.0)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patch-version-10x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Patch Version (1.0.X)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packagejson-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Package.json Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package.json Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimal-packagejson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimal package.json
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#npm-commands-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        npm Commands Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monorepo-publishing-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monorepo Publishing Pattern
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monorepo Publishing Pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#directory-structure-after-publishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Directory Structure After Publishing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-tags-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Tags Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-publishing-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Continuous Publishing (Optional)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Continuous Publishing (Optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-actions-for-npm-publishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Actions for npm Publishing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-you-do-not-have-permission-to-publish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue: "You do not have permission to publish"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-package-already-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue: "Package already exists"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-file-not-found-in-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue: "File not found in package"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-tag-already-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue: Tag already exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-publishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Post-Publishing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-complete-release-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Complete Release Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="publishing-guide">Publishing Guide</h1>
+<p>How to publish Claude Code plugins from this monorepo to npm and create GitHub releases.</p>
+<hr />
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>npm account: https://www.npmjs.com/signup</li>
+<li>npm authentication: <code>npm login</code></li>
+<li>Git repository access</li>
+<li>Plugin tested and ready</li>
+</ul>
+<hr />
+<h2 id="publishing-checklist">Publishing Checklist</h2>
+<p>Before publishing, ensure:</p>
+<h3 id="code-quality">Code Quality</h3>
+<ul>
+<li>[ ] All tests passing</li>
+<li>[ ] No lint errors</li>
+<li>[ ] Documentation complete</li>
+<li>[ ] README.md comprehensive</li>
+<li>[ ] Examples working</li>
+</ul>
+<h3 id="package-files">Package Files</h3>
+<ul>
+<li>[ ] <code>package.json</code> version correct</li>
+<li>[ ] <code>package.json</code> files array includes all needed files</li>
+<li>[ ] LICENSE file present (MIT)</li>
+<li>[ ] <code>.gitignore</code> excludes node_modules, etc.</li>
+<li>[ ] No sensitive data in code</li>
+</ul>
+<h3 id="installation">Installation</h3>
+<ul>
+<li>[ ] <code>./scripts/install.sh</code> works (production mode)</li>
+<li>[ ] <code>./scripts/install.sh --dev</code> works (dev mode)</li>
+<li>[ ] <code>./scripts/uninstall.sh</code> works</li>
+<li>[ ] Plugin functions after installation</li>
+</ul>
+<h3 id="version">Version</h3>
+<ul>
+<li>[ ] Version follows semver (X.Y.Z)</li>
+<li>[ ] CHANGELOG.md updated</li>
+<li>[ ] Git tag doesn't exist yet</li>
+</ul>
+<hr />
+<h2 id="publishing-workflow">Publishing Workflow</h2>
+<h3 id="step-1-prepare-release">Step 1: Prepare Release</h3>
+<h4 id="11-update-version">1.1 Update Version</h4>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/projects/dev-tools/claude-plugins/my-plugin
+
+<span class="c1"># Edit package.json</span>
+<span class="c1"># Change version: &quot;1.0.0&quot; → &quot;1.1.0&quot;</span>
+
+<span class="c1"># Or use npm version</span>
+npm<span class="w"> </span>version<span class="w"> </span>minor<span class="w">  </span><span class="c1"># 1.0.0 → 1.1.0</span>
+npm<span class="w"> </span>version<span class="w"> </span>patch<span class="w">  </span><span class="c1"># 1.0.0 → 1.0.1</span>
+npm<span class="w"> </span>version<span class="w"> </span>major<span class="w">  </span><span class="c1"># 1.0.0 → 2.0.0</span>
+</code></pre></div>
+<h4 id="12-update-changelogmd">1.2 Update CHANGELOG.md</h4>
+<div class="highlight"><pre><span></span><code><span class="gh"># Changelog</span>
+
+<span class="gu">## [1.1.0] - 2025-01-15</span>
+
+<span class="gu">### Added</span>
+<span class="k">-</span><span class="w"> </span>New feature X
+<span class="k">-</span><span class="w"> </span>New command Y
+
+<span class="gu">### Fixed</span>
+<span class="k">-</span><span class="w"> </span>Bug Z
+
+<span class="gu">### Changed</span>
+<span class="k">-</span><span class="w"> </span>Improved error messages
+</code></pre></div>
+<h4 id="13-test-package-contents">1.3 Test Package Contents</h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># See what will be published</span>
+npm<span class="w"> </span>pack<span class="w"> </span>--dry-run
+
+<span class="c1"># Create tarball</span>
+npm<span class="w"> </span>pack
+<span class="c1"># Creates: my-plugin-1.1.0.tgz</span>
+
+<span class="c1"># Inspect contents</span>
+tar<span class="w"> </span>-tzf<span class="w"> </span>my-plugin-1.1.0.tgz
+
+<span class="c1"># Test installation from tarball</span>
+npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>./my-plugin-1.1.0.tgz
+</code></pre></div>
+<h3 id="step-2-commit-and-tag">Step 2: Commit and Tag</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Commit changes</span>
+git<span class="w"> </span>add<span class="w"> </span>package.json<span class="w"> </span>CHANGELOG.md
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;chore(my-plugin): release v1.1.0&quot;</span>
+
+<span class="c1"># Create tag</span>
+git<span class="w"> </span>tag<span class="w"> </span>my-plugin-v1.1.0
+
+<span class="c1"># Push commits and tags</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>my-plugin-v1.1.0
+</code></pre></div>
+<p><strong>Note:</strong> Use plugin-specific tags (<code>my-plugin-v1.1.0</code>) to avoid conflicts in monorepo.</p>
+<h3 id="step-3-publish-to-npm">Step 3: Publish to npm</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Login to npm (if not already)</span>
+npm<span class="w"> </span>login
+
+<span class="c1"># Publish (from plugin directory)</span>
+<span class="nb">cd</span><span class="w"> </span>~/projects/dev-tools/claude-plugins/my-plugin
+npm<span class="w"> </span>publish<span class="w"> </span>--access<span class="w"> </span>public
+
+<span class="c1"># Verify publication</span>
+npm<span class="w"> </span>view<span class="w"> </span>@data-wise/my-plugin
+</code></pre></div>
+<h4 id="first-time-publishing">First-Time Publishing</h4>
+<p>For first-time publish of a plugin:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># May need to create organization first</span>
+npm<span class="w"> </span>access<span class="w"> </span>grant<span class="w"> </span>read-write<span class="w"> </span>data-wise:developers<span class="w"> </span>@data-wise/my-plugin
+
+<span class="c1"># Then publish</span>
+npm<span class="w"> </span>publish<span class="w"> </span>--access<span class="w"> </span>public
+</code></pre></div>
+<h3 id="step-4-create-github-release">Step 4: Create GitHub Release</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create release from tag</span>
+gh<span class="w"> </span>release<span class="w"> </span>create<span class="w"> </span>my-plugin-v1.1.0<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--title<span class="w"> </span><span class="s2">&quot;My Plugin v1.1.0&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--notes-file<span class="w"> </span>CHANGELOG.md
+
+<span class="c1"># Or with manual notes</span>
+gh<span class="w"> </span>release<span class="w"> </span>create<span class="w"> </span>my-plugin-v1.1.0<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--title<span class="w"> </span><span class="s2">&quot;My Plugin v1.1.0&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--notes<span class="w"> </span><span class="s2">&quot;Release notes here...&quot;</span>
+
+<span class="c1"># Attach tarball (optional)</span>
+gh<span class="w"> </span>release<span class="w"> </span>upload<span class="w"> </span>my-plugin-v1.1.0<span class="w"> </span>my-plugin-1.1.0.tgz
+</code></pre></div>
+<hr />
+<h2 id="versioning-strategy">Versioning Strategy</h2>
+<p>Follow <a href="https://semver.org/">Semantic Versioning</a>:</p>
+<h3 id="major-version-x00">Major Version (X.0.0)</h3>
+<p><strong>When:</strong> Breaking changes</p>
+<p><strong>Examples:</strong>
+- Removing commands
+- Changing command syntax
+- Removing skills
+- Incompatible API changes</p>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>version<span class="w"> </span>major<span class="w">  </span><span class="c1"># 1.2.3 → 2.0.0</span>
+</code></pre></div>
+<h3 id="minor-version-1x0">Minor Version (1.X.0)</h3>
+<p><strong>When:</strong> New features, backward compatible</p>
+<p><strong>Examples:</strong>
+- Adding new commands
+- Adding new skills
+- New functionality
+- Performance improvements</p>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>version<span class="w"> </span>minor<span class="w">  </span><span class="c1"># 1.2.3 → 1.3.0</span>
+</code></pre></div>
+<h3 id="patch-version-10x">Patch Version (1.0.X)</h3>
+<p><strong>When:</strong> Bug fixes, backward compatible</p>
+<p><strong>Examples:</strong>
+- Fixing bugs
+- Improving error messages
+- Documentation fixes
+- Minor improvements</p>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>version<span class="w"> </span>patch<span class="w">  </span><span class="c1"># 1.2.3 → 1.2.4</span>
+</code></pre></div>
+<hr />
+<h2 id="packagejson-best-practices">Package.json Best Practices</h2>
+<h3 id="minimal-packagejson">Minimal package.json</h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;@data-wise/my-plugin&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Brief description&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;module&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;main&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;index.js&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;bin&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;my-plugin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./scripts/install.sh&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;commands/&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;skills/&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;lib/&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;.claude-plugin/&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;scripts/&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;README.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;LICENSE&quot;</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;install&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./scripts/install.sh&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;uninstall&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./scripts/uninstall.sh&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;keywords&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;claude&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;claude-code&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;plugin&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;your-domain&quot;</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Data-Wise&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;license&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MIT&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;repository&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;git&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/Data-Wise/claude-plugins.git&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;directory&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-plugin&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;bugs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/Data-Wise/claude-plugins/issues&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;homepage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/Data-Wise/claude-plugins/tree/main/my-plugin#readme&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="important-fields">Important Fields</h3>
+<p><strong>files:</strong> Controls what gets published
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;commands/&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;skills/&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;lib/&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;.claude-plugin/&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;scripts/&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;README.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;LICENSE&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>repository.directory:</strong> Points to plugin in monorepo
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;repository&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;git&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/Data-Wise/claude-plugins.git&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;directory&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-plugin&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h2 id="npm-commands-reference">npm Commands Reference</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># View package info</span>
+npm<span class="w"> </span>view<span class="w"> </span>@data-wise/my-plugin
+
+<span class="c1"># View specific field</span>
+npm<span class="w"> </span>view<span class="w"> </span>@data-wise/my-plugin<span class="w"> </span>version
+npm<span class="w"> </span>view<span class="w"> </span>@data-wise/my-plugin<span class="w"> </span>dist.tarball
+
+<span class="c1"># List published versions</span>
+npm<span class="w"> </span>view<span class="w"> </span>@data-wise/my-plugin<span class="w"> </span>versions
+
+<span class="c1"># Check package contents (before publishing)</span>
+npm<span class="w"> </span>pack<span class="w"> </span>--dry-run
+
+<span class="c1"># Publish</span>
+npm<span class="w"> </span>publish<span class="w"> </span>--access<span class="w"> </span>public
+
+<span class="c1"># Unpublish (within 72 hours, use cautiously!)</span>
+npm<span class="w"> </span>unpublish<span class="w"> </span>@data-wise/my-plugin@1.0.0
+
+<span class="c1"># Deprecate version</span>
+npm<span class="w"> </span>deprecate<span class="w"> </span>@data-wise/my-plugin@1.0.0<span class="w"> </span><span class="s2">&quot;Use version 1.1.0 instead&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="monorepo-publishing-pattern">Monorepo Publishing Pattern</h2>
+<p>Since this is a monorepo, each plugin publishes independently:</p>
+<h3 id="directory-structure-after-publishing">Directory Structure After Publishing</h3>
+<div class="highlight"><pre><span></span><code>~/projects/dev-tools/claude-plugins/
+├── plugin-a/
+│   ├── package.json          # version: 1.2.0
+│   └── ...
+├── plugin-b/
+│   ├── package.json          # version: 2.0.0
+│   └── ...
+└── plugin-c/
+    ├── package.json          # version: 1.0.5
+    └── ...
+</code></pre></div>
+<p>Each plugin has its own:
+- Version number
+- npm package
+- Git tags
+- Release notes</p>
+<h3 id="git-tags-pattern">Git Tags Pattern</h3>
+<p>Use plugin-specific prefixes:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Plugin A releases</span>
+git<span class="w"> </span>tag<span class="w"> </span>plugin-a-v1.0.0
+git<span class="w"> </span>tag<span class="w"> </span>plugin-a-v1.1.0
+git<span class="w"> </span>tag<span class="w"> </span>plugin-a-v1.2.0
+
+<span class="c1"># Plugin B releases</span>
+git<span class="w"> </span>tag<span class="w"> </span>plugin-b-v1.0.0
+git<span class="w"> </span>tag<span class="w"> </span>plugin-b-v2.0.0
+
+<span class="c1"># List tags for specific plugin</span>
+git<span class="w"> </span>tag<span class="w"> </span>-l<span class="w"> </span><span class="s2">&quot;plugin-a-*&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="continuous-publishing-optional">Continuous Publishing (Optional)</h2>
+<h3 id="github-actions-for-npm-publishing">GitHub Actions for npm Publishing</h3>
+<p>Create <code>.github/workflows/publish-plugin.yml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Publish Plugin</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;*-v*&#39;</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">publish</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v3</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;18&#39;</span>
+<span class="w">          </span><span class="nt">registry-url</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;https://registry.npmjs.org&#39;</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Extract plugin name</span>
+<span class="w">        </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">plugin</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">TAG=${GITHUB_REF#refs/tags/}</span>
+<span class="w">          </span><span class="no">PLUGIN=${TAG%-v*}</span>
+<span class="w">          </span><span class="no">echo &quot;name=$PLUGIN&quot; &gt;&gt; $GITHUB_OUTPUT</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Publish to npm</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">cd ${{ steps.plugin.outputs.name }}</span>
+<span class="w">          </span><span class="no">npm publish --access public</span>
+<span class="w">        </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">NODE_AUTH_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.NPM_TOKEN }}</span>
+</code></pre></div>
+<p><strong>Setup:</strong>
+1. Create npm token: https://www.npmjs.com/settings/your-username/tokens
+2. Add to GitHub secrets: Settings → Secrets → NPM_TOKEN
+3. Push tag triggers publish</p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="issue-you-do-not-have-permission-to-publish">Issue: "You do not have permission to publish"</h3>
+<p><strong>Cause:</strong> Not logged in or wrong organization</p>
+<p><strong>Fix:</strong>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>login
+npm<span class="w"> </span>whoami<span class="w">  </span><span class="c1"># Verify logged in</span>
+
+<span class="c1"># For organization packages</span>
+npm<span class="w"> </span>access<span class="w"> </span>grant<span class="w"> </span>read-write<span class="w"> </span>data-wise:developers<span class="w"> </span>@data-wise/my-plugin
+</code></pre></div></p>
+<h3 id="issue-package-already-exists">Issue: "Package already exists"</h3>
+<p><strong>Cause:</strong> Version already published</p>
+<p><strong>Fix:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Increment version</span>
+npm<span class="w"> </span>version<span class="w"> </span>patch
+npm<span class="w"> </span>publish<span class="w"> </span>--access<span class="w"> </span>public
+</code></pre></div></p>
+<h3 id="issue-file-not-found-in-package">Issue: "File not found in package"</h3>
+<p><strong>Cause:</strong> File not listed in <code>files</code> array</p>
+<p><strong>Fix:</strong> Add to package.json:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;missing-file.js&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h3 id="issue-tag-already-exists">Issue: Tag already exists</h3>
+<p><strong>Cause:</strong> Git tag conflicts</p>
+<p><strong>Fix:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Delete local tag</span>
+git<span class="w"> </span>tag<span class="w"> </span>-d<span class="w"> </span>my-plugin-v1.0.0
+
+<span class="c1"># Delete remote tag</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>:refs/tags/my-plugin-v1.0.0
+
+<span class="c1"># Create correct tag</span>
+git<span class="w"> </span>tag<span class="w"> </span>my-plugin-v1.0.1
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>my-plugin-v1.0.1
+</code></pre></div></p>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<ol>
+<li><strong>Test before publishing</strong></li>
+<li>Always <code>npm pack</code> and test tarball</li>
+<li>
+<p>Install from tarball and verify</p>
+</li>
+<li>
+<p><strong>Semantic versioning</strong></p>
+</li>
+<li>Follow semver strictly</li>
+<li>
+<p>Major for breaking, minor for features, patch for fixes</p>
+</li>
+<li>
+<p><strong>Changelog maintenance</strong></p>
+</li>
+<li>Update CHANGELOG.md before each release</li>
+<li>
+<p>List all changes clearly</p>
+</li>
+<li>
+<p><strong>Tag naming</strong></p>
+</li>
+<li>Use plugin-specific prefixes</li>
+<li>
+<p>Format: <code>plugin-name-v1.0.0</code></p>
+</li>
+<li>
+<p><strong>Git hygiene</strong></p>
+</li>
+<li>Commit before tagging</li>
+<li>
+<p>Push commits and tags together</p>
+</li>
+<li>
+<p><strong>npm package size</strong></p>
+</li>
+<li>Keep package small</li>
+<li>Exclude dev files (tests, docs)</li>
+<li>
+<p>Use <code>.npmignore</code> if needed</p>
+</li>
+<li>
+<p><strong>Documentation</strong></p>
+</li>
+<li>README.md is the first thing users see</li>
+<li>Include examples and quick start</li>
+</ol>
+<hr />
+<h2 id="post-publishing">Post-Publishing</h2>
+<p>After publishing:</p>
+<ol>
+<li><strong>Announce release</strong></li>
+<li>Update main README.md</li>
+<li>Post in discussions</li>
+<li>
+<p>Tweet/share if desired</p>
+</li>
+<li>
+<p><strong>Monitor issues</strong></p>
+</li>
+<li>Watch for bug reports</li>
+<li>Respond to questions</li>
+<li>
+<p>Plan next version</p>
+</li>
+<li>
+<p><strong>Update documentation</strong></p>
+</li>
+<li>Keep docs in sync with code</li>
+<li>
+<p>Add new examples</p>
+</li>
+<li>
+<p><strong>Track usage</strong></p>
+</li>
+<li>npm download stats</li>
+<li>GitHub stars/forks</li>
+<li>User feedback</li>
+</ol>
+<hr />
+<h2 id="example-complete-release-workflow">Example: Complete Release Workflow</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Prepare release</span>
+<span class="nb">cd</span><span class="w"> </span>~/projects/dev-tools/claude-plugins/statistical-research
+
+<span class="c1"># 2. Update version</span>
+npm<span class="w"> </span>version<span class="w"> </span>minor<span class="w">  </span><span class="c1"># 1.0.0 → 1.1.0</span>
+
+<span class="c1"># 3. Update changelog</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;## [1.1.0] - </span><span class="k">$(</span>date<span class="w"> </span>+%Y-%m-%d<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>CHANGELOG.md
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;### Added&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>CHANGELOG.md
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;- New feature X&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>CHANGELOG.md
+
+<span class="c1"># 4. Test package</span>
+npm<span class="w"> </span>pack
+npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>./statistical-research-plugin-1.1.0.tgz
+<span class="c1"># Test it works...</span>
+
+<span class="c1"># 5. Commit</span>
+git<span class="w"> </span>add<span class="w"> </span>package.json<span class="w"> </span>CHANGELOG.md
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;chore(statistical-research): release v1.1.0&quot;</span>
+
+<span class="c1"># 6. Tag</span>
+git<span class="w"> </span>tag<span class="w"> </span>statistical-research-v1.1.0
+
+<span class="c1"># 7. Push</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>statistical-research-v1.1.0
+
+<span class="c1"># 8. Publish to npm</span>
+npm<span class="w"> </span>publish<span class="w"> </span>--access<span class="w"> </span>public
+
+<span class="c1"># 9. Create GitHub release</span>
+gh<span class="w"> </span>release<span class="w"> </span>create<span class="w"> </span>statistical-research-v1.1.0<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--title<span class="w"> </span><span class="s2">&quot;Statistical Research Plugin v1.1.0&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--notes<span class="w"> </span><span class="s2">&quot;See CHANGELOG.md for details&quot;</span>
+
+<span class="c1"># Done!</span>
+</code></pre></div>
+<hr />
+<p>See also:
+- <a href="https://docs.npmjs.com/">npm Documentation</a>
+- <a href="https://semver.org/">Semantic Versioning</a>
+- <a href="https://docs.github.com/en/repositories/releasing-projects-on-github">GitHub Releases</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

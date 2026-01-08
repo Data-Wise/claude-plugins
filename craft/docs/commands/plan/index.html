@@ -1,0 +1,3355 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Planning Commands - Claude Code Plugins</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#planning-commands" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Claude Code Plugins" class="md-header__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Code Plugins
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Planning Commands
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../rforge/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  RForge
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Craft
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../workflow/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Workflow
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../statistical-research/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Statistical Research
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../installation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../CLAUDE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Developer Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../MODE-USAGE-GUIDE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Mode System
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../CICD/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  CI/CD Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../COMMAND-REFERENCE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../PLUGIN-DEVELOPMENT/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Plugin Development
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../PUBLISHING/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publishing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../diagrams/DEPENDENCIES/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Claude Code Plugins" class="md-nav__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Claude Code Plugins
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RForge
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../rforge/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../rforge/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../rforge/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../rforge/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Craft
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Craft
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../orchestrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orchestrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../workflow/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../workflow/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../workflow/skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../workflow/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistical Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../statistical-research/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../statistical-research/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../statistical-research/skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../statistical-research/api-wrappers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Wrappers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../statistical-research/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CLAUDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mode System
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mode System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MODE-USAGE-GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MODE-QUICK-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../COMMAND-CHEATSHEET/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../FORMAT-EXAMPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Format Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MCP-INTEGRATION-TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Integration Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../REAL-WORLD-TESTING-RESULTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Real-World Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MODE-SYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CICD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../COMMAND-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../PLUGIN-DEVELOPMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugin Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../PUBLISHING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publishing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../diagrams/DEPENDENCIES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependencies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../diagrams/ECOSYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../diagrams/rforge-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../diagrams/rforge-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../diagrams/statistical-research-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../diagrams/statistical-research-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../diagrams/workflow-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../diagrams/workflow-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#commands-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#craftplanfeature-feature-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /craft:plan:feature - Feature Planning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="/craft:plan:feature - Feature Planning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-it-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What It Does
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-mvp-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: MVP Scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-full-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Full Scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export Formats
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#craftplansprint-sprint-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /craft:plan:sprint - Sprint Planning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="/craft:plan:sprint - Sprint Planning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-start_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-it-does_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What It Does
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-week-sprint-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1-Week Sprint Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#craftplanroadmap-roadmap-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /craft:plan:roadmap - Roadmap Creation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="/craft:plan:roadmap - Roadmap Creation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-start_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-it-does_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What It Does
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-6-month-roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: 6-Month Roadmap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quarterly-roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quarterly Roadmap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#html-format-with-styling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTML Format with Styling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow-1-plan-and-deliver-a-feature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 1: Plan and Deliver a Feature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-2-plan-full-sprint-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 2: Plan Full Sprint Cycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-3-create-quarterly-roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 3: Create Quarterly Roadmap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-4-enterprise-scoping-mvp-full-enterprise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 4: Enterprise Scoping (MVP → Full → Enterprise)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-other-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration with Other Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learn-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learn More
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="planning-commands">Planning Commands</h1>
+<p>⏱️ <strong>15 minutes</strong> • 🟡 Intermediate • ✓ Project planning and roadmaps</p>
+<blockquote>
+<p><strong>TL;DR</strong> (30 seconds)
+- <strong>What:</strong> 3 commands for feature planning, sprint organization, and roadmap creation
+- <strong>Why:</strong> Break down features into tasks, organize team capacity, and visualize long-term project direction
+- <strong>How:</strong> Use <code>/craft:plan:feature</code> to plan individual features, <code>/craft:plan:sprint</code> for iteration planning, <code>/craft:plan:roadmap</code> for timeline visualization
+- <strong>Next:</strong> Try <code>/craft:plan:feature "your feature description"</code> to see a structured plan</p>
+</blockquote>
+<p>Craft's planning commands help you organize work, estimate effort, identify dependencies, and communicate project direction with AI-powered task breakdown and timeline visualization.</p>
+<hr />
+<h2 id="commands-overview">Commands Overview</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+<th>Time (default)</th>
+<th>Focus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/craft:plan:feature</code></td>
+<td>Feature breakdown and scoping</td>
+<td>&lt; 60s</td>
+<td>User stories, tasks, acceptance criteria</td>
+</tr>
+<tr>
+<td><code>/craft:plan:sprint</code></td>
+<td>Sprint planning and capacity</td>
+<td>&lt; 90s</td>
+<td>Prioritization, team capacity, goals</td>
+</tr>
+<tr>
+<td><code>/craft:plan:roadmap</code></td>
+<td>Long-term roadmap creation</td>
+<td>&lt; 120s</td>
+<td>Milestones, phases, timeline visualization</td>
+</tr>
+</tbody>
+</table>
+<p>All commands support flexible scoping (MVP/full/enterprise) and multiple output formats.</p>
+<hr />
+<h2 id="craftplanfeature-feature-planning"><code>/craft:plan:feature</code> - Feature Planning</h2>
+<p>Break down features into actionable tasks with estimates, dependencies, and acceptance criteria.</p>
+<h3 id="quick-start">Quick Start</h3>
+<div class="highlight"><pre><span></span><code>/craft:plan:feature<span class="w"> </span><span class="s2">&quot;user profile page with avatar upload&quot;</span>
+/craft:plan:feature<span class="w"> </span><span class="s2">&quot;search functionality&quot;</span><span class="w"> </span>--scope<span class="w"> </span>mvp
+/craft:plan:feature<span class="w"> </span><span class="s2">&quot;payment integration&quot;</span><span class="w"> </span>--include-tests
+/craft:plan:feature<span class="w"> </span><span class="s2">&quot;notifications&quot;</span><span class="w"> </span>--format<span class="w"> </span>github<span class="w"> </span>--output<span class="w"> </span>PLAN.md
+</code></pre></div>
+<h3 id="options">Options</h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Values</th>
+<th>Default</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--scope</code></td>
+<td>mvp, full, enterprise</td>
+<td>full</td>
+<td>Planning scope</td>
+</tr>
+<tr>
+<td><code>--format</code></td>
+<td>markdown, jira, github</td>
+<td>markdown</td>
+<td>Output format</td>
+</tr>
+<tr>
+<td><code>--output</code></td>
+<td>filename</td>
+<td>stdout</td>
+<td>Save to file</td>
+</tr>
+<tr>
+<td><code>--include-tests</code></td>
+<td>boolean</td>
+<td>false</td>
+<td>Include test planning</td>
+</tr>
+</tbody>
+</table>
+<h3 id="what-it-does">What It Does</h3>
+<ol>
+<li><strong>Analyzes feature request</strong> and project context</li>
+<li><strong>Creates user stories</strong> in "who, what, why" format</li>
+<li><strong>Breaks into tasks</strong> with time estimates (hours)</li>
+<li><strong>Identifies dependencies</strong> and blocking items</li>
+<li><strong>Lists risks</strong> and mitigation strategies</li>
+<li><strong>Defines acceptance criteria</strong> for completion</li>
+</ol>
+<h3 id="example-mvp-scope">Example: MVP Scope</h3>
+<div class="highlight"><pre><span></span><code>/craft:plan:feature<span class="w"> </span><span class="s2">&quot;user authentication&quot;</span><span class="w"> </span>--scope<span class="w"> </span>mvp
+</code></pre></div>
+<p><strong>Output:</strong></p>
+<div class="highlight"><pre><span></span><code>Feature Plan: User Authentication (MVP)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+User Stories:
+  1. As a user, I want to create an account so I can access the app
+  2. As a user, I want to log in with email/password
+  3. As a user, I want to reset my password if I forget it
+
+Tasks:
+
+  Backend (10 hours)
+  ├── [ ] Create user model and database (2h)
+  ├── [ ] Implement password hashing (1h)
+  ├── [ ] Build sign-up API endpoint (2h)
+  ├── [ ] Build login API endpoint (2h)
+  ├── [ ] Implement session management (2h)
+  └── [ ] Add password reset flow (1h)
+
+  Frontend (8 hours)
+  ├── [ ] Create sign-up form component (2h)
+  ├── [ ] Create login form component (2h)
+  ├── [ ] Add form validation (1h)
+  ├── [ ] Implement error handling (1h)
+  ├── [ ] Add password reset modal (2h)
+
+  Testing (3 hours)
+  ├── [ ] Write backend tests (2h)
+  └── [ ] Write frontend tests (1h)
+
+Dependencies:
+  - Database must be set up first
+  - Auth system is blocking social features
+
+Risks:
+  ⚠ Password reset email delivery might fail
+  ⚠ Rate limiting needed for login attempts
+  ⚠ Password complexity requirements TBD
+
+Acceptance Criteria:
+  ✓ User can sign up with valid email/password
+  ✓ User can log in with correct credentials
+  ✓ Session persists across page refresh
+  ✓ User can reset password via email link
+  ✓ Invalid credentials show clear error
+  ✓ All tests pass (&gt; 90% coverage)
+
+Total Estimate: 21 hours (2.5-3 days)
+Effort Level: ⚡ Low-Medium
+</code></pre></div>
+<h3 id="example-full-scope">Example: Full Scope</h3>
+<div class="highlight"><pre><span></span><code>/craft:plan:feature<span class="w"> </span><span class="s2">&quot;user profile management&quot;</span><span class="w"> </span>--scope<span class="w"> </span>full<span class="w"> </span>--include-tests
+</code></pre></div>
+<p><strong>Output:</strong></p>
+<div class="highlight"><pre><span></span><code>Feature Plan: User Profile Management (Full)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+User Stories:
+  1. As a user, I want to view my complete profile
+  2. As a user, I want to upload and customize my avatar
+  3. As a user, I want to edit my personal information
+  4. As a user, I want to manage privacy settings
+  5. As a user, I want to see my activity history
+  6. As a user, I want to manage connected accounts
+
+Tasks:
+
+  Backend (18 hours)
+  ├── [ ] Create profile schema with all fields (2h)
+  ├── [ ] Build profile retrieval endpoint (1h)
+  ├── [ ] Build profile update endpoint (2h)
+  ├── [ ] Implement avatar upload handler (2h)
+  ├── [ ] Add image optimization/resizing (2h)
+  ├── [ ] Build activity logging system (3h)
+  ├── [ ] Implement privacy settings (2h)
+  ├── [ ] Add connected accounts management (2h)
+
+  Frontend (14 hours)
+  ├── [ ] Create profile view page (3h)
+  ├── [ ] Build avatar upload widget (2h)
+  ├── [ ] Create edit profile form (3h)
+  ├── [ ] Implement privacy controls (2h)
+  ├── [ ] Build activity history view (2h)
+  ├── [ ] Create account connections UI (2h)
+
+  Infrastructure (4 hours)
+  ├── [ ] Set up S3 bucket for avatars (1h)
+  ├── [ ] Configure CDN with cache invalidation (2h)
+  ├── [ ] Set up image processing queue (1h)
+
+  Testing (8 hours)
+  ├── [ ] Write backend API tests (3h)
+  ├── [ ] Write frontend component tests (2h)
+  ├── [ ] Integration tests (2h)
+  ├── [ ] Load test image uploads (1h)
+
+Dependencies:
+  - User authentication must be complete
+  - S3 bucket setup needed before upload
+  - Image processing library selection
+
+Risks:
+  ⚠ Image upload file size limits
+  ⚠ CDN cache invalidation for avatar changes
+  ⚠ Privacy settings complexity
+  ⚠ Large file upload performance
+
+Acceptance Criteria:
+  ✓ User can view complete profile with all fields
+  ✓ Avatar upload works (jpg, png, max 10MB)
+  ✓ Images auto-resize and optimize
+  ✓ Avatar displays in header, profile, comments
+  ✓ User can edit all profile information
+  ✓ Privacy settings control visibility
+  ✓ Activity history shows recent actions
+  ✓ Connected accounts can be added/removed
+  ✓ All tests pass (&gt; 85% coverage)
+  ✓ Avatar CDN serves cached optimized images
+
+Total Estimate: 44 hours (5-6 days)
+Effort Level: 🔧 Medium
+</code></pre></div>
+<h3 id="export-formats">Export Formats</h3>
+<p><strong>GitHub Format:</strong>
+<div class="highlight"><pre><span></span><code>/craft:plan:feature<span class="w"> </span><span class="s2">&quot;search&quot;</span><span class="w"> </span>--format<span class="w"> </span>github<span class="w"> </span>--output<span class="w"> </span>search-plan.md
+<span class="c1"># Creates GitHub issue template with task list</span>
+</code></pre></div></p>
+<p><strong>Jira Format:</strong>
+<div class="highlight"><pre><span></span><code>/craft:plan:feature<span class="w"> </span><span class="s2">&quot;search&quot;</span><span class="w"> </span>--format<span class="w"> </span>jira
+<span class="c1"># Creates epic/story structure for Jira import</span>
+</code></pre></div></p>
+<hr />
+<h2 id="craftplansprint-sprint-planning"><code>/craft:plan:sprint</code> - Sprint Planning</h2>
+<p>Plan team capacity, prioritize backlog items, and create sprint goals with dependencies mapped.</p>
+<h3 id="quick-start_1">Quick Start</h3>
+<div class="highlight"><pre><span></span><code>/craft:plan:sprint<span class="w">                          </span><span class="c1"># Plan next sprint</span>
+/craft:plan:sprint<span class="w"> </span>--duration<span class="w"> </span><span class="m">7</span><span class="w">             </span><span class="c1"># 1-week sprint</span>
+/craft:plan:sprint<span class="w"> </span>--capacity<span class="w"> </span><span class="m">80</span><span class="w">            </span><span class="c1"># Set team capacity</span>
+/craft:plan:sprint<span class="w"> </span>--goal<span class="w"> </span><span class="s2">&quot;Complete auth&quot;</span><span class="w">   </span><span class="c1"># Set sprint goal</span>
+/craft:plan:sprint<span class="w"> </span>--from<span class="w"> </span>github<span class="w">            </span><span class="c1"># Import from GitHub</span>
+</code></pre></div>
+<h3 id="options_1">Options</h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Values</th>
+<th>Default</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--duration</code></td>
+<td>7, 14, 21</td>
+<td>14</td>
+<td>Sprint length in days</td>
+</tr>
+<tr>
+<td><code>--capacity</code></td>
+<td>hours</td>
+<td>auto-detect</td>
+<td>Available team hours</td>
+</tr>
+<tr>
+<td><code>--goal</code></td>
+<td>text</td>
+<td>auto-detect</td>
+<td>Sprint goal statement</td>
+</tr>
+<tr>
+<td><code>--from</code></td>
+<td>github, jira, file</td>
+<td>auto</td>
+<td>Import work items</td>
+</tr>
+<tr>
+<td><code>--output</code></td>
+<td>filename</td>
+<td>stdout</td>
+<td>Save sprint plan</td>
+</tr>
+</tbody>
+</table>
+<h3 id="what-it-does_1">What It Does</h3>
+<ol>
+<li><strong>Gathers pending work</strong> from issues, PRs, and backlog</li>
+<li><strong>Estimates capacity</strong> based on team availability</li>
+<li><strong>Prioritizes items</strong> by value and dependencies</li>
+<li><strong>Assigns to sprint</strong> respecting capacity</li>
+<li><strong>Creates sprint goal</strong> summarizing focus</li>
+<li><strong>Maps dependencies</strong> and risks</li>
+</ol>
+<h3 id="example-output">Example Output</h3>
+<div class="highlight"><pre><span></span><code>/craft:plan:sprint<span class="w"> </span>--duration<span class="w"> </span><span class="m">14</span><span class="w"> </span>--capacity<span class="w"> </span><span class="m">80</span><span class="w"> </span>--goal<span class="w"> </span><span class="s2">&quot;User authentication and profile&quot;</span>
+</code></pre></div>
+<p><strong>Output:</strong></p>
+<div class="highlight"><pre><span></span><code>Sprint Plan: Sprint 25 (Jan 6-19)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Sprint Goal:
+  Complete user authentication, profile management, and core API endpoints
+  for public beta launch (v0.1.0)
+
+Team Capacity: 80 hours available
+Sprint Duration: 14 days (2 weeks)
+
+COMMITTED ITEMS (64 hours = 80% capacity)
+
+High Priority [40 hours]
+├── #142 User authentication (email/password)     16h ⚡ Core blocker
+├── #143 User profile management                  14h ⚡ Core blocker
+└── #144 Basic API documentation                  10h 📚 Essential
+
+Medium Priority [24 hours]
+├── #145 Email notifications                       8h ⏰ Nice-to-have
+├── #146 Activity logging                          8h 📊 Analytics
+└── #147 Search functionality                      8h 🔍 Planned v0.2
+
+STRETCH GOALS (16 hours = 20% capacity)
+├── #148 Two-factor authentication setup           8h 🔐 Security
+└── #149 API rate limiting                         8h ⚡ Performance
+
+Sprint Metrics:
+  Total Story Points: 34
+  Committed Points: 28 (82%)
+  Stretch Points: 6 (18%)
+  Velocity: ~28 points/sprint (trend)
+
+Dependencies &amp; Blockers:
+  🔴 #142 (Auth) blocks #143, #145, #146
+  🟡 #144 (Docs) needs #142 + #143 complete
+  ℹ️  #149 (Rate limits) external API review needed
+
+Risks:
+  ⚠ OAuth provider integration may take longer than estimated
+  ⚠ Email service reliability in staging
+  ⚠ Team member time off (Wed 1/10)
+
+Team Assignments (Placeholder):
+  Frontend:  #143, #145, #147
+  Backend:   #142, #144, #146, #149
+  DevOps:    #144 (infra tasks)
+
+Daily Standup:
+  Time: 10:00 AM
+  Duration: 15 minutes
+  Format: What completed? What&#39;s blocking? Help needed?
+
+Sprint Board:
+  To Do:      8 items
+  In Progress: 0 items
+  Testing:    0 items
+  Done:       0 items
+
+Next Sprint (Sprint 26):
+  Estimated: #148, #149, and v0.2 features
+</code></pre></div>
+<h3 id="1-week-sprint-example">1-Week Sprint Example</h3>
+<div class="highlight"><pre><span></span><code>/craft:plan:sprint<span class="w"> </span>--duration<span class="w"> </span><span class="m">7</span><span class="w"> </span>--capacity<span class="w"> </span><span class="m">40</span>
+</code></pre></div>
+<p><strong>Output:</strong>
+<div class="highlight"><pre><span></span><code>Sprint Plan: Sprint 26 (Dec 9-15)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Sprint Goal: Bugfix and performance optimization sprint
+
+Team Capacity: 40 hours (1 person)
+
+Committed Items:
+  #201 Fix login page layout         4h
+  #202 Optimize database queries     6h
+  #203 Add error logging             4h
+  #204 Update dependencies           4h
+  #205 Code review cleanup           4h
+  #206 Performance profiling         4h
+
+(40 hours total - 100% capacity)
+
+Metrics: 6 items, high focus, low risk
+</code></pre></div></p>
+<hr />
+<h2 id="craftplanroadmap-roadmap-creation"><code>/craft:plan:roadmap</code> - Roadmap Creation</h2>
+<p>Generate project roadmaps with milestones, phases, timelines, and feature grouping.</p>
+<h3 id="quick-start_2">Quick Start</h3>
+<div class="highlight"><pre><span></span><code>/craft:plan:roadmap<span class="w">                         </span><span class="c1"># 6-month roadmap</span>
+/craft:plan:roadmap<span class="w"> </span>--horizon<span class="w"> </span><span class="m">3</span><span class="w">             </span><span class="c1"># Quarterly (3-month)</span>
+/craft:plan:roadmap<span class="w"> </span>--format<span class="w"> </span>mermaid<span class="w">        </span><span class="c1"># Generate diagram</span>
+/craft:plan:roadmap<span class="w"> </span>--output<span class="w"> </span>ROADMAP.md<span class="w">     </span><span class="c1"># Save to file</span>
+/craft:plan:roadmap<span class="w"> </span>--update<span class="w">                </span><span class="c1"># Update existing</span>
+</code></pre></div>
+<h3 id="options_2">Options</h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Values</th>
+<th>Default</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--horizon</code></td>
+<td>1-12</td>
+<td>6</td>
+<td>Planning horizon (months)</td>
+</tr>
+<tr>
+<td><code>--format</code></td>
+<td>markdown, mermaid, html</td>
+<td>markdown</td>
+<td>Output format</td>
+</tr>
+<tr>
+<td><code>--output</code></td>
+<td>filename</td>
+<td>stdout</td>
+<td>Save roadmap to file</td>
+</tr>
+<tr>
+<td><code>--update</code></td>
+<td>boolean</td>
+<td>false</td>
+<td>Update existing ROADMAP.md</td>
+</tr>
+<tr>
+<td><code>--include-risks</code></td>
+<td>boolean</td>
+<td>true</td>
+<td>Include risk analysis</td>
+</tr>
+</tbody>
+</table>
+<h3 id="what-it-does_2">What It Does</h3>
+<ol>
+<li><strong>Analyzes project state</strong> and planned features</li>
+<li><strong>Organizes into phases</strong> with realistic timelines</li>
+<li><strong>Creates milestones</strong> for major releases</li>
+<li><strong>Groups features</strong> by theme</li>
+<li><strong>Maps dependencies</strong> across phases</li>
+<li><strong>Estimates timelines</strong> based on effort</li>
+</ol>
+<h3 id="example-6-month-roadmap">Example: 6-Month Roadmap</h3>
+<div class="highlight"><pre><span></span><code>/craft:plan:roadmap<span class="w"> </span>--horizon<span class="w"> </span><span class="m">6</span><span class="w"> </span>--output<span class="w"> </span>ROADMAP.md
+</code></pre></div>
+<p><strong>Output:</strong></p>
+<div class="highlight"><pre><span></span><code>Project Roadmap: 6-Month Plan (Jan-Jun 2025)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PHASE 1: Foundation (January 2025)
+├── Milestone: v0.1 - Core Platform Launch
+│   └── Target: Jan 31
+│
+│   User Authentication        ████████░░ 80% (2 weeks left)
+│   ├── Email/password signup
+│   ├── Session management
+│   └── Password reset flow
+│
+│   Profile Management         ██████░░░░ 60% (3 weeks left)
+│   ├── User profiles
+│   ├── Avatar upload
+│   └── Edit information
+│
+│   Basic API                  ██████████ 100% ✓ Complete
+│   ├── REST endpoints
+│   ├── Rate limiting
+│   └── Documentation
+
+Timeline: ▓▓▓░░░░░░░░░░░░░ 20% complete
+Status: On track for Jan 31 launch
+
+---
+
+PHASE 2: Core Features (Feb-Mar 2025)
+├── Milestone: v0.2 - Social Features (Target: Feb 28)
+│   Social Connections         ░░░░░░░░░░ 0%
+│   ├── Follow/unfollow users
+│   ├── Friend requests
+│   └── Friend management
+│
+│   Activity Stream            ░░░░░░░░░░ 0%
+│   ├── User activity feed
+│   ├── Post comments
+│   └── Like/reaction system
+│
+├── Milestone: v0.3 - Notifications (Target: Mar 31)
+│   Real-time Notifications    ░░░░░░░░░░ 0%
+│   ├── Web socket setup
+│   ├── Push notifications
+│   └── Notification center
+
+Timeline: ▓░░░░░░░░░░░░░░░░░ 5% (planning phase)
+Status: Detailed planning in Sprint 26
+
+---
+
+PHASE 3: Monetization (Apr 2025)
+├── Milestone: v0.4 - Premium Features (Target: Apr 30)
+│   Payment Integration        ░░░░░░░░░░ 0%
+│   ├── Stripe setup
+│   ├── Subscription billing
+│   └── Premium features unlock
+│
+│   Advertising System         ░░░░░░░░░░ 0%
+│   ├── Ad placement API
+│   ├── Revenue tracking
+│   └── Admin dashboard
+
+Timeline: ░░░░░░░░░░░░░░░░░░ 0% (future planning)
+Status: In roadmap, not scheduled yet
+
+---
+
+PHASE 4: Scale (May-Jun 2025)
+├── Milestone: v1.0 - Enterprise Ready (Target: Jun 30)
+│   Team/Organization         ░░░░░░░░░░ 0%
+│   ├── Team management
+│   ├── Role-based access
+│   └── Organization settings
+│
+│   Advanced Analytics         ░░░░░░░░░░ 0%
+│   ├── User metrics
+│   ├── Performance analytics
+│   └── Custom reports
+│
+│   Security &amp; Compliance      ░░░░░░░░░░ 0%
+│   ├── Two-factor auth
+│   ├── Audit logs
+│   └── Data export/delete
+
+Timeline: ░░░░░░░░░░░░░░░░░░ 0% (future planning)
+Status: Enterprise roadmap, TBD
+
+---
+
+Key Dependencies:
+  • v0.1 must complete before v0.2
+  • Payment requires legal review (2-3 weeks)
+  • Enterprise security audit needed before v1.0
+
+Critical Risks:
+  ⚠ Q1 holidays may delay v0.1 by 1-2 weeks
+  ⚠ Third-party OAuth reliability TBD
+  ⚠ Payment provider choice not finalized
+  ⚠ Enterprise customer feedback missing
+
+Timeline Visualization:
+
+       Jan      Feb      Mar      Apr      May      Jun
+       |        |        |        |        |        |
+  ├────┼────────┼────────┼────────┼────────┼────────┤
+  [v0.1]
+       [   v0.2    ]
+                    [v0.3]
+                         [  v0.4  ]
+                              [ v1.0 (enterprise) ]
+
+Next Actions:
+  1. Finalize Phase 1 delivery (2 weeks)
+  2. Start Phase 2 planning (Jan 24)
+  3. Begin OAuth provider evaluation
+  4. Schedule payment provider research
+</code></pre></div>
+<h3 id="quarterly-roadmap">Quarterly Roadmap</h3>
+<div class="highlight"><pre><span></span><code>/craft:plan:roadmap<span class="w"> </span>--horizon<span class="w"> </span><span class="m">3</span><span class="w"> </span>--format<span class="w"> </span>mermaid
+</code></pre></div>
+<p><strong>Output (Mermaid):</strong></p>
+<pre class="mermaid"><code>timeline
+  title Quarterly Roadmap (Q1 2025)
+
+  January : User Authentication (v0.1)
+    : Profile Management
+    : Basic API
+
+  February : Social Features (v0.2)
+    : Activity Feeds
+    : Following System
+
+  March : Notifications (v0.3)
+    : Real-time System
+    : Push Notifications
+    : Email Digest</code></pre>
+<h3 id="html-format-with-styling">HTML Format with Styling</h3>
+<div class="highlight"><pre><span></span><code>/craft:plan:roadmap<span class="w"> </span>--horizon<span class="w"> </span><span class="m">6</span><span class="w"> </span>--format<span class="w"> </span>html<span class="w"> </span>--output<span class="w"> </span>roadmap.html
+</code></pre></div>
+<p>Creates interactive HTML roadmap with:
+- Collapsible sections
+- Progress bars
+- Dependency visualization
+- Hover-over details
+- Print-friendly styling</p>
+<hr />
+<h2 id="common-workflows">Common Workflows</h2>
+<h3 id="workflow-1-plan-and-deliver-a-feature">Workflow 1: Plan and Deliver a Feature</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Step 1: Plan the feature</span>
+/craft:plan:feature<span class="w"> </span><span class="s2">&quot;search functionality&quot;</span><span class="w"> </span>--scope<span class="w"> </span>mvp<span class="w"> </span>--include-tests
+
+<span class="c1"># Step 2: Create feature branch</span>
+/craft:git:branch<span class="w"> </span>feature/search
+
+<span class="c1"># Step 3: Assign to sprint</span>
+/craft:plan:sprint<span class="w"> </span>--goal<span class="w"> </span><span class="s2">&quot;Add search to v0.2&quot;</span>
+
+<span class="c1"># Step 4: Work through tasks</span>
+<span class="c1"># (implement, test, review)</span>
+
+<span class="c1"># Step 5: Verify against acceptance criteria</span>
+/craft:test:run
+
+<span class="c1"># Step 6: Merge and celebrate</span>
+git<span class="w"> </span>merge<span class="w"> </span>feature/search
+</code></pre></div>
+<h3 id="workflow-2-plan-full-sprint-cycle">Workflow 2: Plan Full Sprint Cycle</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Monday: Plan sprint</span>
+/craft:plan:sprint<span class="w"> </span>--duration<span class="w"> </span><span class="m">7</span><span class="w"> </span>--capacity<span class="w"> </span><span class="m">40</span><span class="w"> </span>--output<span class="w"> </span>SPRINT-PLAN.md
+
+<span class="c1"># Daily: Quick check</span>
+/craft:plan:sprint<span class="w"> </span><span class="c1"># View current sprint status</span>
+
+<span class="c1"># Friday: Review</span>
+git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-20
+/craft:test:run<span class="w"> </span>--summary
+
+<span class="c1"># Next Monday: Retro and replan</span>
+/craft:plan:sprint<span class="w"> </span>--duration<span class="w"> </span><span class="m">7</span><span class="w">  </span><span class="c1"># Next sprint</span>
+</code></pre></div>
+<h3 id="workflow-3-create-quarterly-roadmap">Workflow 3: Create Quarterly Roadmap</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create initial roadmap</span>
+/craft:plan:roadmap<span class="w"> </span>--horizon<span class="w"> </span><span class="m">3</span><span class="w"> </span>--output<span class="w"> </span>Q1-ROADMAP.md
+
+<span class="c1"># Generate visual</span>
+/craft:plan:roadmap<span class="w"> </span>--horizon<span class="w"> </span><span class="m">3</span><span class="w"> </span>--format<span class="w"> </span>mermaid<span class="w"> </span>--output<span class="w"> </span>Q1-ROADMAP.md
+
+<span class="c1"># Share with stakeholders</span>
+<span class="c1"># (commit and push)</span>
+
+<span class="c1"># Update as priorities change</span>
+/craft:plan:roadmap<span class="w"> </span>--update
+</code></pre></div>
+<h3 id="workflow-4-enterprise-scoping-mvp-full-enterprise">Workflow 4: Enterprise Scoping (MVP → Full → Enterprise)</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Step 1: MVP scope - minimum viable</span>
+/craft:plan:feature<span class="w"> </span><span class="s2">&quot;payment integration&quot;</span><span class="w"> </span>--scope<span class="w"> </span>mvp
+
+<span class="c1"># Step 2: Full scope - production ready</span>
+/craft:plan:feature<span class="w"> </span><span class="s2">&quot;payment integration&quot;</span><span class="w"> </span>--scope<span class="w"> </span>full
+
+<span class="c1"># Step 3: Enterprise scope - advanced features</span>
+/craft:plan:feature<span class="w"> </span><span class="s2">&quot;payment integration&quot;</span><span class="w"> </span>--scope<span class="w"> </span>enterprise
+
+<span class="c1"># Step 4: Choose appropriate scope based on timeline</span>
+/craft:plan:sprint<span class="w"> </span>--goal<span class="w"> </span><span class="s2">&quot;Deliver payment (full scope)&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="integration-with-other-commands">Integration with Other Commands</h2>
+<p>Planning commands work best with:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/craft:do</code></td>
+<td>AI routes planning tasks with task suggestions</td>
+</tr>
+<tr>
+<td><code>/craft:arch:plan</code></td>
+<td>Architecture needed before feature planning</td>
+</tr>
+<tr>
+<td><code>/craft:code:refactor</code></td>
+<td>Implement planned features</td>
+</tr>
+<tr>
+<td><code>/craft:test:run</code></td>
+<td>Validate task completion</td>
+</tr>
+<tr>
+<td><code>/craft:docs:sync</code></td>
+<td>Keep documentation aligned with roadmap</td>
+</tr>
+<tr>
+<td><code>/craft:git:branch</code></td>
+<td>Create feature branches from plans</td>
+</tr>
+<tr>
+<td><code>/craft:check</code></td>
+<td>Verify sprint goals before delivery</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="tips">Tips</h2>
+<div class="admonition tip">
+<p class="admonition-title">Start with MVP</p>
+<p>Begin with <code>--scope mvp</code> to understand minimum viable scope, then expand to full/enterprise as needed.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Break It Down</p>
+<p>Feature plans are most useful when tasks are &lt; 4 hours each. Break down larger tasks further.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Link Dependencies</p>
+<p>Identify blocking items early with <code>--include-tests</code> to account for testing time in estimates.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Regular Roadmap Updates</p>
+<p>Update your roadmap monthly with <code>--update</code> as priorities change and dependencies shift.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Use Format Export</p>
+<p>Export plans as GitHub issues (<code>--format github</code>) to integrate with your workflow.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Capacity Planning</p>
+<p>Always plan sprints at 80% capacity, leaving 20% for unexpected issues and interruptions.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Track Metrics</p>
+<p>Review velocity trends across sprints to improve estimation accuracy over time.</p>
+</div>
+<hr />
+<h2 id="learn-more">Learn More</h2>
+<ul>
+<li><a href="../arch/">Architecture Commands</a> - Plan architecture before features</li>
+<li><a href="../code/">Code &amp; Testing Commands</a> - Implement planned tasks</li>
+<li><a href="../dist/">Distribution Commands</a> - Release planned milestones</li>
+<li><a href="../git/">Git Commands</a> - Manage feature branches</li>
+<li><a href="../../workflows/">Visual Workflows</a> - See planning workflows in action</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3185 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../FORMAT-EXAMPLES/">
+      
+      
+        <link rel="next" href="../REAL-WORLD-TESTING-RESULTS/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>MCP Integration Testing - Claude Code Plugins</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mcp-integration-testing-results" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Claude Code Plugins" class="md-header__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Code Plugins
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MCP Integration Testing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../rforge/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  RForge
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../craft/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Craft
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../workflow/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Workflow
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../statistical-research/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Statistical Research
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../installation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CLAUDE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Developer Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../MODE-USAGE-GUIDE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Mode System
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CICD/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  CI/CD Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../COMMAND-REFERENCE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../PLUGIN-DEVELOPMENT/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Plugin Development
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../PUBLISHING/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publishing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../diagrams/DEPENDENCIES/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Claude Code Plugins" class="md-nav__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Claude Code Plugins
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RForge
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rforge/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rforge/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rforge/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rforge/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Craft
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Craft
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../craft/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../craft/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../craft/skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../craft/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../craft/orchestrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orchestrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../craft/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistical Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistical-research/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistical-research/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistical-research/skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistical-research/api-wrappers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Wrappers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistical-research/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLAUDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mode System
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mode System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MODE-USAGE-GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MODE-QUICK-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../COMMAND-CHEATSHEET/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FORMAT-EXAMPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Format Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Integration Testing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Integration Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#executive-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Executive Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Coverage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Coverage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modes-tested" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modes Tested
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formats-tested" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formats Tested
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Matrix
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Implementation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validated-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validated Components
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validated Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-typescript-type-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. TypeScript Type System ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tool-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Tool Schema ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-formatter-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Formatter Function ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-handler-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Handler Integration ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminal-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal Format
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Format
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markdown-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Markdown Format
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcp-inspector-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP Inspector Verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#files-modifiedcreated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Files Modified/Created
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-success-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1 Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations-deferred-to-phase-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known Limitations (Deferred to Phase 2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Next Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#immediate-phase-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Immediate (Phase 2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-1-hour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation (1 hour)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../REAL-WORLD-TESTING-RESULTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Real-World Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MODE-SYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CICD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../COMMAND-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLUGIN-DEVELOPMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugin Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PUBLISHING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publishing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/DEPENDENCIES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependencies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/ECOSYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/rforge-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/rforge-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/statistical-research-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/statistical-research-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/workflow-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/workflow-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#executive-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Executive Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Coverage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Coverage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modes-tested" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modes Tested
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formats-tested" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formats Tested
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Matrix
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Implementation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validated-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validated Components
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validated Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-typescript-type-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. TypeScript Type System ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tool-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Tool Schema ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-formatter-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Formatter Function ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-handler-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Handler Integration ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminal-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal Format
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Format
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markdown-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Markdown Format
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcp-inspector-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP Inspector Verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#files-modifiedcreated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Files Modified/Created
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-success-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1 Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations-deferred-to-phase-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known Limitations (Deferred to Phase 2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Next Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#immediate-phase-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Immediate (Phase 2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-1-hour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation (1 hour)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="mcp-integration-testing-results">MCP Integration Testing Results</h1>
+<p><strong>Component:</strong> RForge Mode System
+<strong>Test Date:</strong> 2026-01-08
+<strong>Status:</strong> ✅ ALL TESTS PASSED (100% success rate)</p>
+<hr />
+<h2 id="executive-summary">Executive Summary</h2>
+<p>Successfully tested RForge MCP server integration with mode and format parameters:
+- <strong>12/12 tests passed</strong> (4 modes × 3 formats)
+- <strong>100% success rate</strong>
+- <strong>Zero runtime errors</strong>
+- <strong>All output formats validated</strong></p>
+<hr />
+<h2 id="test-coverage">Test Coverage</h2>
+<h3 id="modes-tested">Modes Tested</h3>
+<ul>
+<li>✅ <code>default</code> - Quick analysis mode</li>
+<li>✅ <code>debug</code> - Detailed debugging mode</li>
+<li>✅ <code>optimize</code> - Performance optimization mode</li>
+<li>✅ <code>release</code> - CRAN-ready release mode</li>
+</ul>
+<h3 id="formats-tested">Formats Tested</h3>
+<ul>
+<li>✅ <code>terminal</code> - Rich formatted colored output</li>
+<li>✅ <code>json</code> - Machine-readable with metadata envelope</li>
+<li>✅ <code>markdown</code> - Documentation-ready markdown</li>
+</ul>
+<h3 id="test-matrix">Test Matrix</h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Terminal</th>
+<th>JSON</th>
+<th>Markdown</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>default</td>
+<td>✅ PASS</td>
+<td>✅ PASS</td>
+<td>✅ PASS</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>✅ PASS</td>
+<td>✅ PASS</td>
+<td>✅ PASS</td>
+</tr>
+<tr>
+<td>optimize</td>
+<td>✅ PASS</td>
+<td>✅ PASS</td>
+<td>✅ PASS</td>
+</tr>
+<tr>
+<td>release</td>
+<td>✅ PASS</td>
+<td>✅ PASS</td>
+<td>✅ PASS</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="test-implementation">Test Implementation</h2>
+<p><strong>Location:</strong> <code>~/projects/dev-tools/mcp-servers/rforge/tests/manual-integration-test.ts</code></p>
+<p><strong>Test Approach:</strong>
+1. Programmatically call <code>status()</code> function with each mode
+2. Call <code>formatStatusResult()</code> with each format
+3. Validate output structure:
+   - JSON: Parseable with metadata envelope
+   - Markdown: H1 title + bold status + JSON code block
+   - Terminal: Rich formatted text
+4. Verify no runtime errors</p>
+<p><strong>Execution:</strong>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/projects/dev-tools/mcp-servers/rforge
+bun<span class="w"> </span>run<span class="w"> </span>tests/manual-integration-test.ts
+<span class="c1"># ✅ 12/12 tests passed in ~75ms</span>
+</code></pre></div></p>
+<hr />
+<h2 id="validated-components">Validated Components</h2>
+<h3 id="1-typescript-type-system">1. TypeScript Type System ✅</h3>
+<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">StatusInput</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">ecosystem?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">mode</span><span class="o">?:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;debug&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;optimize&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;release&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">format</span><span class="o">?:</span><span class="w"> </span><span class="s2">&quot;terminal&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;json&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;markdown&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="2-tool-schema">2. Tool Schema ✅</h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;rforge_status&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">inputSchema</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">properties</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">mode</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="kd">enum</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;debug&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;optimize&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;release&quot;</span><span class="p">]</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nx">format</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="kd">enum</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;terminal&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;json&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;markdown&quot;</span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="3-formatter-function">3. Formatter Function ✅</h3>
+<div class="highlight"><pre><span></span><code><span class="nx">formatStatusResult</span><span class="p">(</span>
+<span class="w">  </span><span class="nx">result</span><span class="o">:</span><span class="w"> </span><span class="kt">StatusOutput</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">format</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;terminal&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;json&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;markdown&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">mode</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+</code></pre></div>
+<h3 id="4-handler-integration">4. Handler Integration ✅</h3>
+<div class="highlight"><pre><span></span><code><span class="k">case</span><span class="w"> </span><span class="s2">&quot;rforge_status&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">status</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">formatStatusResult</span><span class="p">(</span>
+<span class="w">    </span><span class="nx">result</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">input</span><span class="p">.</span><span class="nx">format</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">&quot;terminal&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">input</span><span class="p">.</span><span class="nx">mode</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">&quot;default&quot;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="sample-outputs">Sample Outputs</h2>
+<h3 id="terminal-format">Terminal Format</h3>
+<div class="highlight"><pre><span></span><code>┌─ ECOSYSTEM STATUS ────────────────────────────┐
+│                                               │
+📦 PACKAGES ────────────────────────────────────
+Health Score: 75%
+...
+</code></pre></div>
+<h3 id="json-format">JSON Format</h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-01-08T03:58:40.513Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;debug&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;results&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Ecosystem Status Dashboard&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;debug&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;overall_health&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">87</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;packages&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="markdown-format">Markdown Format</h3>
+<div class="highlight"><pre><span></span><code><span class="gh"># Ecosystem Status Dashboard</span>
+
+<span class="gs">**Status:**</span> success
+
+<span class="gu">## Data</span>
+
+\`\`\`json
+{
+  &quot;mode&quot;: &quot;optimize&quot;,
+  &quot;overall_health&quot;: 87,
+  &quot;packages&quot;: 4
+}
+\`\`\`
+</code></pre></div>
+<hr />
+<h2 id="mcp-inspector-verification">MCP Inspector Verification</h2>
+<p><strong>Inspector URL:</strong> http://localhost:6274
+<strong>Proxy Server:</strong> localhost:6277
+<strong>Status:</strong> ✅ Running successfully</p>
+<p><strong>Tool Exposure:</strong>
+- rforge_status tool visible in inspector
+- Mode and format parameters correctly exposed
+- Enum validation working
+- Tool schema documentation accurate</p>
+<hr />
+<h2 id="files-modifiedcreated">Files Modified/Created</h2>
+<p><strong>MCP Server (~/projects/dev-tools/mcp-servers/rforge/):</strong>
+<div class="highlight"><pre><span></span><code>src/types/tools.ts                    # Updated StatusInput interface
+src/index.ts                           # Updated tool schema + handler
+src/tools/discovery/status.ts          # Updated formatStatusResult()
+tests/manual-integration-test.ts       # NEW: Integration test (12 tests)
+MCP-INTEGRATION-TEST-RESULTS.md        # NEW: Detailed test report
+</code></pre></div></p>
+<p><strong>Planning Docs (~/projects/dev-tools/claude-plugins/):</strong>
+<div class="highlight"><pre><span></span><code>NEXT-STEPS-IMMEDIATE.md                # Updated with Phase 1 completion
+TODO.md                                # Updated Phase 6 &amp; 7 progress
+RESUME-HERE.md                         # Updated with MCP integration
+docs/MCP-INTEGRATION-TESTING.md        # NEW: This document
+</code></pre></div></p>
+<hr />
+<h2 id="phase-1-success-criteria">Phase 1 Success Criteria</h2>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mode parameter working in MCP</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>Format parameter working in MCP</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td>TypeScript compilation successful</td>
+<td>✅ 72ms build, 237 modules</td>
+</tr>
+<tr>
+<td>All tests passing</td>
+<td>✅ 145 existing + 12 integration</td>
+</tr>
+<tr>
+<td>All 12 mode+format combinations work</td>
+<td>✅ 100% success rate</td>
+</tr>
+<tr>
+<td>Output format validation</td>
+<td>✅ All formats validated</td>
+</tr>
+<tr>
+<td>No runtime errors</td>
+<td>✅ Zero errors</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="known-limitations-deferred-to-phase-2">Known Limitations (Deferred to Phase 2)</h2>
+<p>These are intentionally not implemented in Phase 1:</p>
+<ol>
+<li><strong>Time Budget Enforcement</strong></li>
+<li>No timeout mechanism yet</li>
+<li>No performance guarantees enforced</li>
+<li>
+<p>All modes currently run same logic</p>
+</li>
+<li>
+<p><strong>Mode-Specific Analysis Logic</strong></p>
+</li>
+<li>Default mode doesn't limit to &lt;10s yet</li>
+<li>Debug mode doesn't provide detailed traces yet</li>
+<li>Optimize mode doesn't run profiling yet</li>
+<li>
+<p>Release mode doesn't run full CRAN checks yet</p>
+</li>
+<li>
+<p><strong>Real R Package Testing</strong></p>
+</li>
+<li>Tested in empty directory (no packages detected)</li>
+<li>Need end-to-end test on mediationverse ecosystem</li>
+</ol>
+<p><strong>Rationale:</strong> Phase 1 focused on validating the parameter passing pipeline. Phase 2 will implement the actual analysis logic differentiation.</p>
+<hr />
+<h2 id="next-steps">Next Steps</h2>
+<h3 id="immediate-phase-2">Immediate (Phase 2)</h3>
+<ol>
+<li><strong>Test on Real R Packages</strong> (30 min)</li>
+<li>Run on mediationverse ecosystem</li>
+<li>Verify package detection</li>
+<li>
+<p>Validate health score calculation</p>
+</li>
+<li>
+<p><strong>Implement Time Budgets</strong> (1-2 hours)</p>
+</li>
+<li>Add timeout mechanism</li>
+<li>Warning at 80% budget</li>
+<li>
+<p>Graceful timeout handling</p>
+</li>
+<li>
+<p><strong>Differentiate Mode Logic</strong> (4-6 hours)</p>
+</li>
+<li>Implement mode-specific analysis depth</li>
+<li>Add performance guarantees</li>
+<li>Optimize for each mode's use case</li>
+</ol>
+<h3 id="documentation-1-hour">Documentation (1 hour)</h3>
+<ol>
+<li>Update MODE-SYSTEM.md with MCP examples</li>
+<li>Update CLAUDE.md with completion status</li>
+<li>Create user guide for MCP mode usage</li>
+</ol>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p>✅ <strong>MCP Integration Phase 1: COMPLETE</strong></p>
+<p>The RForge MCP server successfully accepts and processes mode and format parameters across all 12 combinations. The integration is type-safe, error-free, and produces correctly formatted output.</p>
+<p><strong>Overall Progress:</strong> 90% complete
+- Structure cleanup: 100% ✅
+- Format handlers: 100% ✅
+- MCP integration (Phase 1): 100% ✅
+- Validation &amp; testing: 50% ✅
+- Phase 2 (time budgets, mode logic): 0% (next)</p>
+<p><strong>Recommendation:</strong> The foundation is solid. Proceed with real-world package testing, then implement time budget enforcement before tackling mode-specific analysis logic.</p>
+<hr />
+<p><strong>Test Report:</strong> Full detailed results available at:
+<code>~/projects/dev-tools/mcp-servers/rforge/MCP-INTEGRATION-TEST-RESULTS.md</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

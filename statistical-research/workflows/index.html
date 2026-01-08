@@ -1,0 +1,3387 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../api-wrappers/">
+      
+      
+        <link rel="next" href="../../installation/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Workflows & Examples - Claude Code Plugins</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#workflows-examples" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Claude Code Plugins" class="md-header__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Code Plugins
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Workflows & Examples
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../rforge/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  RForge
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../craft/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Craft
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../workflow/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Workflow
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Statistical Research
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../installation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../CLAUDE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Developer Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../MODE-USAGE-GUIDE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Mode System
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../CICD/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  CI/CD Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../COMMAND-REFERENCE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../PLUGIN-DEVELOPMENT/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Plugin Development
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../PUBLISHING/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publishing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../diagrams/DEPENDENCIES/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Claude Code Plugins" class="md-nav__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Claude Code Plugins
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RForge
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rforge/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rforge/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rforge/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rforge/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Craft
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Craft
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/orchestrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orchestrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistical Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-wrappers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Wrappers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#research-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Research Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Research Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow-1-literature-review-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 1: Literature Review Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-2-manuscript-writing-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 2: Manuscript Writing Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-3-simulation-study-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 3: Simulation Study Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-world-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-World Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real-World Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-phd-dissertation-chapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: PhD Dissertation Chapter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-revise-resubmit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Revise &amp; Resubmit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-collaborative-research-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: Collaborative Research Project
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-workflows-by-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Workflows by Domain
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command Workflows by Domain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#literature-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Literature Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manuscript-writing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manuscript Writing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#research-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Research Planning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulation-studies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simulation Studies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skills-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skills Integration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Skills Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathematical-foundation-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mathematical Foundation Skill
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Skill
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manuscript-writing_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manuscript Writing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulation-studies_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simulation Studies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reviewer-responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reviewer Responses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CLAUDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mode System
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mode System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MODE-USAGE-GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MODE-QUICK-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../COMMAND-CHEATSHEET/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FORMAT-EXAMPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Format Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MCP-INTEGRATION-TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Integration Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../REAL-WORLD-TESTING-RESULTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Real-World Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MODE-SYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CICD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../COMMAND-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PLUGIN-DEVELOPMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugin Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PUBLISHING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publishing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/DEPENDENCIES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependencies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/ECOSYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/rforge-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/rforge-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/statistical-research-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/statistical-research-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/workflow-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/workflow-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#research-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Research Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Research Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow-1-literature-review-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 1: Literature Review Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-2-manuscript-writing-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 2: Manuscript Writing Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-3-simulation-study-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 3: Simulation Study Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-world-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-World Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real-World Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-phd-dissertation-chapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: PhD Dissertation Chapter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-revise-resubmit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Revise &amp; Resubmit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-collaborative-research-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: Collaborative Research Project
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-workflows-by-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Workflows by Domain
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command Workflows by Domain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#literature-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Literature Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manuscript-writing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manuscript Writing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#research-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Research Planning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulation-studies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simulation Studies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skills-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skills Integration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Skills Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathematical-foundation-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mathematical Foundation Skill
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Skill
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manuscript-writing_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manuscript Writing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulation-studies_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simulation Studies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reviewer-responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reviewer Responses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="workflows-examples">Workflows &amp; Examples</h1>
+<p>Practical workflows and real-world examples for statistical research, manuscript writing, and simulation studies.</p>
+<h2 id="research-workflows">Research Workflows</h2>
+<h3 id="workflow-1-literature-review-process">Workflow 1: Literature Review Process</h3>
+<p>Systematic approach to literature discovery and management.</p>
+<pre class="mermaid"><code>flowchart TD
+    A[Research Question] --&gt; B[/research:arxiv search]
+    B --&gt; C{Papers Found?}
+    C --&gt;|Yes| D[Review Abstracts]
+    C --&gt;|No| E[Refine Search Terms]
+    E --&gt; B
+
+    D --&gt; F{Relevant?}
+    F --&gt;|Yes| G[/research:doi metadata]
+    F --&gt;|No| H[Skip Paper]
+
+    G --&gt; I[/research:bib:add to library]
+    I --&gt; J{More Papers?}
+    J --&gt;|Yes| D
+    J --&gt;|No| K[/research:lit-gap identify gaps]
+
+    K --&gt; L[Research Direction Identified]
+
+    style A fill:#e1f5ff
+    style B fill:#ffe1f5
+    style K fill:#e1ffe1
+    style L fill:#f0e1ff</code></pre>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Search arXiv</strong> for recent papers</li>
+</ol>
+<div class="highlight"><pre><span></span><code>/research:arxiv<span class="w"> </span><span class="s2">&quot;causal mediation bootstrap methods&quot;</span>
+</code></pre></div>
+<p>Output:
+   <div class="highlight"><pre><span></span><code>📚 arXiv Search Results
+
+Found 15 papers matching &quot;causal mediation bootstrap&quot;
+
+1. &quot;Robust Bootstrap Methods for Mediation Analysis&quot;
+   Authors: Smith et al. (2025)
+   arXiv: 2501.12345
+   Abstract: Novel bootstrap approach for...
+
+2. &quot;Causal Mediation with Unmeasured Confounding&quot;
+   Authors: Jones et al. (2024)
+   arXiv: 2412.54321
+   Abstract: Sensitivity analysis for...
+
+[13 more papers...]
+</code></pre></div></p>
+<ol>
+<li><strong>Get metadata</strong> for relevant papers</li>
+</ol>
+<div class="highlight"><pre><span></span><code>/research:doi<span class="w"> </span><span class="s2">&quot;10.1080/01621459.2024.123456&quot;</span>
+</code></pre></div>
+<p>Output:
+   <div class="highlight"><pre><span></span><code>📄 Paper Metadata
+
+Title: Robust Bootstrap Methods for Mediation Analysis
+Authors: Smith, J., Johnson, M., Brown, K.
+Journal: JASA (2025)
+DOI: 10.1080/01621459.2024.123456
+
+BibTeX entry saved to: paper-smith2025.bib
+</code></pre></div></p>
+<ol>
+<li><strong>Add to bibliography</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>/research:bib:add<span class="w"> </span>paper-smith2025.bib<span class="w"> </span>references.bib
+</code></pre></div>
+<ol>
+<li><strong>Identify gaps</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>/research:lit-gap<span class="w"> </span><span class="s2">&quot;mediation with time-varying confounding&quot;</span>
+</code></pre></div>
+<p>Output:
+   <div class="highlight"><pre><span></span><code>🔍 Literature Gap Analysis
+
+Current State:
+- Well-established: Simple mediation bootstrap
+- Emerging: Sensitivity analysis methods
+- Limited: Time-varying confounding
+
+Gap Identified:
+&quot;Bootstrap methods for mediation with time-varying
+confounders are underdeveloped. Most work assumes
+time-fixed confounding.&quot;
+
+Opportunity:
+- Extend bootstrap to longitudinal settings
+- Address time-varying confounding
+- Potential for methodological contribution
+
+Recommended next: Design simulation study
+</code></pre></div></p>
+<h3 id="workflow-2-manuscript-writing-pipeline">Workflow 2: Manuscript Writing Pipeline</h3>
+<p>From methods section to final submission.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant Author
+    participant Plugin
+    participant Skills
+
+    Author-&gt;&gt;Plugin: /research:manuscript:methods
+    Plugin-&gt;&gt;Skills: methods-paper-writer
+    Skills--&gt;&gt;Plugin: Statistical rigor check
+    Plugin--&gt;&gt;Author: Methods section draft
+
+    Author-&gt;&gt;Plugin: Run simulation
+    Note over Author: Analysis complete
+
+    Author-&gt;&gt;Plugin: /research:manuscript:results
+    Plugin-&gt;&gt;Skills: statistical-reporting
+    Skills--&gt;&gt;Plugin: Proper reporting check
+    Plugin--&gt;&gt;Author: Results section draft
+
+    Author-&gt;&gt;Plugin: Submit to journal
+    Note over Author: Under review
+
+    Author-&gt;&gt;Plugin: /research:manuscript:reviewer
+    Plugin-&gt;&gt;Skills: response-strategist
+    Skills--&gt;&gt;Plugin: Diplomatic response
+    Plugin--&gt;&gt;Author: Reviewer response draft
+
+    Author-&gt;&gt;Plugin: Revise &amp; resubmit
+    Plugin--&gt;&gt;Author: Manuscript accepted!</code></pre>
+<p><strong>Example:</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Methods Section</label><label for="__tabbed_1_2">Results Section</label><label for="__tabbed_1_3">Reviewer Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>/research:manuscript:methods<span class="w"> </span><span class="s2">&quot;Bootstrap mediation analysis&quot;</span>
+</code></pre></div>
+<p>Output:
+<div class="highlight"><pre><span></span><code><span class="gu">## Methods</span>
+
+<span class="gu">### Bootstrap Procedure</span>
+
+We employed a nonparametric bootstrap approach to
+estimate the indirect effect and construct
+confidence intervals. The procedure consisted of:
+
+<span class="k">1.</span> <span class="gs">**Resampling**</span>: Draw B = 10,000 bootstrap samples
+   with replacement from the observed data.
+
+<span class="k">2.</span> <span class="gs">**Estimation**</span>: For each bootstrap sample b:
+<span class="w">   </span><span class="k">-</span><span class="w"> </span>Estimate mediation model parameters
+<span class="w">   </span><span class="k">-</span><span class="w"> </span>Calculate indirect effect: ab̂ᵦ = âᵦb̂ᵦ
+
+<span class="k">3.</span> <span class="gs">**Inference**</span>: Construct 95% confidence interval
+   using the percentile method:
+<span class="w">   </span><span class="k">-</span><span class="w"> </span>Lower: 2.5th percentile of ab̂*
+<span class="w">   </span><span class="k">-</span><span class="w"> </span>Upper: 97.5th percentile of ab̂*
+
+<span class="gu">### Assumptions</span>
+
+The bootstrap procedure assumes:
+<span class="k">-</span><span class="w"> </span>No unmeasured confounding (sequential ignorability)
+<span class="k">-</span><span class="w"> </span>Correct model specification
+<span class="k">-</span><span class="w"> </span>Independent observations
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>/research:manuscript:results<span class="w"> </span><span class="s2">&quot;Report simulation findings&quot;</span>
+</code></pre></div>
+<p>Output:
+<div class="highlight"><pre><span></span><code><span class="gu">## Results</span>
+
+<span class="gu">### Simulation Study</span>
+
+Table 1 presents the simulation results for the
+three bootstrap methods under six data-generating
+scenarios.
+
+<span class="gs">**Coverage Rates**</span>: The bias-corrected accelerated
+(BCa) bootstrap achieved nominal 95% coverage across
+all scenarios (range: 94.2% - 95.8%), outperforming
+both the percentile method (92.1% - 96.3%) and the
+normal approximation (89.4% - 94.1%).
+
+<span class="gs">**Bias**</span>: All methods exhibited low bias (&lt; 0.01) in
+the presence of normal errors. Under skewed
+distributions, BCa showed reduced bias (M = 0.008)
+compared to percentile (M = 0.015).
+
+<span class="gs">**Statistical Power**</span>: At α = .05, BCa demonstrated
+superior power (M = 0.82) to detect non-zero indirect
+effects compared to percentile (M = 0.78) and normal
+approximation (M = 0.75).
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>/research:manuscript:reviewer<span class="w"> </span><span class="s2">&quot;Reviewer 2 questions sample size&quot;</span>
+</code></pre></div>
+<p>Output:
+<div class="highlight"><pre><span></span><code><span class="gu">## Response to Reviewer 2</span>
+
+<span class="k">&gt; </span><span class="ge">**Reviewer 2**: &quot;The sample size of n=100 appears</span>
+<span class="k">&gt; </span><span class="ge">insufficient for reliable bootstrap inference. Please</span>
+<span class="k">&gt; </span><span class="ge">justify this choice.&quot;</span>
+
+We thank the reviewer for this important observation.
+We conducted a supplementary power analysis to
+determine adequate sample sizes for our bootstrap
+approach.
+
+<span class="gs">**Supplementary Analysis**</span>: We evaluated bootstrap
+performance across sample sizes n = 50, 100, 200, 500.
+Results (Supplementary Table S1) demonstrate that at
+n = 100:
+
+<span class="k">-</span><span class="w"> </span>Coverage rates remain nominal (94.8% [94.2%, 95.4%])
+<span class="k">-</span><span class="w"> </span>Power exceeds 0.80 for effect sizes ≥ 0.15
+<span class="k">-</span><span class="w"> </span>Bias &lt; 0.01 for all data-generating mechanisms
+
+While larger samples provide marginal improvements,
+n = 100 achieves adequate statistical properties for
+our research questions. We have added this
+justification to the manuscript (Section 3.2) and
+included Supplementary Table S1.
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h3 id="workflow-3-simulation-study-design">Workflow 3: Simulation Study Design</h3>
+<p>Monte Carlo study from design to analysis.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Research Question] --&gt; B[/research:simulation:design]
+    B --&gt; C[Design Specifications]
+    C --&gt; D[Implement in R/Python]
+    D --&gt; E[Run Simulation]
+    E --&gt; F[/research:simulation:analysis]
+    F --&gt; G{Results Clear?}
+    G --&gt;|Yes| H[Write Results]
+    G --&gt;|No| I[Add Scenarios]
+    I --&gt; D
+
+    H --&gt; J[Manuscript Tables/Figures]
+
+    style A fill:#e1f5ff
+    style B fill:#ffe1f5
+    style F fill:#e1ffe1
+    style J fill:#f0e1ff</code></pre>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Design simulation</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>/research:simulation:design<span class="w"> </span><span class="s2">&quot;Compare bootstrap methods for mediation&quot;</span>
+</code></pre></div>
+<p>Output:
+   <div class="highlight"><pre><span></span><code>📊 Simulation Study Design
+
+## Research Question
+Compare bias-corrected (BCa), percentile, and normal
+approximation bootstrap for mediation analysis
+
+## Factors to Vary
+1. Sample size: n = 50, 100, 200, 500
+2. Effect size: ab = 0, 0.10, 0.20, 0.30
+3. Error distribution: Normal, t(5), Lognormal
+4. Model: Linear, Nonlinear (quadratic)
+
+Total scenarios: 4 × 4 × 3 × 2 = 96 conditions
+
+## Outcome Metrics
+- Bias: E(âb) - ab
+- RMSE: √E[(âb - ab)²]
+- Coverage: P(ab ∈ CI₉₅)
+- Power: P(reject H₀: ab = 0 | ab ≠ 0)
+
+## Monte Carlo Replications
+R = 10,000 per condition
+
+## Computational Time
+Estimated: 96 scenarios × 10,000 reps × 0.5s
+         = 13.3 hours (parallelized: ~3 hours on 4 cores)
+
+## R Code Skeleton
+# See attached simulation template
+</code></pre></div></p>
+<ol>
+<li><strong>Implement and run</strong> (in R)</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Generated template from design command</span>
+<span class="nf">source</span><span class="p">(</span><span class="s">&quot;simulation-template.R&quot;</span><span class="p">)</span>
+
+<span class="c1"># Parallel execution</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">parallel</span><span class="p">)</span>
+<span class="n">results</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mclapply</span><span class="p">(</span><span class="n">scenarios</span><span class="p">,</span><span class="w"> </span><span class="n">run_scenario</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">mc.cores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span><span class="p">)</span>
+</code></pre></div>
+<ol>
+<li><strong>Analyze results</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>/research:simulation:analysis<span class="w"> </span>results/simulation-results.csv
+</code></pre></div>
+<p>Output:
+   <div class="highlight"><pre><span></span><code>📈 Simulation Analysis Results
+
+## Coverage Rates (95% CI target)
+| Method      | Normal | t(5)  | Lognormal |
+|-------------|--------|-------|-----------|
+| BCa         | 95.2%  | 94.8% | 95.1%     | ✅
+| Percentile  | 94.1%  | 92.7% | 91.8%     | ⚠️
+| Normal Appr | 93.2%  | 89.4% | 88.1%     | ❌
+
+## Bias (×10³)
+BCa consistently shows lowest bias across
+conditions: M = 0.8, SD = 0.3
+
+## Power Analysis
+At ab = 0.20, n = 100:
+- BCa: 82%
+- Percentile: 78%
+- Normal: 75%
+
+## Recommendation
+BCa bootstrap preferred for:
+- Non-normal data
+- Small to moderate samples
+- Rigorous coverage requirements
+
+Percentile adequate for:
+- Large samples (n &gt; 200)
+- Normal distributions
+- Exploratory analysis
+</code></pre></div></p>
+<h2 id="real-world-examples">Real-World Examples</h2>
+<h3 id="example-1-phd-dissertation-chapter">Example 1: PhD Dissertation Chapter</h3>
+<p><strong>Context:</strong> Graduate student writing mediation analysis methods chapter</p>
+<p><strong>Week 1: Literature Review</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Search recent mediation papers</span>
+/research:arxiv<span class="w"> </span><span class="s2">&quot;mediation sensitivity analysis 2023-2025&quot;</span>
+
+<span class="c1"># Find 20 relevant papers, add to library</span>
+<span class="k">for</span><span class="w"> </span>doi<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">dois</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>/research:doi<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$doi</span><span class="s2">&quot;</span>
+<span class="w">  </span>/research:bib:add<span class="w"> </span>paper.bib<span class="w"> </span>dissertation-refs.bib
+<span class="k">done</span>
+
+<span class="c1"># Identify gap</span>
+/research:lit-gap<span class="w"> </span><span class="s2">&quot;sensitivity analysis for time-varying mediation&quot;</span>
+</code></pre></div>
+<p><strong>Result:</strong> Clear research gap identified, dissertation focus determined.</p>
+<p><strong>Week 2-4: Simulation Design</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Design comprehensive simulation</span>
+/research:simulation:design<span class="w"> </span><span class="s2">&quot;Sensitivity analysis methods comparison&quot;</span>
+
+<span class="c1"># Implement in R</span>
+<span class="c1"># Run simulations (parallelized on HPC cluster)</span>
+</code></pre></div>
+<p><strong>Week 5-6: Writing</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Methods section</span>
+/research:manuscript:methods<span class="w"> </span><span class="s2">&quot;Describe sensitivity analysis approach&quot;</span>
+
+<span class="c1"># Results section</span>
+/research:simulation:analysis<span class="w"> </span>results.csv
+/research:manuscript:results<span class="w"> </span><span class="s2">&quot;Report simulation findings&quot;</span>
+</code></pre></div>
+<p><strong>Total Time:</strong> 6 weeks from concept to drafted chapter.</p>
+<h3 id="example-2-revise-resubmit">Example 2: Revise &amp; Resubmit</h3>
+<p><strong>Context:</strong> Manuscript under review, major revisions requested</p>
+<p><strong>Reviewer Comments:</strong></p>
+<ol>
+<li>✅ Add power analysis (Reviewer 1)</li>
+<li>✅ Clarify assumptions (Reviewer 2)</li>
+<li>✅ Additional simulation scenario (Reviewer 3)</li>
+</ol>
+<p><strong>Response Strategy:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Generate responses</span>
+/research:manuscript:reviewer<span class="w"> </span><span class="s2">&quot;R1: power analysis&quot;</span>
+/research:manuscript:reviewer<span class="w"> </span><span class="s2">&quot;R2: clarify assumptions&quot;</span>
+/research:manuscript:reviewer<span class="w"> </span><span class="s2">&quot;R3: additional scenario&quot;</span>
+
+<span class="c1"># Update simulation</span>
+/research:simulation:design<span class="w"> </span><span class="s2">&quot;Add scenario requested by R3&quot;</span>
+
+<span class="c1"># Revise methods section</span>
+/research:manuscript:methods<span class="w"> </span><span class="s2">&quot;Clarify assumptions per R2 comments&quot;</span>
+</code></pre></div>
+<p><strong>Outcome:</strong> Comprehensive response letter, manuscript accepted after revision.</p>
+<h3 id="example-3-collaborative-research-project">Example 3: Collaborative Research Project</h3>
+<p><strong>Context:</strong> Multi-institution collaboration on new statistical method</p>
+<p><strong>Monthly Workflow:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Literature monitoring</span>
+/research:arxiv<span class="w"> </span><span class="s2">&quot;new method topic&quot;</span><span class="w"> </span>--since<span class="w"> </span>last-month
+
+<span class="c1"># Hypothesis generation</span>
+/research:hypothesis<span class="w"> </span><span class="s2">&quot;extension to multivariate case&quot;</span>
+
+<span class="c1"># Analysis planning</span>
+/research:analysis-plan<span class="w"> </span><span class="s2">&quot;Phase 2 clinical trial application&quot;</span>
+
+<span class="c1"># Method scouting</span>
+/research:method-scout<span class="w"> </span><span class="s2">&quot;related approaches in other fields&quot;</span>
+</code></pre></div>
+<p><strong>Collaboration Tools:</strong></p>
+<ul>
+<li>Shared BibTeX library (managed with <code>/research:bib:*</code>)</li>
+<li>Consistent manuscript sections (using <code>/research:manuscript:*</code>)</li>
+<li>Reproducible simulations (designed with <code>/research:simulation:design</code>)</li>
+</ul>
+<h2 id="command-workflows-by-domain">Command Workflows by Domain</h2>
+<h3 id="literature-management">Literature Management</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Discovery</span>
+/research:arxiv<span class="w"> </span><span class="s2">&quot;search terms&quot;</span>
+
+<span class="c1"># Retrieval</span>
+/research:doi<span class="w"> </span><span class="s2">&quot;10.xxxx/xxxxx&quot;</span>
+
+<span class="c1"># Organization</span>
+/research:bib:search<span class="w"> </span><span class="s2">&quot;author name&quot;</span><span class="w"> </span>library.bib
+/research:bib:add<span class="w"> </span>new-paper.bib<span class="w"> </span>library.bib
+</code></pre></div>
+<h3 id="manuscript-writing">Manuscript Writing</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Sections</span>
+/research:manuscript:methods<span class="w"> </span><span class="s2">&quot;describe method&quot;</span>
+/research:manuscript:results<span class="w"> </span><span class="s2">&quot;report findings&quot;</span>
+
+<span class="c1"># Revision</span>
+/research:manuscript:reviewer<span class="w"> </span><span class="s2">&quot;address comment&quot;</span>
+/research:manuscript:proof<span class="w"> </span><span class="s2">&quot;check derivation&quot;</span>
+</code></pre></div>
+<h3 id="research-planning">Research Planning</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Strategic</span>
+/research:lit-gap<span class="w"> </span><span class="s2">&quot;research area&quot;</span>
+/research:hypothesis<span class="w"> </span><span class="s2">&quot;phenomenon&quot;</span>
+/research:method-scout<span class="w"> </span><span class="s2">&quot;problem type&quot;</span>
+
+<span class="c1"># Tactical</span>
+/research:analysis-plan<span class="w"> </span><span class="s2">&quot;study design&quot;</span>
+</code></pre></div>
+<h3 id="simulation-studies">Simulation Studies</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Design</span>
+/research:simulation:design<span class="w"> </span><span class="s2">&quot;comparison question&quot;</span>
+
+<span class="c1"># Analysis</span>
+/research:simulation:analysis<span class="w"> </span>results.csv
+</code></pre></div>
+<h2 id="skills-integration">Skills Integration</h2>
+<h3 id="mathematical-foundation-skill">Mathematical Foundation Skill</h3>
+<p>Automatically activates for proof-heavy work.</p>
+<p><strong>Triggers:</strong> proof, theorem, lemma, identifiability</p>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code>You: &quot;I need to prove identifiability of the mediation effect&quot;
+
+📐 Mathematical Foundation Skill Activated
+
+Identifiability Strategy:
+
+1. State assumptions clearly:
+   - Sequential ignorability
+   - Positivity
+   - Consistency
+
+2. Proof structure:
+   Lemma 1: Identification of E[Y(m,a)]
+   Lemma 2: Identification of E[M(a)]
+   Theorem: Combine lemmas for indirect effect
+
+3. Technical tools:
+   - g-computation
+   - Interventional distributions
+   - Causal directed acyclic graphs
+
+Recommended approach: Start with simple case
+(binary mediator), extend to continuous.
+</code></pre></div>
+<h3 id="implementation-skill">Implementation Skill</h3>
+<p>Focuses on numerical stability and efficiency.</p>
+<p><strong>Triggers:</strong> algorithm, implementation, code, numerical</p>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code>You: &quot;Implement bootstrap confidence intervals&quot;
+
+💻 Implementation Skill Activated
+
+Efficient Bootstrap Implementation:
+
+```r
+# Vectorized approach (fast)
+bootstrap_ci &lt;- function(data, B = 10000) {
+  n &lt;- nrow(data)
+
+  # Pre-allocate (important!)
+  indirect &lt;- numeric(B)
+
+  # Parallel bootstrap
+  indirect &lt;- foreach(b = 1:B, .combine = c) %dopar% {
+    idx &lt;- sample(n, replace = TRUE)
+    data_b &lt;- data[idx, ]
+    estimate_indirect(data_b)
+  }
+
+  # Percentile CI
+  quantile(indirect, c(0.025, 0.975))
+}
+</code></pre></div>
+<p>Performance:
+- Avoid loops: Use vectorization
+- Parallel: 4x speedup on 4 cores
+- Memory: Pre-allocate arrays
+<div class="highlight"><pre><span></span><code>## Tips &amp; Best Practices
+
+### Literature Review
+
+**Systematic search:**
+
+```bash
+# Broad initial search
+/research:arxiv &quot;general topic&quot;
+
+# Refine based on results
+/research:arxiv &quot;specific aspect&quot; --since 2023
+
+# Track key papers
+/research:doi &lt;key-doi&gt;
+</code></pre></div></p>
+<p><strong>Organize bibliography:</strong></p>
+<ul>
+<li>One <code>.bib</code> file per project</li>
+<li>Descriptive keys: <code>smith2025bootstrap</code> not <code>ref1</code></li>
+<li>Add papers immediately after finding them</li>
+</ul>
+<h3 id="manuscript-writing_1">Manuscript Writing</h3>
+<p><strong>Iterative drafting:</strong></p>
+<ol>
+<li>Generate initial draft with <code>/research:manuscript:*</code></li>
+<li>Edit for clarity and flow</li>
+<li>Verify statistical reporting</li>
+<li>Add citations manually</li>
+<li>Polish prose</li>
+</ol>
+<p><strong>Don't expect perfection</strong> from AI-generated text. Use it as a scaffold, not final prose.</p>
+<h3 id="simulation-studies_1">Simulation Studies</h3>
+<p><strong>Start simple:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Initial design: 2-3 factors</span>
+/research:simulation:design<span class="w"> </span><span class="s2">&quot;simple comparison&quot;</span>
+
+<span class="c1"># If needed, expand</span>
+/research:simulation:design<span class="w"> </span><span class="s2">&quot;add complexity&quot;</span>
+</code></pre></div>
+<p><strong>Computational efficiency:</strong></p>
+<ul>
+<li>Parallelize across scenarios</li>
+<li>Cache intermediate results</li>
+<li>Start with small R (e.g., 1000), scale up</li>
+</ul>
+<h3 id="reviewer-responses">Reviewer Responses</h3>
+<p><strong>Be diplomatic:</strong></p>
+<div class="highlight"><pre><span></span><code>/research:manuscript:reviewer<span class="w"> </span><span class="s2">&quot;reviewer comment&quot;</span>
+</code></pre></div>
+<p>Generates respectful, evidence-based responses.</p>
+<p><strong>Always:</strong>
+- Thank the reviewer
+- Acknowledge valid points
+- Provide evidence for disagreements
+- Add clarifications to manuscript</p>
+<h2 id="related-documentation">Related Documentation</h2>
+<ul>
+<li><strong><a href="../commands/">Commands Reference</a></strong> - All 14 research commands</li>
+<li><strong><a href="../skills/">Skills Guide</a></strong> - 17 auto-activating research skills</li>
+<li><strong><a href="../api-wrappers/">API Wrappers</a></strong> - Shell-based APIs for literature</li>
+</ul>
+<hr />
+<p><strong>Last Updated:</strong> 2026-01-09
+<strong>Document Version:</strong> v1.0.0
+<strong>Status:</strong> ✅ Comprehensive workflows for statistical research</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

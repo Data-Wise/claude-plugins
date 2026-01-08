@@ -1,0 +1,3423 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../skills-agents/">
+      
+      
+        <link rel="next" href="../../statistical-research/quick-start/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Workflows & Examples - Claude Code Plugins</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#workflows-examples" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Claude Code Plugins" class="md-header__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Code Plugins
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Workflows & Examples
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../rforge/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  RForge
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../craft/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Craft
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Workflow
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../statistical-research/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Statistical Research
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../installation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../CLAUDE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Developer Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../MODE-USAGE-GUIDE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Mode System
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../CICD/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  CI/CD Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../COMMAND-REFERENCE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../PLUGIN-DEVELOPMENT/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Plugin Development
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../PUBLISHING/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publishing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../diagrams/DEPENDENCIES/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Claude Code Plugins" class="md-nav__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Claude Code Plugins
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RForge
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rforge/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rforge/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rforge/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rforge/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Craft
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Craft
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/orchestrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orchestrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#daily-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Daily Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Daily Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow-1-morning-planning-routine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 1: Morning Planning Routine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-2-brainstorming-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 2: Brainstorming Session
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-3-getting-unstuck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 3: Getting Unstuck
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-world-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-World Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real-World Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-adhd-developers-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: ADHD Developer's Day
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-planning-sprint-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Planning Sprint Work
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-feature-development-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: Feature Development Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-activating-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-Activating Skills
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Auto-Activating Skills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend-designer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend Designer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend-designer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend Designer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#devops-helper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DevOps Helper
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-budget-guarantees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time Budget Guarantees
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adhd-friendly-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ADHD-Friendly Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ADHD-Friendly Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scannable-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scannable Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-wins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Wins
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decision-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cant-decide-what-to-work-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Can't decide what to work on"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lost-context-after-interruption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Lost context after interruption"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stuck-on-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Stuck on problem"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#too-many-ideas-cant-focus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Too many ideas, can't focus"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistical Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistical-research/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistical-research/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistical-research/skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistical-research/api-wrappers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Wrappers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistical-research/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CLAUDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mode System
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mode System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MODE-USAGE-GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MODE-QUICK-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../COMMAND-CHEATSHEET/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FORMAT-EXAMPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Format Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MCP-INTEGRATION-TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Integration Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../REAL-WORLD-TESTING-RESULTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Real-World Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MODE-SYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CICD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../COMMAND-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PLUGIN-DEVELOPMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugin Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PUBLISHING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publishing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/DEPENDENCIES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependencies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/ECOSYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/rforge-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/rforge-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/statistical-research-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/statistical-research-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/workflow-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/workflow-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#daily-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Daily Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Daily Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow-1-morning-planning-routine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 1: Morning Planning Routine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-2-brainstorming-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 2: Brainstorming Session
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-3-getting-unstuck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow 3: Getting Unstuck
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-world-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-World Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real-World Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-adhd-developers-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: ADHD Developer's Day
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-planning-sprint-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Planning Sprint Work
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-feature-development-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: Feature Development Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-activating-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-Activating Skills
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Auto-Activating Skills">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend-designer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend Designer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend-designer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend Designer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#devops-helper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DevOps Helper
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-budget-guarantees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time Budget Guarantees
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adhd-friendly-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ADHD-Friendly Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ADHD-Friendly Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scannable-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scannable Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-wins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Wins
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decision-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cant-decide-what-to-work-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Can't decide what to work on"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lost-context-after-interruption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Lost context after interruption"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stuck-on-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Stuck on problem"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#too-many-ideas-cant-focus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Too many ideas, can't focus"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="workflows-examples">Workflows &amp; Examples</h1>
+<p>Practical ADHD-friendly workflows and real-world examples for focus, task management, and decision support.</p>
+<h2 id="daily-workflows">Daily Workflows</h2>
+<h3 id="workflow-1-morning-planning-routine">Workflow 1: Morning Planning Routine</h3>
+<p>Start your day with clarity and focus.</p>
+<pre class="mermaid"><code>flowchart TD
+    A[Start Day] --&gt; B[/recap]
+    B --&gt; C{Have context?}
+    C --&gt;|Yes| D[Review yesterday]
+    C --&gt;|No| E[Fresh start]
+
+    D --&gt; F[/next]
+    E --&gt; F
+
+    F --&gt; G{Task suggested?}
+    G --&gt;|Clear choice| H[/focus task]
+    G --&gt;|Uncertain| I[/brainstorm quick 'priorities']
+
+    I --&gt; F
+
+    H --&gt; J[Work on task]
+    J --&gt; K{Stuck?}
+    K --&gt;|Yes| L[/stuck]
+    K --&gt;|No| M{Done?}
+
+    L --&gt; N[Apply solution]
+    N --&gt; J
+
+    M --&gt;|Yes| O[/done 'achievement']
+    M --&gt;|No| J
+
+    style A fill:#e1f5ff
+    style F fill:#ffe1f5
+    style H fill:#e1ffe1
+    style O fill:#f0e1ff</code></pre>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Restore context</strong> (&lt; 10s)</li>
+</ol>
+<div class="highlight"><pre><span></span><code>/recap
+</code></pre></div>
+<p>Output:
+   <div class="highlight"><pre><span></span><code>📋 Yesterday&#39;s Context
+
+✅ Completed: OAuth implementation
+📝 Progress: 85% test coverage
+🔄 Next: Error handling for edge cases
+
+Time since last session: 16 hours
+</code></pre></div></p>
+<ol>
+<li><strong>Get recommendation</strong> (&lt; 5s)</li>
+</ol>
+<div class="highlight"><pre><span></span><code>/next
+</code></pre></div>
+<p>Output:
+   <div class="highlight"><pre><span></span><code>🎯 SUGGESTED NEXT STEP
+
+Add error handling to OAuth flow
+
+📁 File: src/auth/oauth.ts
+⏱️  Est. time: 30-45 min
+
+Why this? Maintains momentum from yesterday,
+unblocked and ready to execute.
+
+💡 ALTERNATIVES:
+A) Quick win: Update README (10 min) ⚡
+B) Switch context: Review PR #42 (20 min)
+</code></pre></div></p>
+<ol>
+<li><strong>Enter focus mode</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>/focus<span class="w"> </span><span class="s2">&quot;Add OAuth error handling&quot;</span>
+</code></pre></div>
+<p>Output:
+   <div class="highlight"><pre><span></span><code>📍 Focus Mode Activated
+
+Objective: Add OAuth error handling
+Success: Errors caught and logged properly
+Time budget: 45 minutes
+Distractions: Minimized
+
+Starting now...
+</code></pre></div></p>
+<h3 id="workflow-2-brainstorming-session">Workflow 2: Brainstorming Session</h3>
+<p>Quick ideation to thorough analysis.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant User
+    participant Workflow
+    participant Agents
+
+    User-&gt;&gt;Workflow: /brainstorm quick "feature ideas"
+    Workflow--&gt;&gt;User: 3-5 ideas (&lt; 1 min)
+
+    User-&gt;&gt;Workflow: /brainstorm "feature X design"
+    Workflow-&gt;&gt;Agents: Light delegation (1-2 agents)
+    Agents--&gt;&gt;Workflow: Validation
+    Workflow--&gt;&gt;User: 5-7 ideas with trade-offs (&lt; 5 min)
+
+    User-&gt;&gt;Workflow: /brainstorm thorough "architecture"
+    Workflow-&gt;&gt;Agents: Full delegation (3-4 agents)
+
+    par backend-architect
+        Agents-&gt;&gt;Agents: Backend analysis
+    and frontend-specialist
+        Agents-&gt;&gt;Agents: Frontend analysis
+    and database-architect
+        Agents-&gt;&gt;Agents: Data modeling
+    end
+
+    Agents--&gt;&gt;Workflow: Comprehensive analysis
+    Workflow--&gt;&gt;User: Deep dive with timeline (&lt; 30 min)</code></pre>
+<p><strong>Example:</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Quick Mode (&lt;1 min)</label><label for="__tabbed_1_2">Default Mode (&lt;5 min)</label><label for="__tabbed_1_3">Thorough Mode (&lt;30 min)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>/brainstorm<span class="w"> </span>quick<span class="w"> </span><span class="s2">&quot;User dashboard features&quot;</span>
+</code></pre></div>
+<p>Output:
+<div class="highlight"><pre><span></span><code>💡 Quick Ideas (30 seconds)
+
+1. Activity feed with recent actions
+2. Customizable widgets for key metrics
+3. Quick actions bar for common tasks
+4. Notification center
+5. Profile completion progress bar
+
+💬 Next: Pick one and run deeper analysis
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>/brainstorm<span class="w"> </span><span class="s2">&quot;Activity feed design&quot;</span>
+</code></pre></div>
+<p>Output:
+<div class="highlight"><pre><span></span><code>📊 Analysis &amp; Trade-offs
+
+Option A: Real-time WebSocket feed
+✅ Instant updates, engaging UX
+❌ Complex infrastructure, scaling challenges
+Effort: 3-4 days
+
+Option B: Polling with smart refresh
+✅ Simple, reliable, easier to scale
+❌ Slight delay, more server requests
+Effort: 1-2 days
+
+Option C: Hybrid (polling + occasional WS)
+✅ Balanced approach
+❌ More complexity than polling
+Effort: 2-3 days
+
+🎯 Recommendation: Start with Option B
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>/brainstorm<span class="w"> </span>thorough<span class="w"> </span><span class="s2">&quot;Real-time architecture&quot;</span>
+</code></pre></div>
+<p>Output:
+<div class="highlight"><pre><span></span><code>🏗️ Deep Architectural Analysis
+
+## Backend Perspective
+- WebSocket server: Socket.io vs native WS
+- Message queue: Redis pub/sub
+- Scaling: Sticky sessions + Redis adapter
+
+## Frontend Perspective
+- State management: Redux + WS middleware
+- Reconnection strategy
+- Offline handling
+
+## Database Perspective
+- Event storage schema
+- Read model optimization
+- Archive strategy for old events
+
+## Timeline
+Week 1-2: Core WS infrastructure
+Week 3: Frontend integration
+Week 4: Scale testing &amp; optimization
+
+Total effort: 4 weeks, 2 engineers
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h3 id="workflow-3-getting-unstuck">Workflow 3: Getting Unstuck</h3>
+<p>5 Why analysis and solution finding.</p>
+<pre class="mermaid"><code>flowchart TD
+    A[Hit Blocker] --&gt; B[/stuck]
+    B --&gt; C[What's the blocker?]
+    C --&gt; D[Why is this hard?]
+    D --&gt; E[What have you tried?]
+    E --&gt; F[Simpler version?]
+    F --&gt; G[Who could help?]
+
+    G --&gt; H{Root cause identified?}
+    H --&gt;|Yes| I[Solution recommended]
+    H --&gt;|No| J[Alternative approaches]
+
+    I --&gt; K[Apply solution]
+    J --&gt; K
+
+    K --&gt; L{Unblocked?}
+    L --&gt;|Yes| M[Continue work]
+    L --&gt;|No| N[Break down further]
+
+    N --&gt; B
+
+    style A fill:#ffe1e1
+    style B fill:#ffe1f5
+    style I fill:#e1ffe1
+    style M fill:#e1f5ff</code></pre>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code>/stuck
+</code></pre></div>
+<p>Interactive session:</p>
+<div class="highlight"><pre><span></span><code>🤔 Let&#39;s debug this...
+
+1️⃣ What&#39;s the immediate blocker?
+&gt; &quot;OAuth callback not working&quot;
+
+2️⃣ What have you tried?
+&gt; &quot;Checked redirect URI, verified credentials&quot;
+
+3️⃣ What&#39;s a simpler version of this?
+&gt; &quot;Test with local callback first?&quot;
+
+4️⃣ Root cause analysis suggests:
+- Environment variable mismatch
+- Callback URL using HTTP instead of HTTPS in prod
+
+💡 Recommendation:
+1. Verify OAUTH_CALLBACK_URL in .env
+2. Ensure HTTPS in production config
+3. Test with curl first before browser
+
+Estimated fix time: 5-10 minutes
+</code></pre></div>
+<h2 id="real-world-examples">Real-World Examples</h2>
+<h3 id="example-1-adhd-developers-day">Example 1: ADHD Developer's Day</h3>
+<p><strong>Context:</strong> Software engineer with ADHD, prone to context switching</p>
+<p><strong>6:00 AM - Morning Planning</strong></p>
+<div class="highlight"><pre><span></span><code>/recap
+<span class="c1"># Restores: &quot;Yesterday left off implementing search feature&quot;</span>
+
+/next
+<span class="c1"># Suggests: &quot;Complete search pagination (30 min)&quot;</span>
+
+/focus<span class="w"> </span><span class="s2">&quot;Complete search pagination&quot;</span>
+<span class="c1"># Activates focus mode</span>
+</code></pre></div>
+<p><strong>Work Session (30 min):</strong>
+- Single task, clear objective
+- No distractions
+- Progress tracked</p>
+<p><strong>Hit a Blocker (10:15 AM):</strong></p>
+<div class="highlight"><pre><span></span><code>/stuck
+<span class="c1"># Identifies: API rate limiting issue</span>
+<span class="c1"># Suggests: Implement caching layer</span>
+</code></pre></div>
+<p><strong>Context Switch (11:00 AM):</strong></p>
+<div class="highlight"><pre><span></span><code>/done<span class="w"> </span><span class="s2">&quot;Pagination done, added caching&quot;</span>
+<span class="c1"># Captures achievement</span>
+
+<span class="c1"># Unexpected meeting, context lost</span>
+
+/recap
+<span class="c1"># After meeting, restores context quickly</span>
+</code></pre></div>
+<p><strong>End of Day (5:00 PM):</strong></p>
+<div class="highlight"><pre><span></span><code>/done<span class="w"> </span><span class="s2">&quot;Search feature complete with tests&quot;</span>
+<span class="c1"># Saves context for tomorrow</span>
+</code></pre></div>
+<h3 id="example-2-planning-sprint-work">Example 2: Planning Sprint Work</h3>
+<p><strong>Context:</strong> Team lead planning 2-week sprint</p>
+<p><strong>Monday Morning:</strong></p>
+<div class="highlight"><pre><span></span><code>/brainstorm<span class="w"> </span>thorough<span class="w"> </span><span class="s2">&quot;Sprint 12 priorities&quot;</span>
+</code></pre></div>
+<p>Output identifies:
+- 3 high-priority features
+- 2 tech debt items
+- 1 performance optimization</p>
+<p><strong>Breaking Down Work:</strong></p>
+<div class="highlight"><pre><span></span><code>/brainstorm<span class="w"> </span><span class="s2">&quot;User authentication feature&quot;</span>
+</code></pre></div>
+<p>Output:
+<div class="highlight"><pre><span></span><code>📋 Feature Breakdown
+
+Backend (3 days):
+- JWT authentication
+- User registration
+- Password reset
+
+Frontend (2 days):
+- Login form
+- Registration flow
+- Protected routes
+
+Testing (1 day):
+- Unit tests
+- Integration tests
+- E2E tests
+
+Total: 6 days (1 developer)
+</code></pre></div></p>
+<p><strong>Daily Standups:</strong></p>
+<div class="highlight"><pre><span></span><code>/next
+<span class="c1"># Each developer gets personalized task recommendation</span>
+</code></pre></div>
+<h3 id="example-3-feature-development-workflow">Example 3: Feature Development Workflow</h3>
+<p><strong>Day 1: Planning</strong></p>
+<div class="highlight"><pre><span></span><code>/brainstorm<span class="w"> </span><span class="s2">&quot;Add comment system&quot;</span>
+</code></pre></div>
+<p>Gets 5-7 design options with trade-offs.</p>
+<p><strong>Day 2-4: Implementation</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Start each day</span>
+/recap
+/next
+/focus<span class="w"> </span><span class="s2">&quot;task from /next&quot;</span>
+
+<span class="c1"># When stuck</span>
+/stuck
+
+<span class="c1"># End each day</span>
+/done<span class="w"> </span><span class="s2">&quot;what was accomplished&quot;</span>
+</code></pre></div>
+<p><strong>Day 5: Testing &amp; Polish</strong></p>
+<div class="highlight"><pre><span></span><code>/next
+<span class="c1"># Recommends: &quot;Write tests for comment system&quot;</span>
+
+/focus<span class="w"> </span><span class="s2">&quot;Write comprehensive tests&quot;</span>
+</code></pre></div>
+<h2 id="auto-activating-skills">Auto-Activating Skills</h2>
+<p>Skills trigger automatically based on conversation keywords.</p>
+<h3 id="backend-designer">Backend Designer</h3>
+<p><strong>Triggers:</strong> API, database, authentication, caching</p>
+<p><strong>Example Conversation:</strong></p>
+<div class="highlight"><pre><span></span><code>You: &quot;I need to add user authentication&quot;
+
+🤖 Backend Designer Skill Activated
+
+Pragmatic Authentication Options:
+
+1. JWT with refresh tokens (recommended)
+   - Stateless, scalable
+   - Requires token storage client-side
+
+2. Session-based with Redis
+   - Server-side state
+   - Easier to revoke sessions
+
+3. OAuth with providers (Google, GitHub)
+   - No password management
+   - Depends on third-party
+
+💡 For indie project: Start with JWT
+</code></pre></div>
+<h3 id="frontend-designer">Frontend Designer</h3>
+<p><strong>Triggers:</strong> UI, UX, components, accessibility</p>
+<p><strong>Example Conversation:</strong></p>
+<div class="highlight"><pre><span></span><code>You: &quot;Design a user settings page&quot;
+
+🎨 Frontend Designer Skill Activated
+
+ADHD-Friendly Settings Design:
+
+Structure:
+- Tabbed sections (reduce cognitive load)
+- Save button always visible
+- Clear visual feedback on changes
+
+Layout:
+┌─────────────────────────────┐
+│ Profile | Security | Prefs  │ ← Tabs
+├─────────────────────────────┤
+│                             │
+│  [Settings form]            │
+│                             │
+│     [Save] [Cancel]         │ ← Always visible
+└─────────────────────────────┘
+</code></pre></div>
+<h3 id="devops-helper">DevOps Helper</h3>
+<p><strong>Triggers:</strong> CI/CD, deployment, Docker, infrastructure</p>
+<p><strong>Example Conversation:</strong></p>
+<div class="highlight"><pre><span></span><code>You: &quot;How do I deploy to production?&quot;
+
+🚀 DevOps Helper Skill Activated
+
+Indie-Friendly Deployment:
+
+Option A: Vercel (recommended for frontend)
+- Zero config for Next.js
+- Auto-scaling, edge network
+- Free tier generous
+
+Option B: Railway (recommended for full-stack)
+- Simple Dockerfile deployment
+- Built-in database
+- $5/month
+
+Option C: DigitalOcean App Platform
+- Middle ground
+- More control than Vercel
+- Predictable pricing
+</code></pre></div>
+<h2 id="time-budget-guarantees">Time Budget Guarantees</h2>
+<p>All commands have explicit time budgets:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Time Budget</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/next</code></td>
+<td>&lt;5s</td>
+<td>Quick decision</td>
+</tr>
+<tr>
+<td><code>/recap</code></td>
+<td>&lt;10s</td>
+<td>Context restore</td>
+</tr>
+<tr>
+<td><code>/stuck</code></td>
+<td>&lt;60s</td>
+<td>Problem solving</td>
+</tr>
+<tr>
+<td><code>/done</code></td>
+<td>&lt;5s</td>
+<td>Session capture</td>
+</tr>
+<tr>
+<td><code>/refine</code></td>
+<td>&lt;30s</td>
+<td>Prompt optimization</td>
+</tr>
+<tr>
+<td><code>/brainstorm quick</code></td>
+<td>&lt;60s</td>
+<td>Fast ideation</td>
+</tr>
+<tr>
+<td><code>/brainstorm</code></td>
+<td>&lt;5min</td>
+<td>Balanced analysis</td>
+</tr>
+<tr>
+<td><code>/brainstorm thorough</code></td>
+<td>&lt;30min</td>
+<td>Deep dive</td>
+</tr>
+<tr>
+<td><code>/focus</code></td>
+<td>N/A</td>
+<td>Work session</td>
+</tr>
+</tbody>
+</table>
+<h2 id="adhd-friendly-features">ADHD-Friendly Features</h2>
+<h3 id="scannable-output">Scannable Output</h3>
+<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────────────────────────────┐
+│ 🎯 SUGGESTED NEXT STEP                                      │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│   Complete OAuth error handling                             │
+│                                                             │
+│   📁 File: src/auth/oauth.ts                                │
+│   ⏱️  Est. time: 30-45 min                                   │
+│   🎯 Impact: Critical for production                        │
+│                                                             │
+│   Why this? Unblocked, maintains momentum                   │
+│                                                             │
+├─────────────────────────────────────────────────────────────┤
+│ 💡 ALTERNATIVES:                                            │
+│    A) Update docs (10 min) ⚡                               │
+│    B) Review PR (20 min)                                    │
+└─────────────────────────────────────────────────────────────┘
+</code></pre></div>
+<h3 id="quick-wins">Quick Wins</h3>
+<p>Every recommendation includes &lt;15min quick wins:</p>
+<div class="highlight"><pre><span></span><code>💡 ALTERNATIVES:
+   A) Quick win: Add JSDoc comment (5 min) ⚡
+   B) Quick win: Update README (10 min) ⚡
+   C) Switch context: Different feature (60 min)
+</code></pre></div>
+<h3 id="decision-support">Decision Support</h3>
+<p>Reduces paralysis:
+- <strong>ONE</strong> clear recommendation
+- <strong>WHY</strong> this task (builds trust)
+- <strong>2-3</strong> escape hatches (alternatives)
+- <strong>Time estimates</strong> (planning)</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="cant-decide-what-to-work-on">"Can't decide what to work on"</h3>
+<div class="highlight"><pre><span></span><code>/next
+<span class="c1"># Clear recommendation with reasoning</span>
+</code></pre></div>
+<h3 id="lost-context-after-interruption">"Lost context after interruption"</h3>
+<div class="highlight"><pre><span></span><code>/recap
+<span class="c1"># Restores: what you were doing, progress, next steps</span>
+</code></pre></div>
+<h3 id="stuck-on-problem">"Stuck on problem"</h3>
+<div class="highlight"><pre><span></span><code>/stuck
+<span class="c1"># 5 Why analysis, suggests solutions</span>
+</code></pre></div>
+<h3 id="too-many-ideas-cant-focus">"Too many ideas, can't focus"</h3>
+<div class="highlight"><pre><span></span><code>/brainstorm<span class="w"> </span>quick<span class="w"> </span><span class="s2">&quot;organize ideas&quot;</span>
+<span class="c1"># Fast categorization, prioritization</span>
+</code></pre></div>
+<h2 id="related-documentation">Related Documentation</h2>
+<ul>
+<li><strong><a href="../commands/">Commands Reference</a></strong> - All 12 ADHD-friendly commands</li>
+<li><strong><a href="../skills-agents/">Skills &amp; Agents</a></strong> - Auto-activating skills and delegation</li>
+</ul>
+<hr />
+<p><strong>Last Updated:</strong> 2026-01-09
+<strong>Document Version:</strong> v1.0.0
+<strong>Status:</strong> ✅ ADHD-optimized workflows for focus and productivity</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

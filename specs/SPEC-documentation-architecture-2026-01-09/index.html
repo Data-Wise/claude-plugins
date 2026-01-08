@@ -1,0 +1,3518 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>SPEC: Documentation Architecture Reorganization - Claude Code Plugins</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#spec-documentation-architecture-reorganization" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Claude Code Plugins" class="md-header__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Code Plugins
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SPEC: Documentation Architecture Reorganization
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../rforge/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  RForge
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../craft/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Craft
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../workflow/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Workflow
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../statistical-research/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Statistical Research
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../installation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../CLAUDE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Developer Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../MODE-USAGE-GUIDE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Mode System
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../CICD/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  CI/CD Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../COMMAND-REFERENCE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../PLUGIN-DEVELOPMENT/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Plugin Development
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../PUBLISHING/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publishing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../diagrams/DEPENDENCIES/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Claude Code Plugins" class="md-nav__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Claude Code Plugins
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RForge
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rforge/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rforge/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rforge/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rforge/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Craft
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Craft
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/orchestrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orchestrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../craft/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistical Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistical-research/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistical-research/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistical-research/skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistical-research/api-wrappers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Wrappers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../statistical-research/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CLAUDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mode System
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mode System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MODE-USAGE-GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MODE-QUICK-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../COMMAND-CHEATSHEET/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FORMAT-EXAMPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Format Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MCP-INTEGRATION-TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Integration Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../REAL-WORLD-TESTING-RESULTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Real-World Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MODE-SYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CICD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../COMMAND-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PLUGIN-DEVELOPMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugin Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PUBLISHING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publishing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/DEPENDENCIES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependencies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/ECOSYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/rforge-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/rforge-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/statistical-research-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/statistical-research-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/workflow-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diagrams/workflow-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#primary-user-story" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Primary User Story
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secondary-user-stories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secondary User Stories
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Secondary User Stories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#developer-contributing-to-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Developer Contributing to Plugin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-maintainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation Maintainer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uiux-specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UI/UX Specifications
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UI/UX Specifications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wireframes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wireframes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessibility-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessibility Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#review-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Review Checklist
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Review Checklist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technical-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ux-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UX Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Content Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-reorganize-documentation-structure-2-3-hours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: Reorganize Documentation Structure (2-3 hours)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-update-mkdocs-navigation-1-2-hours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2: Update MkDocs Navigation (1-2 hours)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-fill-content-gaps-4-6-hours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3: Fill Content Gaps (4-6 hours)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-4-automate-navigation-generation-optional-2-hours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 4: Automate Navigation Generation (Optional - 2 hours)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-5-update-cicd-1-hour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 5: Update CI/CD (1 hour)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        History
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation Standards
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation Standards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adopted-from-flow-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adopted from flow-cli
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Standards
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Standards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-template-markers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Template Markers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-standard-footers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Standard Footers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-markdown-list-spacing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Markdown List Spacing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-synopsis-sections-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Synopsis Sections (Commands)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-see-also-sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. See Also Sections
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Documents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-alternative-approaches-considered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appendix: Alternative Approaches Considered
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Appendix: Alternative Approaches Considered">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-not-multi-repo-option-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Not Multi-Repo? (Option B)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-not-per-plugin-sites-option-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Not Per-Plugin Sites? (Option C)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-not-mkdocs-monorepo-plugin-option-d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Not MkDocs Monorepo Plugin? (Option D)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="spec-documentation-architecture-reorganization">SPEC: Documentation Architecture Reorganization</h1>
+<p><strong>Status:</strong> draft
+<strong>Created:</strong> 2026-01-09
+<strong>From Brainstorm:</strong> <a href="../../BRAINSTORM-plugin-organization-architecture-2026-01-09.md">BRAINSTORM-plugin-organization-architecture-2026-01-09.md</a>
+<strong>Priority:</strong> HIGH
+<strong>Effort:</strong> 10-14 hours
+<strong>Target Completion:</strong> 2026-01-16</p>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>Reorganize the claude-plugins documentation to create clear plugin boundaries within a unified MkDocs site, solving content gaps and navigation confusion while preserving mono-repo development velocity.</p>
+<p><strong>Problem Statement:</strong>
+Current documentation mixes mono-repo infrastructure docs (MODE-SYSTEM, CI/CD) with plugin-specific documentation in a flat structure, making it hard for users to find plugin information and for developers to maintain documentation.</p>
+<p><strong>Solution:</strong>
+Hybrid mono-repo approach with plugin-scoped documentation sections within a unified MkDocs site.</p>
+<hr />
+<h2 id="primary-user-story">Primary User Story</h2>
+<p><strong>As a</strong> Claude Code user looking for plugin documentation,
+<strong>I want</strong> clear navigation that separates plugin-specific docs from shared infrastructure,
+<strong>So that</strong> I can quickly find information about a specific plugin without wading through unrelated content.</p>
+<p><strong>Acceptance Criteria:</strong>
+- [ ] User can navigate to any plugin's documentation within 30 seconds
+- [ ] Plugin landing pages exist for all 4 plugins
+- [ ] MkDocs navigation has distinct "Plugins" and "Shared Infrastructure" sections
+- [ ] Documentation builds without errors (<code>mkdocs build --strict</code>)
+- [ ] All internal links work correctly
+- [ ] CI/CD automatically deploys updated documentation</p>
+<hr />
+<h2 id="secondary-user-stories">Secondary User Stories</h2>
+<h3 id="developer-contributing-to-plugin">Developer Contributing to Plugin</h3>
+<p><strong>As a</strong> developer adding features to a plugin,
+<strong>I want</strong> a clear location to add plugin-specific documentation,
+<strong>So that</strong> I don't have to guess where new docs should go.</p>
+<p><strong>Acceptance Criteria:</strong>
+- [ ] Each plugin has <code>docs/</code> directory for plugin-specific content
+- [ ] Template structure exists for new plugin documentation
+- [ ] Contributing guide explains documentation structure</p>
+<h3 id="documentation-maintainer">Documentation Maintainer</h3>
+<p><strong>As a</strong> documentation maintainer,
+<strong>I want</strong> automated navigation generation,
+<strong>So that</strong> adding new documentation doesn't require manual mkdocs.yml updates.</p>
+<p><strong>Acceptance Criteria:</strong>
+- [ ] Script exists to regenerate navigation from file structure
+- [ ] Script runs in &lt; 5 seconds
+- [ ] Script documented in CLAUDE.md</p>
+<hr />
+<h2 id="technical-requirements">Technical Requirements</h2>
+<h3 id="architecture">Architecture</h3>
+<p><strong>Directory Structure:</strong>
+<div class="highlight"><pre><span></span><code>claude-plugins/
+├── docs/
+│   ├── mono-repo/                # Shared infrastructure docs
+│   │   ├── MODE-SYSTEM.md
+│   │   ├── CICD.md
+│   │   └── PUBLISHING.md
+│   └── plugins/                  # Plugin landing pages
+│       ├── index.md              # Plugins overview
+│       ├── rforge.md
+│       ├── craft.md
+│       ├── workflow.md
+│       └── statistical-research.md
+│
+├── rforge/
+│   ├── docs/                     # RForge-specific docs
+│   │   ├── quickstart.md
+│   │   ├── commands.md
+│   │   ├── architecture.md
+│   │   └── development.md
+│   └── package.json
+│
+├── craft/docs/                   # Craft-specific docs
+├── workflow/docs/                # Workflow-specific docs
+├── statistical-research/docs/    # Statistical Research-specific docs
+│
+├── mkdocs.yml                    # Unified site config
+└── scripts/
+    └── update-mkdocs-nav.py      # Navigation generator
+</code></pre></div></p>
+<p><strong>Navigation Structure (mkdocs.yml):</strong>
+<div class="highlight"><pre><span></span><code><span class="nt">nav</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Home</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">index.md</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Getting Started</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Installation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">installation.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Quick Start</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">quick-start.md</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Developer Guide</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CLAUDE.md</span>
+
+<span class="w">  </span><span class="c1"># PLUGIN SECTIONS</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Plugins</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Overview</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">plugins/index.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;RForge</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">R</span><span class="nv"> </span><span class="s">Package</span><span class="nv"> </span><span class="s">Ecosystem&#39;</span><span class="p p-Indicator">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Overview</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">plugins/rforge.md</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Quick Start</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rforge/docs/quickstart.md</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Commands</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rforge/commands/status.md</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Analyze</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rforge/commands/analyze.md</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Architecture</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rforge/docs/architecture.md</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;Craft</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">Workflow</span><span class="nv"> </span><span class="s">Orchestration&#39;</span><span class="p p-Indicator">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Overview</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">plugins/craft.md</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Commands</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">craft/docs/commands.md</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;Workflow</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">ADHD-Friendly</span><span class="nv"> </span><span class="s">Tools&#39;</span><span class="p p-Indicator">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Overview</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">plugins/workflow.md</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Commands</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">workflow/docs/commands.md</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;Statistical</span><span class="nv"> </span><span class="s">Research&#39;</span><span class="p p-Indicator">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Overview</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">plugins/statistical-research.md</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Tools</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">statistical-research/docs/tools.md</span>
+
+<span class="w">  </span><span class="c1"># SHARED INFRASTRUCTURE</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Shared Infrastructure</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Mode System</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mono-repo/MODE-SYSTEM.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">CI/CD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mono-repo/CICD.md</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Publishing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mono-repo/PUBLISHING.md</span>
+</code></pre></div></p>
+<hr />
+<h3 id="api-design">API Design</h3>
+<p>N/A - No API changes (documentation-only change)</p>
+<hr />
+<h3 id="data-models">Data Models</h3>
+<p>N/A - No data model changes (documentation-only change)</p>
+<hr />
+<h3 id="dependencies">Dependencies</h3>
+<p><strong>Required:</strong>
+- mkdocs-material (existing)
+- pymdown-extensions (existing)</p>
+<p><strong>Optional (for automation):</strong>
+- PyYAML (for navigation generator script)</p>
+<p><strong>Installation:</strong>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>mkdocs-material<span class="w"> </span>pymdown-extensions<span class="w"> </span>pyyaml
+</code></pre></div></p>
+<hr />
+<h2 id="uiux-specifications">UI/UX Specifications</h2>
+<h3 id="user-flow">User Flow</h3>
+<pre class="mermaid"><code>flowchart TD
+    Start[User visits docs site] --&gt; Landing[Landing page]
+    Landing --&gt; Goal{What's the goal?}
+
+    Goal --&gt;|Find plugin docs| PluginNav[Click 'Plugins' tab]
+    Goal --&gt;|Learn infrastructure| InfraNav[Click 'Shared Infrastructure' tab]
+
+    PluginNav --&gt; PluginList[See all 4 plugins]
+    PluginList --&gt; SelectPlugin[Click plugin name]
+    SelectPlugin --&gt; PluginLanding[Plugin landing page]
+    PluginLanding --&gt; PluginDocs[Read plugin-specific docs]
+
+    InfraNav --&gt; InfraList[See infrastructure docs]
+    InfraList --&gt; InfraTopic[Click topic]
+    InfraTopic --&gt; InfraDocs[Read infrastructure docs]
+
+    PluginDocs --&gt; CrossLink{Need related info?}
+    CrossLink --&gt;|Yes| InfraDocs
+    CrossLink --&gt;|No| End[Complete]
+
+    InfraDocs --&gt; End</code></pre>
+<p><strong>Key Interactions:</strong>
+1. Material theme tabs at top: Home | Getting Started | Plugins | Shared Infrastructure
+2. Clicking "Plugins" tab expands plugin list in sidebar
+3. Each plugin section expandable (Quick Start, Commands, Architecture)
+4. Cross-links between plugin docs and infrastructure docs</p>
+<hr />
+<h3 id="wireframes">Wireframes</h3>
+<p><strong>Landing Page (<code>index.md</code>):</strong>
+<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────────────────────────────┐
+│ Home | Getting Started | Plugins | Shared Infrastructure   │ ← Tabs
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  # Claude Code Plugins                                      │
+│                                                             │
+│  Specialized tools for Claude Code workflows.              │
+│                                                             │
+│  ## Available Plugins                                       │
+│                                                             │
+│  ┌──────────────────────────┐ ┌──────────────────────────┐│
+│  │ RForge                   │ │ Craft                    ││
+│  │ R Package Ecosystem      │ │ Workflow Orchestration   ││
+│  │ [Learn More →]           │ │ [Learn More →]           ││
+│  └──────────────────────────┘ └──────────────────────────┘│
+│                                                             │
+│  ┌──────────────────────────┐ ┌──────────────────────────┐│
+│  │ Workflow                 │ │ Statistical Research     ││
+│  │ ADHD-Friendly Tools      │ │ Research Toolkit         ││
+│  │ [Learn More →]           │ │ [Learn More →]           ││
+│  └──────────────────────────┘ └──────────────────────────┘│
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+</code></pre></div></p>
+<p><strong>Plugin Landing Page (<code>docs/plugins/rforge.md</code>):</strong>
+<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────────────────────────────┐
+│ Plugins ▼                                                   │ ← Sidebar
+│   Overview                                                  │
+│   &gt; RForge - R Package Ecosystem    ← Current page         │
+│       Overview                                              │
+│       Quick Start                                           │
+│       Commands                                              │
+│       Architecture                                          │
+│   Craft - Workflow Orchestration                            │
+│   ...                                                       │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  # RForge - R Package Ecosystem Management                 │
+│                                                             │
+│  ## Overview                                                │
+│  Comprehensive R package ecosystem orchestrator...          │
+│                                                             │
+│  ## Key Features                                            │
+│  • Auto-detect project structure                           │
+│  • Dependency analysis and cascade updates                 │
+│  • Production-ready with 292 passing tests                 │
+│                                                             │
+│  ## Quick Start                                             │
+│  [Installation instructions]                                │
+│                                                             │
+│  ## Documentation                                           │
+│  • [Quick Start](../rforge/docs/quickstart.md)             │
+│  • [Commands](../rforge/docs/commands.md)                  │
+│  • [Architecture](../rforge/docs/architecture.md)          │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+</code></pre></div></p>
+<p><strong>Shared Infrastructure Page (<code>docs/mono-repo/MODE-SYSTEM.md</code>):</strong>
+<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────────────────────────────┐
+│ Shared Infrastructure ▼                                     │ ← Sidebar
+│   Mode System           ← Current page                      │
+│   CI/CD                                                     │
+│   Publishing                                                │
+│   Architecture                                              │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  # Mode System                                              │
+│                                                             │
+│  ## Overview                                                │
+│  The mode system provides 4 analysis modes shared across   │
+│  all plugins.                                               │
+│                                                             │
+│  ## Used By                                                 │
+│  • [RForge](../plugins/rforge.md#mode-support)             │
+│  • [Craft](../plugins/craft.md#mode-integration)           │
+│                                                             │
+│  ## Modes                                                   │
+│  • default (&lt;10s) - Quick status checks                    │
+│  • debug (&lt;120s) - Detailed diagnostics                    │
+│  ...                                                        │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+</code></pre></div></p>
+<hr />
+<h3 id="accessibility-checklist">Accessibility Checklist</h3>
+<ul>
+<li>[x] Navigation structure is keyboard-accessible (Material theme default)</li>
+<li>[x] Semantic HTML headings (H1 → H2 → H3 hierarchy)</li>
+<li>[x] Alt text for any diagrams (use Mermaid with descriptions)</li>
+<li>[x] Color contrast meets WCAG AA standards (Material theme default)</li>
+<li>[x] Search functionality accessible (Material theme built-in)</li>
+<li>[x] Mobile-responsive navigation (Material theme default)</li>
+</ul>
+<p><strong>Notes:</strong>
+- Material theme handles most accessibility out-of-the-box
+- Focus on semantic markdown structure
+- Use Mermaid diagrams (accessible, text-based)</p>
+<hr />
+<h2 id="open-questions">Open Questions</h2>
+<ol>
+<li><strong>Plugin Icon/Logo System?</strong></li>
+<li>Should each plugin have a visual icon in navigation?</li>
+<li>If yes, where to store icons? (<code>docs/assets/plugins/</code>?)</li>
+<li>
+<p>Defer to Phase 2 or implement now?</p>
+</li>
+<li>
+<p><strong>Version Selector for Plugin Docs?</strong></p>
+</li>
+<li>RForge is at v1.0.0 (Phase 1 complete)</li>
+<li>Other plugins may have different versions</li>
+<li>Should docs support version selection (mkdocs-material versioning)?</li>
+<li>
+<p>Defer to later or plan now?</p>
+</li>
+<li>
+<p><strong>Documentation Contribution Workflow?</strong></p>
+</li>
+<li>Should plugin docs live in plugin directory or centralized <code>docs/plugins/</code>?</li>
+<li>Current spec: Plugin docs in <code>&lt;plugin&gt;/docs/</code>, landing pages in <code>docs/plugins/</code></li>
+<li>Alternative: All docs in <code>docs/plugins/&lt;plugin&gt;/</code> (centralized)</li>
+<li>
+<p>Decision needed before Phase 1</p>
+</li>
+<li>
+<p><strong>Navigation Automation Priority?</strong></p>
+</li>
+<li>Phase 4 (automation) is optional</li>
+<li>Should it be mandatory for maintainability?</li>
+<li>If not automated, document manual update process clearly</li>
+</ol>
+<hr />
+<h2 id="review-checklist">Review Checklist</h2>
+<h3 id="technical-review">Technical Review</h3>
+<ul>
+<li>[ ] Directory structure aligns with mono-repo best practices</li>
+<li>[ ] MkDocs navigation structure is valid YAML</li>
+<li>[ ] No circular dependencies in documentation cross-links</li>
+<li>[ ] File naming conventions are consistent</li>
+<li>[ ] All referenced paths exist or will exist after implementation</li>
+</ul>
+<h3 id="ux-review">UX Review</h3>
+<ul>
+<li>[ ] User can find any plugin within 30 seconds (usability test)</li>
+<li>[ ] Navigation hierarchy is logical and predictable</li>
+<li>[ ] Plugin landing pages clearly explain purpose</li>
+<li>[ ] Cross-links between related docs are present</li>
+<li>[ ] Search functionality works for plugin-specific terms</li>
+</ul>
+<h3 id="content-review">Content Review</h3>
+<ul>
+<li>[ ] All 4 plugins have landing pages (<code>docs/plugins/&lt;plugin&gt;.md</code>)</li>
+<li>[ ] Each plugin has minimum viable documentation (Quick Start, Commands)</li>
+<li>[ ] Shared infrastructure docs clearly linked from plugin docs</li>
+<li>[ ] No duplicate content between plugin docs and mono-repo docs</li>
+<li>[ ] Examples and code samples are accurate</li>
+</ul>
+<h3 id="deployment-review">Deployment Review</h3>
+<ul>
+<li>[ ] <code>mkdocs build --strict</code> passes with zero errors</li>
+<li>[ ] No broken internal links (check with link validator)</li>
+<li>[ ] GitHub Actions workflow deploys automatically</li>
+<li>[ ] Deployed site accessible at data-wise.github.io/claude-plugins</li>
+<li>[ ] Navigation works correctly on deployed site</li>
+</ul>
+<hr />
+<h2 id="implementation-notes">Implementation Notes</h2>
+<h3 id="phase-1-reorganize-documentation-structure-2-3-hours">Phase 1: Reorganize Documentation Structure (2-3 hours)</h3>
+<p><strong>Files to Create:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># New directories</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>docs/mono-repo<span class="w"> </span>docs/plugins
+
+<span class="c1"># Plugin landing pages (copy from brainstorm examples)</span>
+touch<span class="w"> </span>docs/plugins/index.md
+touch<span class="w"> </span>docs/plugins/rforge.md
+touch<span class="w"> </span>docs/plugins/craft.md
+touch<span class="w"> </span>docs/plugins/workflow.md
+touch<span class="w"> </span>docs/plugins/statistical-research.md
+</code></pre></div></p>
+<p><strong>Files to Move:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Move shared infrastructure docs</span>
+mv<span class="w"> </span>docs/MODE-SYSTEM.md<span class="w"> </span>docs/mono-repo/
+mv<span class="w"> </span>docs/CICD.md<span class="w"> </span>docs/mono-repo/
+mv<span class="w"> </span>docs/PUBLISHING.md<span class="w"> </span>docs/mono-repo/
+
+<span class="c1"># Update internal links in moved files</span>
+<span class="c1"># Use sed or manual find-replace</span>
+</code></pre></div></p>
+<p><strong>Files to Update:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Update mkdocs.yml (see Architecture section for new nav structure)</span>
+<span class="c1"># Test build: mkdocs build --strict</span>
+</code></pre></div></p>
+<p><strong>Success Criteria:</strong>
+- <code>mkdocs build --strict</code> passes
+- New directory structure exists
+- No 404 errors when navigating site locally</p>
+<hr />
+<h3 id="phase-2-update-mkdocs-navigation-1-2-hours">Phase 2: Update MkDocs Navigation (1-2 hours)</h3>
+<p><strong>Implementation:</strong>
+1. Backup current <code>mkdocs.yml</code>: <code>cp mkdocs.yml mkdocs.yml.backup</code>
+2. Update <code>nav:</code> section with new structure (see Architecture)
+3. Test build: <code>mkdocs build --strict</code>
+4. Fix any broken links reported
+5. Test navigation locally: <code>mkdocs serve</code>
+6. Verify all sections expandable and linkable</p>
+<p><strong>Success Criteria:</strong>
+- Material theme tabs display correctly
+- Plugin sections expandable in sidebar
+- Shared Infrastructure section separate
+- All internal links work</p>
+<hr />
+<h3 id="phase-3-fill-content-gaps-4-6-hours">Phase 3: Fill Content Gaps (4-6 hours)</h3>
+<p><strong>Priority Order:</strong>
+1. RForge (most mature) - 2 hours
+2. Craft (active development) - 1.5 hours
+3. Workflow (ADHD tools) - 1.5 hours
+4. Statistical Research (research toolkit) - 1 hour</p>
+<p><strong>For Each Plugin:</strong></p>
+<p><strong>Create Landing Page Template:</strong>
+<div class="highlight"><pre><span></span><code><span class="gh"># &lt;Plugin Name&gt;</span>
+
+<span class="gu">## Overview</span>
+[2-3 sentence description of what the plugin does]
+
+<span class="gu">## Key Features</span>
+<span class="k">-</span><span class="w"> </span>Feature 1
+<span class="k">-</span><span class="w"> </span>Feature 2
+<span class="k">-</span><span class="w"> </span>Feature 3
+
+<span class="gu">## Installation</span>
+
+\`\`\`bash
+npm install &lt;plugin-name&gt;
+\`\`\`
+
+<span class="gu">## Quick Start</span>
+
+\`\`\`bash
+<span class="gh"># Minimal working example</span>
+\`\`\`
+
+<span class="gu">## Documentation</span>
+<span class="k">-</span><span class="w"> </span>[<span class="nt">Quick Start</span>](<span class="na">&lt;plugin&gt;/docs/quickstart.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">Commands</span>](<span class="na">&lt;plugin&gt;/docs/commands.md</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">Architecture</span>](<span class="na">&lt;plugin&gt;/docs/architecture.md</span>)
+
+<span class="gu">## Status</span>
+<span class="gs">**Version:**</span> &lt;version&gt;
+<span class="gs">**Status:**</span> Production-Ready / Beta / Alpha
+<span class="gs">**Tests:**</span> &lt;test-count&gt; passing
+
+<span class="gu">## Related</span>
+<span class="k">-</span><span class="w"> </span>[<span class="nt">Mode System</span>](<span class="na">../mono-repo/MODE-SYSTEM.md</span>) - Shared mode system
+</code></pre></div></p>
+<p><strong>Create Plugin-Specific Docs:</strong>
+- <code>&lt;plugin&gt;/docs/quickstart.md</code> - 5-minute getting started guide
+- <code>&lt;plugin&gt;/docs/commands.md</code> - Command reference
+- <code>&lt;plugin&gt;/docs/architecture.md</code> - How it works internally</p>
+<p><strong>Success Criteria:</strong>
+- All 4 landing pages complete
+- Minimum 3 docs per plugin (quickstart, commands, architecture)
+- All plugin docs linked from landing pages
+- Cross-links to shared infrastructure present</p>
+<hr />
+<h3 id="phase-4-automate-navigation-generation-optional-2-hours">Phase 4: Automate Navigation Generation (Optional - 2 hours)</h3>
+<p><strong>Script Requirements:</strong>
+- Scan plugin directories for <code>docs/*.md</code> files
+- Generate hierarchical navigation structure
+- Update <code>mkdocs.yml</code> programmatically
+- Preserve custom sections (Getting Started, Shared Infrastructure)</p>
+<p><strong>Implementation:</strong>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Auto-generate MkDocs navigation from plugin structure.</span>
+<span class="sd">Usage: python scripts/update-mkdocs-nav.py</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;rforge&#39;</span><span class="p">,</span> <span class="s1">&#39;craft&#39;</span><span class="p">,</span> <span class="s1">&#39;workflow&#39;</span><span class="p">,</span> <span class="s1">&#39;statistical-research&#39;</span><span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">scan_plugin_docs</span><span class="p">(</span><span class="n">plugin_name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Scan plugin docs and return nav structure.&quot;&quot;&quot;</span>
+    <span class="n">plugin_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">plugin_name</span><span class="p">)</span> <span class="o">/</span> <span class="s1">&#39;docs&#39;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">plugin_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">nav</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">plugin_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;Overview&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;plugins/</span><span class="si">{</span><span class="n">plugin_name</span><span class="si">}</span><span class="s1">.md&#39;</span><span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Scan for quickstart, commands, architecture</span>
+    <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;quickstart&#39;</span><span class="p">,</span> <span class="s1">&#39;commands&#39;</span><span class="p">,</span> <span class="s1">&#39;architecture&#39;</span><span class="p">]:</span>
+        <span class="n">doc_path</span> <span class="o">=</span> <span class="n">plugin_path</span> <span class="o">/</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">doc</span><span class="si">}</span><span class="s1">.md&#39;</span>
+        <span class="k">if</span> <span class="n">doc_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="n">nav</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">plugin_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="n">doc</span><span class="o">.</span><span class="n">title</span><span class="p">():</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">plugin_name</span><span class="si">}</span><span class="s1">/docs/</span><span class="si">{</span><span class="n">doc</span><span class="si">}</span><span class="s1">.md&#39;</span>
+            <span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">nav</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_nav</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate full navigation structure.&quot;&quot;&quot;</span>
+    <span class="n">nav</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s1">&#39;Home&#39;</span><span class="p">:</span> <span class="s1">&#39;index.md&#39;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;Getting Started&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;Installation&#39;</span><span class="p">:</span> <span class="s1">&#39;installation.md&#39;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s1">&#39;Quick Start&#39;</span><span class="p">:</span> <span class="s1">&#39;quick-start.md&#39;</span><span class="p">}</span>
+        <span class="p">]},</span>
+        <span class="p">{</span><span class="s1">&#39;Developer Guide&#39;</span><span class="p">:</span> <span class="s1">&#39;CLAUDE.md&#39;</span><span class="p">}</span>
+    <span class="p">]</span>
+
+    <span class="c1"># Add plugin sections</span>
+    <span class="n">plugin_nav</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Plugins&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;Overview&#39;</span><span class="p">:</span> <span class="s1">&#39;plugins/index.md&#39;</span><span class="p">}]}</span>
+    <span class="k">for</span> <span class="n">plugin</span> <span class="ow">in</span> <span class="n">PLUGINS</span><span class="p">:</span>
+        <span class="n">plugin_docs</span> <span class="o">=</span> <span class="n">scan_plugin_docs</span><span class="p">(</span><span class="n">plugin</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">plugin_docs</span><span class="p">:</span>
+            <span class="n">plugin_nav</span><span class="p">[</span><span class="s1">&#39;Plugins&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">plugin_docs</span><span class="p">)</span>
+
+    <span class="n">nav</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">plugin_nav</span><span class="p">)</span>
+
+    <span class="c1"># Add shared infrastructure</span>
+    <span class="n">nav</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+        <span class="s1">&#39;Shared Infrastructure&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;Mode System&#39;</span><span class="p">:</span> <span class="s1">&#39;mono-repo/MODE-SYSTEM.md&#39;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s1">&#39;CI/CD&#39;</span><span class="p">:</span> <span class="s1">&#39;mono-repo/CICD.md&#39;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s1">&#39;Publishing&#39;</span><span class="p">:</span> <span class="s1">&#39;mono-repo/PUBLISHING.md&#39;</span><span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">nav</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">nav</span> <span class="o">=</span> <span class="n">generate_nav</span><span class="p">()</span>
+
+    <span class="c1"># Load existing config</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;mkdocs.yml&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="c1"># Update navigation</span>
+    <span class="n">config</span><span class="p">[</span><span class="s1">&#39;nav&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nav</span>
+
+    <span class="c1"># Write back</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;mkdocs.yml&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">yaml</span><span class="o">.</span><span class="n">safe_dump</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ Updated mkdocs.yml navigation&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   Generated </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">nav</span><span class="p">)</span><span class="si">}</span><span class="s2"> top-level sections&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   Scanned </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">PLUGINS</span><span class="p">)</span><span class="si">}</span><span class="s2"> plugins&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>scripts/update-mkdocs-nav.py
+mkdocs<span class="w"> </span>build<span class="w"> </span>--strict<span class="w">  </span><span class="c1"># Verify</span>
+</code></pre></div></p>
+<p><strong>Success Criteria:</strong>
+- Script runs in &lt; 5 seconds
+- Generated navigation matches manual navigation
+- Script documented in CLAUDE.md
+- CI/CD can run script if needed</p>
+<hr />
+<h3 id="phase-5-update-cicd-1-hour">Phase 5: Update CI/CD (1 hour)</h3>
+<p><strong>Update <code>.github/workflows/deploy-docs.yml</code>:</strong>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy Documentation</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;docs/**&#39;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;*/docs/**&#39;</span><span class="w">          </span><span class="c1"># NEW: Trigger on plugin doc changes</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;mkdocs.yml&#39;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;scripts/update-mkdocs-nav.py&#39;</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">deploy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Setup Python</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.11&#39;</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">pip install mkdocs-material</span>
+<span class="w">          </span><span class="no">pip install pymdown-extensions</span>
+<span class="w">          </span><span class="no">pip install pyyaml          # NEW: For nav generator</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generate navigation (optional)</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no"># Uncomment if using Phase 4 automation</span>
+<span class="w">          </span><span class="no"># python scripts/update-mkdocs-nav.py</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build docs</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mkdocs build --strict</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Check for broken links</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no"># Optional: Add link checker</span>
+<span class="w">          </span><span class="no"># npm install -g broken-link-checker</span>
+<span class="w">          </span><span class="no"># blc http://localhost:8000 --recursive</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to GitHub Pages</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mkdocs gh-deploy --force</span>
+</code></pre></div></p>
+<p><strong>Validation:</strong>
+1. Create feature branch
+2. Make small doc change
+3. Push and verify workflow runs
+4. Check deployed site updates
+5. Test navigation on deployed site</p>
+<p><strong>Success Criteria:</strong>
+- Workflow triggers on doc changes
+- Build passes with <code>--strict</code>
+- Deployment succeeds
+- Site updates within 5 minutes</p>
+<hr />
+<h2 id="history">History</h2>
+<p><strong>2026-01-09:</strong>
+- Initial spec created from deep brainstorm
+- Decision: Hybrid mono-repo approach (Option A)
+- Rationale: Preserves mono-repo velocity, unified docs site, addresses content gaps
+- Status: draft → awaiting review</p>
+<p><strong>Review Requested From:</strong>
+- Primary maintainer (architecture review)
+- Plugin developers (usability review)
+- Documentation team (content review)</p>
+<hr />
+<h2 id="documentation-standards">Documentation Standards</h2>
+<h3 id="adopted-from-flow-cli">Adopted from flow-cli</h3>
+<p>This project adopts ADHD-friendly documentation standards from flow-cli's proven approach (100% command documentation standardization achieved in Phase 3).</p>
+<p><strong>Reference:</strong> <code>~/projects/dev-tools/flow-cli/docs/conventions/DOCUMENTATION-MAKING-GUIDE.md</code></p>
+<p><strong>Full Spec:</strong> <a href="../SPEC-documentation-standards-update-2026-01-09/">SPEC-documentation-standards-update-2026-01-09.md</a></p>
+<h3 id="core-standards">Core Standards</h3>
+<h4 id="1-template-markers">1. Template Markers</h4>
+<p><strong>Format:</strong> Blockquote after title
+<strong>Length:</strong> One sentence, under 15 words
+<strong>Purpose:</strong> Immediate context for what reader will learn</p>
+<div class="highlight"><pre><span></span><code><span class="gh"># Document Title</span>
+
+<span class="k">&gt; </span><span class="ge">Complete R package ecosystem orchestrator with 15 commands for dependency analysis</span>
+</code></pre></div>
+<h4 id="2-standard-footers">2. Standard Footers</h4>
+<p><strong>Format:</strong> Three-line footer with emoji status
+<strong>Location:</strong> End of document</p>
+<div class="highlight"><pre><span></span><code>---
+
+<span class="gs">**Last Updated:**</span> 2026-01-09
+<span class="gs">**Document Version:**</span> v1.1.0
+<span class="gs">**Status:**</span> ✅ Production ready with [key features]
+</code></pre></div>
+<h4 id="3-markdown-list-spacing">3. Markdown List Spacing</h4>
+<p><strong>Rule:</strong> Always add blank line before and after lists</p>
+<div class="highlight"><pre><span></span><code>✅ Good:
+<span class="gu">### Heading</span>
+
+Content paragraph.
+
+<span class="k">-</span><span class="w"> </span>List item 1
+<span class="k">-</span><span class="w"> </span>List item 2
+
+Next paragraph.
+
+❌ Bad:
+<span class="gu">### Heading</span>
+<span class="k">-</span><span class="w"> </span>List item 1
+</code></pre></div>
+<p><strong>Current Issues:</strong> 128 spacing violations across documentation</p>
+<h4 id="4-synopsis-sections-commands">4. Synopsis Sections (Commands)</h4>
+<p><strong>Location:</strong> After description, before detailed content
+<strong>Contents:</strong> Command syntax + 2-3 quick examples
+<strong>Purpose:</strong> Show usage before explaining</p>
+<h4 id="5-see-also-sections">5. See Also Sections</h4>
+<p><strong>Format:</strong> Category prefix, link, brief context
+<strong>Location:</strong> Before footer</p>
+<div class="highlight"><pre><span></span><code><span class="gu">## See Also</span>
+
+<span class="k">-</span><span class="w"> </span><span class="gs">**Command:**</span> [<span class="nt">Related Command</span>](<span class="na">../commands/related.md</span>) - Why it&#39;s related
+<span class="k">-</span><span class="w"> </span><span class="gs">**Tutorial:**</span> [<span class="nt">Tutorial Name</span>](<span class="na">../tutorials/01-name.md</span>) - What it teaches
+</code></pre></div>
+<h3 id="implementation-status">Implementation Status</h3>
+<p><strong>Completed:</strong> 2026-01-09</p>
+<ol>
+<li>✅ <strong>Phase 1:</strong> Fix 128 markdown spacing issues (44 files modified)</li>
+<li>✅ <strong>Phase 2:</strong> Add template markers to 5 landing pages</li>
+<li>✅ <strong>Phase 3:</strong> Add standard footers to 18 documentation files</li>
+<li>✅ <strong>Phase 4:</strong> Update spec with validation checklist</li>
+</ol>
+<p><strong>Effort:</strong> 2.5 hours (under 3-4 hour estimate)
+<strong>Impact:</strong> Improved scannability, consistency, and maintainability</p>
+<h3 id="validation-checklist">Validation Checklist</h3>
+<p><strong>Template Markers (5/5 files):</strong>
+- ✅ docs/plugins/index.md
+- ✅ docs/plugins/rforge.md
+- ✅ docs/plugins/craft.md
+- ✅ docs/plugins/workflow.md
+- ✅ docs/plugins/statistical-research.md</p>
+<p><strong>Standard Footers (18/18 files):</strong>
+- ✅ 5 plugin landing pages
+- ✅ 3 RForge docs (quickstart, commands, architecture)
+- ✅ 4 Craft docs (commands, skills-agents, architecture, orchestrator)
+- ✅ 4 Statistical Research docs (commands, skills, api-wrappers, examples)
+- ✅ 2 Workflow docs (commands, skills-agents)</p>
+<p><strong>Markdown Spacing:</strong>
+- ✅ Zero spacing violations (44 files fixed)
+- ✅ Script created: scripts/fix-markdown-spacing.py
+- ✅ mkdocs build succeeds</p>
+<p><strong>Quality Checks:</strong>
+- ✅ All template markers under 15 words
+- ✅ All template markers action-oriented
+- ✅ All footers include: Last Updated, Version, Status
+- ✅ All status lines include emoji indicator (✅)
+- ✅ Documentation builds without errors</p>
+<hr />
+<h2 id="related-documents">Related Documents</h2>
+<p><strong>Planning:</strong>
+- <a href="../../BRAINSTORM-plugin-organization-architecture-2026-01-09.md">Brainstorm Analysis</a>
+- <a href="../../PROJECT-ROADMAP.md">PROJECT-ROADMAP.md</a>
+- <a href="../../TODO.md">TODO.md</a>
+- <a href="../SPEC-documentation-standards-update-2026-01-09/">Documentation Standards Spec</a> - NEW</p>
+<p><strong>Infrastructure:</strong>
+- <a href="../../docs/MODE-SYSTEM.md">Mode System</a> - Will move to <code>docs/mono-repo/</code>
+- <a href="../../docs/CICD.md">CI/CD Guide</a> - Will move to <code>docs/mono-repo/</code></p>
+<p><strong>Templates:</strong>
+- <a href="#create-landing-page-template">Plugin Landing Page Template</a> - In Implementation Notes
+- <a href="#for-each-plugin">Plugin Docs Structure</a> - In Implementation Notes
+- <a href="~/projects/dev-tools/flow-cli/docs/conventions/DOCUMENTATION-MAKING-GUIDE.md">flow-cli DOCUMENTATION-MAKING-GUIDE.md</a> - Reference standards</p>
+<hr />
+<h2 id="appendix-alternative-approaches-considered">Appendix: Alternative Approaches Considered</h2>
+<h3 id="why-not-multi-repo-option-b">Why Not Multi-Repo? (Option B)</h3>
+<p><strong>Rejected Because:</strong>
+- User makes frequent cross-plugin changes (weekly+)
+- Git submodules notoriously painful to work with
+- CI/CD duplication across 4+ repos
+- High implementation effort (20-30 hours) for marginal benefit</p>
+<p><strong>When to Reconsider:</strong>
+- Cross-plugin changes become rare (quarterly or less)
+- Each plugin has dedicated maintainer/team
+- Plugins diverge significantly in purpose/audience</p>
+<hr />
+<h3 id="why-not-per-plugin-sites-option-c">Why Not Per-Plugin Sites? (Option C)</h3>
+<p><strong>Rejected Because:</strong>
+- User prefers unified documentation site
+- Fragments user experience (jumping between sites)
+- Shared documentation (MODE-SYSTEM, CI/CD) has no clear home
+- Duplicates navigation/theme configuration</p>
+<p><strong>When to Reconsider:</strong>
+- Plugins mature and need distinct branding
+- Audiences diverge (developers vs researchers vs data scientists)
+- One plugin becomes flagship product</p>
+<hr />
+<h3 id="why-not-mkdocs-monorepo-plugin-option-d">Why Not MkDocs Monorepo Plugin? (Option D)</h3>
+<p><strong>Deferred (Not Rejected):</strong>
+- Adds third-party dependency complexity
+- Learning curve for new tooling
+- Can migrate to this later if plugin count grows (5+)</p>
+<p><strong>Future Migration Path:</strong>
+- Start with manual navigation (Option A)
+- If plugin count exceeds 5, consider mkdocs-monorepo-plugin
+- Migration effort: ~4-6 hours (install plugin, create per-plugin configs)</p>
+<hr />
+<p><strong>End of Spec</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

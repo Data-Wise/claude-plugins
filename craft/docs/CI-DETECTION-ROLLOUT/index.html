@@ -1,0 +1,2880 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>CI Detection Rollout Plan - Claude Code Plugins</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ci-detection-rollout-plan" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Claude Code Plugins" class="md-header__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Claude Code Plugins
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CI Detection Rollout Plan
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../rforge/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  RForge
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Craft
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../workflow/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Workflow
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../statistical-research/quick-start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Statistical Research
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../installation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../CLAUDE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Developer Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../MODE-USAGE-GUIDE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Mode System
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../CICD/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  CI/CD Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../COMMAND-REFERENCE/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../PLUGIN-DEVELOPMENT/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Plugin Development
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../PUBLISHING/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Publishing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../diagrams/DEPENDENCIES/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Claude Code Plugins" class="md-nav__button md-logo" aria-label="Claude Code Plugins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Claude Code Plugins
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Data-Wise/claude-plugins" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RForge
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rforge/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rforge/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rforge/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rforge/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Craft
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Craft
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../orchestrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orchestrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflow/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflow/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflow/skills-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflow/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistical Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistical-research/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistical-research/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistical-research/skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistical-research/api-wrappers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Wrappers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistical-research/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows & Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CLAUDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mode System
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mode System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MODE-USAGE-GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MODE-QUICK-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../COMMAND-CHEATSHEET/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FORMAT-EXAMPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Format Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MCP-INTEGRATION-TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Integration Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../REAL-WORLD-TESTING-RESULTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Real-World Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MODE-SYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CICD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../COMMAND-REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../PLUGIN-DEVELOPMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugin Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../PUBLISHING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publishing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/DEPENDENCIES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependencies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/ECOSYSTEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/rforge-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/rforge-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RForge Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/statistical-research-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/statistical-research-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Research Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/workflow-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/workflow-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#priority-1-core-projects-have-active-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Priority 1: Core Projects (Have Active Development)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#priority-2-mcp-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Priority 2: MCP Servers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#priority-3-python-clis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Priority 3: Python CLIs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#priority-4-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Priority 4: Infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detection-validation-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detection Validation Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands-to-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands to Run
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results Log
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Results Log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flow-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flow-cli ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aiterm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        aiterm ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scribe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scribe ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atlas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        atlas ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statistical-research" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        statistical-research ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shell ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-refactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        project-refactor ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#homebrew-tap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        homebrew-tap ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obsidian-cli-ops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        obsidian-cli-ops ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nexus-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        nexus-cli ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zsh-claude-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        zsh-claude-workflow ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rollout-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollout Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detection-issues-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detection Issues Found
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#improvements-made" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Improvements Made
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="ci-detection-rollout-plan">CI Detection Rollout Plan</h1>
+<p>Scheduled testing of <code>/craft:ci:detect</code> on all active dev-tools projects.</p>
+<h2 id="priority-1-core-projects-have-active-development">Priority 1: Core Projects (Have Active Development)</h2>
+<table>
+<thead>
+<tr>
+<th>Project</th>
+<th>Type</th>
+<th>Status</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>aiterm</td>
+<td>Python/uv</td>
+<td>✅ Done</td>
+<td>Main CLI tool, exemplary CI</td>
+</tr>
+<tr>
+<td>scribe</td>
+<td>Tauri</td>
+<td>✅ Done</td>
+<td>Desktop app, needs test CI</td>
+</tr>
+<tr>
+<td>atlas</td>
+<td>Node/npm</td>
+<td>✅ Done</td>
+<td>Project state engine, exemplary CI</td>
+</tr>
+<tr>
+<td>flow-cli</td>
+<td>ZSH Plugin</td>
+<td>✅ Done</td>
+<td>Hybrid: ZSH + Node tooling</td>
+</tr>
+</tbody>
+</table>
+<h2 id="priority-2-mcp-servers">Priority 2: MCP Servers</h2>
+<table>
+<thead>
+<tr>
+<th>Project</th>
+<th>Type</th>
+<th>Status</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>statistical-research</td>
+<td>MCP/Bun</td>
+<td>✅ Done</td>
+<td>14 tools, has CI</td>
+</tr>
+<tr>
+<td>shell</td>
+<td>MCP/Node</td>
+<td>✅ Done</td>
+<td>Minimal, no CI needed</td>
+</tr>
+<tr>
+<td>project-refactor</td>
+<td>MCP/Node</td>
+<td>✅ Done</td>
+<td>Needs test CI</td>
+</tr>
+</tbody>
+</table>
+<h2 id="priority-3-python-clis">Priority 3: Python CLIs</h2>
+<table>
+<thead>
+<tr>
+<th>Project</th>
+<th>Type</th>
+<th>Status</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>obsidian-cli-ops</td>
+<td>Python/pip</td>
+<td>✅ Done</td>
+<td>Has CI</td>
+</tr>
+<tr>
+<td>nexus-cli</td>
+<td>Python/uv</td>
+<td>✅ Done</td>
+<td>Exemplary CI (6 workflows)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="priority-4-infrastructure">Priority 4: Infrastructure</h2>
+<table>
+<thead>
+<tr>
+<th>Project</th>
+<th>Type</th>
+<th>Status</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>homebrew-tap</td>
+<td>Homebrew</td>
+<td>✅ Skip</td>
+<td>No CI needed</td>
+</tr>
+<tr>
+<td>data-wise.github.io</td>
+<td>Static</td>
+<td>✅ Skip</td>
+<td>No CI needed</td>
+</tr>
+<tr>
+<td>zsh-claude-workflow</td>
+<td>ZSH Config</td>
+<td>✅ Done</td>
+<td>Docs CI only</td>
+</tr>
+</tbody>
+</table>
+<h2 id="detection-validation-checklist">Detection Validation Checklist</h2>
+<p>For each project, verify:
+- [ ] Project type detected correctly
+- [ ] Build tool/package manager identified
+- [ ] Test framework found (if applicable)
+- [ ] Python/Node versions appropriate
+- [ ] Existing CI detected (if present)
+- [ ] Recommended template makes sense</p>
+<h2 id="commands-to-run">Commands to Run</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run detection on each project</span>
+<span class="nb">cd</span><span class="w"> </span>~/projects/dev-tools/aiterm<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>claude<span class="w"> </span><span class="s2">&quot;/craft:ci:detect&quot;</span>
+<span class="nb">cd</span><span class="w"> </span>~/projects/dev-tools/scribe<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>claude<span class="w"> </span><span class="s2">&quot;/craft:ci:detect&quot;</span>
+<span class="nb">cd</span><span class="w"> </span>~/projects/dev-tools/atlas<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>claude<span class="w"> </span><span class="s2">&quot;/craft:ci:detect&quot;</span>
+<span class="nb">cd</span><span class="w"> </span>~/projects/dev-tools/flow-cli<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>claude<span class="w"> </span><span class="s2">&quot;/craft:ci:detect&quot;</span>
+<span class="nb">cd</span><span class="w"> </span>~/projects/dev-tools/mcp-servers/statistical-research<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>claude<span class="w"> </span><span class="s2">&quot;/craft:ci:detect&quot;</span>
+<span class="nb">cd</span><span class="w"> </span>~/projects/dev-tools/mcp-servers/shell<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>claude<span class="w"> </span><span class="s2">&quot;/craft:ci:detect&quot;</span>
+<span class="nb">cd</span><span class="w"> </span>~/projects/dev-tools/mcp-servers/project-refactor<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>claude<span class="w"> </span><span class="s2">&quot;/craft:ci:detect&quot;</span>
+<span class="nb">cd</span><span class="w"> </span>~/projects/dev-tools/homebrew-tap<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>claude<span class="w"> </span><span class="s2">&quot;/craft:ci:detect&quot;</span>
+<span class="nb">cd</span><span class="w"> </span>~/projects/dev-tools/obsidian-cli-ops<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>claude<span class="w"> </span><span class="s2">&quot;/craft:ci:detect&quot;</span>
+<span class="nb">cd</span><span class="w"> </span>~/projects/dev-tools/nexus-cli<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>claude<span class="w"> </span><span class="s2">&quot;/craft:ci:detect&quot;</span>
+<span class="nb">cd</span><span class="w"> </span>~/projects/dev-tools/zsh-claude-workflow<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>claude<span class="w"> </span><span class="s2">&quot;/craft:ci:detect&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="results-log">Results Log</h2>
+<h3 id="flow-cli">flow-cli ✅</h3>
+<ul>
+<li><strong>Date:</strong> 2025-12-28</li>
+<li><strong>Type Detected:</strong> ZSH Plugin (hybrid with Node tooling)</li>
+<li><strong>Primary Marker:</strong> <code>flow.plugin.zsh</code></li>
+<li><strong>Secondary:</strong> package.json (devDeps: ESLint, Prettier, Husky)</li>
+<li><strong>Test Framework:</strong> ZSH tests (10+), bash CLI tests</li>
+<li><strong>Existing CI:</strong> ✅ test.yml, docs.yml, release.yml</li>
+<li><strong>Recommendation:</strong> CI already well-configured, no changes needed</li>
+<li><strong>Detection Issue:</strong> Should detect as ZSH Plugin, not Node (priority fix)</li>
+</ul>
+<h3 id="aiterm">aiterm ✅</h3>
+<ul>
+<li><strong>Date:</strong> 2025-12-28</li>
+<li><strong>Type Detected:</strong> Python/uv (hatchling build)</li>
+<li><strong>Python Versions:</strong> 3.10, 3.11, 3.12 (correct from pyproject.toml)</li>
+<li><strong>Test Framework:</strong> pytest (with pytest-cov)</li>
+<li><strong>Linting:</strong> ruff, black, mypy</li>
+<li><strong>Existing CI:</strong> ✅ 5 workflows</li>
+<li>test.yml (multi-platform × multi-python matrix)</li>
+<li>docs.yml (MkDocs → GitHub Pages)</li>
+<li>workflow.yml (PyPI publishing)</li>
+<li>claude-code-review.yml, claude.yml</li>
+<li><strong>Recommendation:</strong> CI is comprehensive and production-ready</li>
+<li><strong>Issues:</strong> None - exemplary setup</li>
+</ul>
+<h3 id="scribe">scribe ✅</h3>
+<ul>
+<li><strong>Date:</strong> 2025-12-28</li>
+<li><strong>Type Detected:</strong> Tauri (Rust 2021 + Vite/React)</li>
+<li><strong>Frontend:</strong> React 18, TypeScript, Tailwind, Vitest</li>
+<li><strong>Backend:</strong> Rust 1.77.2+, Tauri 2.9.5</li>
+<li><strong>Test Framework:</strong> Vitest (frontend), cargo-test (Rust, default)</li>
+<li><strong>Existing CI:</strong> ⚠️ 2 workflows (missing tests)</li>
+<li>release.yml (multi-arch macOS build + Homebrew cask update)</li>
+<li>docs.yml</li>
+<li><strong>Missing CI:</strong></li>
+<li>test.yml - Vitest + cargo test automation</li>
+<li>lint workflow (clippy, eslint)</li>
+<li><strong>Recommendation:</strong> Add test.yml for both frontend and Rust tests</li>
+<li><strong>Issues:</strong> No automated testing in CI despite vitest being configured</li>
+</ul>
+<h3 id="atlas">atlas ✅</h3>
+<ul>
+<li><strong>Date:</strong> 2025-12-28</li>
+<li><strong>Type Detected:</strong> Node/npm (main, bin, exports, dependencies)</li>
+<li><strong>Node Versions:</strong> 18, 20, 22 (matrix)</li>
+<li><strong>Test Framework:</strong> Jest (unit, integration, e2e, dogfood)</li>
+<li><strong>Linting:</strong> ESLint, Prettier</li>
+<li><strong>Existing CI:</strong> ✅ 3 workflows (comprehensive)</li>
+<li>test.yml (multi-node matrix, unit/integration/dogfood/e2e)</li>
+<li>docs.yml</li>
+<li>demos.yml</li>
+<li><strong>Recommendation:</strong> CI is comprehensive, well-designed</li>
+<li><strong>Issues:</strong> None - exemplary setup</li>
+</ul>
+<h3 id="statistical-research">statistical-research ✅</h3>
+<ul>
+<li><strong>Date:</strong> 2025-12-28</li>
+<li><strong>Type Detected:</strong> MCP Server (Bun + @modelcontextprotocol/sdk)</li>
+<li><strong>Runtime:</strong> Bun with TypeScript</li>
+<li><strong>Test Framework:</strong> Shell scripts (run-all.sh, test-server-start.sh, etc.)</li>
+<li><strong>Existing CI:</strong> ✅ 2 workflows</li>
+<li>ci.yml</li>
+<li>docs.yml</li>
+<li><strong>Recommendation:</strong> CI exists, adequate for MCP server</li>
+<li><strong>Issues:</strong> None</li>
+</ul>
+<h3 id="shell">shell ✅</h3>
+<ul>
+<li><strong>Date:</strong> 2025-12-28</li>
+<li><strong>Type Detected:</strong> MCP Server (Node + @modelcontextprotocol/sdk)</li>
+<li><strong>Test Framework:</strong> None (minimal project)</li>
+<li><strong>Existing CI:</strong> ❌ None</li>
+<li><strong>Recommendation:</strong> Add basic CI if tests added in future</li>
+<li><strong>Issues:</strong> Minimal project, no tests - CI low priority</li>
+</ul>
+<h3 id="project-refactor">project-refactor ✅</h3>
+<ul>
+<li><strong>Date:</strong> 2025-12-28</li>
+<li><strong>Type Detected:</strong> MCP Server (Node + @modelcontextprotocol/sdk)</li>
+<li><strong>Test Framework:</strong> Node test runner (--test)</li>
+<li><strong>Existing CI:</strong> ❌ None</li>
+<li><strong>Recommendation:</strong> Add test.yml - tests exist but not automated</li>
+<li><strong>Issues:</strong> Has tests but no CI workflow</li>
+</ul>
+<h3 id="homebrew-tap">homebrew-tap ✅</h3>
+<ul>
+<li><strong>Date:</strong> 2025-12-28</li>
+<li><strong>Type Detected:</strong> Homebrew Tap (Formula/ + Casks/)</li>
+<li><strong>Test Framework:</strong> N/A (Homebrew handles formula validation)</li>
+<li><strong>Existing CI:</strong> ❌ None</li>
+<li><strong>Recommendation:</strong> No CI needed - Homebrew validates formulas on tap update</li>
+<li><strong>Issues:</strong> None - skip CI</li>
+</ul>
+<h3 id="obsidian-cli-ops">obsidian-cli-ops ✅</h3>
+<ul>
+<li><strong>Date:</strong> 2025-12-28</li>
+<li><strong>Type Detected:</strong> Python/pip (has pytest, ESLint for JS tests)</li>
+<li><strong>Test Framework:</strong> pytest + <strong>tests</strong> (JS)</li>
+<li><strong>Linting:</strong> ESLint, Prettier</li>
+<li><strong>Existing CI:</strong> ✅ 2 workflows</li>
+<li>ci.yml</li>
+<li>deploy-docs.yml</li>
+<li><strong>Recommendation:</strong> CI exists, adequate</li>
+<li><strong>Issues:</strong> None</li>
+</ul>
+<h3 id="nexus-cli">nexus-cli ✅</h3>
+<ul>
+<li><strong>Date:</strong> 2025-12-28</li>
+<li><strong>Type Detected:</strong> Python/uv (hatchling build)</li>
+<li><strong>Python Versions:</strong> 3.11, 3.12, 3.13</li>
+<li><strong>Test Framework:</strong> pytest (with cov, mock, benchmark)</li>
+<li><strong>Linting:</strong> ruff, mypy, bandit</li>
+<li><strong>Existing CI:</strong> ✅ 6 workflows (comprehensive)</li>
+<li>test.yml, ci.yml, quality.yml</li>
+<li>docs.yml, publish.yml, release.yml</li>
+<li><strong>Recommendation:</strong> CI is comprehensive and production-ready</li>
+<li><strong>Issues:</strong> None - exemplary setup</li>
+</ul>
+<h3 id="zsh-claude-workflow">zsh-claude-workflow ✅</h3>
+<ul>
+<li><strong>Date:</strong> 2025-12-28</li>
+<li><strong>Type Detected:</strong> ZSH Configuration (commands/, claude-commands/)</li>
+<li><strong>Test Framework:</strong> None</li>
+<li><strong>Existing CI:</strong> ✅ 1 workflow</li>
+<li>docs.yml (documentation only)</li>
+<li><strong>Recommendation:</strong> No test CI needed - shell configuration project</li>
+<li><strong>Issues:</strong> None</li>
+</ul>
+<hr />
+<h2 id="rollout-summary">Rollout Summary</h2>
+<p><strong>Completed:</strong> 2025-12-28</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Projects</th>
+<th>With CI</th>
+<th>Needs CI</th>
+<th>Skip</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Core</td>
+<td>4</td>
+<td>4 (aiterm, atlas, flow-cli exemplary; scribe needs tests)</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>MCP</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>2</td>
+<td>2 (nexus-cli exemplary)</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Infrastructure</td>
+<td>3</td>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>12</strong></td>
+<td><strong>8</strong></td>
+<td><strong>2</strong></td>
+<td><strong>3</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemplary CI setups:</strong> aiterm, atlas, nexus-cli (use as templates)
+<strong>Needs test CI:</strong> scribe (Tauri), project-refactor (MCP)</p>
+<hr />
+<h2 id="detection-issues-found">Detection Issues Found</h2>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Project</th>
+<th>Priority</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ZSH Plugin should take priority over Node</td>
+<td>flow-cli</td>
+<td>High</td>
+<td>✅ Fixed</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Fix Applied:</strong> Added <code>is_real_node_project()</code> function that checks for main/bin/dependencies/exports fields. Projects with only devDependencies (like tooling-only package.json) now skip Node detection, allowing ZSH Plugin detection to take priority.</p>
+<h2 id="improvements-made">Improvements Made</h2>
+<p>Based on rollout findings:</p>
+<ol>
+<li>✅ <strong>Priority adjustment:</strong> Special types (ZSH, Homebrew, Elisp) now checked BEFORE Node.js</li>
+<li>✅ <strong>Real Node detection:</strong> <code>is_real_node_project()</code> distinguishes real Node projects from tooling-only</li>
+<li>⬜ <strong>CI quality check:</strong> Future - Add validation for existing CI completeness</li>
+</ol>
+<hr />
+<p><em>Created: 2025-12-28</em>
+<em>Last Updated: 2025-12-28</em>
+<em>Rollout Completed: 2025-12-28</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
