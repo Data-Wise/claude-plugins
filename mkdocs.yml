@@ -8,6 +8,12 @@ nav:
   - Installation: installation.md
   - Quick Start: quick-start.md
 - Developer Guide: CLAUDE.md
+- Plugins:
+  - Overview: plugins/index.md
+  - RForge - R Package Ecosystem: plugins/rforge.md
+  - Craft - Full-Stack Toolkit: plugins/craft.md
+  - Workflow - ADHD Tools: plugins/workflow.md
+  - Statistical Research - Research Toolkit: plugins/statistical-research.md
 - Mode System:
   - Usage Guide: MODE-USAGE-GUIDE.md
   - Quick Reference: MODE-QUICK-REFERENCE.md
