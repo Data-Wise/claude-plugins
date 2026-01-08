@@ -680,12 +680,104 @@ jobs:
 
 ---
 
+## Documentation Standards
+
+### Adopted from flow-cli
+
+This project adopts ADHD-friendly documentation standards from flow-cli's proven approach (100% command documentation standardization achieved in Phase 3).
+
+**Reference:** `~/projects/dev-tools/flow-cli/docs/conventions/DOCUMENTATION-MAKING-GUIDE.md`
+
+**Full Spec:** [SPEC-documentation-standards-update-2026-01-09.md](SPEC-documentation-standards-update-2026-01-09.md)
+
+### Core Standards
+
+#### 1. Template Markers
+
+**Format:** Blockquote after title
+**Length:** One sentence, under 15 words
+**Purpose:** Immediate context for what reader will learn
+
+```markdown
+# Document Title
+
+> Complete R package ecosystem orchestrator with 15 commands for dependency analysis
+```
+
+#### 2. Standard Footers
+
+**Format:** Three-line footer with emoji status
+**Location:** End of document
+
+```markdown
+---
+
+**Last Updated:** 2026-01-09
+**Document Version:** v1.1.0
+**Status:** ✅ Production ready with [key features]
+```
+
+#### 3. Markdown List Spacing
+
+**Rule:** Always add blank line before and after lists
+
+```markdown
+✅ Good:
+### Heading
+
+Content paragraph.
+
+- List item 1
+- List item 2
+
+Next paragraph.
+
+❌ Bad:
+### Heading
+- List item 1
+```
+
+**Current Issues:** 128 spacing violations across documentation
+
+#### 4. Synopsis Sections (Commands)
+
+**Location:** After description, before detailed content
+**Contents:** Command syntax + 2-3 quick examples
+**Purpose:** Show usage before explaining
+
+#### 5. See Also Sections
+
+**Format:** Category prefix, link, brief context
+**Location:** Before footer
+
+```markdown
+## See Also
+
+- **Command:** [Related Command](../commands/related.md) - Why it's related
+- **Tutorial:** [Tutorial Name](../tutorials/01-name.md) - What it teaches
+```
+
+### Implementation
+
+Standards will be applied in phases:
+
+1. **Phase 1:** Fix 128 markdown spacing issues (automated)
+2. **Phase 2:** Add template markers to all landing pages
+3. **Phase 3:** Add standard footers to all documentation
+4. **Phase 4:** Update spec with validation checklist
+
+**Effort:** 3-4 hours
+**Impact:** Improved scannability, consistency, and maintainability
+
+---
+
 ## Related Documents
 
 **Planning:**
 - [Brainstorm Analysis](../../BRAINSTORM-plugin-organization-architecture-2026-01-09.md)
 - [PROJECT-ROADMAP.md](../../PROJECT-ROADMAP.md)
 - [TODO.md](../../TODO.md)
+- [Documentation Standards Spec](SPEC-documentation-standards-update-2026-01-09.md) - NEW
 
 **Infrastructure:**
 - [Mode System](../../docs/MODE-SYSTEM.md) - Will move to `docs/mono-repo/`
@@ -694,6 +786,7 @@ jobs:
 **Templates:**
 - [Plugin Landing Page Template](#create-landing-page-template) - In Implementation Notes
 - [Plugin Docs Structure](#for-each-plugin) - In Implementation Notes
+- [flow-cli DOCUMENTATION-MAKING-GUIDE.md](~/projects/dev-tools/flow-cli/docs/conventions/DOCUMENTATION-MAKING-GUIDE.md) - Reference standards
 
 ---
 
