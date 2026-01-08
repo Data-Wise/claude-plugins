@@ -85,6 +85,7 @@
 ### Getting Started
 
 1. **Installation**
+
    ```bash
    # Clone repository
    git clone https://github.com/Data-Wise/claude-plugins.git
@@ -98,6 +99,7 @@
    - Commands won't appear until you restart
 
 3. **Use Commands**
+
    ```bash
    /rforge:quick
    /research:arxiv "mediation analysis"

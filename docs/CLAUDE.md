@@ -317,23 +317,27 @@ npm publish --access public
 ## Plugin-Specific Notes
 
 ### craft Plugin
+
 - **Largest plugin**: 74 commands across 13 categories
 - **Orchestrator**: v2 orchestrator with subagent monitoring
 - **Testing**: Python-based tests, `pytest tests/`
 - **Categories**: arch, ci, code, dist, docs, git, plan, site, test
 
 ### statistical-research Plugin
+
 - **Pure plugin**: No MCP dependencies
 - **Shell APIs**: `lib/arxiv-api.sh`, `lib/crossref-api.sh`, `lib/bibtex-utils.sh`
 - **17 A-grade skills**: Mathematical, implementation, writing, research domains
 - **Command categories**: literature, manuscript, simulation, research
 
 ### workflow Plugin
+
 - **ADHD-friendly**: Designed for focus and task management
 - **Commands**: brainstorm, spec-review, focus, next, done, recap, stuck
 - **Features**: 3-layer arguments, spec capture, "Ask More" functionality
 
 ### rforge Plugin
+
 - **Mode system**: default (<10s), debug (<120s), optimize (<180s), release (<300s)
 - **Format options**: terminal, json, markdown
 - **Python-based**: Uses pytest for testing
@@ -342,6 +346,7 @@ npm publish --access public
 ## Quality Standards
 
 ### A-Grade Plugin Checklist
+
 - ✅ Comprehensive README with examples
 - ✅ All required files present
 - ✅ Installation scripts support --dev mode
@@ -353,12 +358,14 @@ npm publish --access public
 - ✅ Semantic versioning
 
 ### Command Quality
+
 - Clear usage examples
 - Graceful error handling
 - Follow-up action suggestions
 - Use plugin root variable for paths
 
 ### Skill Quality
+
 - Comprehensive expertise definition
 - Clear activation conditions
 - Detailed approach/methodology

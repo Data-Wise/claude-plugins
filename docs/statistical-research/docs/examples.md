@@ -287,3 +287,9 @@ write.csv(results, "results/simulation.csv")
 - **[Commands Reference](commands.md)** - All 14 commands
 - **[Skills Guide](skills.md)** - 17 research skills
 - **[API Wrappers](api-wrappers.md)** - Shell APIs
+
+---
+
+**Last Updated:** 2026-01-09
+**Document Version:** v1.1.0
+**Status:** ✅ Production ready - Complete research workflow examples

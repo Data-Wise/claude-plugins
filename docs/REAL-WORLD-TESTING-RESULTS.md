@@ -358,6 +358,7 @@ The MCP integration successfully handles real R package ecosystems with excellen
 ## Next Steps
 
 ### Immediate (Phase 2 Foundation)
+
 1. **Filter Artifact Directories** (30 min)
    - Exclude .Rcheck, .git, .Rbuildignore from package detection
    - Add test to verify filtering works
@@ -373,6 +374,7 @@ The MCP integration successfully handles real R package ecosystems with excellen
    - Graceful timeout handling
 
 ### Future (Phase 2 Full Implementation)
+
 1. **Mode-Specific Logic Differentiation** (4-6 hours)
    - Default: Quick checks only
    - Debug: Full checks with traces

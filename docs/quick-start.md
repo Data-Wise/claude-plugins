@@ -194,25 +194,31 @@ Use multiple commands for complex workflows:
 ## Command Categories
 
 ### Quick Analysis (< 10 seconds)
+
 - `/rforge:quick` - Fast R package check
 
 ### Balanced Analysis (< 30 seconds)
+
 - `/rforge:analyze` - Recommended for daily development
 
 ### Deep Analysis (2-5 minutes)
+
 - `/rforge:thorough` - Pre-release validation
 
 ### Literature & Research
+
 - `/research:arxiv` - Search papers
 - `/research:doi` - Look up by DOI
 - `/research:bib:search` - Search local bibliography
 
 ### Writing
+
 - `/research:manuscript:methods` - Methods section
 - `/research:manuscript:results` - Results section
 - `/research:manuscript:reviewer` - Reviewer responses
 
 ### Workflow
+
 - `/brainstorm` - Enhanced brainstorming with auto-delegation
 
 ---
@@ -256,6 +262,7 @@ All plugins are designed with ADHD in mind:
 ### Commands Don't Appear
 
 1. Check installation:
+
    ```bash
    ls -la ~/.claude/plugins/
    ```

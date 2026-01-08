@@ -542,24 +542,28 @@ High Quality │                           ● release
 ### Performance Guarantees
 
 #### Default Mode
+
 - **Must** complete in < 10 seconds (hard limit)
 - **Typical** completion: 3-7 seconds
 - **Catches:** 80% of critical issues
 - **Use frequency:** Daily, multiple times
 
 #### Debug Mode
+
 - **Should** complete in < 2 minutes
 - **Typical** completion: 30-90 seconds
 - **Catches:** 95% of all issues
 - **Use frequency:** When debugging (as needed)
 
 #### Optimize Mode
+
 - **Should** complete in < 3 minutes
 - **Typical** completion: 60-180 seconds
 - **Finds:** Top 3-5 bottlenecks
 - **Use frequency:** Occasional (performance work)
 
 #### Release Mode
+
 - **Should** complete in < 5 minutes
 - **Typical** completion: 2-4 minutes
 - **Validates:** CRAN submission readiness

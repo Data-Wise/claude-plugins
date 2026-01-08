@@ -170,15 +170,18 @@ Just type `/brainstorm` and let the menus guide you:
 ## Tips for Best Results
 
 ### Get Specific
+
 - ✅ "User authentication with Google OAuth"
 - ❌ "auth stuff"
 
 ### Mention Constraints
+
 - Budget: "$50/month max"
 - Team: "2 developers"
 - Timeline: "1 week MVP"
 
 ### Include Context
+
 - "Existing stack: Next.js, PostgreSQL, Vercel"
 - "Current users: 500, expecting 5K by Q2"
 
@@ -209,18 +212,21 @@ Just type `/brainstorm` and let the menus guide you:
 Skills activate based on **keywords in conversation:**
 
 ### Backend Keywords
+
 - API design, REST, GraphQL
 - database, schema, migration
 - authentication, OAuth, JWT
 - caching, Redis, performance
 
 ### Frontend Keywords
+
 - UI, UX, design, layout
 - component, React, Vue
 - accessibility, a11y, WCAG
 - responsive, mobile-first
 
 ### DevOps Keywords
+
 - deployment, CI/CD, pipeline
 - Docker, container, Kubernetes
 - infrastructure, hosting
@@ -307,16 +313,19 @@ chmod 755 ~/brainstorms
 ## Next Steps
 
 ### Learn More
+
 - **Full docs:** [README.md](../README.md)
 - **Reference card:** [REFCARD.md](REFCARD.md)
 - **Documentation hub:** [docs/README.md](README.md)
 
 ### Try These Next
+
 1. Run `/brainstorm thorough` on your current project
 2. Ask about a design decision and watch skills activate
 3. Review saved brainstorm files in your project root
 
 ### Share Feedback
+
 - What patterns saved you time?
 - What felt over-engineered?
 - What use cases should we add?

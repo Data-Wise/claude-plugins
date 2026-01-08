@@ -523,6 +523,7 @@ strategy:
 **Result:** Clear specifications guide implementation
 
 ### 4. Planning Documents
+
 - `.STATUS` - Current state snapshot
 - `TODO.md` - Task tracking with time estimates
 - `IDEAS.md` - Future enhancements brainstorm
@@ -560,6 +561,7 @@ def brainstorm_quick(topic):
 ## 🚦 Success Criteria
 
 ### For Workflow Plugin v0.2.0
+
 - [ ] Mode system with 3 explicit modes
 - [ ] Time budgets enforced (< 1 min quick, < 5 min default, < 30 min thorough)
 - [ ] 40+ pytest tests (100% passing, < 2s execution)
@@ -569,6 +571,7 @@ def brainstorm_quick(topic):
 - [ ] 1 week real-world testing with feedback
 
 ### For Statistical-Research Plugin v1.1.0
+
 - [ ] Mode system for top 5 commands (3 modes each)
 - [ ] Time budgets documented per command/mode
 - [ ] 80+ pytest tests (100% passing, < 5s execution)
@@ -606,16 +609,19 @@ def brainstorm_quick(topic):
 ## 🎉 Expected Benefits
 
 ### Immediate
+
 - **Predictability:** Users know exactly how long commands take
 - **Reliability:** Automated testing catches regressions
 - **Quality:** CI/CD enforces standards on every commit
 
 ### Medium-Term
+
 - **Flexibility:** Multiple output formats for different use cases
 - **Maintainability:** Comprehensive test coverage enables confident refactoring
 - **Documentation:** Planning docs enable seamless work resumption
 
 ### Long-Term
+
 - **Community:** Professional testing/CI/CD attracts contributors
 - **Trust:** Consistent quality builds user confidence
 - **Evolution:** Solid foundation enables future enhancements

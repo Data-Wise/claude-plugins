@@ -305,3 +305,9 @@ Commands help maintain context:
 
 - **[Skills & Agents Guide](skills-agents.md)** - Auto-activating skills
 - **ADHD Guide:** `/workflow:docs:adhd-guide`
+
+---
+
+**Last Updated:** 2026-01-09
+**Document Version:** v2.1.0
+**Status:** ✅ Production ready - 12 ADHD-friendly commands with time budgets

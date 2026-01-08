@@ -263,3 +263,9 @@ Agents adapt their behavior based on mode:
 - **[Commands Reference](commands.md)** - All 67 commands
 - **[Architecture Guide](architecture.md)** - How Craft works
 - **[Orchestrator Guide](orchestrator.md)** - Multi-agent coordination
+
+---
+
+**Last Updated:** 2026-01-09
+**Document Version:** v1.10.0
+**Status:** ✅ Production ready - 17 skills and 7 specialized agents

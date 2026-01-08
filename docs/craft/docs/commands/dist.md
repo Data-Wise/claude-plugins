@@ -163,11 +163,13 @@ Uses OpenID Connect (OIDC) for secure, token-free publishing:
    - Environment: `pypi`
 
 2. **Generate workflow:**
+
    ```bash
    /craft:dist:pypi workflow
    ```
 
 3. **Create release:**
+
    ```bash
    gh release create v1.0.0
    ```

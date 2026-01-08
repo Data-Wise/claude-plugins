@@ -133,18 +133,21 @@ workflow/
 The workflow plugin uses a **3-layer system**:
 
 ### 1. Auto-Activating Skills (Immediate Guidance)
+
 - Monitor conversation for keywords
 - Activate automatically when relevant
 - Provide quick patterns and recommendations
 - Example: Mention "API design" → backend-designer skill activates
 
 ### 2. Enhanced Commands (Structured Workflows)
+
 - `/brainstorm` command with smart mode detection
 - Analyzes context to select appropriate approach
 - Launches agents for deep analysis when needed
 - Saves all output to markdown files
 
 ### 3. Background Agents (Deep Analysis)
+
 - Orchestrator manages parallel agent execution
 - Selects 2-4 specialized agents based on topic
 - Agents run in background (non-blocking)
@@ -284,18 +287,21 @@ Skills automatically delegate to agents when thorough analysis is needed.
 ## 🎓 Learning Path
 
 ### For New Users
+
 1. Read [QUICK-START.md](QUICK-START.md) (3 min)
 2. Try auto-activating skills (mention "API design")
 3. Run `/brainstorm quick feature notifications`
 4. Review saved brainstorm file
 
 ### For Power Users
+
 1. Read [Main README](../README.md) (10 min)
 2. Study [REFCARD.md](REFCARD.md) for all options
 3. Experiment with `/brainstorm thorough` modes
 4. Review skill files in `skills/design/` for patterns
 
 ### For Developers
+
 1. Check plugin structure in `workflow/`
 2. Read skill frontmatter for trigger keywords
 3. Review orchestrator agent for delegation logic

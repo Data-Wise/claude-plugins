@@ -66,6 +66,7 @@ cd ~/projects/dev-tools/zsh-claude-workflow && claude "/craft:ci:detect"
 ## Results Log
 
 ### flow-cli ✅
+
 - **Date:** 2025-12-28
 - **Type Detected:** ZSH Plugin (hybrid with Node tooling)
 - **Primary Marker:** `flow.plugin.zsh`
@@ -76,6 +77,7 @@ cd ~/projects/dev-tools/zsh-claude-workflow && claude "/craft:ci:detect"
 - **Detection Issue:** Should detect as ZSH Plugin, not Node (priority fix)
 
 ### aiterm ✅
+
 - **Date:** 2025-12-28
 - **Type Detected:** Python/uv (hatchling build)
 - **Python Versions:** 3.10, 3.11, 3.12 (correct from pyproject.toml)
@@ -90,6 +92,7 @@ cd ~/projects/dev-tools/zsh-claude-workflow && claude "/craft:ci:detect"
 - **Issues:** None - exemplary setup
 
 ### scribe ✅
+
 - **Date:** 2025-12-28
 - **Type Detected:** Tauri (Rust 2021 + Vite/React)
 - **Frontend:** React 18, TypeScript, Tailwind, Vitest
@@ -105,6 +108,7 @@ cd ~/projects/dev-tools/zsh-claude-workflow && claude "/craft:ci:detect"
 - **Issues:** No automated testing in CI despite vitest being configured
 
 ### atlas ✅
+
 - **Date:** 2025-12-28
 - **Type Detected:** Node/npm (main, bin, exports, dependencies)
 - **Node Versions:** 18, 20, 22 (matrix)
@@ -118,6 +122,7 @@ cd ~/projects/dev-tools/zsh-claude-workflow && claude "/craft:ci:detect"
 - **Issues:** None - exemplary setup
 
 ### statistical-research ✅
+
 - **Date:** 2025-12-28
 - **Type Detected:** MCP Server (Bun + @modelcontextprotocol/sdk)
 - **Runtime:** Bun with TypeScript
@@ -129,6 +134,7 @@ cd ~/projects/dev-tools/zsh-claude-workflow && claude "/craft:ci:detect"
 - **Issues:** None
 
 ### shell ✅
+
 - **Date:** 2025-12-28
 - **Type Detected:** MCP Server (Node + @modelcontextprotocol/sdk)
 - **Test Framework:** None (minimal project)
@@ -137,6 +143,7 @@ cd ~/projects/dev-tools/zsh-claude-workflow && claude "/craft:ci:detect"
 - **Issues:** Minimal project, no tests - CI low priority
 
 ### project-refactor ✅
+
 - **Date:** 2025-12-28
 - **Type Detected:** MCP Server (Node + @modelcontextprotocol/sdk)
 - **Test Framework:** Node test runner (--test)
@@ -145,6 +152,7 @@ cd ~/projects/dev-tools/zsh-claude-workflow && claude "/craft:ci:detect"
 - **Issues:** Has tests but no CI workflow
 
 ### homebrew-tap ✅
+
 - **Date:** 2025-12-28
 - **Type Detected:** Homebrew Tap (Formula/ + Casks/)
 - **Test Framework:** N/A (Homebrew handles formula validation)
@@ -153,6 +161,7 @@ cd ~/projects/dev-tools/zsh-claude-workflow && claude "/craft:ci:detect"
 - **Issues:** None - skip CI
 
 ### obsidian-cli-ops ✅
+
 - **Date:** 2025-12-28
 - **Type Detected:** Python/pip (has pytest, ESLint for JS tests)
 - **Test Framework:** pytest + __tests__ (JS)
@@ -164,6 +173,7 @@ cd ~/projects/dev-tools/zsh-claude-workflow && claude "/craft:ci:detect"
 - **Issues:** None
 
 ### nexus-cli ✅
+
 - **Date:** 2025-12-28
 - **Type Detected:** Python/uv (hatchling build)
 - **Python Versions:** 3.11, 3.12, 3.13
@@ -176,6 +186,7 @@ cd ~/projects/dev-tools/zsh-claude-workflow && claude "/craft:ci:detect"
 - **Issues:** None - exemplary setup
 
 ### zsh-claude-workflow ✅
+
 - **Date:** 2025-12-28
 - **Type Detected:** ZSH Configuration (commands/, claude-commands/)
 - **Test Framework:** None

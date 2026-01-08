@@ -139,3 +139,9 @@ Craft is designed for easy extension:
 - **[Commands Reference](commands.md)** - All commands
 - **[Skills & Agents](skills-agents.md)** - 17 skills, 7 agents
 - **[Orchestrator Guide](orchestrator.md)** - Coordination details
+
+---
+
+**Last Updated:** 2026-01-09
+**Document Version:** v1.10.0
+**Status:** ✅ Production ready - Smart routing and delegation patterns

@@ -346,21 +346,25 @@ git commit --no-verify
 ### For Contributors
 
 1. **Run tests locally before pushing**
+
    ```bash
    pytest
    ```
 
 2. **Validate plugin structure**
+
    ```bash
    python3 scripts/validate-all-plugins.py
    ```
 
 3. **Check pre-commit hooks**
+
    ```bash
    pre-commit run --all-files
    ```
 
 4. **Test documentation builds**
+
    ```bash
    mkdocs build --strict
    ```

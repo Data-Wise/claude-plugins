@@ -236,18 +236,21 @@
 ## Pattern Library Quick Reference
 
 ### Backend Patterns
+
 - **REST API:** Resources + HTTP methods + versioning
 - **Auth:** JWT (stateless) vs Sessions (server state)
 - **Database:** Normalized (consistency) vs Denormalized (performance)
 - **Caching:** Redis (shared) vs In-memory (single server)
 
 ### Frontend Patterns
+
 - **Components:** Container/Presentational split
 - **State:** Context (simple) → Zustand (medium) → Redux (complex)
 - **A11y:** WCAG 2.1 AA minimum, keyboard nav, ARIA labels
 - **Performance:** Code split routes, lazy load images, virtual scroll lists
 
 ### DevOps Patterns
+
 - **Platforms:** Vercel (Next.js), Render (full-stack), Fly.io (containers)
 - **CI/CD:** GitHub Actions → Test → Auto-deploy
 - **Databases:** Supabase (Postgres), PlanetScale (MySQL), MongoDB Atlas

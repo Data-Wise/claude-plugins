@@ -233,14 +233,17 @@ Budget: $1.00 | Spent: $0.13 | Remaining: $0.87
 ## Recommended Implementation Path
 
 ### Quick Wins (Do First)
+
 1. **Option A: Real Context Tracking** - ⚡ 1-2 hours
 2. **Option C: Mode Integration** - ⚡ 1 hour
 
 ### Medium Term (v1.4.0)
+
 3. **Option B: State Persistence** - 🔧 2-4 hours
 4. **Option E: Timeline View** - 🔧 2-3 hours
 
 ### Future (v1.5.0+)
+
 5. **Option D: Agent Pool Management** - 🔧 3-4 hours
 6. **Option F: Cost Tracking** - ⚡ 1 hour
 

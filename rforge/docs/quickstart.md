@@ -7,18 +7,21 @@ Get started with RForge in 5 minutes. This guide walks you through installation,
 Before installing RForge, ensure you have:
 
 1. **Claude Code** - RForge is a Claude Code plugin
+
    ```bash
    # Check Claude Code version
    claude --version
    ```
 
 2. **R Environment** (>= 4.0.0)
+
    ```bash
    # Check R version
    R --version
    ```
 
 3. **Required R Packages**
+
    ```r
    # Install in R
    install.packages(c("devtools", "testthat"))
@@ -288,11 +291,13 @@ export PATH="/usr/local/bin:$PATH"
 If analysis is slow:
 
 1. **Use faster modes:**
+
    ```bash
    /rforge:status  # Instead of /rforge:analyze
    ```
 
 2. **Check for large .Rcheck directories:**
+
    ```bash
    find . -name "*.Rcheck" -type d
    # Remove if found
@@ -300,6 +305,7 @@ If analysis is slow:
    ```
 
 3. **Limit scope for ecosystems:**
+
    ```bash
    /rforge:status mypackage  # Specify single package
    ```

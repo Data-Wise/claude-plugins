@@ -1,5 +1,7 @@
 # Workflow - ADHD-Friendly Automation
 
+> ADHD-friendly workflow automation with 12 commands and auto-activating skills
+
 **Version:** 2.1.0 | **Status:** Production-Ready
 
 ADHD-friendly workflow automation designed for focus, task management, and decision support. Features smart brainstorming, auto-activating skills, and background task delegation.
@@ -13,6 +15,7 @@ Workflow is an ADHD-optimized productivity toolkit that reduces decision paralys
 ## Key Features
 
 ### 🎯 Smart Workflow Commands
+
 - **`/brainstorm`** - Smart ideation with auto-delegation
 - **`/focus`** - Single-task mode with distraction blocking
 - **`/next`** - Decision support for what to work on next
@@ -28,17 +31,20 @@ Skills automatically activate based on conversation context:
 - **devops-helper** - Triggers on CI/CD/deployment/infrastructure
 
 ### ⚡ Background Delegation
+
 - Automatically delegates complex analysis to specialized agents
 - Agents run in parallel while you continue working
 - Results synthesized into unified, actionable recommendations
 
 ### 🧠 ADHD-Friendly Design
+
 - **Scannable output** - Visual hierarchy with emojis and clear sections
 - **Quick wins** - Always offers <15min tasks
 - **Clear next steps** - Numbered, actionable items
 - **Reduced decision paralysis** - One clear recommendation with alternatives
 
 ### 📊 Multiple Output Formats
+
 - **terminal** - Rich colors and formatted output
 - **json** - Machine-readable for automation
 - **markdown** - Documentation-ready
@@ -398,6 +404,7 @@ Reduces paralysis with:
 ## Status
 
 ### Production-Ready Features
+
 - ✅ 12 workflow commands fully functional
 - ✅ 3 auto-activating skills implemented
 - ✅ Background task delegation working
@@ -406,13 +413,21 @@ Reduces paralysis with:
 - ✅ Comprehensive test coverage
 
 ### Recent Updates (v2.1.0)
+
 - ✅ Performance guarantees (<60s quick, <5m default, <30m thorough)
 - ✅ Shell automation helpers
 - ✅ ADHD guide documentation
 - ✅ Backward compatibility with v0.1.0
 
 ### Future Enhancements
+
 - 🔄 Integration with calendar/time blocking
 - 🔄 Pomodoro timer integration
 - 🔄 Team collaboration features
 - 🔄 Analytics and productivity insights
+
+---
+
+**Last Updated:** 2026-01-09
+**Document Version:** v2.1.0
+**Status:** ✅ Production ready with 12 commands, auto-activating skills, and background delegation

@@ -1,5 +1,7 @@
 # Statistical Research - Research Toolkit
 
+> Statistical research toolkit for literature, manuscripts, and simulations
+
 **Version:** 1.1.0 | **Status:** Production-Ready
 
 Comprehensive Claude Code plugin for statistical research workflows. Pure plugin architecture (no MCP dependencies) with literature management, manuscript writing, simulation studies, and 17 A-grade research skills.
@@ -137,22 +139,26 @@ npm install -g @data-wise/statistical-research-plugin
 ## Core Commands
 
 ### Literature Management (4 commands)
+
 - **`/research:arxiv`** - Search arXiv for statistical papers
 - **`/research:doi`** - Look up paper metadata by DOI
 - **`/research:bib:search`** - Search BibTeX files for entries
 - **`/research:bib:add`** - Add BibTeX entries to bibliography
 
 ### Manuscript Writing (4 commands)
+
 - **`/research:manuscript:methods`** - Write methods sections
 - **`/research:manuscript:results`** - Write results sections
 - **`/research:manuscript:reviewer`** - Generate reviewer responses
 - **`/research:manuscript:proof`** - Review mathematical proofs
 
 ### Simulation Studies (2 commands)
+
 - **`/research:simulation:design`** - Design Monte Carlo studies
 - **`/research:simulation:analysis`** - Analyze simulation results
 
 ### Research Planning (4 commands)
+
 - **`/research:lit-gap`** - Identify literature gaps
 - **`/research:hypothesis`** - Generate research hypotheses
 - **`/research:analysis-plan`** - Create statistical analysis plans
@@ -375,6 +381,7 @@ Lightweight, portable, and fast:
 ## Status
 
 ### Production-Ready Features
+
 - ✅ 14 slash commands fully functional
 - ✅ 17 A-grade skills implemented
 - ✅ 3 shell API wrappers tested
@@ -383,7 +390,14 @@ Lightweight, portable, and fast:
 - ✅ MIT licensed
 
 ### Future Enhancements
+
 - 🔄 Additional statistical methods (Bayesian, ML)
 - 🔄 Integration with Zotero
 - 🔄 LaTeX template generation
 - 🔄 Collaborative writing tools
+
+---
+
+**Last Updated:** 2026-01-09
+**Document Version:** v1.1.0
+**Status:** ✅ Production ready with 14 commands, 17 A-grade skills, pure plugin architecture

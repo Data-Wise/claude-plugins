@@ -18,6 +18,7 @@ How to publish Claude Code plugins from this monorepo to npm and create GitHub r
 Before publishing, ensure:
 
 ### Code Quality
+
 - [ ] All tests passing
 - [ ] No lint errors
 - [ ] Documentation complete
@@ -25,6 +26,7 @@ Before publishing, ensure:
 - [ ] Examples working
 
 ### Package Files
+
 - [ ] `package.json` version correct
 - [ ] `package.json` files array includes all needed files
 - [ ] LICENSE file present (MIT)
@@ -32,12 +34,14 @@ Before publishing, ensure:
 - [ ] No sensitive data in code
 
 ### Installation
+
 - [ ] `./scripts/install.sh` works (production mode)
 - [ ] `./scripts/install.sh --dev` works (dev mode)
 - [ ] `./scripts/uninstall.sh` works
 - [ ] Plugin functions after installation
 
 ### Version
+
 - [ ] Version follows semver (X.Y.Z)
 - [ ] CHANGELOG.md updated
 - [ ] Git tag doesn't exist yet

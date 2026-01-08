@@ -1,5 +1,7 @@
 # RForge - R Package Ecosystem Management
 
+> Complete R package ecosystem orchestrator with 15 commands
+
 **Version:** 1.1.0 | **Status:** Production-Ready | **Tests:** 292 passing
 
 Complete R package ecosystem orchestrator with intelligent auto-delegation, parallel execution, and comprehensive analysis capabilities.
@@ -13,6 +15,7 @@ RForge is a comprehensive R package development toolkit that automatically analy
 ## Key Features
 
 ### 🎯 Intelligent Orchestration
+
 - **Auto-delegation** - Recognizes task patterns (CODE_CHANGE, BUG_FIX, CRAN_RELEASE, etc.)
 - **Parallel execution** - Calls multiple MCP tools simultaneously (4 tools × 8 sec = 8 sec total, not 32 sec!)
 - **Smart synthesis** - Combines results into actionable summary with next steps
@@ -25,11 +28,13 @@ Four analysis modes with time budgets:
 - **release** (<300s) - Full CRAN preparation with comprehensive checks
 
 ### 📊 Output Formats
+
 - **terminal** - Rich colors, emojis, and formatted tables
 - **json** - Machine-readable with ISO 8601 timestamps
 - **markdown** - Documentation-ready with code blocks
 
 ### 🔧 Ecosystem Management
+
 - Auto-detect project structure (single package, ecosystem, or hybrid)
 - Dependency analysis and cascade updates
 - Cross-package impact assessment
@@ -40,6 +45,7 @@ Four analysis modes with time budgets:
 ### Prerequisites
 
 1. **RForge MCP Server** (required)
+
    ```bash
    npx rforge-mcp configure
    ```
@@ -107,12 +113,14 @@ cd /path/to/r-package
 ## Core Commands
 
 ### Analysis Commands
+
 - **`/rforge:status`** - Quick ecosystem health check
 - **`/rforge:analyze`** - Deep analysis with mode system support
 - **`/rforge:quick`** - Ultra-fast status check (<10s)
 - **`/rforge:thorough`** - Comprehensive analysis (2-5 minutes)
 
 ### Ecosystem Commands
+
 - **`/rforge:detect`** - Auto-detect project structure
 - **`/rforge:cascade`** - Plan coordinated updates across packages
 - **`/rforge:impact`** - Analyze change impact across ecosystem
@@ -120,6 +128,7 @@ cd /path/to/r-package
 - **`/rforge:deps`** - Build and visualize dependency graph
 
 ### Documentation Commands
+
 - **`/rforge:doc-check`** - Check for documentation drift
 - **`/rforge:complete`** - Mark tasks complete with doc cascade
 - **`/rforge:capture`** - Quick capture ideas for later
@@ -217,6 +226,7 @@ Tested on mediationverse ecosystem (5 R packages).
 ## Status
 
 ### Production-Ready Features
+
 - ✅ 4 analysis modes implemented
 - ✅ 3 output formats working
 - ✅ 15 commands fully functional
@@ -225,12 +235,14 @@ Tested on mediationverse ecosystem (5 R packages).
 - ✅ GitHub release published
 
 ### Phase 1 Complete (Jan 8, 2026)
+
 - MCP integration with mode + format parameters
 - Real-world testing on mediationverse ecosystem
 - Performance validation (4ms avg, 9ms max)
 - All 12 mode×format combinations tested
 
 ### Known Minor Issues (Phase 2)
+
 - `.Rcheck` directories treated as packages (minor duplicate)
 - Check/test status shows "unknown" (expected - no R CMD execution yet)
 - No time budget enforcement (not needed - performance excellent)
@@ -258,3 +270,9 @@ Tested on mediationverse ecosystem (5 R packages).
 - **GitHub Issues:** [https://github.com/Data-Wise/claude-plugins/issues](https://github.com/Data-Wise/claude-plugins/issues)
 - **npm Package:** [https://www.npmjs.com/package/@data-wise/rforge-plugin](https://www.npmjs.com/package/@data-wise/rforge-plugin)
 - **GitHub Release:** [phase1-v1.0.0](https://github.com/Data-Wise/claude-plugins/releases/tag/phase1-v1.0.0)
+
+---
+
+**Last Updated:** 2026-01-09
+**Document Version:** v1.1.0
+**Status:** ✅ Production ready with mode system, 15 commands, and 292 tests passing

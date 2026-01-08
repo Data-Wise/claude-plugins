@@ -162,6 +162,7 @@ After agents complete, orchestrator synthesizes results:
 ### Synthesis Process
 
 1. **Collect Results**
+
    ```
    Agent 1: Security audit → No critical issues
    Agent 2: Performance → 2 slow queries
@@ -169,6 +170,7 @@ After agents complete, orchestrator synthesizes results:
    ```
 
 2. **Identify Priorities**
+
    ```
    Critical: None
    Important: Optimize 2 queries
@@ -176,6 +178,7 @@ After agents complete, orchestrator synthesizes results:
    ```
 
 3. **Generate Summary**
+
    ```
    ╭──────────────────────────────────────────╮
    │ 🎯 Orchestration Complete                │

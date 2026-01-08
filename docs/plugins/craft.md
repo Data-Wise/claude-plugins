@@ -1,5 +1,7 @@
 # Craft - Full-Stack Developer Toolkit
 
+> Full-stack toolkit with 67 commands, 17 skills, and 7 agents
+
 **Version:** 1.10.0 | **Status:** Active Development
 
 Comprehensive production-ready toolkit for Claude Code featuring smart orchestration, ADHD-friendly workflows, multi-agent coordination, and complete documentation coverage.
@@ -15,12 +17,14 @@ Craft is a full-stack developer toolkit that provides intelligent orchestration 
 ## Key Features
 
 ### 🎯 Smart Commands
+
 - **`/craft:do <task>`** - Universal command that routes to appropriate workflow
 - **`/craft:orchestrate <task>`** - Multi-agent orchestrator with context tracking
 - **`/craft:check`** - Pre-flight checks for commits, PRs, and releases
 - **`/craft:help`** - Context-aware help and suggestions
 
 ### 🔧 13 Command Categories
+
 1. **Architecture** (arch) - System design and analysis
 2. **CI/CD** (ci) - GitHub Actions workflow generation
 3. **Code** (code) - Linting and quality checks
@@ -46,6 +50,7 @@ Enhanced multi-agent orchestration with:
 - Subagent monitoring and coordination
 
 ### 🧠 ADHD-Friendly Design
+
 - Fast feedback with progress indicators
 - Clear structure and visual hierarchy
 - Reduced decision paralysis
@@ -112,36 +117,44 @@ cp -r claude-plugins/craft ~/.claude/plugins/
 ## Core Commands
 
 ### Smart Commands (4)
+
 - **`/craft:do`** - Universal command with AI routing
 - **`/craft:orchestrate`** - Multi-agent orchestrator (v2.1)
 - **`/craft:check`** - Pre-flight validation
 - **`/craft:help`** - Context-aware suggestions
 
 ### Architecture (arch)
+
 - **`/craft:arch:analyze`** - Analyze codebase architecture
 
 ### CI/CD (ci)
+
 - **`/craft:ci:detect`** - Detect project type and build tools
 - **`/craft:ci:generate`** - Generate GitHub Actions workflows
 - **`/craft:ci:validate`** - Validate existing CI configuration
 
 ### Code (code)
+
 - **`/craft:code:lint`** - Code style and quality checks
 
 ### Distribution (dist)
+
 - **`/craft:dist:curl-install`** - Generate curl-based installation scripts
 
 ### Documentation (docs)
+
 - **`/craft:docs:mermaid`** - Generate Mermaid diagram templates
 - **`/craft:docs:api-documenter`** - Create API documentation
 - **`/craft:docs:tutorial-engineer`** - Build step-by-step tutorials
 - **`/craft:docs:reference-builder`** - Generate technical references
 
 ### Git (git)
+
 - **`/craft:git:worktree`** - Git worktree management
 - **`/craft:git:clean`** - Clean up merged branches
 
 ### Test (test)
+
 - **`/craft:test:run`** - Unified test runner with mode support
 - **`/craft:test:cli-gen`** - Generate CLI test suites
 - **`/craft:test:cli-run`** - Run CLI test suites
@@ -192,6 +205,7 @@ Commands support execution modes for different contexts:
 ```
 
 ### Orchestrator Modes
+
 - **optimize** - 4 parallel agents, fast execution
 - **release** - Thorough audit with comprehensive checks
 - **debug** - Verbose output with execution traces
@@ -209,6 +223,7 @@ Skills automatically activate based on context:
 - DevOps engineering
 
 ### 7 Specialized Agents
+
 - **backend-architect** - Server-side design
 - **performance-engineer** - Optimization
 - **testing-specialist** - Test strategy
@@ -256,6 +271,7 @@ pytest -m integration       # Integration tests
 ## Status
 
 ### Production-Ready Features
+
 - ✅ 67 commands across 13 categories
 - ✅ 17 auto-activating skills
 - ✅ 7 specialized agents
@@ -264,7 +280,14 @@ pytest -m integration       # Integration tests
 - ✅ Comprehensive CI/CD automation
 
 ### Active Development
+
 - 🔄 Documentation completion (commands, skills, architecture)
 - 🔄 npm package publication
 - 🔄 Additional skills and agents
 - 🔄 Performance optimizations
+
+---
+
+**Last Updated:** 2026-01-09
+**Document Version:** v1.10.0
+**Status:** ✅ Production ready with 67 commands, 17 skills, and orchestrator v2

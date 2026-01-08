@@ -409,6 +409,7 @@ mkdocs gh-deploy --force
 ### Checklist for Standardized Documentation
 
 #### Template Marker
+
 - [ ] Present at top of document after title
 - [ ] Uses blockquote format (`>`)
 - [ ] One sentence, under 15 words
@@ -416,6 +417,7 @@ mkdocs gh-deploy --force
 - [ ] Describes what reader will learn/do
 
 #### Synopsis Section (Commands)
+
 - [ ] Present after description
 - [ ] Shows command syntax with placeholders
 - [ ] Includes 2-3 quick examples
@@ -423,6 +425,7 @@ mkdocs gh-deploy --force
 - [ ] No explanations in synopsis (save for later)
 
 #### Standard Footer
+
 - [ ] Present at end of document
 - [ ] Horizontal rule separator (`---`)
 - [ ] Last Updated date (YYYY-MM-DD)
@@ -431,6 +434,7 @@ mkdocs gh-deploy --force
 - [ ] Emoji status indicator (✅/🚧/📝)
 
 #### Content Quality
+
 - [ ] Headers create logical hierarchy
 - [ ] Examples before explanations
 - [ ] Tables for comparisons
@@ -440,6 +444,7 @@ mkdocs gh-deploy --force
 - [ ] No broken internal links
 
 #### Cross-References
+
 - [ ] "See Also" section present
 - [ ] Links include context (not just link text)
 - [ ] Category prefixes (Command:, Tutorial:, etc.)

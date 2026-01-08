@@ -91,12 +91,14 @@ What do you need?
 ## Mode-Specific Checks
 
 ### Default Mode
+
 - ✅ Critical issues only
 - ✅ Recent changes (7 days)
 - ✅ High-priority deps
 - ✅ Quick health metrics
 
 ### Debug Mode
+
 - ✅ All dependencies (recursive)
 - ✅ Complete file scans
 - ✅ Detailed error traces
@@ -105,6 +107,7 @@ What do you need?
 - ✅ Environment inspection
 
 ### Optimize Mode
+
 - ✅ Profile R code
 - ✅ Package load times
 - ✅ Dependency bloat
@@ -113,6 +116,7 @@ What do you need?
 - ✅ Benchmarks
 
 ### Release Mode
+
 - ✅ R CMD check
 - ✅ All test suites
 - ✅ Documentation check
@@ -155,6 +159,7 @@ What do you need?
 ## Best Practices
 
 ### ✅ DO
+
 - Use default mode for 90% of tasks
 - Switch modes explicitly when needed
 - Use `--format json` for automation
@@ -162,6 +167,7 @@ What do you need?
 - Use progress as feedback
 
 ### ❌ DON'T
+
 - Don't use debug mode for quick checks
 - Don't use release mode daily
 - Don't expect auto mode detection
@@ -202,12 +208,14 @@ What do you need?
 ## Performance Guarantees
 
 ### Quality Metrics
+
 - **Default:** 80% of critical issues
 - **Debug:** 95% of all issues
 - **Optimize:** Top 3-5 bottlenecks
 - **Release:** CRAN submission confidence
 
 ### Time Enforcement
+
 - Hard timeout at budget + 10%
 - Progress indicators for > 10s
 - Early exit with partial results

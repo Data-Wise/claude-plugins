@@ -218,3 +218,9 @@ All applicable commands support 4 execution modes:
 - **[Architecture Guide](architecture.md)** - How Craft works
 - **[Orchestrator Guide](orchestrator.md)** - Multi-agent coordination
 - **[Mode System](../../docs/MODE-USAGE-GUIDE.md)** - Mode system deep dive
+
+---
+
+**Last Updated:** 2026-01-09
+**Document Version:** v1.10.0
+**Status:** ✅ Production ready - Complete reference for 67 commands

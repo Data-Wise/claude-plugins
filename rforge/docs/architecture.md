@@ -250,6 +250,7 @@ After parallel execution, RForge synthesizes results into a unified, actionable 
 ### Synthesis Algorithm
 
 1. **Collect Results**
+
    ```
    Tool 1 (impact): "3 packages affected"
    Tool 2 (tests):  "42/45 passing (3 failures)"

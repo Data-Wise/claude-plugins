@@ -184,17 +184,20 @@ rm -rf ~/.claude/plugins/workflow
 
 **Solutions:**
 1. Check plugin directory exists:
+
    ```bash
    ls -la ~/.claude/plugins/<plugin-name>
    ```
 
 2. Verify required files exist:
+
    ```bash
    test -f ~/.claude/plugins/<plugin-name>/package.json && echo "OK" || echo "MISSING"
    test -f ~/.claude/plugins/<plugin-name>/.claude-plugin/plugin.json && echo "OK" || echo "MISSING"
    ```
 
 3. Check for errors in plugin files:
+
    ```bash
    python3 -m json.tool ~/.claude/plugins/<plugin-name>/package.json
    ```
@@ -230,6 +233,7 @@ If missing, the command file is corrupted. Reinstall:
 1. Install required MCP server (see plugin-specific setup above)
 
 2. Configure in `~/.claude/settings.json`:
+
    ```json
    {
      "mcpServers": {
