@@ -4,20 +4,22 @@
 [![Validate Plugins](https://github.com/Data-Wise/claude-plugins/actions/workflows/validate-plugins.yml/badge.svg)](https://github.com/Data-Wise/claude-plugins/actions/workflows/validate-plugins.yml)
 
 > **TL;DR** (30 seconds)
-> - **What:** Full-stack developer toolkit with 74 commands, 8 AI agents, and 21 auto-triggered skills
+> - **What:** Full-stack developer toolkit with 86 commands, 8 AI agents, and 21 auto-triggered skills
 > - **Why:** Automate documentation, testing, git workflows, and site creation with one command
 > - **How:** Install via `claude plugin install craft@local-plugins`
 > - **Next:** Run `/craft:do "your task"` and let AI route to the best workflow
 
-> Full-stack developer toolkit for Claude Code - 74 commands, 8 agents, 21 skills with smart orchestration and ADHD-friendly workflows
+> Full-stack developer toolkit for Claude Code - 86 commands (74 craft + 12 workflow), 8 agents, 21 skills with smart orchestration and ADHD-friendly workflows
+>
+> **NEW in v1.17.0:** Integrated workflow automation (brainstorming, task management, spec capture) - see [workflow-integration](workflow-integration/README.md)
 
 ## Features
 
 <div class="grid cards" markdown>
 
-- :rocket: **74 Commands**
+- :rocket: **86 Commands**
 
-    Smart commands, docs, site management, code, testing, git, CI, architecture, distribution, and planning - all in one toolkit
+    Smart commands, docs, site management, code, testing, git, CI, architecture, distribution, planning, and workflow automation (brainstorming, task management, spec capture) - all in one toolkit
 
 - :brain: **8 Specialized Agents**
 
@@ -60,7 +62,23 @@ ln -s ~/projects/dev-tools/claude-plugins/craft ~/.claude/plugins/craft
 The universal `/craft:do` command routes your task to the best workflow automatically.
 
 !!! success "Quick Win: Try It Now"
-    Run `/craft:hub` to see all 69 commands organized by category - takes 5 seconds and shows everything craft can do.
+    Run `/craft:hub` to see all 86 commands organized by category - takes 5 seconds and shows everything craft can do.
+
+## What's New in v1.17.0
+
+**Workflow Automation Integration** ⭐ NEW
+
+Integrated 12 ADHD-friendly workflow commands from the standalone workflow plugin:
+
+- **Brainstorming**: `/brainstorm` with smart delegation and mode detection
+- **Task Management**: `/focus`, `/next`, `/done`, `/recap` for ADHD-friendly workflows
+- **Getting Unstuck**: `/stuck` with guided problem solving
+- **Background Tasks**: `/task-status`, `/task-output`, `/task-cancel` for monitoring
+- **Documentation**: `/adhd-guide` for workflow best practices
+
+All workflow commands work identically to the standalone plugin. See [workflow-integration](workflow-integration/README.md) for details.
+
+**Migration**: Users of the standalone `workflow` plugin can migrate seamlessly with `scripts/migrate-from-workflow.sh`
 
 ## What's New in v1.15.0
 

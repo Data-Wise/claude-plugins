@@ -2,7 +2,7 @@
 
 > **Academic workflows for research and teaching** - Literature management, manuscript writing, simulation studies, course material generation, and 17 A-grade research skills
 
-A comprehensive Claude Code plugin for academic workflows combining research and teaching. Features unified Plugin + MCP architecture with 17 slash commands and research skills.
+A comprehensive Claude Code plugin for academic workflows combining research and teaching. Features unified Plugin + MCP architecture with 21 slash commands and research skills.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/Data-Wise/claude-plugins)
@@ -11,7 +11,7 @@ A comprehensive Claude Code plugin for academic workflows combining research and
 
 ## Features
 
-### 📚 17 Slash Commands
+### 📚 21 Slash Commands
 
 **Literature Management (4 commands)**
 - `/arxiv <query>` - Search arXiv for papers (top-level command)
@@ -29,15 +29,20 @@ A comprehensive Claude Code plugin for academic workflows combining research and
 - `/simulation:design` - Design Monte Carlo studies
 - `/simulation:analysis` - Analyze simulation results
 
-**Research Planning (3 commands)**
+**Research Planning (4 commands)**
 - `/scholar:lit-gap <topic>` - Identify literature gaps
 - `/scholar:hypothesis <topic>` - Generate research hypotheses
 - `/scholar:analysis-plan` - Create statistical analysis plans
+- `/scholar:method-scout <problem>` - Scout statistical methods for research problems
 
-**Teaching (4 commands - NEW)**
+**Teaching (7 commands - NEW in v1.0.0)**
 - `/teaching:syllabus <course>` - Generate comprehensive course syllabus
-- `/teaching:assignment <topic>` - Create homework assignments
-- `/teaching:rubric <type>` - Generate grading rubrics
+- `/teaching:assignment <topic>` - Create homework assignments with solutions
+- `/teaching:rubric <type>` - Generate detailed grading rubrics
+- `/teaching:slides <topic>` - Create lecture slides with examples ⭐ NEW
+- `/teaching:quiz <topic>` - Generate quiz questions with answer keys ⭐ NEW
+- `/teaching:exam <type>` - Create comprehensive exams with rubrics ⭐ NEW
+- `/teaching:feedback <assignment>` - Generate constructive student feedback ⭐ NEW
 
 ### 🎯 17 A-Grade Skills
 

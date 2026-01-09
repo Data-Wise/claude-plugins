@@ -55,7 +55,7 @@ Perfect for:
 - One-page printable reference
 
 **Contents:**
-- All 17 commands in tables (14 research + 3 teaching)
+- All 21 commands in tables (14 research + 7 teaching)
 - 17 skills overview
 - Common patterns
 - Troubleshooting quick reference
@@ -100,12 +100,12 @@ scholar/
 ├── src/
 │   ├── core/                      # Framework-agnostic logic (Phase 2)
 │   ├── plugin-api/                # Claude Plugin API
-│   │   ├── commands/              # 17 slash commands
+│   │   ├── commands/              # 21 slash commands
 │   │   │   ├── literature/        # /arxiv, /doi, /bib:*
 │   │   │   ├── manuscript/        # /manuscript:*
 │   │   │   ├── simulation/        # /simulation:*
-│   │   │   ├── research/          # /scholar:*
-│   │   │   └── teaching/          # /teaching:* (NEW in v1.0.0)
+│   │   │   ├── research/          # /scholar:*, 4 commands
+│   │   │   └── teaching/          # /teaching:*, 7 commands (NEW in v1.0.0)
 │   │   └── skills/                # 17 auto-activating skills
 │   │       ├── README.md          # Skills guide
 │   │       ├── mathematical/      # 4 math skills

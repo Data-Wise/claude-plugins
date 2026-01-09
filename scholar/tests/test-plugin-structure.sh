@@ -52,8 +52,8 @@ echo "  ✅ All required directories present"
 # Test 4: Check commands directory structure
 echo "✓ Test 4: Commands structure..."
 COMMAND_COUNT=$(find "$PLUGIN_DIR/src/plugin-api/commands" -name "*.md" -type f | wc -l | tr -d ' ')
-if [ "$COMMAND_COUNT" -lt 17 ]; then
-    echo "❌ Expected at least 17 commands (14 research + 3 teaching), found $COMMAND_COUNT"
+if [ "$COMMAND_COUNT" -lt 21 ]; then
+    echo "❌ Expected at least 21 commands (14 research + 7 teaching), found $COMMAND_COUNT"
     exit 1
 fi
 echo "  ✅ Found $COMMAND_COUNT command files"
@@ -63,7 +63,11 @@ echo "✓ Test 5: Teaching commands..."
 test -f "$PLUGIN_DIR/src/plugin-api/commands/teaching/syllabus.md" || { echo "❌ Missing teaching:syllabus command"; exit 1; }
 test -f "$PLUGIN_DIR/src/plugin-api/commands/teaching/assignment.md" || { echo "❌ Missing teaching:assignment command"; exit 1; }
 test -f "$PLUGIN_DIR/src/plugin-api/commands/teaching/rubric.md" || { echo "❌ Missing teaching:rubric command"; exit 1; }
-echo "  ✅ All 3 teaching commands present"
+test -f "$PLUGIN_DIR/src/plugin-api/commands/teaching/slides.md" || { echo "❌ Missing teaching:slides command"; exit 1; }
+test -f "$PLUGIN_DIR/src/plugin-api/commands/teaching/quiz.md" || { echo "❌ Missing teaching:quiz command"; exit 1; }
+test -f "$PLUGIN_DIR/src/plugin-api/commands/teaching/exam.md" || { echo "❌ Missing teaching:exam command"; exit 1; }
+test -f "$PLUGIN_DIR/src/plugin-api/commands/teaching/feedback.md" || { echo "❌ Missing teaching:feedback command"; exit 1; }
+echo "  ✅ All 7 teaching commands present"
 
 # Test 6: Check skills directory structure
 echo "✓ Test 6: Skills structure..."
