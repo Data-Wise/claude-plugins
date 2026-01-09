@@ -1,376 +1,177 @@
-# Claude Code Plugins
+# ⚠️ ARCHIVED: Claude Code Plugins Monorepo
 
-> **Official Claude Code plugins developed by Data-Wise** - Professional tools for statistical research, R package development, and AI-assisted workflows
+> **This repository has been archived** as of January 9, 2026.
+> All plugins have been moved to independent repositories.
 
-A monorepo containing high-quality Claude Code plugins. Each plugin is independently published to npm but shares common standards, tooling, and documentation.
-
+[![Archived](https://img.shields.io/badge/status-archived-red.svg)](https://github.com/Data-Wise/claude-plugins)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Monorepo](https://img.shields.io/badge/repo-monorepo-blue.svg)](https://github.com/Data-Wise/claude-plugins)
-[![Documentation](https://img.shields.io/badge/docs-online-brightgreen.svg)](https://data-wise.github.io/claude-plugins/)
-
-📖 **[Complete Documentation](https://data-wise.github.io/claude-plugins/)** | 🚀 **[Quick Start](https://data-wise.github.io/claude-plugins/quick-start/)** | 📚 **[Command Reference](https://data-wise.github.io/claude-plugins/COMMAND-REFERENCE/)** | 🛠️ **[Developer Guide](CLAUDE.md)**
 
 ---
 
-## 📦 Available Plugins
+## 🔀 Migration Complete
 
-### 📊 Statistical Research Plugin
+The three active plugins from this monorepo have been extracted into standalone repositories for easier maintenance and independent development:
 
-**Status:** ✅ Released v1.0.0
-**Location:** [`statistical-research/`](statistical-research/)
-**npm:** `@data-wise/statistical-research-plugin`
+### ✅ Active Standalone Repositories
 
-Statistical research workflows for Claude Code - literature management, manuscript writing, simulation studies, and 17 A-grade research skills.
+| Plugin | Repository | Status | Install |
+|--------|------------|--------|---------|
+| **Scholar** | [github.com/Data-Wise/scholar](https://github.com/Data-Wise/scholar) | ✅ Active | `brew install scholar` |
+| **Craft** | [github.com/Data-Wise/craft](https://github.com/Data-Wise/craft) | ✅ Active | `brew install craft` |
+| **RForge** | [github.com/Data-Wise/rforge](https://github.com/Data-Wise/rforge) | ✅ Active | `brew install rforge` |
+
+---
+
+## 📚 Scholar Plugin
+
+**Academic workflows for research and teaching**
+
+- **Repository:** https://github.com/Data-Wise/scholar
+- **Documentation:** https://data-wise.github.io/scholar/
+- **npm:** `@data-wise/scholar`
+- **Commands:** 21 (14 research + 7 teaching)
+- **Skills:** 17 A-grade skills
 
 **Features:**
-- 13 slash commands (literature, manuscript, simulation, research)
-- 17 A-grade skills (mathematical, implementation, writing, research)
-- Shell API wrappers (arXiv, Crossref, BibTeX)
-- Pure plugin architecture (no MCP dependencies)
+- Literature management (arXiv, DOI, BibTeX)
+- Manuscript writing assistance
+- Simulation study design
+- Course material generation (syllabi, assignments, exams)
 
 **Install:**
 ```bash
-npm install -g @data-wise/statistical-research-plugin
-# OR
-cd statistical-research && ./scripts/install.sh --dev
+brew tap data-wise/tap
+brew install scholar
 ```
-
-[📖 Documentation](statistical-research/README.md) | [🚀 Quick Start](statistical-research/README.md#quick-start)
 
 ---
 
-### 🔧 RForge Orchestrator Plugin (Coming Soon)
+## 🛠️ Craft Plugin
 
-**Status:** 🚧 Planned
-**Location:** `rforge-orchestrator/` (to be moved)
-**npm:** `@data-wise/rforge-orchestrator-plugin`
+**Full-stack developer toolkit with workflow automation**
 
-Auto-delegation orchestrator for RForge MCP tools - intelligent analysis of R package changes.
+- **Repository:** https://github.com/Data-Wise/craft
+- **Documentation:** https://data-wise.github.io/craft/
+- **npm:** `@data-wise/claude-craft-plugin`
+- **Commands:** 86 (74 craft + 12 workflow)
+- **Agents:** 8 (including orchestrator-v2)
+- **Skills:** 21
 
 **Features:**
-- Pattern recognition (CODE_CHANGE, BUG_FIX, RELEASE)
-- Parallel MCP tool execution
-- 3 analysis modes (quick, balanced, thorough)
+- Architecture & code generation
+- Testing & CI/CD automation
+- Documentation & site generation
+- Git workflows & distribution
+- ADHD-friendly task management
+- Multi-agent orchestration
 
----
-
-## 🚀 Quick Start
-
-### Install All Plugins
-
+**Install:**
 ```bash
-# Clone repository
-git clone https://github.com/Data-Wise/claude-plugins.git
-cd claude-plugins
-
-# Install specific plugin
-cd statistical-research
-./scripts/install.sh --dev  # Development mode (symlink)
-# OR
-./scripts/install.sh        # Production mode (copy)
-```
-
-### Install from npm
-
-```bash
-# Install specific plugins
-npm install -g @data-wise/statistical-research-plugin
-
-# Future plugins
-npm install -g @data-wise/rforge-orchestrator-plugin
-```
-
-### Verify Installation
-
-```bash
-# Check installed plugins
-ls -la ~/.claude/plugins/
-
-# Try a command
-# (In Claude Code)
-/research:arxiv "your research topic"
+brew tap data-wise/tap
+brew install craft
 ```
 
 ---
 
-## 📚 Documentation
+## 📊 RForge Plugin
 
-### For Plugin Users
+**R package ecosystem orchestrator**
 
-- **[Getting Started Guide](docs/GETTING-STARTED.md)** - Install and use plugins
-- **[Command Reference](docs/COMMAND-REFERENCE.md)** - All available commands
-- **[Skills Guide](docs/SKILLS-GUIDE.md)** - How skills activate
-- **[Troubleshooting](docs/TROUBLESHOOTING.md)** - Common issues
+- **Repository:** https://github.com/Data-Wise/rforge
+- **Documentation:** https://data-wise.github.io/rforge/
+- **npm:** `@data-wise/rforge-plugin`
+- **Commands:** 15
+- **MCP Integration:** Requires `rforge-mcp` server
 
-### For Plugin Developers
+**Features:**
+- Auto-detect R project structure (single package, ecosystem, hybrid)
+- Dependency analysis and cascade planning
+- Mode system (default, debug, optimize, release)
+- Health checks and CRAN readiness
 
-- **[Knowledge Base](KNOWLEDGE.md)** - Architecture, patterns, best practices
-- **[Plugin Development Guide](docs/PLUGIN-DEVELOPMENT.md)** - Create new plugins
-- **[Publishing Guide](docs/PUBLISHING.md)** - Publish to npm and GitHub
-- **[Testing Guide](docs/TESTING.md)** - Test plugins thoroughly
-
----
-
-## 🏗️ Repository Structure
-
-```
-claude-plugins/                    # Monorepo root
-├── .github/
-│   └── workflows/
-│       ├── test-all.yml          # Test all plugins
-│       └── publish-plugin.yml    # Publish individual plugin
-├── statistical-research/          # Plugin 1
-│   ├── .claude-plugin/
-│   │   └── plugin.json
-│   ├── commands/                 # 13 slash commands
-│   ├── skills/                   # 17 A-grade skills
-│   ├── lib/                      # Shell API wrappers
-│   ├── scripts/                  # Install/uninstall
-│   ├── package.json
-│   └── README.md
-├── rforge-orchestrator/           # Plugin 2 (future)
-├── shared/                        # Shared utilities
-│   ├── test-utils/
-│   ├── lint-config/
-│   └── templates/
-│       ├── plugin-template/      # Template for new plugins
-│       ├── command-template.md
-│       └── skill-template.md
-├── docs/                          # Repository documentation
-│   ├── GETTING-STARTED.md
-│   ├── PLUGIN-DEVELOPMENT.md
-│   ├── PUBLISHING.md
-│   └── TESTING.md
-├── scripts/                       # Repository-level scripts
-│   ├── create-plugin.sh          # Scaffold new plugin
-│   ├── validate-plugin.sh        # Validate plugin structure
-│   └── publish-plugin.sh         # Publish to npm
-├── KNOWLEDGE.md                   # Architecture knowledge base
-├── README.md                      # This file
-├── LICENSE                        # MIT License
-├── .gitignore
-└── package.json                   # Root package (workspaces)
+**Install:**
+```bash
+brew tap data-wise/tap
+brew install rforge
+npm install -g rforge-mcp  # MCP server dependency
 ```
 
 ---
 
-## 🔧 Development
+## 🕰️ Archive Reason
 
-### Prerequisites
+This monorepo was originally created to share common tooling and standards across multiple Claude Code plugins. However, as each plugin evolved independently with different:
+- Release cycles
+- Dependencies (some with MCP, some pure plugins)
+- Documentation needs
+- User bases
 
-- Claude Code (latest version)
-- Node.js 18+
-- Git
+It became clearer that standalone repositories would provide:
+- ✅ Easier contribution and maintenance
+- ✅ Independent version control
+- ✅ Clearer ownership and focus
+- ✅ Simpler CI/CD pipelines
+- ✅ Better discoverability
 
-### Clone and Setup
-
-```bash
-# Clone repository
-git clone https://github.com/Data-Wise/claude-plugins.git
-cd claude-plugins
-
-# Install dependencies (if using workspaces)
-npm install
-
-# Install a plugin in development mode
-cd statistical-research
-./scripts/install.sh --dev
-```
-
-### Create New Plugin
-
-```bash
-# Use plugin template
-./scripts/create-plugin.sh my-plugin
-
-# Creates:
-# my-plugin/
-# ├── commands/
-# ├── skills/
-# ├── lib/
-# ├── scripts/
-# ├── package.json
-# └── README.md
-```
-
-### Test Changes
-
-```bash
-# Test specific plugin
-cd statistical-research
-npm test
-
-# Validate plugin structure
-./scripts/validate-plugin.sh statistical-research
-
-# Test all plugins (from root)
-npm test
-```
+All git history has been preserved in each standalone repository using `git filter-branch`.
 
 ---
 
-## 📖 Plugin Standards
+## 📖 Historical Documentation
 
-All plugins in this monorepo follow consistent standards:
+The original monorepo documentation is still available:
+- **KNOWLEDGE.md** - Architecture and design patterns
+- **CLAUDE.md** - Development guide
+- **docs/** - Archived documentation
 
-### Naming Convention
+However, please refer to the individual plugin repositories for current documentation.
 
-- **Directory:** `kebab-case` (e.g., `statistical-research`)
-- **npm package:** `@data-wise/<plugin-name>-plugin`
-- **Commands:** `/namespace:command` (e.g., `/research:arxiv`)
+---
 
-### Required Files
+## 🚀 For Users
 
-Each plugin must have:
-- ✅ `package.json` - npm configuration
-- ✅ `README.md` - Plugin documentation
-- ✅ `.claude-plugin/plugin.json` - Plugin metadata
-- ✅ `scripts/install.sh` - Installation script
-- ✅ `scripts/uninstall.sh` - Uninstallation script
-- ✅ `LICENSE` - MIT license
+If you previously installed plugins from this monorepo:
 
-### Directory Structure
+### Migration Steps
 
-```
-plugin-name/
-├── .claude-plugin/
-│   └── plugin.json           # Required
-├── commands/                  # Slash commands (optional)
-├── skills/                    # Skills (optional)
-├── lib/                       # Utilities (optional)
-├── scripts/
-│   ├── install.sh            # Required
-│   └── uninstall.sh          # Required
-├── tests/                     # Tests (recommended)
-├── package.json              # Required
-├── README.md                 # Required
-└── LICENSE                   # Required (MIT)
-```
+1. **Uninstall old plugins:**
+   ```bash
+   rm -rf ~/.claude/plugins/statistical-research
+   rm -rf ~/.claude/plugins/craft
+   rm -rf ~/.claude/plugins/rforge-orchestrator
+   ```
 
-### Quality Standards
+2. **Install new standalone versions:**
+   ```bash
+   brew tap data-wise/tap
+   brew install scholar  # Replaces statistical-research
+   brew install craft
+   brew install rforge   # Replaces rforge-orchestrator
+   ```
 
-- **Documentation:** Comprehensive README with examples
-- **Installation:** Works in both dev (symlink) and prod (copy) mode
-- **Testing:** Automated tests for critical functionality
-- **Licensing:** MIT license for all plugins
-- **Versioning:** Semantic versioning (semver)
+3. **No breaking changes** - All commands remain the same!
 
 ---
 
 ## 🤝 Contributing
 
-Contributions welcome! Please:
-
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Follow plugin standards (see [PLUGIN-DEVELOPMENT.md](docs/PLUGIN-DEVELOPMENT.md))
-4. Add tests for new functionality
-5. Update documentation
-6. Commit changes (`git commit -m 'feat: add amazing feature'`)
-7. Push to branch (`git push origin feature/amazing-feature`)
-8. Open Pull Request
-
-### Commit Message Format
-
-Follow [Conventional Commits](https://www.conventionalcommits.org/):
-
-```
-feat(plugin-name): add new feature
-fix(plugin-name): fix bug
-docs(plugin-name): update documentation
-test(plugin-name): add tests
-chore: update dependencies
-```
+Please contribute to the individual plugin repositories:
+- Scholar issues: https://github.com/Data-Wise/scholar/issues
+- Craft issues: https://github.com/Data-Wise/craft/issues
+- RForge issues: https://github.com/Data-Wise/rforge/issues
 
 ---
 
 ## 📜 License
 
-MIT License - see [LICENSE](LICENSE) file
-
-All plugins in this monorepo are licensed under MIT unless otherwise specified.
-
----
-
-## 🏆 Plugin Quality Badges
-
-Plugins that meet quality standards earn badges:
-
-- 🥇 **A-Grade** - Comprehensive documentation, tests, and examples
-- 🥈 **B-Grade** - Good documentation and basic tests
-- 🥉 **C-Grade** - Functional with minimal documentation
-
-**Current Plugins:**
-- 📊 Statistical Research: 🥇 A-Grade
-
----
-
-## 📊 Statistics
-
-- **Total Plugins:** 1 (more coming soon)
-- **Total Commands:** 13
-- **Total Skills:** 17
-- **Contributors:** 1
-- **License:** MIT
-
----
-
-## 🔗 Links
-
-- **GitHub:** https://github.com/Data-Wise/claude-plugins
-- **npm Organization:** https://www.npmjs.com/org/data-wise
-- **Issues:** https://github.com/Data-Wise/claude-plugins/issues
-- **Discussions:** https://github.com/Data-Wise/claude-plugins/discussions
-
----
-
-## 🗺️ Roadmap
-
-### Short-term (Next Release)
-
-- [ ] Publish `statistical-research` to npm
-- [ ] Add GitHub Actions for testing
-- [ ] Create plugin template
-- [ ] Add automated validation
-
-### Medium-term (Next Quarter)
-
-- [ ] Add `rforge-orchestrator` plugin
-- [ ] Create shared test utilities
-- [ ] Add comprehensive examples
-- [ ] Improve documentation
-
-### Long-term (Next Year)
-
-- [ ] 5+ plugins in monorepo
-- [ ] Plugin marketplace/catalog
-- [ ] Community contributions
-- [ ] Plugin CLI tool
-
----
-
-## 💡 Philosophy
-
-This monorepo follows these principles:
-
-1. **Quality over Quantity** - Each plugin is thoroughly documented and tested
-2. **Consistency** - All plugins follow same standards and patterns
-3. **Independence** - Plugins can be installed and used independently
-4. **Discoverability** - One repo makes it easy to find all plugins
-5. **Maintainability** - Shared tooling reduces duplication
-6. **Community** - Open to contributions and feedback
+MIT License - see individual plugin repositories for details.
 
 ---
 
 ## 🙏 Acknowledgments
 
-Built with:
-- [Claude Code](https://code.claude.com/) - AI-powered development
-- [npm](https://www.npmjs.com/) - Package distribution
-- [GitHub Actions](https://github.com/features/actions) - CI/CD
+Thank you to all contributors who helped build this monorepo! Your work continues in the standalone repositories.
 
-Inspired by the needs of statistical researchers, R developers, and AI-assisted workflow enthusiasts.
-
----
-
-**Ready to explore?** Check out the [Statistical Research Plugin](statistical-research/) to get started!
+**Archive Date:** January 9, 2026
+**Last Active Version:** See individual plugin repositories
+**Maintained By:** Data-Wise
