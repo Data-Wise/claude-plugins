@@ -221,6 +221,193 @@ target: Phase 1 production-ready (achieved 2026-01-08) | Documentation Tabs comp
 - Updated .claude/settings.local.json
 - Added gh release commands to auto-approve list
 
+---
+
+## 🚀 NEW: Project Reorganization (Jan 8-9, 2026) - PHASE 1-2 COMPLETE
+
+**Status:** ✅ Phase 1 & 2 Complete (scholar MVP + craft Integration) → Phase 3 Ready
+**Progress:** 40% complete (2 of 5 implementation phases done in 4.5 hours)
+**Goal:** Reorganize into 3 independent projects with dual APIs (Claude Plugin + MCP Server)
+**Timeline:** 4 weeks total
+**Expected Savings:** 40-50% reduction in maintenance burden (266 hrs/year → 184 hrs/year)
+
+### Final Project Structure
+
+**3 Independent Projects:**
+1. **craft** - Developer toolkit (74 existing + 12 from workflow = 86 commands)
+   - Target: Developers with focus challenges
+   - APIs: Claude Plugin + MCP Server
+   - Status: Merge workflow features into existing craft
+
+2. **scholar** - Academic workflows (14 research + 3 teaching MVP = 17 commands)
+   - Target: Researchers and educators
+   - APIs: Claude Plugin + MCP Server
+   - Status: Bootstrap from statistical-research + add teaching
+
+3. **rforge** - R package orchestration (unchanged)
+   - Target: R package developers
+   - APIs: Claude Plugin + MCP Server
+   - Status: Production-ready, no changes needed
+
+### Key Architecture Decisions (Made)
+
+✅ **Project Names:** craft, scholar, rforge
+✅ **Shared Code Strategy:** Duplicate lib/ in each project (simple, independent)
+✅ **Namespace Strategy:** Hybrid (common top-level like /arxiv, specialized 2-level like /scholar:*)
+✅ **Architecture Pattern:** Unified Plugin + MCP (shared core library, no IPC overhead)
+✅ **Migration Approach:** Guided wizard with automated backup/rollback
+
+### Planning Documents Created (Jan 8-9)
+
+**Comprehensive Specifications:**
+- ✅ **SPEC-PROJECT-REORGANIZATION.md** (850+ lines) - Main implementation spec
+  - Executive summary, user stories, technical requirements
+  - Architecture diagrams (Mermaid), API design, data models
+  - UI/UX specs (migration wizard flow), implementation notes
+  - Phase-by-phase plan with success criteria
+
+- ✅ **SPEC-MCP-INTEGRATION.md** (created earlier, 500+ lines) - MCP integration options
+  - 4 integration approaches analyzed
+  - Recommended: Configuration-only integration (Option 4) first
+  - Can evolve to git submodule or npm workspace later
+
+**Agent Analysis Documents:**
+- ✅ Backend Architect: Architecture design (1,000+ lines)
+- ✅ Product Strategist: Product strategy (650+ lines)
+- ✅ NEXT-STEPS-REORGANIZATION-2026-01-08.md (200 lines) - Action summary
+
+**Brainstorm Session:**
+- ✅ Max depth mode: 8 expert questions + 2 architecture clarifications + 2 naming questions
+- ✅ 2 expert agents launched (backend architect, product strategist)
+- ✅ Comprehensive synthesis with all findings
+
+### Implementation Phases (To Do)
+
+**Phase 1: scholar MVP (~2 hours)** ✅ COMPLETE (Jan 8, 2026)
+- [x] Create scholar/ directory structure
+- [x] Copy statistical-research commands/skills/lib
+- [x] Create plugin.json (v1.0.0, name: "scholar")
+- [x] Add 3 teaching commands (syllabus, assignment, rubric)
+- [x] Create install/uninstall scripts
+- [x] Write basic tests (target: 80%+ coverage)
+- [x] Document all 17 commands
+- **Success Criteria:** ✅ All commands functional, docs complete, install works
+- **Achievements:**
+  - 17 commands (14 research + 3 teaching) fully functional
+  - 17 A-grade skills copied and organized
+  - 3 API wrappers (arxiv, crossref, bibtex) integrated
+  - 10/10 structure tests passing (100% success rate)
+  - Comprehensive README.md (12,931 bytes)
+  - Full documentation suite (QUICK-START, REFCARD, commands, skills, examples)
+  - Dev mode installation working perfectly
+  - See: INTEGRATION-TEST-RESULTS.md, DOCUMENTATION-MIGRATION-SUMMARY.md
+
+**Phase 2: craft Integration (~2.5 hours)** ✅ COMPLETE (Jan 8, 2026)
+- [x] Merge workflow features into craft directory
+- [x] Resolve any namespace conflicts
+- [x] Update all 86 commands
+- [x] Update plugin.json (preserve "craft" name)
+- [x] Update documentation
+- [x] Test all commands thoroughly
+- [x] Create migration script for workflow users
+- **Success Criteria:** ✅ All 86 commands functional, no regressions, upgrade guide complete
+- **Achievements:**
+  - 86 commands total (74 craft + 12 workflow) fully functional
+  - Zero namespace conflicts identified and verified
+  - plugin.json updated to v1.17.0 with workflow integration
+  - package.json synced (version, description, keywords)
+  - README.md updated with workflow commands section
+  - RELEASE-NOTES-v1.17.0.md created (comprehensive migration guide)
+  - migrate-from-workflow.sh script created (automated migration with backup/rollback)
+  - Documentation suite in docs/workflow-integration/ (5 files)
+  - All workflow commands verified in craft installation
+  - See: INTEGRATION-TEST-RESULTS.md, DOCUMENTATION-MIGRATION-SUMMARY.md
+
+**Phase 3: Polish & Testing (Week 3)**
+- [ ] Add remaining teaching features (slides, quizzes) to scholar
+- [ ] Finalize all documentation
+- [ ] Create migration wizards (automated)
+- [ ] Test migration workflows end-to-end
+
+**Phase 4: Beta Release (Week 4)**
+- [ ] Beta version tags
+- [ ] User communication sent
+- [ ] Feedback collection mechanism active
+- [ ] Migration wizard tested with real users
+
+**Phase 5: Stable Release (Week 5)**
+- [ ] v1.0.0 releases for craft and scholar
+- [ ] Deprecation notices on old plugins (workflow, statistical-research)
+- [ ] Full documentation live
+- [ ] npm packages updated
+
+**Phase 6: Deprecation Period (Weeks 6-8)**
+- [ ] Monitor migration success
+- [ ] Support users with issues
+- [ ] Fix bugs discovered
+- [ ] Collect feedback
+
+**Phase 7: Archive (Week 9+)**
+- [ ] Archive old plugins (workflow, statistical-research)
+- [ ] Update all references
+- [ ] Final documentation cleanup
+
+### Technical Highlights
+
+**Unified Plugin + MCP Architecture:**
+```
+src/
+├── core/              # Business logic (framework-agnostic)
+├── plugin-api/        # Claude Plugin commands/skills
+├── mcp-server/        # MCP Protocol tools
+└── lib/               # External API wrappers
+```
+
+**Key Innovation:** Both APIs (Plugin + MCP) share core library directly
+- Eliminates IPC overhead from old orchestrator pattern
+- Simplifies testing (unit test core once)
+- Single source of truth (no sync issues)
+
+**Technology Stack:**
+- Runtime: Bun 1.x
+- Language: TypeScript 5.x
+- MCP SDK: @modelcontextprotocol/sdk 1.x
+- Validation: Zod 3.x
+- Testing: Bun Test (built-in)
+- Linting: Biome 1.x
+
+### Success Metrics (6 Months After)
+
+**Maintenance Reduction:**
+- [ ] 40-50% reduction in maintenance time measured
+- [ ] 3 clear, independent projects operational
+- [ ] Zero regressions for users reported
+- [ ] Independent release cycles functioning
+- [ ] Clearer feature boundaries validated
+
+**User Experience:**
+- [ ] Simpler installation (one command per project)
+- [ ] Clearer documentation (project-focused)
+- [ ] Faster bug fixes (isolated codebases)
+- [ ] Migration wizard success rate >95%
+
+### Next Immediate Action
+
+**Recommended:** Start Phase 1 - Create scholar MVP (4-6 hours)
+
+```bash
+# Quick start commands:
+cd /Users/dt/projects/dev-tools/claude-plugins
+mkdir -p scholar/{.claude-plugin,commands,skills,lib,scripts,tests}
+cp -r statistical-research/commands/* scholar/commands/
+cp -r statistical-research/skills/* scholar/skills/
+cp -r statistical-research/lib/* scholar/lib/
+```
+
+**Alternative:** Review comprehensive spec first, finalize any remaining decisions
+
+---
+
 ## 🎯 Next Action
 
 **Documentation Complete (100%):** ✅

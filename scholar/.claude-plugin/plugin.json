@@ -1,0 +1,8 @@
+{
+  "name": "scholar",
+  "version": "1.0.0",
+  "description": "Academic workflows for research and teaching - literature management, manuscript writing, simulation design, and course material generation",
+  "author": {
+    "name": "Data-Wise"
+  }
+}

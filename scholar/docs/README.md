@@ -1,0 +1,188 @@
+# Scholar Plugin - Documentation
+
+> **Complete documentation for the Scholar Plugin v1.0.0** - Academic workflows for research and teaching
+
+---
+
+## 📚 Documentation Index
+
+### Quick References
+
+| Document | Purpose | Read Time |
+|----------|---------|-----------|
+| **[QUICK-START.md](QUICK-START.md)** | Get running in 5 minutes | 3 min |
+| **[REFCARD.md](REFCARD.md)** | One-page command reference | 2 min |
+
+### Detailed Guides
+
+| Document | Purpose | Location |
+|----------|---------|----------|
+| **[README.md](../README.md)** | Main plugin documentation | Root |
+| **[commands.md](commands.md)** | Detailed command reference | `docs/` |
+| **[skills.md](skills.md)** | All 17 skills explained | `docs/` |
+| **[examples.md](examples.md)** | Usage examples and patterns | `docs/` |
+
+---
+
+## 🚀 Getting Started
+
+**New users:** Start with [QUICK-START.md](QUICK-START.md)
+
+**Need a reminder:** Check [REFCARD.md](REFCARD.md)
+
+**Installing:** Follow [README.md](../README.md)
+
+---
+
+## 📖 What's What
+
+### QUICK-START.md
+Perfect for:
+- First-time users
+- Getting up and running fast
+- Learning the basic workflows
+
+**Contents:**
+- Installation (2 minutes)
+- First commands to try
+- Common workflows
+- Tips and troubleshooting
+
+### REFCARD.md
+Perfect for:
+- Quick command lookups
+- Refreshing your memory
+- One-page printable reference
+
+**Contents:**
+- All 17 commands in tables (14 research + 3 teaching)
+- 17 skills overview
+- Common patterns
+- Troubleshooting quick reference
+
+### README.md (Root)
+Perfect for:
+- Installation instructions
+- Development workflow
+- Understanding dev vs production modes
+
+**Contents:**
+- Installation options (--dev, production)
+- Development workflow
+- Uninstallation
+- Troubleshooting
+
+### Skills README (skills/README.md)
+Perfect for:
+- Understanding auto-activating skills
+- Seeing all 17 skills in detail
+- Learning what triggers each skill
+
+**Contents:**
+- Skill categories (mathematical, implementation, writing, research)
+- Activation triggers
+- Use cases
+- Examples
+
+---
+
+## 📂 Plugin Structure
+
+```
+scholar/
+├── docs/                          # 👈 You are here
+│   ├── README.md                  # This file
+│   ├── QUICK-START.md             # 5-minute guide
+│   ├── REFCARD.md                 # One-page reference
+│   ├── commands.md                # Command details
+│   ├── skills.md                  # Skills guide
+│   └── examples.md                # Usage examples
+├── src/
+│   ├── core/                      # Framework-agnostic logic (Phase 2)
+│   ├── plugin-api/                # Claude Plugin API
+│   │   ├── commands/              # 17 slash commands
+│   │   │   ├── literature/        # /arxiv, /doi, /bib:*
+│   │   │   ├── manuscript/        # /manuscript:*
+│   │   │   ├── simulation/        # /simulation:*
+│   │   │   ├── research/          # /scholar:*
+│   │   │   └── teaching/          # /teaching:* (NEW in v1.0.0)
+│   │   └── skills/                # 17 auto-activating skills
+│   │       ├── README.md          # Skills guide
+│   │       ├── mathematical/      # 4 math skills
+│   │       ├── implementation/    # 5 implementation skills
+│   │       ├── writing/           # 3 writing skills
+│   │       └── research/          # 5 research skills
+│   └── mcp-server/                # MCP Protocol (Phase 2)
+├── lib/                       # API wrappers
+│   ├── arxiv-api.sh
+│   ├── crossref-api.sh
+│   └── bibtex-utils.sh
+├── tests/                     # Unit tests
+│   └── test-plugin-structure.sh
+├── scripts/                   # Installation scripts
+│   ├── install.sh             # Supports --dev mode
+│   └── uninstall.sh
+├── README.md                  # Main documentation
+├── LICENSE                    # MIT license
+└── .claude-plugin/            # Plugin metadata
+    └── plugin.json            # v1.0.0
+```
+
+---
+
+## 🎯 Finding What You Need
+
+### I want to...
+
+**Get started quickly**
+→ [QUICK-START.md](QUICK-START.md)
+
+**Look up a command**
+→ [REFCARD.md](REFCARD.md)
+
+**Install the plugin**
+→ [README.md](../README.md)
+
+**Understand the skills**
+→ [skills.md](skills.md) or [skills/README.md](../src/plugin-api/skills/README.md)
+
+**Learn about specific commands**
+→ [README.md](../README.md) (main documentation)
+
+**Troubleshoot issues**
+→ [QUICK-START.md](QUICK-START.md#troubleshooting) or [REFCARD.md](REFCARD.md#troubleshooting)
+
+**Develop/modify the plugin**
+→ [README.md](../README.md#development-workflow)
+
+---
+
+## 💡 Documentation Philosophy
+
+This documentation follows **ADHD-friendly principles**:
+
+1. **Quick access** - Find answers fast
+2. **Scannable** - Tables and boxes, not walls of text
+3. **Progressive disclosure** - Start simple, go deep as needed
+4. **Multiple formats** - Reference card, quick start, detailed guide
+5. **Action-oriented** - Focus on "how to" not "about"
+
+---
+
+## 🔗 External Links
+
+- **Plugin Repository:** https://github.com/Data-Wise/claude-plugins
+- **Monorepo Documentation:** [../../KNOWLEDGE.md](../../KNOWLEDGE.md)
+- **Plugin Development Guide:** [../../docs/PLUGIN-DEVELOPMENT.md](../../docs/PLUGIN-DEVELOPMENT.md)
+
+---
+
+## 📝 Document Maintenance
+
+**Last Updated:** 2025-12-23
+**Plugin Version:** 1.0.0
+**Documentation Version:** 1.0.0
+
+---
+
+**Need help?** Start with [QUICK-START.md](QUICK-START.md) or check [REFCARD.md](REFCARD.md) for quick answers!

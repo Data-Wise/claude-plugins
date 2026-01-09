@@ -1,7 +1,7 @@
 {
   "name": "craft",
-  "version": "1.16.0",
-  "description": "Full-stack developer toolkit - 74 commands, 8 agents, 21 skills for code, git, site, docs, testing, architecture, CI, distribution, and planning with ADHD-friendly workflows",
+  "version": "1.17.0",
+  "description": "Full-stack developer toolkit with integrated workflow automation - 86 commands (74 craft + 12 workflow), 8 agents, 21 skills for code, git, site, docs, testing, architecture, CI, distribution, planning, and ADHD-friendly workflows including brainstorming, task management, and spec capture",
   "author": {
     "name": "Data-Wise",
     "email": "dt@stat-wise.com"

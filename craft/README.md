@@ -2,12 +2,12 @@
 
 [![Craft CI](https://github.com/Data-Wise/claude-plugins/actions/workflows/craft-ci.yml/badge.svg)](https://github.com/Data-Wise/claude-plugins/actions/workflows/craft-ci.yml)
 [![Validate Plugins](https://github.com/Data-Wise/claude-plugins/actions/workflows/validate-plugins.yml/badge.svg)](https://github.com/Data-Wise/claude-plugins/actions/workflows/validate-plugins.yml)
-[![Version](https://img.shields.io/badge/version-1.16.0-blue.svg)](https://github.com/Data-Wise/claude-plugins/releases/tag/craft-v1.16.0)
+[![Version](https://img.shields.io/badge/version-1.17.0-blue.svg)](https://github.com/Data-Wise/claude-plugins/releases/tag/craft-v1.17.0)
 [![Documentation](https://img.shields.io/badge/docs-complete-green.svg)](https://data-wise.github.io/claude-plugins/craft/)
 
-> **v1.16.0 - Documentation Complete** 🎉
-> **74 commands** | **21 skills** | **8 agents** | **10 workflow GIFs**
-> All features fully documented with visual demonstrations
+> **v1.17.0 - Workflow Integration** 🎉
+> **86 commands** (74 craft + 12 workflow) | **21 skills** | **8 agents** | **10 workflow GIFs**
+> Complete workflow automation integrated: brainstorming, task management, spec capture
 
 A comprehensive production-ready toolkit for Claude Code featuring smart orchestration, ADHD-friendly workflows, multi-agent coordination, and complete documentation coverage.
 
@@ -81,7 +81,30 @@ Commands support execution modes for different use cases:
 /craft:arch:analyze optimize    # Performance analysis
 ```
 
-## Commands (69 total)
+## Commands (86 total)
+
+### Workflow Commands (12) - NEW in v1.17.0
+| Command | Description |
+|---------|-------------|
+| `/brainstorm [depth] [focus] [action]` | Enhanced brainstorming with smart detection, design modes, time budgets, and agent delegation |
+| `/spec-review <file>` | Interactive spec review with validation, status updates, and archival |
+| `/focus [task]` | Enter focus mode for deep work on a specific task |
+| `/next` | Get next task recommendation |
+| `/done [message]` | Mark current task as complete |
+| `/recap` | Generate session summary and progress report |
+| `/stuck [description]` | Get help when blocked on a task |
+| `/refine <spec-file>` | Refine and improve existing spec documents |
+| `/task-status [task-id]` | Check status of background tasks |
+| `/task-output <task-id>` | Get output from completed task |
+| `/task-cancel <task-id>` | Cancel running background task |
+| `/adhd-guide` | ADHD-friendly workflow guide and best practices |
+
+**Brainstorming Modes:**
+```bash
+/brainstorm q feat        # Quick feature brainstorm
+/brainstorm d arch        # Deep architecture analysis
+/brainstorm max ux save   # Max depth UX design with spec capture
+```
 
 ### Smart Commands (4) - ENHANCED
 | Command | Description |

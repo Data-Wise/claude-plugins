@@ -1,7 +1,7 @@
 {
   "name": "@data-wise/claude-craft-plugin",
-  "version": "1.10.0",
-  "description": "Full-stack developer toolkit - 67 commands, 7 agents, 17 skills for code, git, site, docs, testing, architecture, CI, and distribution",
+  "version": "1.17.0",
+  "description": "Full-stack developer toolkit with integrated workflow automation - 86 commands (74 craft + 12 workflow), 8 agents, 21 skills for code, git, site, docs, testing, architecture, CI, distribution, planning, and ADHD-friendly workflows",
   "main": "index.js",
   "scripts": {
     "test": "python3 tests/test_craft_plugin.py",
@@ -24,7 +24,12 @@
     "distribution",
     "orchestrator",
     "ci",
-    "project-detection"
+    "project-detection",
+    "workflow",
+    "brainstorming",
+    "task-management",
+    "adhd-friendly",
+    "spec-capture"
   ],
   "author": "Data-Wise",
   "license": "MIT"

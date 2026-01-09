@@ -14,7 +14,13 @@
       "Bash(done)",
       "Bash(gh run view:*)",
       "Bash(gh run list:*)",
-      "Bash(gh run watch:*)"
+      "Bash(gh run watch:*)",
+      "Bash(git -C /Users/dt/projects/dev-tools/claude-plugins remote:*)",
+      "Bash(git -C /Users/dt/projects/dev-tools/mcp-servers remote:*)",
+      "Bash(./tests/test-plugin-structure.sh:*)",
+      "Bash(./scholar/scripts/install.sh:*)",
+      "Bash(./scripts/install.sh:*)",
+      "Bash(xargs:*)"
     ]
   }
 }
