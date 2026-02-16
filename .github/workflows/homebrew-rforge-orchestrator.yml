@@ -1,0 +1,68 @@
+name: Homebrew Release (rforge-orchestrator)
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release (e.g., 0.1.0)'
+        required: true
+        type: string
+      auto_merge:
+        description: 'Auto-merge the formula PR'
+        required: false
+        type: boolean
+        default: true
+
+jobs:
+  prepare:
+    name: Prepare Release Info
+    runs-on: ubuntu-latest
+    # Only run for rforge-orchestrator tags
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      startsWith(github.ref, 'refs/tags/rforge-orchestrator-v')
+    outputs:
+      version: ${{ steps.release.outputs.version }}
+      sha256: ${{ steps.release.outputs.sha256 }}
+
+    steps:
+      - name: Get version and calculate SHA
+        id: release
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_VERSION: ${{ github.event.inputs.version }}
+        run: |
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            VERSION="$INPUT_VERSION"
+          else
+            VERSION="${GITHUB_REF#refs/tags/rforge-orchestrator-v}"
+          fi
+
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+          TARBALL_URL="https://github.com/Data-Wise/claude-plugins/archive/refs/tags/rforge-orchestrator-v${VERSION}.tar.gz"
+          SHA256=$(curl -sL --retry 3 --retry-delay 2 "$TARBALL_URL" | sha256sum | cut -d' ' -f1)
+
+          if [ -z "$SHA256" ] || [ ${#SHA256} -ne 64 ]; then
+            echo "::error::SHA256 calculation failed. Got: '$SHA256'"
+            exit 1
+          fi
+
+          echo "sha256=$SHA256" >> $GITHUB_OUTPUT
+          echo "Version: $VERSION"
+          echo "SHA256: $SHA256"
+
+  update-homebrew:
+    name: Update Homebrew Formula
+    needs: prepare
+    uses: Data-Wise/homebrew-tap/.github/workflows/update-formula.yml@main
+    with:
+      formula_name: rforge-orchestrator
+      version: ${{ needs.prepare.outputs.version }}
+      sha256: ${{ needs.prepare.outputs.sha256 }}
+      source_type: github
+      auto_merge: ${{ github.event.inputs.auto_merge == 'true' || github.event_name == 'release' }}
+    secrets:
+      tap_token: ${{ secrets.HOMEBREW_TAP_GITHUB_TOKEN }}
