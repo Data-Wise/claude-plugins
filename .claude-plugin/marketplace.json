@@ -5,15 +5,18 @@
     "email": "dt@stat-wise.com"
   },
   "metadata": {
-    "description": "Aggregator marketplace for all Data-Wise Claude Code plugins — add once to receive every current and future plugin (Code + Desktop/Cowork).",
+    "description": "Aggregator marketplace for all Data-Wise Claude Code plugins \u2014 add once to receive every current and future plugin (Code + Desktop/Cowork).",
     "version": "1.0.0"
   },
   "plugins": [
     {
       "name": "craft",
-      "source": { "source": "github", "repo": "Data-Wise/craft" },
+      "source": {
+        "source": "github",
+        "repo": "Data-Wise/craft"
+      },
       "description": "Full-stack developer toolkit for Claude Code (commands, agents, skills).",
-      "version": "2.37.0",
+      "version": "2.38.0",
       "homepage": "https://data-wise.github.io/craft/",
       "repository": "https://github.com/Data-Wise/craft",
       "license": "MIT",
@@ -21,7 +24,10 @@
     },
     {
       "name": "scholar",
-      "source": { "source": "github", "repo": "Data-Wise/scholar" },
+      "source": {
+        "source": "github",
+        "repo": "Data-Wise/scholar"
+      },
       "description": "Statistical research, manuscript, and teaching toolkit.",
       "version": "2.24.0",
       "repository": "https://github.com/Data-Wise/scholar",
@@ -30,7 +36,10 @@
     },
     {
       "name": "rforge",
-      "source": { "source": "github", "repo": "Data-Wise/rforge" },
+      "source": {
+        "source": "github",
+        "repo": "Data-Wise/rforge"
+      },
       "description": "R-package ecosystem orchestration and CRAN-readiness toolkit.",
       "version": "2.13.0",
       "repository": "https://github.com/Data-Wise/rforge",
@@ -39,7 +48,10 @@
     },
     {
       "name": "himalaya-mcp",
-      "source": { "source": "github", "repo": "Data-Wise/himalaya-mcp" },
+      "source": {
+        "source": "github",
+        "repo": "Data-Wise/himalaya-mcp"
+      },
       "description": "Email MCP server and skills built on the himalaya CLI.",
       "version": "1.6.2",
       "repository": "https://github.com/Data-Wise/himalaya-mcp",
