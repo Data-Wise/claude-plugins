@@ -28,8 +28,8 @@
         "source": "github",
         "repo": "Data-Wise/scholar"
       },
-      "description": "Statistical research, manuscript, and teaching toolkit.",
-      "version": "2.24.0",
+      "description": "Statistical teaching toolkit — exams, quizzes, slides, lectures, and course materials.",
+      "version": "3.0.1",
       "repository": "https://github.com/Data-Wise/scholar",
       "license": "MIT",
       "category": "research"
@@ -57,6 +57,18 @@
       "repository": "https://github.com/Data-Wise/himalaya-mcp",
       "license": "MIT",
       "category": "productivity"
+    },
+    {
+      "name": "savant",
+      "source": {
+        "source": "github",
+        "repo": "Data-Wise/savant"
+      },
+      "description": "Private statistical-research plugin — manuscripts, mathematics, simulation, and literature.",
+      "version": "1.4.0",
+      "repository": "https://github.com/Data-Wise/savant",
+      "license": "MIT",
+      "category": "research"
     }
   ]
 }
