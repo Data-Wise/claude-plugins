@@ -47,12 +47,12 @@
       "category": "development"
     },
     {
-      "name": "himalaya-mcp",
+      "name": "email",
       "source": {
         "source": "github",
         "repo": "Data-Wise/himalaya-mcp"
       },
-      "description": "Email MCP server and skills built on the himalaya CLI.",
+      "description": "Himalaya email plugin (MCP) for Claude Code \u2014 manage email from the CLI/agent.",
       "version": "1.7.0",
       "repository": "https://github.com/Data-Wise/himalaya-mcp",
       "license": "MIT",
