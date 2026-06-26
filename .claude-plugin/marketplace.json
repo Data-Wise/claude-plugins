@@ -16,7 +16,7 @@
         "repo": "Data-Wise/craft"
       },
       "description": "Full-stack developer toolkit for Claude Code (commands, agents, skills).",
-      "version": "2.38.2",
+      "version": "2.52.0",
       "homepage": "https://data-wise.github.io/craft/",
       "repository": "https://github.com/Data-Wise/craft",
       "license": "MIT",
@@ -29,7 +29,7 @@
         "repo": "Data-Wise/scholar"
       },
       "description": "Statistical research, manuscript, and teaching toolkit.",
-      "version": "2.24.0",
+      "version": "3.1.1",
       "repository": "https://github.com/Data-Wise/scholar",
       "license": "MIT",
       "category": "research"
@@ -41,7 +41,7 @@
         "repo": "Data-Wise/rforge"
       },
       "description": "R-package ecosystem orchestration and CRAN-readiness toolkit.",
-      "version": "2.13.0",
+      "version": "2.16.0",
       "repository": "https://github.com/Data-Wise/rforge",
       "license": "MIT",
       "category": "development"
@@ -53,7 +53,7 @@
         "repo": "Data-Wise/himalaya-mcp"
       },
       "description": "Email MCP server and skills built on the himalaya CLI.",
-      "version": "1.6.2",
+      "version": "1.7.0",
       "repository": "https://github.com/Data-Wise/himalaya-mcp",
       "license": "MIT",
       "category": "productivity"
