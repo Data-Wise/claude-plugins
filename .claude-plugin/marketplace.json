@@ -41,7 +41,7 @@
         "repo": "Data-Wise/rforge"
       },
       "description": "R-package ecosystem orchestration and CRAN-readiness toolkit.",
-      "version": "2.17.0",
+      "version": "2.18.0",
       "repository": "https://github.com/Data-Wise/rforge",
       "license": "MIT",
       "category": "development"
