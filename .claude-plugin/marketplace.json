@@ -16,7 +16,7 @@
         "repo": "Data-Wise/craft"
       },
       "description": "Full-stack developer toolkit for Claude Code (commands, agents, skills).",
-      "version": "4.0.0",
+      "version": "4.1.0",
       "homepage": "https://data-wise.github.io/craft/",
       "repository": "https://github.com/Data-Wise/craft",
       "license": "MIT",
