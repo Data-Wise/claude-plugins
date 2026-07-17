@@ -57,6 +57,18 @@
       "repository": "https://github.com/Data-Wise/himalaya-mcp",
       "license": "MIT",
       "category": "productivity"
+    },
+    {
+      "name": "folio",
+      "source": {
+        "source": "github",
+        "repo": "Data-Wise/folio"
+      },
+      "description": "Docs-authoring toolkit for Claude Code \u2014 tutorials, guides, API docs, mermaid diagrams, and site management. Extracted from craft (v4.0.0 split).",
+      "version": "1.0.0",
+      "repository": "https://github.com/Data-Wise/folio",
+      "license": "MIT",
+      "category": "development"
     }
   ]
 }
