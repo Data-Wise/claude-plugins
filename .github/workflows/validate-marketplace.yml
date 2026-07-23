@@ -1,0 +1,138 @@
+name: Validate Marketplace
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.claude-plugin/marketplace.json'
+      - '.github/workflows/validate-marketplace.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - '.claude-plugin/marketplace.json'
+      - '.github/workflows/validate-marketplace.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-marketplace:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Validate marketplace.json structure
+        run: |
+          python3 -m json.tool .claude-plugin/marketplace.json > /dev/null
+
+          python3 << 'EOF'
+          import json
+
+          d = json.load(open(".claude-plugin/marketplace.json"))
+          names = [p["name"] for p in d["plugins"]]
+          assert len(names) == len(set(names)), f"Duplicate plugin names: {names}"
+
+          required = ["name", "source", "description", "version", "repository", "license", "category"]
+          for p in d["plugins"]:
+              missing = [f for f in required if f not in p]
+              if missing:
+                  raise SystemExit(f"❌ {p.get('name', '?')}: missing fields {missing}")
+
+          print(f"✅ {len(names)} entries, structurally valid")
+          EOF
+
+      # Cross-checks each GitHub-sourced entry's declared name/version against the
+      # upstream repo's actual plugin.json — the exact drift that went undetected
+      # through issue #67 / PR #9 (aggregator said `himalaya-mcp`, upstream plugin
+      # was actually named `email`, and nothing caught the mismatch until a user
+      # reported a broken install). Name mismatches print loudly but the job still
+      # exits 0 — an aggregator bump landing slightly ahead of its upstream release
+      # (e.g. bumping this listing in the same session as a rename PR, before that
+      # PR's dev→main release ships) is a normal, expected sequencing, not a bug.
+      - name: Cross-check plugin names against upstream repos
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 << 'PYEOF'
+          import base64
+          import json
+          import subprocess
+          import sys
+
+          d = json.load(open(".claude-plugin/marketplace.json"))
+          mismatches = []
+          skipped = []
+
+          def gh_api(path):
+              r = subprocess.run(["gh", "api", path], capture_output=True, text=True)
+              if r.returncode != 0:
+                  return None
+              return json.loads(r.stdout)
+
+          def fetch_json(repo, subpath):
+              content = gh_api(f"repos/{repo}/contents/{subpath}")
+              if content is None:
+                  return None
+              return json.loads(base64.b64decode(content["content"]))
+
+          for p in d["plugins"]:
+              src = p.get("source", {})
+              if not isinstance(src, dict) or src.get("source") != "github":
+                  continue
+              repo = src.get("repo")
+              if not repo:
+                  skipped.append(f"{p.get('name', '?')}: github source missing 'repo' field")
+                  continue
+
+              # Convention: plugin.json at repo root. Some repos (e.g. a combined
+              # server+plugin package) nest it under a subdirectory instead — those
+              # publish their own root marketplace.json pointing at that subdir, so
+              # fall back to reading that when the root plugin.json isn't found.
+              # This whole block is best-effort: any unexpected shape (a dict-style
+              # `source` instead of the string form used today, a missing/empty
+              # `plugins` list, a transient API failure) must degrade to a skipped
+              # warning, never crash the job — a broken lookup here must not block
+              # an unrelated marketplace.json edit from merging.
+              try:
+                  plugin = fetch_json(repo, ".claude-plugin/plugin.json")
+                  if plugin is None:
+                      own_marketplace = fetch_json(repo, ".claude-plugin/marketplace.json")
+                      if own_marketplace and own_marketplace.get("plugins"):
+                          own_source = own_marketplace["plugins"][0].get("source")
+                          if isinstance(own_source, str):
+                              subdir = own_source.lstrip("./")
+                              plugin = fetch_json(repo, f"{subdir}/.claude-plugin/plugin.json")
+              except Exception as e:
+                  plugin = None
+                  skipped.append(f"{p['name']} ({repo}): lookup failed unexpectedly ({e})")
+                  continue
+
+              if plugin is None:
+                  skipped.append(f"{p['name']} ({repo}): could not locate upstream plugin.json")
+                  continue
+
+              if plugin.get("name") != p["name"]:
+                  mismatches.append(
+                      f"{p['name']} ({repo}): aggregator lists name '{p['name']}' "
+                      f"but upstream plugin.json declares '{plugin.get('name')}'"
+                  )
+              if plugin.get("version") and plugin["version"] != p.get("version"):
+                  mismatches.append(
+                      f"{p['name']} ({repo}): aggregator version '{p.get('version')}' "
+                      f"!= upstream '{plugin['version']}' (fine if a release is pending)"
+                  )
+
+          for s in skipped:
+              print(f"::warning::{s}")
+          for m in mismatches:
+              print(f"::warning::{m}")
+
+          print("")
+          print(f"Checked {len(d['plugins'])} entries: "
+                f"{len(mismatches)} drift warning(s), {len(skipped)} skipped")
+          PYEOF
