@@ -29,7 +29,7 @@
         "repo": "Data-Wise/scholar"
       },
       "description": "Statistical research, manuscript, and teaching toolkit.",
-      "version": "3.1.1",
+      "version": "3.2.0",
       "repository": "https://github.com/Data-Wise/scholar",
       "license": "MIT",
       "category": "research"
