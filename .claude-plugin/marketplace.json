@@ -5,7 +5,7 @@
     "email": "dt@stat-wise.com"
   },
   "metadata": {
-    "description": "Aggregator marketplace for all Data-Wise Claude Code plugins — add once to receive every current and future plugin (Code + Desktop/Cowork).",
+    "description": "Aggregator marketplace for all Data-Wise Claude Code plugins \u2014 add once to receive every current and future plugin (Code + Desktop/Cowork).",
     "version": "1.0.0"
   },
   "plugins": [
@@ -52,8 +52,8 @@
         "source": "github",
         "repo": "Data-Wise/himalaya-mcp"
       },
-      "description": "Himalaya email plugin (MCP) for Claude Code — manage email from the CLI/agent.",
-      "version": "2.0.1",
+      "description": "Himalaya email plugin (MCP) for Claude Code \u2014 manage email from the CLI/agent.",
+      "version": "2.0.2",
       "repository": "https://github.com/Data-Wise/himalaya-mcp",
       "license": "MIT",
       "category": "productivity"
@@ -64,7 +64,7 @@
         "source": "github",
         "repo": "Data-Wise/folio"
       },
-      "description": "Docs-authoring toolkit for Claude Code — tutorials, guides, API docs, mermaid diagrams, and site management. Extracted from craft (v4.0.0 split).",
+      "description": "Docs-authoring toolkit for Claude Code \u2014 tutorials, guides, API docs, mermaid diagrams, and site management. Extracted from craft (v4.0.0 split).",
       "version": "1.0.0",
       "repository": "https://github.com/Data-Wise/folio",
       "license": "MIT",
