@@ -49,8 +49,10 @@
     {
       "name": "himalaya",
       "source": {
-        "source": "github",
-        "repo": "Data-Wise/himalaya-mcp"
+        "source": "git-subdir",
+        "url": "Data-Wise/himalaya-mcp",
+        "path": "himalaya-mcp-plugin",
+        "ref": "main"
       },
       "description": "Himalaya email plugin (MCP) for Claude Code \u2014 manage email from the CLI/agent.",
       "version": "2.1.2",
