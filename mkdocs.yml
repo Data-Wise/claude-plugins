@@ -1,6 +1,5 @@
 # MkDocs configuration for Claude Code Plugins
-# Auto-updated: 2024-12-24 (manually updated with Mode System docs)
-# Do not edit navigation manually - regenerate with scripts/update-mkdocs-nav.py
+# Navigation is curated. Active plugin documentation lives in the standalone repositories.
 
 nav:
 - Home: index.md
@@ -54,6 +53,20 @@ nav:
   - Statistical Research Structure: diagrams/statistical-research-structure.md
   - Workflow Flow: diagrams/workflow-flow.md
   - Workflow Structure: diagrams/workflow-structure.md
+# Keep orphaned internal snapshots in the repository, but do not publish pages with broken local links.
+exclude_docs: |
+  /craft/docs/DOCUMENTATION-MAKING-GUIDE.md
+  /plugins/craft.md
+  /plugins/rforge.md
+  /plugins/statistical-research.md
+  /plugins/workflow.md
+  /rforge/docs/README.md
+  /rforge/docs/quickstart.md
+  /specs/SPEC-documentation-architecture-2026-01-09.md
+  /statistical-research/docs/README.md
+  /workflow/docs/README.md
+  /workflow/docs/QUICK-START.md
+  /workflow/docs/REFCARD.md
 site_name: Claude Code Plugins
 repo_url: https://github.com/Data-Wise/claude-plugins
 theme:

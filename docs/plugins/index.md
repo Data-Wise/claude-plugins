@@ -1,4 +1,6 @@
-# Claude Code Plugins
+# Historical Monorepo Plugin Snapshot
+
+> The current marketplace inventory and versions are in the [Active Plugin Catalog](../PLUGIN-CATALOG.md). Details and command examples on this page describe an earlier monorepo snapshot.
 
 > Specialized Claude Code plugins for development workflows
 
@@ -17,7 +19,7 @@ Complete R package ecosystem orchestrator with 15 commands for development, depe
 - Mode system with 4 analysis levels (default, debug, optimize, release)
 - 292 passing tests with 4ms average performance
 
-[Learn More →](rforge.md)
+[Historical source →](https://github.com/Data-Wise/claude-plugins/tree/main/rforge)
 
 ---
 
@@ -32,7 +34,7 @@ Comprehensive developer toolkit with 67 commands, 7 agents, and 17 skills spanni
 - Python-based testing framework
 - Advanced workflow automation
 
-[Learn More →](craft.md)
+[Current Craft site →](https://data-wise.github.io/craft/)
 
 ---
 
@@ -48,7 +50,7 @@ ADHD-friendly workflow automation designed for focus, task management, and decis
 - 3-layer argument system
 - Spec capture functionality
 
-[Learn More →](workflow.md)
+[Historical source →](https://github.com/Data-Wise/claude-plugins/tree/main/workflow)
 
 ---
 
@@ -63,7 +65,7 @@ Statistical research workflows with literature management, manuscript tools, and
 - 14 commands across 4 categories
 - 17 domain-specific skills (mathematical, implementation, writing, research)
 
-[Learn More →](statistical-research.md)
+[Historical source →](https://github.com/Data-Wise/claude-plugins/tree/main/statistical-research)
 
 ---
 
