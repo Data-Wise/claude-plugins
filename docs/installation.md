@@ -304,7 +304,7 @@ ln -s ~/claude-plugins/rforge ~/.claude/plugins/rforge
 After installation:
 
 1. **[Quick Start Guide](quick-start.md)** - Learn basic usage
-2. **[Command Reference](COMMAND-REFERENCE.md)** - See all available commands
+2. **[Command documentation sources](COMMAND-REFERENCE.md)** - Find each plugin's command documentation and source repository
 3. **[Architecture](diagrams/ECOSYSTEM.md)** - Understand how plugins work
 
 ---

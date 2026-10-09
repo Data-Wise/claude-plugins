@@ -4,15 +4,14 @@ on:
   push:
     branches: [main]
     paths:
-      - 'rforge-orchestrator/commands/**'
-      - 'rforge-orchestrator/skills/**'
+      - '.claude-plugin/marketplace.json'
+      - 'craft/commands/**'
+      - 'rforge/commands/**'
       - 'statistical-research/commands/**'
-      - 'statistical-research/skills/**'
       - 'workflow/commands/**'
-      - 'workflow/skills/**'
+      - 'docs/**'
       - 'scripts/generate-*.py'
       - 'scripts/generate-docs.sh'
-      - 'docs/**'
       - '.github/workflows/docs.yml'
   workflow_dispatch:  # Allow manual trigger
 
@@ -40,11 +39,10 @@ jobs:
           pip install mkdocs mkdocs-material pyyaml
           pip install pymdown-extensions
 
-      - name: Generate command reference
+      - name: Generate marketplace catalog and command documentation sources
         run: |
-          echo "Generating command reference..."
-          python3 scripts/generate-command-reference.py
-          echo "✅ Command reference generated"
+          python3 scripts/generate-marketplace-docs.py
+          echo "✅ Marketplace catalog and command sources generated"
 
       - name: Generate architecture diagrams
         run: |
@@ -62,9 +60,10 @@ jobs:
       - name: Verify documentation files
         run: |
           echo "Verifying generated documentation..."
-          test -f docs/COMMAND-REFERENCE.md || (echo "❌ Command reference not found" && exit 1)
+          test -f docs/PLUGIN-CATALOG.md || (echo "❌ Plugin catalog not found" && exit 1)
+          test -f docs/COMMAND-REFERENCE.md || (echo "❌ Command documentation sources not found" && exit 1)
           test -d docs/diagrams || (echo "❌ Diagrams directory not found" && exit 1)
-          test -f mkdocs.yml || (echo "❌ mkdocs.yml not found" && exit 1)
+          test -f mkdocs.yml || (echo "❌ MkDocs config not found" && exit 1)
 
           # Count files
           cmd_ref_lines=$(wc -l < docs/COMMAND-REFERENCE.md)
@@ -102,7 +101,7 @@ jobs:
           echo "Documentation site: https://data-wise.github.io/claude-plugins/"
           echo ""
           echo "Updated:"
-          echo "  ✅ Command reference (17 commands)"
+          echo "  ✅ Marketplace catalog and plugin command documentation sources"
           echo "  ✅ Architecture diagrams (8 diagrams)"
           echo "  ✅ Documentation site with tabbed navigation"
           echo ""

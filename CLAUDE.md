@@ -6,11 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **monorepo for Claude Code plugins** developed by Data-Wise. Each plugin is independently versioned and published to npm but shares common standards, tooling, and documentation infrastructure.
 
-**4 Active Plugins:**
-- **craft** (v1.16.0) - Full-stack developer toolkit (74 commands, 8 agents, 21 skills)
-- **statistical-research** (v1.1.0) - Statistical research workflows (14 commands, 17 skills)
-- **workflow** (v2.3.0) - ADHD-friendly workflow automation (12 commands)
-- **rforge** - R package ecosystem orchestrator
+The active plugin inventory and versions are defined in .claude-plugin/marketplace.json. See docs/PLUGIN-CATALOG.md for the generated catalog; command definitions are maintained in the plugins’ standalone repositories.
 
 ## Development Commands
 
@@ -59,11 +55,8 @@ mkdocs build
 mkdocs serve
 # Opens at http://127.0.0.1:8000
 
-# Generate command reference
-python3 scripts/generate-command-reference.py
-
-# Update navigation automatically
-python3 scripts/update-mkdocs-nav.py
+# Generate marketplace catalog and command documentation sources
+python3 scripts/generate-marketplace-docs.py
 
 # Generate architecture diagrams (Mermaid)
 python3 scripts/generate-architecture-diagrams.py
@@ -299,10 +292,10 @@ npm publish --access public
 - Checks required files, valid JSON, naming conventions
 - Used by pre-commit and CI
 
-**`scripts/generate-command-reference.py`**
-- Extracts commands from all plugins
-- Generates markdown reference docs
-- Auto-updates `docs/COMMAND-REFERENCE.md`
+**`scripts/generate-marketplace-docs.py`**
+- Generates the active plugin catalog and command documentation-source index from the marketplace manifest
+- Does not publish a combined command count because plugin command files are maintained in standalone repositories
+- Writes `docs/PLUGIN-CATALOG.md` and `docs/COMMAND-REFERENCE.md`
 
 **`scripts/generate-architecture-diagrams.py`**
 - Creates Mermaid diagrams for each plugin
@@ -383,7 +376,7 @@ Built with MkDocs Material theme.
 - Home: Overview and introduction
 - Getting Started: Installation and quick start
 - Mode System: Usage guides (rforge-specific)
-- Command Reference: Auto-generated from all plugins
+- Marketplace Catalog and Command Documentation Sources: Generated from the marketplace manifest
 - Plugin Development: How to create new plugins
 - Publishing: npm and GitHub release workflows
 - Architecture: Mermaid diagrams for each plugin

@@ -40,7 +40,9 @@ nav:
   - Real-World Testing: REAL-WORLD-TESTING-RESULTS.md
   - Architecture: MODE-SYSTEM.md
 - CI/CD Guide: CICD.md
-- Command Reference: COMMAND-REFERENCE.md
+- Marketplace:
+  - Active Plugins: PLUGIN-CATALOG.md
+  - Command Documentation Sources: COMMAND-REFERENCE.md
 - Plugin Development: PLUGIN-DEVELOPMENT.md
 - Publishing: PUBLISHING.md
 - Architecture:

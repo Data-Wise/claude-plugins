@@ -2,7 +2,9 @@
 
 **Professional plugins for Claude Code CLI** - Enhance your AI-assisted development workflow with specialized tools for R packages, statistical research, and ADHD-friendly workflows.
 
-## ✨ Latest Updates (Dec 26, 2025)
+> **Current inventory:** [Active plugin catalog](PLUGIN-CATALOG.md) is generated from the marketplace manifest. The dated plugin details and counts below are historical monorepo snapshots, not the current marketplace inventory.
+
+## Historical Updates (Dec 26, 2025)
 
 **🎉 Plugin Consolidation v2.1/1.1 Released!**
 - **39 total commands** - Consolidated from user commands into plugins
@@ -15,7 +17,7 @@
 
 ---
 
-## 🎯 Available Plugins
+## Historical Monorepo Plugin Snapshots
 
 ### [RForge](https://github.com/Data-Wise/claude-plugins/tree/main/rforge)
 
@@ -78,7 +80,7 @@
 
 ### Quick Links
 
-- **[Command Reference](COMMAND-REFERENCE.md)** - Complete reference of all 39 commands
+- **[Command Documentation Sources](COMMAND-REFERENCE.md)** - Current plugin repositories and documentation links; no combined command total
 - **[Architecture](diagrams/ECOSYSTEM.md)** - System architecture and diagrams
 - **[Development](https://github.com/Data-Wise/claude-plugins/tree/main/scripts)** - Scripts for plugin development
 
@@ -140,7 +142,7 @@
 
 ---
 
-## 📊 Stats
+## Historical Stats (Dec 26, 2025)
 
 | Metric | Count |
 |--------|-------|
