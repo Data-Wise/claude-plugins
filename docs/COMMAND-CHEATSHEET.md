@@ -457,7 +457,7 @@ rfrj                # Release mode + JSON
 
 - **[MODE-USAGE-GUIDE.md](MODE-USAGE-GUIDE.md)** - Comprehensive mode system guide with real-world examples
 - **[MODE-QUICK-REFERENCE.md](MODE-QUICK-REFERENCE.md)** - One-page quick reference card
-- **[COMMAND-REFERENCE.md](COMMAND-REFERENCE.md)** - Complete command reference with descriptions
+- **[COMMAND-REFERENCE.md](COMMAND-REFERENCE.md)** - Plugin command documentation and repository links
 
 ---
 

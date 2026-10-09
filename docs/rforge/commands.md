@@ -534,10 +534,10 @@ All analysis commands support:
 
 ## See Also
 
-- **[Quick Start Guide](quickstart.md)** - Getting started with RForge
+- **[Quick Start Guide](quick-start.md)** - Getting started with RForge
 - **[Architecture Guide](architecture.md)** - How RForge works
 - **[Mode System Guide](../MODE-USAGE-GUIDE.md)** - Deep dive into modes
-- **[Format Examples](../../docs/FORMAT-EXAMPLES.md)** - Output format samples
+- **[Format Examples](../FORMAT-EXAMPLES.md)** - Output format samples
 
 ---
 

@@ -240,7 +240,7 @@ All plugins are designed with ADHD in mind:
 
 ### Learn More
 
-- **[Command Reference](COMMAND-REFERENCE.md)** - All commands documented
+- **[Command documentation sources](COMMAND-REFERENCE.md)** - Find each plugin's command documentation and source repository
 - **[Architecture](diagrams/ECOSYSTEM.md)** - How plugins work
 - **[Installation Guide](installation.md)** - Advanced setup
 

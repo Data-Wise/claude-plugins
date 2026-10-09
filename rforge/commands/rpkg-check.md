@@ -1,3 +1,8 @@
+---
+name: rpkg-check
+description: Run a quick health and R CMD check review for an R package.
+---
+
 # R Package Quick Check
 
 You are performing a quick health check on an R package.

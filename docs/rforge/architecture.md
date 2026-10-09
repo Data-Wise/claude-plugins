@@ -573,11 +573,11 @@ class MarkdownFormatter {
 
 ## See Also
 
-- **[Quick Start Guide](quickstart.md)** - Getting started
+- **[Quick Start Guide](quick-start.md)** - Getting started
 - **[Commands Reference](commands.md)** - All commands
 - **[Mode System Guide](../MODE-USAGE-GUIDE.md)** - Mode system deep dive
-- **[Format Examples](../../docs/FORMAT-EXAMPLES.md)** - Output samples
-- **[Real-World Testing](../../docs/REAL-WORLD-TESTING-RESULTS.md)** - Performance data
+- **[Format Examples](../FORMAT-EXAMPLES.md)** - Output samples
+- **[Real-World Testing](../REAL-WORLD-TESTING-RESULTS.md)** - Performance data
 
 ---
 

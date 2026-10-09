@@ -1,3 +1,8 @@
+---
+name: ecosystem-health
+description: Run a comprehensive health check across the MediationVerse R package ecosystem.
+---
+
 # Ecosystem Health Check
 
 You are conducting a comprehensive health check of the MediationVerse R package ecosystem.

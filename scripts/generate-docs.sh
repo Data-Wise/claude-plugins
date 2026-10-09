@@ -3,9 +3,9 @@
 # Master documentation generation script
 #
 # Runs all documentation generators in sequence:
-# 1. Command reference generator
+# 1. Marketplace plugin catalog and command-source index
 # 2. Architecture diagram generator
-# 3. MkDocs navigation updater
+# MkDocs navigation remains manually managed in mkdocs.yml
 # 4. (Optional) Build and deploy to GitHub Pages
 #
 # Usage:
@@ -51,9 +51,9 @@ ${BOLD}USAGE:${NC}
     $0 --deploy          Generate docs + deploy to GitHub Pages
 
 ${BOLD}STEPS:${NC}
-    1. Generate command reference from frontmatter
+    1. Generate the marketplace catalog and command documentation-source index
     2. Generate architecture diagrams (Mermaid)
-    3. Update mkdocs.yml navigation
+    3. MkDocs navigation remains maintained in mkdocs.yml
     4. (Optional) Build with mkdocs
     5. (Optional) Deploy to GitHub Pages
 
@@ -77,19 +77,18 @@ echo ""
 # Change to repo root
 cd "$REPO_ROOT"
 
-# Step 1: Generate command reference
-echo -e "${BOLD}Step 1/3: Generating command reference...${NC}"
-python3 scripts/generate-command-reference.py
+# Step 1: Generate marketplace catalog and command-source index
+echo -e "${BOLD}Step 1/2: Generating marketplace documentation...${NC}"
+python3 scripts/generate-marketplace-docs.py
 echo ""
 
 # Step 2: Generate architecture diagrams
-echo -e "${BOLD}Step 2/3: Generating architecture diagrams...${NC}"
+echo -e "${BOLD}Step 2/2: Generating architecture diagrams...${NC}"
 python3 scripts/generate-architecture-diagrams.py
 echo ""
 
-# Step 3: Update mkdocs navigation
-echo -e "${BOLD}Step 3/3: Updating mkdocs.yml navigation...${NC}"
-python3 scripts/update-mkdocs-nav.py
+# Navigation is manually maintained in mkdocs.yml to preserve the full documentation structure.
+echo "MkDocs navigation is maintained in mkdocs.yml."
 echo ""
 
 echo -e "${GREEN}✅ Documentation generation complete!${NC}"

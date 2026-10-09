@@ -211,27 +211,23 @@ python3 scripts/validate-all-plugins.py
 
 ### Documentation Scripts
 
-**generate-command-reference.py**
-- Extracts commands from all plugins
-- Generates markdown reference
-- Updates `docs/COMMAND-REFERENCE.md`
+**generate-marketplace-docs.py**
+- Reads active plugin names, versions, descriptions, and source URLs from the marketplace manifest
+- Lists command documentation sources without claiming a complete command inventory
+- Updates `docs/PLUGIN-CATALOG.md` and `docs/COMMAND-REFERENCE.md` from the marketplace manifest
 
 **generate-architecture-diagrams.py**
 - Creates Mermaid diagrams for each plugin
 - Flow and structure diagrams
 - Outputs to `docs/diagrams/`
 
-**update-mkdocs-nav.py**
-- Scans docs directory
-- Auto-generates navigation in mkdocs.yml
-- Maintains consistent structure
+Navigation is curated in `mkdocs.yml`; do not run `update-mkdocs-nav.py` for the public site because it replaces the full navigation with a reduced generated list.
 
 **Usage:**
 ```bash
 # Generate all documentation
-python3 scripts/generate-command-reference.py
+python3 scripts/generate-marketplace-docs.py
 python3 scripts/generate-architecture-diagrams.py
-python3 scripts/update-mkdocs-nav.py
 
 # Or use shortcut
 python3 scripts/generate-docs.sh

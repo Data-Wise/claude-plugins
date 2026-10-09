@@ -12,7 +12,9 @@ A monorepo containing high-quality Claude Code plugins. Each plugin is independe
 
 ---
 
-## 📦 Available Plugins
+> Current marketplace entries and versions are maintained in [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json). See the [generated plugin catalog](docs/PLUGIN-CATALOG.md) for current links; details below are historical monorepo snapshots.
+
+## Historical Monorepo Plugin Snapshot
 
 ### 📊 Statistical Research Plugin
 

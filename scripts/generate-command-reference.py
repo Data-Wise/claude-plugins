@@ -229,20 +229,11 @@ class CommandReferenceGenerator:
             print(f"   - {plugin}: {len(commands)} commands")
 
 def main():
-    """Main entry point."""
-    import argparse
+    """Redirect the legacy command to manifest-based catalog generation."""
+    import runpy
 
-    parser = argparse.ArgumentParser(description='Generate command reference documentation')
-    parser.add_argument('--output', '-o',
-                       default='docs/COMMAND-REFERENCE.md',
-                       help='Output file path (default: docs/COMMAND-REFERENCE.md)')
-    args = parser.parse_args()
-
-    repo_root = Path(__file__).parent.parent
-    output_file = repo_root / args.output
-
-    generator = CommandReferenceGenerator(repo_root)
-    generator.generate(output_file)
+    generator = Path(__file__).with_name('generate-marketplace-docs.py')
+    runpy.run_path(str(generator), run_name='__main__')
 
 if __name__ == '__main__':
     main()
