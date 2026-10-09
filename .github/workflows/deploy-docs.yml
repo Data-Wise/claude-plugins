@@ -14,6 +14,19 @@ on:
       - 'docs/**'
       - 'mkdocs.yml'
       - '.github/workflows/deploy-docs.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - '.claude-plugin/marketplace.json'
+      - 'craft/commands/**'
+      - 'rforge/commands/**'
+      - 'statistical-research/commands/**'
+      - 'workflow/commands/**'
+      - 'scripts/generate-*.py'
+      - 'scripts/generate-docs.sh'
+      - 'docs/**'
+      - 'mkdocs.yml'
+      - '.github/workflows/deploy-docs.yml'
   workflow_dispatch:  # Allow manual trigger
 
 permissions:
@@ -132,6 +145,7 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request'
     needs: build-docs
 
     steps:
