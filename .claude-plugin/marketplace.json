@@ -50,7 +50,7 @@
       "name": "himalaya",
       "source": {
         "source": "git-subdir",
-        "url": "Data-Wise/himalaya-mcp",
+        "url": "https://github.com/Data-Wise/himalaya-mcp.git",
         "path": "himalaya-mcp-plugin",
         "ref": "main"
       },
