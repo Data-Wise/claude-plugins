@@ -55,7 +55,7 @@
         "ref": "main"
       },
       "description": "Himalaya email plugin (MCP) for Claude Code \u2014 manage email from the CLI/agent.",
-      "version": "2.2.1",
+      "version": "2.2.2",
       "repository": "https://github.com/Data-Wise/himalaya-mcp",
       "license": "MIT",
       "category": "productivity"
